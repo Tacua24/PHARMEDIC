@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Cierre de Caja</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item active"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">CJ</div>
+        <div class="user-info-sidebar"><div class="name">Karen Rodríguez</div><div class="role">Cajero · Zona 16</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="page-title">Cierre de Caja</span>
+      </div>
+      <div class="topbar-right">
+        <div class="sucursal-select">
+          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
+          <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+        <div class="sucursal-select">
+          <i class="fas fa-clock" style="color:var(--primary);font-size:12px;"></i>
+          <select><option>Turno AM · 08:00 – 14:00</option><option>Turno PM · 14:00 – 18:00</option></select>
+        </div>
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+        <div class="topbar-avatar">CJ</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Cierre de Caja — 24 mayo 2026</h1>
+          <p>Turno AM · 08:00 – 14:00 · Karen Rodríguez · Zona 16</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-print"></i> Imprimir</button>
+          <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> Generar PDF</button>
+        </div>
+      </div>
+
+      <div class="alert alert-info mb-20">
+        <i class="fas fa-circle-info"></i>
+        <span>El turno aún está <strong>en curso</strong>. Este es un pre-cierre. El cierre definitivo se realizará al finalizar el turno.</span>
+      </div>
+
+      <!-- Caja summary -->
+      <div class="caja-summary mb-24">
+        <div class="caja-card efectivo">
+          <div class="lbl"><i class="fas fa-money-bill-wave" style="margin-right:4px;"></i> Efectivo</div>
+          <div class="val">Q 3,480.00</div>
+          <div class="sub">148 transacciones</div>
+        </div>
+        <div class="caja-card tarjeta">
+          <div class="lbl"><i class="fas fa-credit-card" style="margin-right:4px;"></i> Tarjeta</div>
+          <div class="val">Q 2,815.00</div>
+          <div class="sub">92 transacciones</div>
+        </div>
+        <div class="caja-card transfer">
+          <div class="lbl"><i class="fas fa-building-columns" style="margin-right:4px;"></i> Transferencia BAC</div>
+          <div class="val">Q 1,580.00</div>
+          <div class="sub">38 transacciones</div>
+        </div>
+        <div class="caja-card total">
+          <div class="lbl"><i class="fas fa-calculator" style="margin-right:4px;"></i> Total recaudado</div>
+          <div class="val" style="color:var(--primary);">Q 7,875.00</div>
+          <div class="sub">278 transacciones totales</div>
+        </div>
+      </div>
+
+      <!-- Detail grid -->
+      <div class="grid-2 mb-20">
+
+        <!-- Resumen del turno -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Resumen del turno</div>
+          </div>
+          <div class="card-body">
+            <div class="branch-stat">
+              <span class="key">Ventas totales</span>
+              <span class="val fw-600">278 transacciones</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Subtotal sin IVA</span>
+              <span class="val">Q 7,031.25</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">IVA (12%)</span>
+              <span class="val">Q 843.75</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Total con IVA</span>
+              <span class="val fw-600 text-primary">Q 7,875.00</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Devoluciones</span>
+              <span class="val text-danger">− Q 125.00 (2)</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Ticket promedio</span>
+              <span class="val">Q 283.27</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Hora de apertura</span>
+              <span class="val">08:03 AM</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Cajero responsable</span>
+              <span class="val fw-600">Karen Rodríguez</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ventas por categoría -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Ventas por categoría</div>
+          </div>
+          <div class="card-body">
+            <div class="branch-stat">
+              <span class="key">Analgésicos</span>
+              <div class="flex gap-8" style="align-items:center;">
+                <div class="progress-bar-wrap" style="width:80px;"><div class="progress-bar" style="width:62%"></div></div>
+                <span class="val">Q 1,840</span>
+              </div>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Antibióticos</span>
+              <div class="flex gap-8" style="align-items:center;">
+                <div class="progress-bar-wrap" style="width:80px;"><div class="progress-bar" style="width:48%"></div></div>
+                <span class="val">Q 1,420</span>
+              </div>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Antidiabéticos</span>
+              <div class="flex gap-8" style="align-items:center;">
+                <div class="progress-bar-wrap" style="width:80px;"><div class="progress-bar" style="width:40%"></div></div>
+                <span class="val">Q 1,180</span>
+              </div>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Antiácidos</span>
+              <div class="flex gap-8" style="align-items:center;">
+                <div class="progress-bar-wrap" style="width:80px;"><div class="progress-bar" style="width:30%"></div></div>
+                <span class="val">Q 890</span>
+              </div>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Controlados</span>
+              <div class="flex gap-8" style="align-items:center;">
+                <div class="progress-bar-wrap" style="width:80px;"><div class="progress-bar danger" style="width:18%"></div></div>
+                <span class="val">Q 540</span>
+              </div>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Otros</span>
+              <div class="flex gap-8" style="align-items:center;">
+                <div class="progress-bar-wrap" style="width:80px;"><div class="progress-bar" style="width:68%"></div></div>
+                <span class="val">Q 2,005</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Últimas transacciones -->
+      <div class="card mb-20">
+        <div class="card-header">
+          <div class="card-title">Transacciones del turno</div>
+          <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i> Descargar</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Ticket</th>
+                <th>Hora</th>
+                <th>Cliente</th>
+                <th>Items</th>
+                <th>Pago</th>
+                <th>Total</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-muted">#0892</td>
+                <td class="td-muted">13:48</td>
+                <td>María López</td>
+                <td><span class="badge badge-neutral">4</span></td>
+                <td><span class="badge badge-success">Efectivo</span></td>
+                <td class="fw-600">Q 290.64</td>
+                <td><span class="badge badge-success">Completado</span></td>
+              </tr>
+              <tr>
+                <td class="td-muted">#0891</td>
+                <td class="td-muted">13:32</td>
+                <td>Cliente general</td>
+                <td><span class="badge badge-neutral">2</span></td>
+                <td><span class="badge badge-info">Tarjeta</span></td>
+                <td class="fw-600">Q 89.50</td>
+                <td><span class="badge badge-success">Completado</span></td>
+              </tr>
+              <tr>
+                <td class="td-muted">#0890</td>
+                <td class="td-muted">13:15</td>
+                <td>Roberto Soto</td>
+                <td><span class="badge badge-neutral">6</span></td>
+                <td><span class="badge badge-warning">BAC</span></td>
+                <td class="fw-600">Q 620.00</td>
+                <td><span class="badge badge-success">Completado</span></td>
+              </tr>
+              <tr>
+                <td class="td-muted">#0889</td>
+                <td class="td-muted">12:58</td>
+                <td>Ana García</td>
+                <td><span class="badge badge-neutral">1</span></td>
+                <td><span class="badge badge-success">Efectivo</span></td>
+                <td class="fw-600 text-danger">− Q 35.00</td>
+                <td><span class="badge badge-danger">Devolución</span></td>
+              </tr>
+              <tr>
+                <td class="td-muted">#0888</td>
+                <td class="td-muted">12:41</td>
+                <td>Juan Pérez</td>
+                <td><span class="badge badge-neutral">3</span></td>
+                <td><span class="badge badge-info">Tarjeta</span></td>
+                <td class="fw-600">Q 315.00</td>
+                <td><span class="badge badge-success">Completado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex-between" style="padding:14px 20px;border-top:1px solid var(--border);">
+          <span class="text-sm text-muted">Mostrando últimas 5 de 278 transacciones</span>
+          <button class="btn btn-ghost btn-sm">Ver todas <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Cierres anteriores -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Cierres anteriores</div>
+          <span class="text-xs text-muted">Zona 16 · Karen Rodríguez</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Fecha</th><th>Turno</th><th>Transacciones</th><th>Total</th><th>Cajero</th><th>PDF</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>23 may 2026</td>
+                <td><span class="tag">PM · 14:00–18:00</span></td>
+                <td>134</td>
+                <td class="fw-600">Q 4,210.00</td>
+                <td>Karen R.</td>
+                <td><button class="btn btn-ghost btn-sm text-primary"><i class="fas fa-file-pdf"></i> Descargar</button></td>
+              </tr>
+              <tr>
+                <td>23 may 2026</td>
+                <td><span class="tag">AM · 08:00–14:00</span></td>
+                <td>210</td>
+                <td class="fw-600">Q 6,840.00</td>
+                <td>Karen R.</td>
+                <td><button class="btn btn-ghost btn-sm text-primary"><i class="fas fa-file-pdf"></i> Descargar</button></td>
+              </tr>
+              <tr>
+                <td>22 may 2026</td>
+                <td><span class="tag">AM · 08:00–14:00</span></td>
+                <td>198</td>
+                <td class="fw-600">Q 7,120.00</td>
+                <td>Karen R.</td>
+                <td><button class="btn btn-ghost btn-sm text-primary"><i class="fas fa-file-pdf"></i> Descargar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Sucursales</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item active"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Todas las sucursales</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left"><span class="page-title">Sucursales</span></div>
+      <div class="topbar-right">
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+        <div class="topbar-avatar">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Gestión de Sucursales</h1>
+          <p>3 sucursales activas · Zona 16, Zona 11, Zona 2</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-chart-bar"></i> Comparar</button>
+          <button class="btn btn-primary"><i class="fas fa-plus"></i> Nueva sucursal</button>
+        </div>
+      </div>
+
+      <div class="stats-grid mb-24">
+        <div class="stat-card">
+          <div class="stat-icon primary"><i class="fas fa-store"></i></div>
+          <div class="stat-info"><div class="stat-value">3</div><div class="stat-label">Sucursales activas</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-coins"></i></div>
+          <div class="stat-info"><div class="stat-value">Q 8,430</div><div class="stat-label">Ventas totales hoy</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-users"></i></div>
+          <div class="stat-info"><div class="stat-value">15</div><div class="stat-label">Personal activo</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-boxes-stacked"></i></div>
+          <div class="stat-info"><div class="stat-value">143</div><div class="stat-label">Productos en inventario</div></div>
+        </div>
+      </div>
+
+      <!-- Branch cards -->
+      <div class="grid-3 mb-24">
+
+        <!-- Zona 16 -->
+        <div class="branch-card">
+          <div class="branch-card-header">
+            <div class="flex-between">
+              <div>
+                <div class="branch-card-name">Zona 16 — Sede Central</div>
+                <div class="branch-card-addr"><i class="fas fa-location-dot" style="margin-right:4px;"></i>7a Av. 14-52, Zona 16, Guatemala</div>
+              </div>
+              <span class="badge badge-success" style="flex-shrink:0;">Activa</span>
+            </div>
+          </div>
+          <div class="branch-card-body">
+            <div class="branch-stat">
+              <span class="key">Ventas hoy</span>
+              <span class="val text-primary">Q 4,210.00</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Transacciones</span>
+              <span class="val">142</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Personal activo</span>
+              <span class="val">6 empleados</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Cajero turno</span>
+              <span class="val">Karen Rodríguez</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Repartidor</span>
+              <span class="val">Diego M. · <span class="badge badge-info" style="font-size:10px;">En camino</span></span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Alertas inventario</span>
+              <span class="val"><span class="badge badge-warning">5 productos</span></span>
+            </div>
+          </div>
+          <div class="flex gap-8" style="padding:14px 20px;border-top:1px solid var(--border);">
+            <button class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-arrow-right"></i> Ver detalle</button>
+            <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-chart-bar"></i> Reportes</button>
+          </div>
+        </div>
+
+        <!-- Zona 11 -->
+        <div class="branch-card">
+          <div class="branch-card-header" style="background:linear-gradient(135deg, #0B5C3E 0%, #17A374 100%);">
+            <div class="flex-between">
+              <div>
+                <div class="branch-card-name">Zona 11</div>
+                <div class="branch-card-addr"><i class="fas fa-location-dot" style="margin-right:4px;"></i>Blvd. Los Próceres 24-69, Zona 11</div>
+              </div>
+              <span class="badge badge-success" style="flex-shrink:0;">Activa</span>
+            </div>
+          </div>
+          <div class="branch-card-body">
+            <div class="branch-stat">
+              <span class="key">Ventas hoy</span>
+              <span class="val text-primary">Q 2,860.00</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Transacciones</span>
+              <span class="val">98</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Personal activo</span>
+              <span class="val">5 empleados</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Cajero turno</span>
+              <span class="val">Mario Chávez</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Repartidor</span>
+              <span class="val">Carlos R. · <span class="badge badge-success" style="font-size:10px;">Disponible</span></span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Alertas inventario</span>
+              <span class="val"><span class="badge badge-success">Sin alertas</span></span>
+            </div>
+          </div>
+          <div class="flex gap-8" style="padding:14px 20px;border-top:1px solid var(--border);">
+            <button class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-arrow-right"></i> Ver detalle</button>
+            <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-chart-bar"></i> Reportes</button>
+          </div>
+        </div>
+
+        <!-- Zona 2 -->
+        <div class="branch-card">
+          <div class="branch-card-header" style="background:linear-gradient(135deg, #164E36 0%, #0D7A57 100%);">
+            <div class="flex-between">
+              <div>
+                <div class="branch-card-name">Zona 2</div>
+                <div class="branch-card-addr"><i class="fas fa-location-dot" style="margin-right:4px;"></i>7a Calle 11-40, Zona 2, Guatemala</div>
+              </div>
+              <span class="badge badge-success" style="flex-shrink:0;">Activa</span>
+            </div>
+          </div>
+          <div class="branch-card-body">
+            <div class="branch-stat">
+              <span class="key">Ventas hoy</span>
+              <span class="val text-primary">Q 1,360.00</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Transacciones</span>
+              <span class="val">58</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Personal activo</span>
+              <span class="val">4 empleados</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Cajero turno</span>
+              <span class="val">Laura Hernández</span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Repartidor</span>
+              <span class="val">Pedro V. · <span class="badge badge-warning" style="font-size:10px;">En camino</span></span>
+            </div>
+            <div class="branch-stat">
+              <span class="key">Alertas inventario</span>
+              <span class="val"><span class="badge badge-danger">3 sin stock</span></span>
+            </div>
+          </div>
+          <div class="flex gap-8" style="padding:14px 20px;border-top:1px solid var(--border);">
+            <button class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-arrow-right"></i> Ver detalle</button>
+            <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-chart-bar"></i> Reportes</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Staff table -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Personal por sucursal</div>
+          <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Agregar empleado</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Empleado</th>
+                <th>Rol</th>
+                <th>Sucursal</th>
+                <th>Turno</th>
+                <th>Estado</th>
+                <th>Ventas hoy</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:28px;height:28px;font-size:10px;flex-shrink:0;">KR</div><div class="fw-600">Karen Rodríguez</div></div></td>
+                <td><span class="tag">Cajero</span></td>
+                <td>Zona 16</td>
+                <td><span class="tag">AM</span></td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td class="fw-600">Q 4,210</td>
+                <td><button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button></td>
+              </tr>
+              <tr>
+                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:28px;height:28px;font-size:10px;flex-shrink:0;background:#2563EB;">MC</div><div class="fw-600">Mario Chávez</div></div></td>
+                <td><span class="tag">Cajero</span></td>
+                <td>Zona 11</td>
+                <td><span class="tag">AM</span></td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td class="fw-600">Q 2,860</td>
+                <td><button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button></td>
+              </tr>
+              <tr>
+                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:28px;height:28px;font-size:10px;flex-shrink:0;background:#D97706;">LH</div><div class="fw-600">Laura Hernández</div></div></td>
+                <td><span class="tag">Cajero</span></td>
+                <td>Zona 2</td>
+                <td><span class="tag">AM</span></td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td class="fw-600">Q 1,360</td>
+                <td><button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button></td>
+              </tr>
+              <tr>
+                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:28px;height:28px;font-size:10px;flex-shrink:0;">DM</div><div class="fw-600">Diego Monterroso</div></div></td>
+                <td><span class="tag">Repartidor</span></td>
+                <td>Zona 16 (pref.)</td>
+                <td><span class="tag">AM</span></td>
+                <td><span class="badge badge-info">En ruta</span></td>
+                <td class="text-muted">—</td>
+                <td><button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button></td>
+              </tr>
+              <tr>
+                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:28px;height:28px;font-size:10px;flex-shrink:0;background:#059669;">RG</div><div class="fw-600">Rosa Guillen</div></div></td>
+                <td><span class="tag">Regencia</span></td>
+                <td>Zona 16</td>
+                <td><span class="tag">AM/PM</span></td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td class="text-muted">—</td>
+                <td><button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

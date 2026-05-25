@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Clientes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item active"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Zona 16 — Central</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left"><span class="page-title">Clientes</span></div>
+      <div class="topbar-right">
+        <div class="sucursal-select">
+          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
+          <select><option>Todas las sucursales</option><option>Zona 16</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+        <div class="topbar-avatar">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Gestión de Clientes</h1>
+          <p>Base centralizada de clientes registrados en PHARMEDIC</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Exportar</button>
+          <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Agregar cliente</button>
+        </div>
+      </div>
+
+      <div class="stats-grid mb-24">
+        <div class="stat-card">
+          <div class="stat-icon primary"><i class="fas fa-users"></i></div>
+          <div class="stat-info"><div class="stat-value">1,248</div><div class="stat-label">Clientes registrados</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-star"></i></div>
+          <div class="stat-info"><div class="stat-value">342</div><div class="stat-label">Clientes frecuentes</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-user-plus"></i></div>
+          <div class="stat-info"><div class="stat-value">28</div><div class="stat-label">Nuevos este mes</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-triangle-exclamation"></i></div>
+          <div class="stat-info"><div class="stat-value">14</div><div class="stat-label">Con condiciones registradas</div></div>
+        </div>
+      </div>
+
+      <div class="tabs mb-16">
+        <div class="tab active">Todos <span class="tab-count">1248</span></div>
+        <div class="tab">Frecuentes <span class="tab-count">342</span></div>
+        <div class="tab">Con condiciones <span class="tab-count">14</span></div>
+        <div class="tab">Con receta activa <span class="tab-count">37</span></div>
+      </div>
+
+      <div class="filters-bar">
+        <div class="search-box">
+          <i class="fas fa-magnifying-glass"></i>
+          <input type="text" placeholder="Buscar por DPI, nombre, correo o teléfono..." />
+        </div>
+        <select class="filter-select">
+          <option>Todas las condiciones</option>
+          <option>Diabético</option>
+          <option>Hipertensión</option>
+          <option>Cardíaco</option>
+          <option>Alérgico</option>
+        </select>
+        <select class="filter-select">
+          <option>Todas las sucursales</option>
+          <option>Zona 16</option>
+          <option>Zona 11</option>
+          <option>Zona 2</option>
+        </select>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>DPI</th>
+                <th>Nombre completo</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Condiciones</th>
+                <th>Recetas activas</th>
+                <th>Última compra</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-muted fw-600">2845-63921-0101</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;">ML</div>
+                    <div>
+                      <div class="fw-600">María López de Soto</div>
+                      <div class="text-xs text-muted">Cliente frecuente</div>
+                    </div>
+                  </div>
+                </td>
+                <td>4412-8830</td>
+                <td class="text-muted">maria.lopez@gmail.com</td>
+                <td>
+                  <span class="tag" style="font-size:11px;">Hipertensión</span>
+                  <span class="tag" style="font-size:11px;">Diabética</span>
+                </td>
+                <td><span class="badge badge-warning">2 activas</span></td>
+                <td class="td-muted">24 may 2026</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i></button>
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">1923-45812-0801</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;">RS</div>
+                    <div>
+                      <div class="fw-600">Roberto Soto Morales</div>
+                      <div class="text-xs text-muted">— </div>
+                    </div>
+                  </div>
+                </td>
+                <td>5523-9901</td>
+                <td class="text-muted">rsoto@outlook.com</td>
+                <td>
+                  <span class="controlled-tag" style="font-size:11px;"><i class="fas fa-lock"></i> Tratamiento psiquiátrico</span>
+                </td>
+                <td><span class="badge badge-danger">1 controlada</span></td>
+                <td class="td-muted">24 may 2026</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i></button>
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">3012-78234-0302</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;">AG</div>
+                    <div>
+                      <div class="fw-600">Ana García Pérez</div>
+                      <div class="text-xs text-muted">Cliente frecuente</div>
+                    </div>
+                  </div>
+                </td>
+                <td>3368-5521</td>
+                <td class="text-muted">ana.garcia@yahoo.com</td>
+                <td><span class="text-muted text-xs">Sin condiciones</span></td>
+                <td><span class="badge badge-neutral">Ninguna</span></td>
+                <td class="td-muted">23 may 2026</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i></button>
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">1654-98210-0506</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;">JP</div>
+                    <div>
+                      <div class="fw-600">Juan Pérez Martínez</div>
+                      <div class="text-xs text-muted">— </div>
+                    </div>
+                  </div>
+                </td>
+                <td>4490-1122</td>
+                <td class="text-muted">jperez@gmail.com</td>
+                <td>
+                  <span class="tag" style="font-size:11px;">Diabético</span>
+                </td>
+                <td><span class="badge badge-warning">1 activa</span></td>
+                <td class="td-muted">22 may 2026</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i></button>
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">2234-11023-0904</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;">CO</div>
+                    <div>
+                      <div class="fw-600">Carmen Orozco Leiva</div>
+                      <div class="text-xs text-muted">Cliente nueva</div>
+                    </div>
+                  </div>
+                </td>
+                <td>5881-3340</td>
+                <td class="text-muted">corozco@hotmail.com</td>
+                <td>
+                  <span class="controlled-tag" style="font-size:11px;"><i class="fas fa-lock"></i> Ansiedad</span>
+                </td>
+                <td><span class="badge badge-danger">1 controlada</span></td>
+                <td class="td-muted">21 may 2026</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-ghost btn-sm"><i class="fas fa-eye"></i></button>
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex-between" style="padding:14px 20px;border-top:1px solid var(--border);">
+          <span class="text-sm text-muted">Mostrando 5 de 1,248 clientes</span>
+          <div class="flex gap-8">
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-left"></i></button>
+            <button class="btn btn-primary btn-sm">1</button>
+            <button class="btn btn-secondary btn-sm">2</button>
+            <button class="btn btn-secondary btn-sm">3</button>
+            <button class="btn btn-secondary btn-sm">···</button>
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

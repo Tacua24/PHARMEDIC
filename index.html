@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Iniciar sesión</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .decor-pill {
+      position: absolute;
+      border-radius: 40px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .dp1 { width: 120px; height: 40px; top: 18%; left: 8%; transform: rotate(-20deg); }
+    .dp2 { width: 90px; height: 30px; top: 30%; right: 5%; transform: rotate(15deg); }
+    .dp3 { width: 140px; height: 45px; bottom: 22%; left: 12%; transform: rotate(10deg); }
+    .dp4 { width: 70px; height: 24px; bottom: 35%; right: 10%; transform: rotate(-12deg); }
+    .cross-grid {
+      position: absolute;
+      font-size: 80px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      bottom: 8%; right: 8%;
+      letter-spacing: -4px;
+    }
+  </style>
+</head>
+<body>
+<div class="login-page">
+
+  <!-- Brand panel -->
+  <div class="login-brand">
+    <div class="decor-pill dp1"></div>
+    <div class="decor-pill dp2"></div>
+    <div class="decor-pill dp3"></div>
+    <div class="decor-pill dp4"></div>
+    <div class="cross-grid">+</div>
+
+    <div class="brand-logo">
+      <div class="brand-cross">+</div>
+      <div>
+        <div class="brand-name">PHARMEDIC</div>
+        <div class="brand-tagline">Sistema de Gestión Farmacéutica</div>
+      </div>
+    </div>
+
+    <ul class="brand-features">
+      <li>
+        <div class="feature-dot"><i class="fas fa-boxes-stacked"></i></div>
+        <span>Control de inventario en tiempo real</span>
+      </li>
+      <li>
+        <div class="feature-dot"><i class="fas fa-cash-register"></i></div>
+        <span>Ventas y facturación electrónica FEL</span>
+      </li>
+      <li>
+        <div class="feature-dot"><i class="fas fa-file-medical"></i></div>
+        <span>Gestión de recetas médicas</span>
+      </li>
+      <li>
+        <div class="feature-dot"><i class="fas fa-truck"></i></div>
+        <span>Delivery y seguimiento de pedidos</span>
+      </li>
+      <li>
+        <div class="feature-dot"><i class="fas fa-chart-bar"></i></div>
+        <span>Reportes y métricas administrativas</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Form panel -->
+  <div class="login-form-panel">
+    <div class="login-form-wrap">
+      <h2>Bienvenido</h2>
+      <p>Inicia sesión en tu cuenta de PHARMEDIC</p>
+
+      <div class="form-group">
+        <label>Sucursal</label>
+        <div class="form-icon-wrap">
+          <i class="fas fa-store fi"></i>
+          <select class="form-control" id="sucursalSelect">
+            <option>Zona 16 — Sede Central</option>
+            <option>Zona 11</option>
+            <option>Zona 2</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Rol de acceso</label>
+        <div class="form-icon-wrap">
+          <i class="fas fa-user-shield fi"></i>
+          <select class="form-control" id="roleSelect" onchange="onRoleChange()">
+            <option value="admin">Administrador</option>
+            <option value="cajero">Cajero</option>
+            <option value="inventario">Bodeguero / Inventario</option>
+            <option value="repartidor">Repartidor</option>
+            <option value="regencia">Regencia</option>
+            <option value="proveedor">Proveedor</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Usuario</label>
+        <div class="form-icon-wrap">
+          <i class="fas fa-user fi"></i>
+          <input type="text" class="form-control" id="userInput" placeholder="Ingresa tu usuario" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Contraseña</label>
+        <div class="form-icon-wrap">
+          <i class="fas fa-lock fi"></i>
+          <input type="password" class="form-control" id="passInput" placeholder="••••••••" />
+        </div>
+      </div>
+
+      <!-- Credenciales de demo -->
+      <div id="credHint" style="background:var(--primary-light);border:1.5px solid var(--primary);border-radius:6px;padding:9px 13px;font-size:12px;color:var(--primary-dark);margin-bottom:4px;">
+        <i class="fas fa-circle-info" style="margin-right:5px;"></i>
+        <strong>Demo:</strong> usuario <code id="hintUser" style="background:rgba(0,0,0,0.07);padding:1px 5px;border-radius:4px;">admin</code> · contraseña <code style="background:rgba(0,0,0,0.07);padding:1px 5px;border-radius:4px;">pharmedic</code>
+      </div>
+
+      <div id="loginError" style="display:none;background:#FEE2E2;color:#991B1B;border-left:4px solid #DC2626;padding:10px 14px;border-radius:6px;font-size:13px;">
+        <i class="fas fa-circle-exclamation" style="margin-right:6px;"></i>
+        <span id="loginErrorMsg"></span>
+      </div>
+
+      <button onclick="handleLogin()" class="btn btn-primary btn-lg btn-full" style="margin-top:10px;">
+        <i class="fas fa-right-to-bracket"></i>
+        Iniciar sesión
+      </button>
+
+      <div class="login-footer">
+        <i class="fas fa-headset" style="margin-right:5px;"></i>
+        ¿Necesitas ayuda? Contacta al soporte técnico
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const ROLE_CONFIG = {
+    admin:      { nombre: 'Administrador', home: 'dashboard.html'  },
+    cajero:     { nombre: 'Cajero',        home: 'ventas.html'     },
+    inventario: { nombre: 'Bodeguero',     home: 'inventario.html' },
+    repartidor: { nombre: 'Repartidor',    home: 'repartidor.html' },
+    regencia:   { nombre: 'Regencia',      home: 'recetas.html'    },
+    proveedor:  { nombre: 'Proveedor',     home: 'proveedores.html'},
+  };
+
+  // Credenciales válidas: usuario = nombre del rol, contraseña = "pharmedic"
+  function onRoleChange() {
+    const role = document.getElementById('roleSelect').value;
+    document.getElementById('userInput').value = role;
+    document.getElementById('hintUser').textContent = role;
+    document.getElementById('loginError').style.display = 'none';
+  }
+
+  function handleLogin() {
+    const role     = document.getElementById('roleSelect').value;
+    const user     = document.getElementById('userInput').value.trim();
+    const pass     = document.getElementById('passInput').value;
+    const sucursal = document.querySelector('#sucursalSelect') ? document.getElementById('sucursalSelect').value : 'Zona 16';
+    const errBox   = document.getElementById('loginError');
+    const errMsg   = document.getElementById('loginErrorMsg');
+
+    if (!user || !pass) {
+      errMsg.textContent = 'El usuario y la contraseña son obligatorios.';
+      errBox.style.display = 'block';
+      return;
+    }
+
+    if (pass !== 'pharmedic') {
+      errMsg.textContent = 'Contraseña incorrecta. Usa "pharmedic" para el demo.';
+      errBox.style.display = 'block';
+      return;
+    }
+
+    errBox.style.display = 'none';
+
+    const config = ROLE_CONFIG[role];
+    sessionStorage.setItem('ph_role',     role);
+    sessionStorage.setItem('ph_nombre',   user);
+    sessionStorage.setItem('ph_sucursal', sucursal);
+
+    window.location.href = config.home;
+  }
+
+  // Enter para iniciar sesión
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') handleLogin(); });
+
+  // Al cargar, auto-rellenar usuario con el rol por defecto
+  onRoleChange();
+</script>
+</body>
+</html>

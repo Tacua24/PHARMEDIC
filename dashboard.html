@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div>
+        <div class="brand-name">PHARMEDIC</div>
+        <div class="brand-tagline">Gestión Farmacéutica</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item active"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info-sidebar">
+          <div class="name">Administrador</div>
+          <div class="role">Zona 16 — Central</div>
+        </div>
+      </div>
+      <a href="index.html" class="sidebar-logout">
+        <i class="fas fa-right-from-bracket"></i>
+        <span>Cerrar sesión</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="page-title">Dashboard</span>
+      </div>
+      <div class="topbar-right">
+        <div class="sucursal-select">
+          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
+          <select>
+            <option>Zona 16 — Central</option>
+            <option>Zona 11</option>
+            <option>Zona 2</option>
+          </select>
+        </div>
+        <button class="icon-btn">
+          <i class="fas fa-bell"></i>
+          <span class="notif-badge"></span>
+        </button>
+        <div class="topbar-avatar">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-coins"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">Q 8,430</div>
+            <div class="stat-label">Ventas hoy</div>
+            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 14% vs ayer</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-triangle-exclamation"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">8</div>
+            <div class="stat-label">Alertas de stock</div>
+            <div class="stat-change down"><i class="fas fa-arrow-up"></i> 3 nuevas hoy</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-truck"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">5</div>
+            <div class="stat-label">Pedidos activos</div>
+            <div class="stat-change neutral"><i class="fas fa-minus"></i> 2 en camino</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red"><i class="fas fa-file-medical"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Recetas pendientes</div>
+            <div class="stat-change down"><i class="fas fa-arrow-up"></i> 4 controladas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts row -->
+      <div class="grid-2 mb-24">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Ventas de la semana</div>
+              <div class="card-subtitle">Ingresos diarios — Zona 16</div>
+            </div>
+            <div class="flex gap-8">
+              <span class="badge badge-success">↑ 12%</span>
+              <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i></button>
+            </div>
+          </div>
+          <div class="chart-container" style="height:220px;">
+            <canvas id="chartVentas"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Ventas por categoría</div>
+              <div class="card-subtitle">Distribución del mes</div>
+            </div>
+          </div>
+          <div class="chart-container" style="height:220px;">
+            <canvas id="chartCategorias"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom row -->
+      <div class="grid-2">
+        <!-- Últimas ventas -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Últimas ventas</div>
+            <a href="ventas.html" class="btn btn-ghost btn-sm">Ver todas <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Cliente</th>
+                  <th>Artículos</th>
+                  <th>Método</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-muted">#0891</td>
+                  <td>María López</td>
+                  <td><span class="badge badge-neutral">4 items</span></td>
+                  <td><span class="badge badge-info">Tarjeta</span></td>
+                  <td class="fw-600">Q 245.00</td>
+                </tr>
+                <tr>
+                  <td class="td-muted">#0890</td>
+                  <td>Cliente general</td>
+                  <td><span class="badge badge-neutral">2 items</span></td>
+                  <td><span class="badge badge-success">Efectivo</span></td>
+                  <td class="fw-600">Q 89.50</td>
+                </tr>
+                <tr>
+                  <td class="td-muted">#0889</td>
+                  <td>Roberto Soto</td>
+                  <td><span class="badge badge-neutral">6 items</span></td>
+                  <td><span class="badge badge-warning">BAC</span></td>
+                  <td class="fw-600">Q 620.00</td>
+                </tr>
+                <tr>
+                  <td class="td-muted">#0888</td>
+                  <td>Ana García</td>
+                  <td><span class="badge badge-neutral">1 item</span></td>
+                  <td><span class="badge badge-success">Efectivo</span></td>
+                  <td class="fw-600">Q 35.00</td>
+                </tr>
+                <tr>
+                  <td class="td-muted">#0887</td>
+                  <td>Juan Pérez</td>
+                  <td><span class="badge badge-neutral">3 items</span></td>
+                  <td><span class="badge badge-info">Tarjeta</span></td>
+                  <td class="fw-600">Q 315.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Alertas de vencimiento -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Próximos a vencer</div>
+            <a href="inventario.html" class="btn btn-ghost btn-sm">Ver inventario <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Producto</th>
+                  <th>Lote</th>
+                  <th>Vence</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="fw-600">Clonazepam 2mg</div>
+                    <div class="text-muted text-xs">Psicotrópico <span class="controlled-tag">Controlado</span></div>
+                  </td>
+                  <td class="td-muted">LT-2024-08</td>
+                  <td><span class="badge badge-danger">14 jun 2026</span></td>
+                  <td><span class="badge badge-danger">Urgente</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="fw-600">Amoxicilina 500mg</div>
+                    <div class="text-muted text-xs">Antibiótico</div>
+                  </td>
+                  <td class="td-muted">LT-2024-21</td>
+                  <td><span class="badge badge-warning">28 jun 2026</span></td>
+                  <td><span class="badge badge-warning">Próximo</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="fw-600">Omeprazol 20mg</div>
+                    <div class="text-muted text-xs">Antiácido</div>
+                  </td>
+                  <td class="td-muted">LT-2024-15</td>
+                  <td><span class="badge badge-warning">05 jul 2026</span></td>
+                  <td><span class="badge badge-warning">Próximo</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="fw-600">Ibuprofeno 600mg</div>
+                    <div class="text-muted text-xs">Analgésico</div>
+                  </td>
+                  <td class="td-muted">LT-2024-33</td>
+                  <td><span class="badge badge-orange">19 jul 2026</span></td>
+                  <td><span class="badge badge-orange">Atención</span></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="fw-600">Enalapril 10mg</div>
+                    <div class="text-muted text-xs">Antihipertensivo</div>
+                  </td>
+                  <td class="td-muted">LT-2024-41</td>
+                  <td><span class="badge badge-orange">22 jul 2026</span></td>
+                  <td><span class="badge badge-orange">Atención</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /main-area -->
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/main.js"></script>
+<script>
+const green = '#0D7A57';
+const greenLight = 'rgba(13,122,87,0.12)';
+
+// Ventas semana
+new Chart(document.getElementById('chartVentas'), {
+  type: 'line',
+  data: {
+    labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+    datasets: [{
+      label: 'Ventas (Q)',
+      data: [4200, 5800, 3900, 6400, 7200, 8430, 5100],
+      borderColor: green,
+      backgroundColor: greenLight,
+      fill: true,
+      tension: 0.4,
+      pointBackgroundColor: green,
+      pointRadius: 4,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: '#F0F4F2' }, ticks: { font: { size: 11 }, callback: v => 'Q'+v.toLocaleString() } }
+    }
+  }
+});
+
+// Categorías
+new Chart(document.getElementById('chartCategorias'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Analgésicos', 'Antibióticos', 'Antidiabéticos', 'Antiácidos', 'Otros'],
+    datasets: [{
+      data: [28, 22, 18, 14, 18],
+      backgroundColor: ['#0D7A57','#17A374','#4FC89B','#8DDEC2','#C5F0E2'],
+      borderWidth: 2,
+      borderColor: '#fff',
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'right', labels: { font: { size: 11 }, padding: 12 } }
+    },
+    cutout: '65%',
+  }
+});
+</script>
+</body>
+</html>

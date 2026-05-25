@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>PHARMEDIC — App Repartidor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #0D7A57;
+      --green-dark: #095C41;
+      --green-light:#E8F7F1;
+      --bg:         #F2F5F4;
+      --white:      #FFFFFF;
+      --text:       #1A2B25;
+      --muted:      #6A7F78;
+      --border:     #D5E5DE;
+      --danger:     #DC2626;
+      --warning:    #D97706;
+      --blue:       #2563EB;
+      --radius:     14px;
+      --shadow:     0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    /* ── App shell ── */
+    .app-shell {
+      max-width: 480px;
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+    }
+
+    /* ── Header ── */
+    .app-header {
+      background: linear-gradient(135deg, #0B3322 0%, #0D7A57 100%);
+      padding: 18px 20px 14px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .app-brand {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .app-brand .cross {
+      width: 28px; height: 28px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 700;
+    }
+
+    .status-toggle {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .status-toggle:hover { background: rgba(255,255,255,0.22); }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; }
+    .status-dot.busy { background: #FCA5A5; }
+
+    .rep-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rep-avatar {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .rep-name { font-size: 15px; font-weight: 600; }
+    .rep-zone { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 2px; }
+
+    /* ── Tabs ── */
+    .app-tabs {
+      display: flex;
+      background: var(--white);
+      border-bottom: 1.5px solid var(--border);
+      position: sticky;
+      top: 86px;
+      z-index: 9;
+    }
+
+    .app-tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      border-bottom: 2.5px solid transparent;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .app-tab.active {
+      color: var(--green);
+      border-bottom-color: var(--green);
+      font-weight: 600;
+    }
+
+    /* ── Tab panels ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Empty state ── */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+    .empty-state i { font-size: 48px; opacity: 0.3; margin-bottom: 12px; display: block; }
+    .empty-state p { font-size: 14px; }
+
+    /* ── Order cards ── */
+    .orders-list { padding: 16px; display: flex; flex-direction: column; gap: 14px; }
+
+    .order-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .order-card-header {
+      padding: 14px 16px 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .order-id {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .order-time {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 600;
+    }
+    .badge-warning  { background: #FFFBEB; color: #92400E; }
+    .badge-success  { background: #ECFDF5; color: #065F46; }
+    .badge-info     { background: #EFF6FF; color: #1E40AF; }
+    .badge-neutral  { background: #F1F5F9; color: #475569; }
+    .badge-green    { background: var(--green-light); color: var(--green-dark); }
+
+    /* Client section */
+    .client-section {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .client-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .client-phone {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .client-phone a {
+      color: var(--green);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    /* Address section */
+    .address-section {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--green-light);
+    }
+
+    .address-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+
+    .address-text {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .maps-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--green);
+      color: white;
+      padding: 9px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+      width: 100%;
+      justify-content: center;
+    }
+    .maps-btn:hover { background: var(--green-dark); }
+
+    /* Invoice section */
+    .invoice-section {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .invoice-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .invoice-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text);
+      padding: 4px 0;
+    }
+
+    .invoice-row .prod { color: var(--muted); }
+
+    .invoice-divider { height: 1px; background: var(--border); margin: 8px 0; }
+
+    .invoice-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      padding: 4px 0;
+    }
+
+    /* Payment section */
+    .payment-section {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .payment-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .payment-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .payment-badge.efectivo  { background: #ECFDF5; color: #065F46; }
+    .payment-badge.tarjeta   { background: #EFF6FF; color: #1E40AF; }
+    .payment-badge.bac       { background: #FFFBEB; color: #92400E; }
+
+    .payment-badge i { font-size: 22px; }
+
+    .payment-amount {
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    /* Action buttons */
+    .action-section {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-action {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.15s, transform 0.1s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-action:active { transform: scale(0.98); }
+
+    .btn-confirm-pos {
+      background: #EFF6FF;
+      color: #1E40AF;
+      border: 2px solid #BFDBFE;
+    }
+
+    .btn-delivered {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-delivered:hover { background: var(--green-dark); }
+
+    .btn-problem {
+      background: transparent;
+      color: var(--danger);
+      border: 1.5px solid #FCA5A5;
+      font-size: 13px;
+      padding: 10px;
+    }
+
+    .btn-action:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* Completed card (dimmed) */
+    .order-card.completed { opacity: 0.65; }
+    .order-card.completed .order-card-header { background: #F8FAFB; }
+
+    /* Logout footer */
+    .app-footer {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .btn-logout {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+    }
+    .btn-logout:hover { color: var(--danger); }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1A2B25;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 500;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      z-index: 999;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- Header -->
+  <div class="app-header">
+    <div class="header-top">
+      <div class="app-brand">
+        <div class="cross">+</div>
+        PHARMEDIC
+      </div>
+      <button class="status-toggle" id="statusToggle" onclick="toggleStatus()">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusLabel">Disponible</span>
+      </button>
+    </div>
+    <div class="rep-info">
+      <div class="rep-avatar" id="repAvatar">DM</div>
+      <div>
+        <div class="rep-name" id="repName">Diego Monterroso</div>
+        <div class="rep-zone" id="repZone">Repartidor · Zona 16</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="app-tabs">
+    <div class="app-tab active" id="tabActivos" onclick="switchTab('activos')">
+      Mis pedidos <span id="countActivos" style="background:rgba(13,122,87,0.15);color:var(--green);border-radius:20px;padding:1px 7px;font-size:11px;font-weight:700;margin-left:4px;">2</span>
+    </div>
+    <div class="app-tab" id="tabCompletados" onclick="switchTab('completados')">
+      Completados hoy <span style="background:#F1F5F9;color:#475569;border-radius:20px;padding:1px 7px;font-size:11px;font-weight:700;margin-left:4px;">18</span>
+    </div>
+  </div>
+
+  <!-- Panel: Activos -->
+  <div class="tab-panel active" id="panelActivos">
+    <div class="orders-list">
+
+      <!-- Pedido 1 — Tarjeta -->
+      <div class="order-card" id="order124">
+        <div class="order-card-header">
+          <div>
+            <div class="order-id">DEL-0124</div>
+            <div class="order-time"><i class="fas fa-clock" style="font-size:10px;"></i> Asignado hace 12 min</div>
+          </div>
+          <span class="badge badge-warning">En camino</span>
+        </div>
+
+        <!-- Cliente -->
+        <div class="client-section">
+          <div class="client-name">María López de Soto</div>
+          <div class="client-phone">
+            <i class="fas fa-phone" style="font-size:11px;"></i>
+            <a href="tel:44128830">4412-8830</a>
+            <span style="color:var(--border);">·</span>
+            <span>DPI: 2845-63921-0101</span>
+          </div>
+        </div>
+
+        <!-- Dirección -->
+        <div class="address-section">
+          <div class="address-label"><i class="fas fa-location-dot"></i> Dirección de entrega</div>
+          <div class="address-text">Col. El Carmen 14-25, Zona 11, Guatemala</div>
+          <a class="maps-btn"
+             href="https://www.google.com/maps/search/?api=1&query=Colonia+El+Carmen+14-25+Zona+11+Guatemala+City"
+             target="_blank" rel="noopener">
+            <i class="fas fa-map-location-dot"></i>
+            Abrir en Google Maps
+          </a>
+        </div>
+
+        <!-- Factura -->
+        <div class="invoice-section">
+          <div class="invoice-label"><i class="fas fa-file-invoice"></i> Detalle del pedido</div>
+          <div class="invoice-row">
+            <span>Paracetamol 500mg</span>
+            <span class="prod">x3</span>
+            <span>Q 7.50</span>
+          </div>
+          <div class="invoice-row">
+            <span>Amoxicilina 500mg</span>
+            <span class="prod">x2</span>
+            <span>Q 77.00</span>
+          </div>
+          <div class="invoice-row">
+            <span>Omeprazol 20mg</span>
+            <span class="prod">x1</span>
+            <span>Q 55.00</span>
+          </div>
+          <div class="invoice-row">
+            <span>Atorvastatina 20mg</span>
+            <span class="prod">x1</span>
+            <span>Q 120.00</span>
+          </div>
+          <div class="invoice-divider"></div>
+          <div class="invoice-row" style="color:var(--muted);font-size:12px;">
+            <span>IVA (12%)</span><span></span><span>Q 30.64</span>
+          </div>
+          <div class="invoice-total">
+            <span>Total a cobrar</span>
+            <span style="color:var(--green);">Q 290.64</span>
+          </div>
+        </div>
+
+        <!-- Pago -->
+        <div class="payment-section">
+          <div class="payment-label">Método de pago</div>
+          <div class="payment-badge tarjeta">
+            <i class="fas fa-credit-card"></i>
+            <div>
+              <div>Pago con tarjeta (POS)</div>
+              <div class="payment-amount">Q 290.64</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acciones -->
+        <div class="action-section">
+          <button class="btn-action btn-confirm-pos" id="posBtn124" onclick="confirmarPOS('124')">
+            <i class="fas fa-credit-card"></i>
+            Confirmar cobro con POS
+          </button>
+          <button class="btn-action btn-delivered" id="deliveredBtn124" disabled onclick="marcarEntregado('124', this)">
+            <i class="fas fa-circle-check"></i>
+            Pedido entregado
+          </button>
+          <button class="btn-action btn-problem" onclick="reportarProblema('124')">
+            <i class="fas fa-triangle-exclamation"></i>
+            Reportar problema
+          </button>
+        </div>
+      </div>
+
+      <!-- Pedido 2 — Efectivo -->
+      <div class="order-card" id="order125">
+        <div class="order-card-header">
+          <div>
+            <div class="order-id">DEL-0125</div>
+            <div class="order-time"><i class="fas fa-clock" style="font-size:10px;"></i> Asignado hace 5 min</div>
+          </div>
+          <span class="badge badge-warning">Pendiente salida</span>
+        </div>
+
+        <!-- Cliente -->
+        <div class="client-section">
+          <div class="client-name">Jorge Castillo Méndez</div>
+          <div class="client-phone">
+            <i class="fas fa-phone" style="font-size:11px;"></i>
+            <a href="tel:33117792">3311-7792</a>
+            <span style="color:var(--border);">·</span>
+            <span>Cliente general</span>
+          </div>
+        </div>
+
+        <!-- Dirección -->
+        <div class="address-section">
+          <div class="address-label"><i class="fas fa-location-dot"></i> Dirección de entrega</div>
+          <div class="address-text">Calle Gerona 8-15, Zona 2, Guatemala</div>
+          <a class="maps-btn"
+             href="https://www.google.com/maps/search/?api=1&query=Calle+Gerona+8-15+Zona+2+Guatemala+City"
+             target="_blank" rel="noopener">
+            <i class="fas fa-map-location-dot"></i>
+            Abrir en Google Maps
+          </a>
+        </div>
+
+        <!-- Factura -->
+        <div class="invoice-section">
+          <div class="invoice-label"><i class="fas fa-file-invoice"></i> Detalle del pedido</div>
+          <div class="invoice-row">
+            <span>Enalapril 10mg</span>
+            <span class="prod">x1</span>
+            <span>Q 75.00</span>
+          </div>
+          <div class="invoice-row">
+            <span>Metformina 850mg</span>
+            <span class="prod">x1</span>
+            <span>Q 95.00</span>
+          </div>
+          <div class="invoice-row">
+            <span>Furosemida 40mg</span>
+            <span class="prod">x6</span>
+            <span>Q 21.00</span>
+          </div>
+          <div class="invoice-divider"></div>
+          <div class="invoice-row" style="color:var(--muted);font-size:12px;">
+            <span>IVA (12%)</span><span></span><span>Q 22.92</span>
+          </div>
+          <div class="invoice-total">
+            <span>Total a cobrar</span>
+            <span style="color:var(--green);">Q 213.92</span>
+          </div>
+        </div>
+
+        <!-- Pago -->
+        <div class="payment-section">
+          <div class="payment-label">Método de pago</div>
+          <div class="payment-badge efectivo">
+            <i class="fas fa-money-bill-wave"></i>
+            <div>
+              <div>Pago en efectivo</div>
+              <div class="payment-amount">Q 213.92</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Acciones (efectivo no necesita confirmar POS) -->
+        <div class="action-section">
+          <button class="btn-action btn-delivered" onclick="marcarEntregado('125', this)">
+            <i class="fas fa-circle-check"></i>
+            Pedido entregado — Efectivo recibido
+          </button>
+          <button class="btn-action btn-problem" onclick="reportarProblema('125')">
+            <i class="fas fa-triangle-exclamation"></i>
+            Reportar problema
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Panel: Completados -->
+  <div class="tab-panel" id="panelCompletados">
+    <div class="orders-list">
+
+      <div class="order-card completed">
+        <div class="order-card-header">
+          <div><div class="order-id">DEL-0123</div><div class="order-time">Entregado 13:22</div></div>
+          <span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span>
+        </div>
+        <div class="client-section">
+          <div class="client-name">Ana García Pérez</div>
+          <div class="invoice-row" style="margin-top:6px;">
+            <span style="color:var(--muted);font-size:13px;">Paracetamol x3, Vitamina C x1</span>
+            <span style="font-weight:600;">Q 49.50</span>
+          </div>
+        </div>
+        <div style="padding:10px 16px;">
+          <span class="badge badge-success"><i class="fas fa-money-bill-wave"></i> Efectivo</span>
+        </div>
+      </div>
+
+      <div class="order-card completed">
+        <div class="order-card-header">
+          <div><div class="order-id">DEL-0122</div><div class="order-time">Entregado 12:45</div></div>
+          <span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span>
+        </div>
+        <div class="client-section">
+          <div class="client-name">Roberto Soto</div>
+          <div class="invoice-row" style="margin-top:6px;">
+            <span style="color:var(--muted);font-size:13px;">Omeprazol x2, Enalapril x1</span>
+            <span style="font-weight:600;">Q 185.00</span>
+          </div>
+        </div>
+        <div style="padding:10px 16px;">
+          <span class="badge badge-info"><i class="fas fa-credit-card"></i> Tarjeta (POS)</span>
+        </div>
+      </div>
+
+      <div class="order-card completed">
+        <div class="order-card-header">
+          <div><div class="order-id">DEL-0121</div><div class="order-time">Entregado 11:58</div></div>
+          <span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span>
+        </div>
+        <div class="client-section">
+          <div class="client-name">Carmen Orozco</div>
+          <div class="invoice-row" style="margin-top:6px;">
+            <span style="color:var(--muted);font-size:13px;">Atorvastatina x1, Metformina x1</span>
+            <span style="font-weight:600;">Q 215.00</span>
+          </div>
+        </div>
+        <div style="padding:10px 16px;">
+          <span class="badge" style="background:#FFFBEB;color:#92400E;"><i class="fas fa-building-columns"></i> Transferencia BAC</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="app-footer">
+    <a href="index.html" class="btn-logout">
+      <i class="fas fa-right-from-bracket"></i>
+      Cerrar sesión
+    </a>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">
+  <i class="fas fa-circle-check" style="color:#4ADE80;"></i>
+  <span id="toastMsg"></span>
+</div>
+
+<script>
+  // Leer sesión
+  window.addEventListener('DOMContentLoaded', () => {
+    const nombre   = sessionStorage.getItem('ph_nombre')   || 'Diego Monterroso';
+    const sucursal = sessionStorage.getItem('ph_sucursal') || 'Zona 16';
+    const initials = nombre.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+    document.getElementById('repAvatar').textContent = initials;
+    document.getElementById('repName').textContent   = nombre;
+    document.getElementById('repZone').textContent   = 'Repartidor · ' + sucursal;
+  });
+
+  // Toggle disponibilidad
+  let disponible = true;
+  function toggleStatus() {
+    disponible = !disponible;
+    document.getElementById('statusDot').className   = 'status-dot' + (disponible ? '' : ' busy');
+    document.getElementById('statusLabel').textContent = disponible ? 'Disponible' : 'No disponible';
+  }
+
+  // Tabs
+  function switchTab(tab) {
+    document.getElementById('tabActivos').className     = 'app-tab' + (tab === 'activos'     ? ' active' : '');
+    document.getElementById('tabCompletados').className = 'app-tab' + (tab === 'completados' ? ' active' : '');
+    document.getElementById('panelActivos').className     = 'tab-panel' + (tab === 'activos'     ? ' active' : '');
+    document.getElementById('panelCompletados').className = 'tab-panel' + (tab === 'completados' ? ' active' : '');
+  }
+
+  // Confirmar POS
+  function confirmarPOS(id) {
+    const btn = document.getElementById('posBtn' + id);
+    btn.innerHTML = '<i class="fas fa-circle-check"></i> Cobro confirmado';
+    btn.style.background = '#ECFDF5';
+    btn.style.color = '#065F46';
+    btn.style.border = '2px solid #6EE7B7';
+    btn.disabled = true;
+    document.getElementById('deliveredBtn' + id).disabled = false;
+    showToast('Cobro con POS confirmado');
+  }
+
+  // Marcar entregado
+  function marcarEntregado(id, btn) {
+    const card = document.getElementById('order' + id);
+    btn.innerHTML = '<i class="fas fa-circle-check"></i> ¡Entregado!';
+    btn.disabled = true;
+    btn.style.background = '#059669';
+
+    setTimeout(() => {
+      card.style.transition = 'opacity 0.4s, max-height 0.5s';
+      card.style.opacity = '0';
+      card.style.maxHeight = '0';
+      card.style.overflow = 'hidden';
+      card.style.marginBottom = '0';
+      setTimeout(() => card.remove(), 500);
+
+      // Decrementar contador
+      const count = parseInt(document.getElementById('countActivos').textContent) - 1;
+      document.getElementById('countActivos').textContent = count;
+    }, 800);
+
+    showToast('Pedido DEL-0' + id + ' marcado como entregado');
+  }
+
+  // Reportar problema
+  function reportarProblema(id) {
+    showToast('Reporte enviado a la sucursal');
+  }
+
+  // Toast
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    t.style.display = 'flex';
+    setTimeout(() => { t.style.display = 'none'; }, 2800);
+  }
+</script>
+
+</body>
+</html>

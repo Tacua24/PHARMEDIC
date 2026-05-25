@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Delivery</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item active"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Zona 16 — Central</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left"><span class="page-title">Delivery</span></div>
+      <div class="topbar-right">
+        <div class="sucursal-select">
+          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
+          <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+        <div class="topbar-avatar">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Control de Delivery</h1>
+          <p>Gestión de pedidos a domicilio · asignación de repartidores</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-rotate"></i> Actualizar</button>
+          <button class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo pedido</button>
+        </div>
+      </div>
+
+      <div class="stats-grid mb-24">
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-hourglass-half"></i></div>
+          <div class="stat-info"><div class="stat-value">3</div><div class="stat-label">Pedidos pendientes</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-truck"></i></div>
+          <div class="stat-info"><div class="stat-value">2</div><div class="stat-label">En camino</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
+          <div class="stat-info"><div class="stat-value">18</div><div class="stat-label">Entregados hoy</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon primary"><i class="fas fa-person-biking"></i></div>
+          <div class="stat-info"><div class="stat-value">3</div><div class="stat-label">Repartidores activos</div></div>
+        </div>
+      </div>
+
+      <!-- Map + List layout -->
+      <div class="grid-2 mb-20">
+        <!-- Map placeholder -->
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div class="card-header">
+            <div class="card-title">Mapa de repartidores en tiempo real</div>
+            <span class="badge badge-success"><i class="fas fa-circle" style="font-size:7px;"></i> En vivo</span>
+          </div>
+          <div class="map-placeholder" style="min-height:340px;border-radius:0;border:none;opacity:1;">
+            <i class="fas fa-map-location-dot" style="font-size:56px;color:var(--primary);opacity:0.3;"></i>
+            <p style="color:var(--text-muted);">Mapa de geolocalización</p>
+            <p class="text-xs text-muted">Zona 16 · Zona 11 · Zona 2</p>
+            <!-- Repartidor pins simulation -->
+            <div class="flex gap-16 mt-12">
+              <div style="text-align:center;">
+                <div class="user-avatar" style="width:36px;height:36px;font-size:12px;margin:0 auto 4px;">R1</div>
+                <div class="text-xs text-muted">Diego M.</div>
+                <span class="badge badge-info" style="font-size:10px;">En camino</span>
+              </div>
+              <div style="text-align:center;">
+                <div class="user-avatar" style="width:36px;height:36px;font-size:12px;margin:0 auto 4px;">R2</div>
+                <div class="text-xs text-muted">Carlos R.</div>
+                <span class="badge badge-success" style="font-size:10px;">Disponible</span>
+              </div>
+              <div style="text-align:center;">
+                <div class="user-avatar" style="width:36px;height:36px;font-size:12px;margin:0 auto 4px;">R3</div>
+                <div class="text-xs text-muted">Pedro V.</div>
+                <span class="badge badge-warning" style="font-size:10px;">En camino</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repartidores estado -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Repartidores</div>
+            <span class="text-xs text-muted">Turno activo 08:00 – 18:00</span>
+          </div>
+          <div class="card-body" style="padding:0;">
+            <div style="padding:16px 20px;border-bottom:1px solid var(--border);">
+              <div class="flex-between mb-8">
+                <div class="flex gap-10" style="align-items:center;">
+                  <div class="user-avatar">R1</div>
+                  <div>
+                    <div class="fw-600">Diego Monterroso</div>
+                    <div class="text-xs text-muted">Zona 16 · Prioridad central</div>
+                  </div>
+                </div>
+                <span class="badge badge-info">En camino</span>
+              </div>
+              <div class="text-xs text-muted">Pedido: DEL-0124 · Colonia El Carmen, Zona 11</div>
+              <div class="text-xs text-muted mt-8">Entrega estimada: <strong>14:35</strong> · Pago: POS</div>
+            </div>
+            <div style="padding:16px 20px;border-bottom:1px solid var(--border);">
+              <div class="flex-between mb-8">
+                <div class="flex gap-10" style="align-items:center;">
+                  <div class="user-avatar" style="background:#2563EB;">R2</div>
+                  <div>
+                    <div class="fw-600">Carlos Ramírez</div>
+                    <div class="text-xs text-muted">Zona 16 · Disponible</div>
+                  </div>
+                </div>
+                <span class="badge badge-success">Disponible</span>
+              </div>
+              <div class="text-xs text-muted">Sin pedido asignado actualmente</div>
+              <button class="btn btn-primary btn-sm mt-8"><i class="fas fa-plus"></i> Asignar pedido</button>
+            </div>
+            <div style="padding:16px 20px;">
+              <div class="flex-between mb-8">
+                <div class="flex gap-10" style="align-items:center;">
+                  <div class="user-avatar" style="background:#D97706;">R3</div>
+                  <div>
+                    <div class="fw-600">Pedro Vásquez</div>
+                    <div class="text-xs text-muted">Zona 2 · Rotativo</div>
+                  </div>
+                </div>
+                <span class="badge badge-warning">En camino</span>
+              </div>
+              <div class="text-xs text-muted">Pedido: DEL-0125 · Zona 2, Gerona</div>
+              <div class="text-xs text-muted mt-8">Entrega estimada: <strong>15:10</strong> · Pago: Efectivo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pedidos activos -->
+      <div class="tabs">
+        <div class="tab active">Activos <span class="tab-count">5</span></div>
+        <div class="tab">Historial de hoy <span class="tab-count">18</span></div>
+        <div class="tab">Traslados entre sucursales</div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID Pedido</th>
+                <th>Cliente</th>
+                <th>Dirección</th>
+                <th>Sucursal</th>
+                <th>Repartidor</th>
+                <th>Pago</th>
+                <th>Estado</th>
+                <th>Hora est.</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-muted fw-600">DEL-0124</td>
+                <td><div class="fw-600">María López</div><div class="text-xs text-muted">4412-8830</div></td>
+                <td><div class="text-sm">Col. El Carmen 14-25</div><div class="text-xs text-muted">Zona 11</div></td>
+                <td><span class="badge badge-primary">Z-16</span></td>
+                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:24px;height:24px;font-size:9px;flex-shrink:0;">R1</div>Diego M.</div></td>
+                <td><span class="badge badge-info">POS</span></td>
+                <td><span class="badge badge-info">En camino</span></td>
+                <td class="fw-600">14:35</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
+                  <button class="btn btn-ghost btn-sm"><i class="fas fa-location-dot"></i></button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">DEL-0125</td>
+                <td><div class="fw-600">Jorge Castillo</div><div class="text-xs text-muted">3311-7792</div></td>
+                <td><div class="text-sm">Calle Gerona 8-15</div><div class="text-xs text-muted">Zona 2</div></td>
+                <td><span class="badge badge-primary">Z-2</span></td>
+                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:24px;height:24px;font-size:9px;flex-shrink:0;background:#D97706;">R3</div>Pedro V.</div></td>
+                <td><span class="badge badge-success">Efectivo</span></td>
+                <td><span class="badge badge-warning">En camino</span></td>
+                <td class="fw-600">15:10</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
+                  <button class="btn btn-ghost btn-sm"><i class="fas fa-location-dot"></i></button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">DEL-0126</td>
+                <td><div class="fw-600">Ana García</div><div class="text-xs text-muted">3368-5521</div></td>
+                <td><div class="text-sm">Av. Las Américas 12-80</div><div class="text-xs text-muted">Zona 14</div></td>
+                <td><span class="badge badge-primary">Z-16</span></td>
+                <td><span class="text-muted text-xs">Sin asignar</span></td>
+                <td><span class="badge badge-success">Efectivo</span></td>
+                <td><span class="badge badge-neutral">Pendiente</span></td>
+                <td class="text-muted">—</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Asignar</button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">DEL-0127</td>
+                <td><div class="fw-600">Luis Fuentes</div><div class="text-xs text-muted">5567-2233</div></td>
+                <td><div class="text-sm">Res. Montserrat 3-45</div><div class="text-xs text-muted">Zona 16</div></td>
+                <td><span class="badge badge-primary">Z-16</span></td>
+                <td><span class="text-muted text-xs">Sin asignar</span></td>
+                <td><span class="badge badge-info">POS</span></td>
+                <td><span class="badge badge-neutral">Pendiente</span></td>
+                <td class="text-muted">—</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Asignar</button>
+                </div></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">DEL-0128</td>
+                <td><div class="fw-600">Sofía Méndez</div><div class="text-xs text-muted">4482-6610</div></td>
+                <td><div class="text-sm">Col. Mariscal 22-10</div><div class="text-xs text-muted">Zona 11</div></td>
+                <td><span class="badge badge-primary">Z-11</span></td>
+                <td><span class="text-muted text-xs">Sin asignar</span></td>
+                <td><span class="badge badge-warning">BAC</span></td>
+                <td><span class="badge badge-neutral">Pendiente</span></td>
+                <td class="text-muted">—</td>
+                <td><div class="actions-cell">
+                  <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Asignar</button>
+                </div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Recetas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item active"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">RG</div>
+        <div class="user-info-sidebar"><div class="name">Regencia</div><div class="role">Zona 16 — Central</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left"><span class="page-title">Recetas Médicas</span></div>
+      <div class="topbar-right">
+        <div class="sucursal-select">
+          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
+          <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+        <div class="topbar-avatar">RG</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Control de Recetas</h1>
+          <p>Gestión de prescripciones médicas · medicamentos controlados y regulares</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-camera"></i> Fotografiar receta</button>
+          <button class="btn btn-primary"><i class="fas fa-plus"></i> Nueva receta</button>
+        </div>
+      </div>
+
+      <div class="stats-grid mb-24" style="grid-template-columns:repeat(4,1fr);">
+        <div class="stat-card">
+          <div class="stat-icon red"><i class="fas fa-clock"></i></div>
+          <div class="stat-info"><div class="stat-value">12</div><div class="stat-label">Pendientes</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-spinner"></i></div>
+          <div class="stat-info"><div class="stat-value">5</div><div class="stat-label">En proceso</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
+          <div class="stat-info"><div class="stat-value">84</div><div class="stat-label">Completadas hoy</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red"><i class="fas fa-shield-halved"></i></div>
+          <div class="stat-info"><div class="stat-value">4</div><div class="stat-label">Controladas pendientes</div></div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active">Pendientes <span class="tab-count">12</span></div>
+        <div class="tab">En proceso <span class="tab-count">5</span></div>
+        <div class="tab">Completadas</div>
+        <div class="tab">Controladas <span class="tab-count">4</span></div>
+      </div>
+
+      <div class="filters-bar">
+        <div class="search-box">
+          <i class="fas fa-magnifying-glass"></i>
+          <input type="text" placeholder="Buscar por paciente, DPI o médico..." />
+        </div>
+        <select class="filter-select">
+          <option>Todos los tipos</option>
+          <option>Medicamento regular</option>
+          <option>Controlado</option>
+        </select>
+        <select class="filter-select">
+          <option>Todas las fechas</option>
+          <option>Hoy</option>
+          <option>Esta semana</option>
+          <option>Este mes</option>
+        </select>
+        <button class="btn btn-secondary btn-sm"><i class="fas fa-filter"></i> Más filtros</button>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID Receta</th>
+                <th>Paciente</th>
+                <th>DPI</th>
+                <th>Médico</th>
+                <th>Fecha emisión</th>
+                <th>Medicamentos</th>
+                <th>Tipo</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="td-muted">RX-2026-0441</td>
+                <td>
+                  <div class="fw-600">María López</div>
+                  <div class="text-xs text-muted">F</div>
+                </td>
+                <td class="td-muted">2845-63921-0101</td>
+                <td>
+                  <div>Dr. Carlos Mejía</div>
+                  <div class="text-xs text-muted">Cardiología</div>
+                </td>
+                <td class="td-muted">24 may 2026</td>
+                <td>
+                  <div class="text-sm fw-600">Enalapril 10mg</div>
+                  <div class="text-xs text-muted">+2 más</div>
+                </td>
+                <td><span class="tag">Regular</span></td>
+                <td><span class="badge badge-warning">Pendiente</span></td>
+                <td>
+                  <div class="actions-cell">
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Atender</button>
+                    <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-muted">RX-2026-0440</td>
+                <td>
+                  <div class="fw-600">Roberto Soto</div>
+                  <div class="text-xs text-muted">M</div>
+                </td>
+                <td class="td-muted">1923-45812-0801</td>
+                <td>
+                  <div>Dra. Ana Velásquez</div>
+                  <div class="text-xs text-muted">Psiquiatría</div>
+                </td>
+                <td class="td-muted">24 may 2026</td>
+                <td>
+                  <div class="flex gap-8">
+                    <span class="text-sm fw-600">Clonazepam 2mg</span>
+                    <span class="controlled-tag"><i class="fas fa-lock"></i> Controlado</span>
+                  </div>
+                </td>
+                <td><span class="controlled-tag">Controlado</span></td>
+                <td><span class="badge badge-danger">Prioridad</span></td>
+                <td>
+                  <div class="actions-cell">
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Atender</button>
+                    <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-muted">RX-2026-0439</td>
+                <td>
+                  <div class="fw-600">Ana García</div>
+                  <div class="text-xs text-muted">F</div>
+                </td>
+                <td class="td-muted">3012-78234-0302</td>
+                <td>
+                  <div>Dr. Luis Herrera</div>
+                  <div class="text-xs text-muted">Medicina General</div>
+                </td>
+                <td class="td-muted">23 may 2026</td>
+                <td>
+                  <div class="text-sm fw-600">Amoxicilina 500mg</div>
+                  <div class="text-xs text-muted">Metformina 850mg +1</div>
+                </td>
+                <td><span class="tag">Regular</span></td>
+                <td><span class="badge badge-warning">Pendiente</span></td>
+                <td>
+                  <div class="actions-cell">
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Atender</button>
+                    <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-muted">RX-2026-0438</td>
+                <td>
+                  <div class="fw-600">Juan Pérez</div>
+                  <div class="text-xs text-muted">M</div>
+                </td>
+                <td class="td-muted">1654-98210-0506</td>
+                <td>
+                  <div>Dr. Fernando Ramos</div>
+                  <div class="text-xs text-muted">Endocrinología</div>
+                </td>
+                <td class="td-muted">22 may 2026</td>
+                <td>
+                  <div class="text-sm fw-600">Atorvastatina 20mg</div>
+                  <div class="text-xs text-muted">Metformina 850mg</div>
+                </td>
+                <td><span class="tag">Regular</span></td>
+                <td><span class="badge badge-info">En proceso</span></td>
+                <td>
+                  <div class="actions-cell">
+                    <button class="btn btn-secondary btn-sm">Ver detalle</button>
+                    <button class="btn btn-secondary btn-sm"><i class="fas fa-camera"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="td-muted">RX-2026-0437</td>
+                <td>
+                  <div class="fw-600">Carmen Orozco</div>
+                  <div class="text-xs text-muted">F</div>
+                </td>
+                <td class="td-muted">2234-11023-0904</td>
+                <td>
+                  <div>Dra. Patricia Lima</div>
+                  <div class="text-xs text-muted">Neurología</div>
+                </td>
+                <td class="td-muted">21 may 2026</td>
+                <td>
+                  <div class="flex gap-8">
+                    <span class="text-sm fw-600">Alprazolam 0.5mg</span>
+                    <span class="controlled-tag"><i class="fas fa-lock"></i> Controlado</span>
+                  </div>
+                </td>
+                <td><span class="controlled-tag">Controlado</span></td>
+                <td><span class="badge badge-danger">Prioridad</span></td>
+                <td>
+                  <div class="actions-cell">
+                    <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Atender</button>
+                    <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="flex-between" style="padding:14px 20px;border-top:1px solid var(--border);">
+          <span class="text-sm text-muted">Mostrando 5 de 12 recetas pendientes</span>
+          <div class="flex gap-8">
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-left"></i></button>
+            <button class="btn btn-primary btn-sm">1</button>
+            <button class="btn btn-secondary btn-sm">2</button>
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

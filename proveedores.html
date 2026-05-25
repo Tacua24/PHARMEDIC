@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Proveedores</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item active"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Zona 16 — Central</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left"><span class="page-title">Proveedores</span></div>
+      <div class="topbar-right">
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+        <div class="topbar-avatar">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Gestión de Proveedores</h1>
+          <p>Portal centralizado · compara precios y gestiona pedidos</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-arrow-up-wide-short"></i> Ordenar por precio</button>
+          <button class="btn btn-primary"><i class="fas fa-plus"></i> Agregar proveedor</button>
+        </div>
+      </div>
+
+      <div class="stats-grid mb-24">
+        <div class="stat-card">
+          <div class="stat-icon primary"><i class="fas fa-building"></i></div>
+          <div class="stat-info"><div class="stat-value">5</div><div class="stat-label">Proveedores activos</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-boxes-stacked"></i></div>
+          <div class="stat-info"><div class="stat-value">143</div><div class="stat-label">Productos en catálogo</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-truck-fast"></i></div>
+          <div class="stat-info"><div class="stat-value">3</div><div class="stat-label">Pedidos en tránsito</div></div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-coins"></i></div>
+          <div class="stat-info"><div class="stat-value">Q 48,200</div><div class="stat-label">Compras este mes</div></div>
+        </div>
+      </div>
+
+      <div class="tabs mb-20">
+        <div class="tab active">Proveedores</div>
+        <div class="tab">Comparativa de precios</div>
+        <div class="tab">Órdenes de compra <span class="tab-count">3</span></div>
+        <div class="tab">Historial</div>
+      </div>
+
+      <!-- Provider cards -->
+      <div class="provider-grid mb-24">
+
+        <div class="provider-card">
+          <div class="provider-header">
+            <div class="provider-initials">DM</div>
+            <div>
+              <div class="provider-name">DISTRIBUIDORA MEDIC S.A.</div>
+              <div class="provider-contact"><i class="fas fa-phone" style="font-size:10px;"></i> 2330-4410</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <div class="text-xs text-muted mb-12">Antibióticos · Analgésicos · Antiácidos</div>
+          <div class="flex-between text-xs">
+            <span class="text-muted">Entrega promedio</span>
+            <span class="fw-600">2 días</span>
+          </div>
+          <div class="flex-between text-xs mt-8">
+            <span class="text-muted">Última compra</span>
+            <span class="fw-600">18 may 2026</span>
+          </div>
+          <div class="divider"></div>
+          <div class="provider-stats">
+            <div class="provider-stat"><div class="val">48</div><div class="lbl">Productos</div></div>
+            <div class="provider-stat"><div class="val">Q 18,400</div><div class="lbl">Este mes</div></div>
+            <div class="provider-stat"><div class="val">98%</div><div class="lbl">Puntualidad</div></div>
+          </div>
+          <div class="flex gap-8 mt-12">
+            <button class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Ver catálogo</button>
+            <button class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-cart-shopping"></i> Pedir</button>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <div class="provider-header">
+            <div class="provider-initials" style="background:#EFF6FF;color:#1E40AF;">FX</div>
+            <div>
+              <div class="provider-name">FARMEX Guatemala</div>
+              <div class="provider-contact"><i class="fas fa-phone" style="font-size:10px;"></i> 2445-8820</div>
+              <div class="stars">★★★★☆</div>
+            </div>
+          </div>
+          <div class="text-xs text-muted mb-12">Antidiabéticos · Antilipémicos · Antihipertensivos</div>
+          <div class="flex-between text-xs">
+            <span class="text-muted">Entrega promedio</span>
+            <span class="fw-600">3 días</span>
+          </div>
+          <div class="flex-between text-xs mt-8">
+            <span class="text-muted">Última compra</span>
+            <span class="fw-600">10 may 2026</span>
+          </div>
+          <div class="divider"></div>
+          <div class="provider-stats">
+            <div class="provider-stat"><div class="val">32</div><div class="lbl">Productos</div></div>
+            <div class="provider-stat"><div class="val">Q 14,200</div><div class="lbl">Este mes</div></div>
+            <div class="provider-stat"><div class="val">91%</div><div class="lbl">Puntualidad</div></div>
+          </div>
+          <div class="flex gap-8 mt-12">
+            <button class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Ver catálogo</button>
+            <button class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-cart-shopping"></i> Pedir</button>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <div class="provider-header">
+            <div class="provider-initials" style="background:#FFF7ED;color:#9A3412;">NG</div>
+            <div>
+              <div class="provider-name">NOVAGEN S.A.</div>
+              <div class="provider-contact"><i class="fas fa-phone" style="font-size:10px;"></i> 2278-6600</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <div class="text-xs text-muted mb-12">Psicotrópicos · Controlados</div>
+          <div class="flex-between text-xs">
+            <span class="text-muted">Entrega promedio</span>
+            <span class="fw-600">1 día</span>
+          </div>
+          <div class="flex-between text-xs mt-8">
+            <span class="text-muted">Última compra</span>
+            <span class="fw-600">20 may 2026</span>
+          </div>
+          <div class="divider"></div>
+          <div class="provider-stats">
+            <div class="provider-stat"><div class="val">15</div><div class="lbl">Productos</div></div>
+            <div class="provider-stat"><div class="val">Q 8,800</div><div class="lbl">Este mes</div></div>
+            <div class="provider-stat"><div class="val">100%</div><div class="lbl">Puntualidad</div></div>
+          </div>
+          <div class="flex gap-8 mt-12">
+            <button class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Ver catálogo</button>
+            <button class="btn btn-primary btn-sm" style="flex:1;justify-content:center;"><i class="fas fa-cart-shopping"></i> Pedir</button>
+          </div>
+        </div>
+
+        <div class="provider-card">
+          <div class="provider-header">
+            <div class="provider-initials" style="background:#ECFDF5;color:#065F46;">LU</div>
+            <div>
+              <div class="provider-name">LABORATORIOS UNITED</div>
+              <div class="provider-contact"><i class="fas fa-phone" style="font-size:10px;"></i> 2391-0022</div>
+              <div class="stars">★★★☆☆</div>
+            </div>
+          </div>
+          <div class="text-xs text-muted mb-12">Vitaminas · Suplementos · OTC</div>
+          <div class="flex-between text-xs">
+            <span class="text-muted">Entrega promedio</span>
+            <span class="fw-600">5 días</span>
+          </div>
+          <div class="flex-between text-xs mt-8">
+            <span class="text-muted">Última compra</span>
+            <span class="fw-600">02 may 2026</span>
+          </div>
+          <div class="divider"></div>
+          <div class="provider-stats">
+            <div class="provider-stat"><div class="val">28</div><div class="lbl">Productos</div></div>
+            <div class="provider-stat"><div class="val">Q 4,600</div><div class="lbl">Este mes</div></div>
+            <div class="provider-stat"><div class="val">76%</div><div class="lbl">Puntualidad</div></div>
+          </div>
+          <div class="flex gap-8 mt-12">
+            <button class="btn btn-ghost btn-sm" style="flex:1;justify-content:center;">Ver catálogo</button>
+            <button class="btn btn-secondary btn-sm" style="flex:1;justify-content:center;">Suspendido</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Price comparison -->
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Comparativa de precios — Amoxicilina 500mg</div><div class="card-subtitle">Selecciona el proveedor con mejor oferta</div></div>
+          <button class="btn btn-secondary btn-sm"><i class="fas fa-search"></i> Buscar producto</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Presentación</th>
+                <th>Precio unitario</th>
+                <th>Precio por caja</th>
+                <th>Stock disponible</th>
+                <th>Entrega</th>
+                <th>Calificación</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:var(--primary-light);">
+                <td><div class="fw-600 text-primary">DISTRIBUIDORA MEDIC <span class="badge badge-success" style="margin-left:4px;">Mejor precio</span></div></td>
+                <td>Blíster x14</td>
+                <td class="fw-600 text-primary">Q 2.65</td>
+                <td class="fw-600">Q 37.10</td>
+                <td>500 unidades</td>
+                <td>2 días</td>
+                <td><span class="stars">★★★★★</span></td>
+                <td><button class="btn btn-primary btn-sm"><i class="fas fa-cart-shopping"></i> Seleccionar</button></td>
+              </tr>
+              <tr>
+                <td class="fw-600">FARMEX Guatemala</td>
+                <td>Blíster x14</td>
+                <td>Q 2.90</td>
+                <td>Q 40.60</td>
+                <td>300 unidades</td>
+                <td>3 días</td>
+                <td><span class="stars">★★★★☆</span></td>
+                <td><button class="btn btn-secondary btn-sm">Seleccionar</button></td>
+              </tr>
+              <tr>
+                <td class="fw-600">LABORATORIOS UNITED</td>
+                <td>Blíster x10</td>
+                <td>Q 3.20</td>
+                <td>Q 32.00</td>
+                <td>120 unidades</td>
+                <td>5 días</td>
+                <td><span class="stars">★★★☆☆</span></td>
+                <td><button class="btn btn-secondary btn-sm">Seleccionar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>

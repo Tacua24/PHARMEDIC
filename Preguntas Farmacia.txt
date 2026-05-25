@@ -1,0 +1,2550 @@
+﻿Universidad Mariano Gálvez de Guatemala
+Ingeniería en Sistemas de Información y Ciencias de la Computación
+
+
+
+
+
+
+
+
+ANÁLISIS DE SISTEMAS I
+Ingeniero Esau Hernandez Castillo
+
+
+
+
+
+
+
+
+
+
+Estudio de Factibilidad
+
+
+
+
+
+
+
+
+
+
+Oscar René Contreras Cumes 
+Carnet: 1290-23-11854
+Santiago Rodríguez López
+Carnet:1290-23-7537 
+Diego Fernando Laguardia Cúmes 
+Carnet: 1290-23-4468
+Jose Luis Sánchez Girón
+Carnet: 1290-23-3542
+Jorge Santiago Vásquez Hernández
+Carnet: 1290-23-6403 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Antigua Guatemala, Sacatepéquez
+
+
+18 de febrero de 2026
+
+
+Introducción
+El presente estudio de factibilidad tiene como objetivo evaluar la viabilidad de implementar un sistema web para la gestión de inventarios, ventas, recetas médicas, control de repartidores y administración general de la farmacia PHARMEDIC
+Este análisis permite determinar si el proyecto es viable desde el punto de vista técnico, económico, operativo y legal, considerando los recursos disponibles, costos, beneficios y aceptación del sistema por parte de la organización.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Preguntas Específicas de Factibilidad 
+
+
+1. Factibilidad Económica
+¿Cuál es el presupuesto estimado que la empresa está dispuesta a invertir en el sistema?
+* 50000 - 75000
+¿El sistema debe reducir costos operativos actuales? ¿En qué áreas específicamente?
+* Si, en específico en repartidores con sueldo según el rendimiento 
+* En específico en forma automática y digital
+* Fechas por lotes de medicamentos para pedir cambio o devolución a proveedores
+* Optimizacion de repartidores
+¿Cuánto pierde la farmacia actualmente por errores de inventario o ventas incorrectas?
+* 5k -10K
+¿Se espera que el sistema genere mayor rentabilidad o control financiero?
+* Si, por las métricas administración
+¿La empresa cuenta con recursos para mantenimiento y actualizaciones futuras?
+Si,Si
+2. Factibilidad Legal
+¿Qué normativas del Ministerio de Salud regulan la venta de medicamentos con receta?
+* Acuerdo ministerial 181-2019 normativa 17-2002 decreto 6998 
+* normativa 22-2001 
+* acuerdo ministerial SP-M-162-98
+¿Es obligatorio almacenar copia física o digital de las recetas médicas?
+* Digital si, 
+¿Cuánto tiempo deben conservarse los registros de ventas de medicamentos controlados?
+* Mensual - Semestral
+¿Existen sanciones por vender medicamentos sin receta válida?
+* Si una sanción para el empleado para el que venda el medicamento sin receta
+¿El sistema debe generar reportes obligatorios para entidades gubernamentales?
+* Si, mensualmente
+* Inventario
+* Ventas
+* Repartidores
+* Sucursal
+3. Factibilidad Operativa
+
+
+¿El personal está capacitado para utilizar un sistema digital?
+* Si, pero existe personal no capacitado
+¿El sistema debe adaptarse al proceso actual o desean cambiar el proceso?
+* Optimizaciones digitales y si es necesario cambiar el proceso se hace
+¿Qué problemas operativos enfrentan actualmente con el control de recetas?
+* Pérdidas de recetas por ser fisicas y control de inventarios desactualizados
+¿Cuántos empleados utilizarán el sistema simultáneamente?
+* Cajeros 2 por sucursal
+* Bodegueros 3 por sucursal
+* Administración 5
+* Proveedores ilimitada
+* Corte de caja por turno 
+* 8 AM - 6 PM
+¿Qué tan dispuestos están los empleados a adoptar un nuevo sistema?
+* Obligatorio
+* Programa web o app
+* Programa WEB
+* APP móvil para repartidores y vinculado a la web 
+
+
+4. Factibilidad Técnica
+
+
+¿La farmacia cuenta con el equipo necesario (computadoras, red, impresoras)?
+* NO nada, a partir del sistema se comprará todo el equipo
+¿Tienen conexión a internet estable?
+* Si
+¿El sistema debe funcionar en varias sucursales?
+* Si
+¿Necesitan integración con facturación electrónica o sistemas contables?
+* Si, con compatibilidad con la SAT
+¿Cuentan con personal técnico para soporte o necesitarán soporte externo?
+* Soporte externo, la empresa se encarga del mantenimiento 
+
+
+
+
+
+
+
+
+
+
+
+
+Preguntas Generales
+¿Necesita que las facturas sean hechas en pdf?
+* Si
+¿Es obligatorio registrar datos del cliente para medicamentos controlados o con receta?
+* Si
+¿Qué datos del cliente necesita guardar y en donde piensan almacenarlos?
+* Base de datos propuesta
+* Nombre
+* Apellido
+* NIT
+* DPI
+* TEléfono
+* Dirección
+* COrreo
+
+
+¿Necesitan limitar la cantidad de medicina por cliente?
+* No, mientras sea de venta libre
+* Si es controlado entonces si va variando la cantidad dependiendo de la medicina que esta sea
+* Y este necesitara de receta medica obligatoriamente
+
+
+¿Qué sería lo más importante para ustedes que el sistema haga bien?
+* Que no se caiga nunca
+¿Necesitan una alerta de fecha de vencimiento?
+* Si, De 2 meses
+¿Necesita un stock mínimo de algún medicamento?
+* Si, para todo 
+¿Cuál es el nombre de su empresa - farmacia?
+* PHARMEDIC 
+
+
+delivery control de clientes 
+modernizar y 
+
+
+desarrollo de inventario y ventas
+atención al cliente
+administración
+sucursales
+
+
+INventarios
+Puntos de venta con soporte con código de barras
+registrar cada producto 
+actualizar inventario a cada venta
+obtención de hardware (lectores de barras)
+VEntas a domicilio (pedidos y ventas desde el sistema)
+asignación de farmacia más cercana al punto de venta
+zona 16
+zona 11
+zona 2
+
+
+módulo de métricas y control administrativo de proveedores de funcionamiento de ventas e inventario administrativo
+
+
+COntrol de proveedor quien vende mejor
+página de proveedor libre para los productos
+y que se pueda elegir el que tenga mejor oferta
+
+
+Ventas a domicilio a clientes frecuentes (guardar cliente)
+Inventarios y todo hardware completo (scanner)
+
+
+Venta de medicamentos limitada 
+Recetas medicas 
+
+
+Envío de factura por correo - teléfono
+nombre 
+apellido
+información del medicamento
+cantidad del producto
+total y subtotal
+fecha limitante de fecha de caducidad de 6 meses y la oportunidad de devolución o reembolso
+El rendimiento de los repartidores
+y que pueda detectar quien esta mas cerca del punto de entrega y métricas
+
+
+CORTE DE CAJA
+
+
+IMÁGENES POR 
+
+
+que se despliegue al bodeguero una lista del pedido y que contenga el codigo nombre imagen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Beneficios del Sistema
+Beneficios tangibles
+* Reducción de pérdidas.
+* Control de inventario en tiempo real.
+* Automatización de ventas.
+* Control de proveedores.
+* Mejora en atención al cliente.
+
+Beneficios intangibles
+   * Modernización del negocio.
+   * Mejor toma de decisiones.
+   * Mayor control administrativo.
+   * Mejora de la imagen empresarial.
+
+
+Conclusión General
+
+
+El análisis demuestra que el desarrollo del sistema para PHARMEDIC es viable técnica, económica, operativa y legalmente. La implementación permitirá optimizar procesos, mejorar el control administrativo y reducir pérdidas, generando beneficios significativos para la empresa.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Preguntas Miercoles
+¿Venden los productos en pastilla, blister o caja completa?
+   * Si llevan registro de que pastillas venden y las venden dependiendo de el producto
+
+
+¿Como es el proceso de llegada/ingreso de producto?
+Ventas e inventario 
+
+
+Facturas conectadas a la SAT
+Y es aceptado el proceso de devolucion tambien conectado directamente con FEL y no es necesario hacerlo por lotes
+Implementar reembolsos 
+
+
+Pagar efectivo, tarjeta, transferencia de BAC
+
+
+Datos a guardar del cliente
+No necesariamente nombre, dpi, numero de telefono
+
+
+El sistema dara privilegios dependiendo de cada tipo de usuario 
+
+
+En el usuario admin 
+
+
+Las medicinas tienen fecha de vencimiento y y se vendera primero la que se venza antes
+
+
+Dpi factor clave para el ingreso del cliente
+
+
+Se el pide al cliente para obtener el seguimiento de receta 
+Y se le debe de notificar a cada cliente dependiendo de la receta 
+Se retiene o se toma foto a la factura de la receta y se puede usar la receta en caso de algun percance con la medicina 
+
+
+no todos los usuarios necesitan receta y no todas las recetas deben de tener un usuario
+
+
+sugerencias en caso de algun problema que pueda hacer y los medicamentos si no se le puede recetar por algun caso como cardiaco etc. no es impedimento para la venta pero es una precaucion
+
+
+Y tienen una lista dinamica en las condiciones que ellos pueden modificar libremente y asignarlo a cada medicina en individual (la empresa no se encarga en ingresar lo hacen los clientes y solo los administradores con los permisos necesarios pueden hacerlo)
+
+
+Se le puede asignar condiciones a cliente habituales registrados en caso de querer alguna medicina que este en contra de sus condiciones y se puede asignar 
+
+
+Estadisticas a necesitar en parte administrador
+El cajero puede agregar a los clientes y solo el administrador puede darles de baja
+Distinito login para cada uno de los roles
+El local le asigna la entrega al repartidor y este unicamente se encarga de los pagos con pos o efectivo y la direccion de entrega y el repartidor debe de confirmar el pago para poder terminar la entrega
+
+
+Cierre de caja
+metricas de ventas individuales por cada empleado 
+
+
+Forma de guardar el cierre de caja 
+por dia y se guarda en el sistema y opcion de generar un pdf
+y 
+
+
+El administrador vera las estadisticas individuales de cada uno y puede editar al cliente
+
+
+Forma de promociones
+Existen promociones de 1+1
+y en el catalogo se puede observar recomendaciones y todos los clientes pueden ver todas las promociones
+
+
+
+
+Usuarios
+
+
+Regencia = lleva control unicamente de control de medicina controlada y tener en orden a cada uno de los empleados y solo puede ver el informe no puede afectar a ningun rol
+Caja = 
+Inventario = 
+Repartidor = 
+Administración = acceso a todo
+ 
+en cada sucursal hay 1 caja, 1 inventario, 1 repartidor
+administrador puede manejar los 3 y puede moverse a otras sucursales
+regencia puede moverse a otra sucursales
+
+
+Toda la informacion centralizada como clientes 
+y la medicina puede ser 
+
+
+caja no se mueve de sucursal
+repartidor es rotativo de sucursales pero tiene prioridad a la sucursal 
+y el repartidor puede mandar medicinas tanto a clientes como a sucursales
+
+
+Pedido
+costo de envio no se le cobra al cliente
+Cuando se hace un cambio de cambio de sucursal y dar fe del traslado
+y tener este registro y el cambio de esto
+
+
+
+
+¿En qué presentación se venden los productos?
+Se venden en pastilla, blister o caja completa.
+
+
+¿Se lleva un registro de las pastillas vendidas?
+Sí, se lleva un registro de las pastillas que se venden dependiendo del producto.
+
+
+¿Cómo es el proceso de llegada o ingreso de producto?
+Se debe registrar el ingreso de productos al sistema para su control en inventario.
+
+
+¿Cómo se manejan las ventas e inventario?
+El sistema controla las ventas y actualiza automáticamente el inventario.
+
+
+¿Las facturas están conectadas con la SAT?
+Sí, las facturas están conectadas a la SAT mediante FEL.
+
+
+¿Cómo funciona el proceso de devolución?
+El proceso de devolución está conectado directamente con FEL y no es necesario hacerlo por lotes.
+
+
+¿Se pueden implementar reembolsos?
+Sí, el sistema permite implementar reembolsos.
+
+
+¿Qué métodos de pago se aceptan?
+Efectivo, tarjeta y transferencia de BAC.
+
+
+¿Qué datos del cliente se deben guardar?
+No es obligatorio guardar nombre, DPI o número de teléfono.
+
+
+¿El sistema maneja privilegios por usuario?
+Sí, el sistema asigna privilegios según el tipo de usuario.
+
+
+¿Qué puede hacer el usuario administrador?
+Tiene acceso completo al sistema y puede gestionar todas las funciones.
+
+
+¿Cómo se manejan las fechas de vencimiento de las medicinas?
+Se venden primero las medicinas con fecha de vencimiento más próxima.
+
+
+¿El DPI es importante para el cliente?
+Sí, el DPI es un factor clave para el ingreso del cliente.
+
+
+¿Se solicita información para seguimiento de recetas?
+Sí, se pide información al cliente para dar seguimiento a la receta.
+
+
+¿Se notifica al cliente sobre su receta?
+Sí, se le notifica dependiendo de la receta.
+
+
+¿Qué se hace con la receta del cliente?
+Se puede retener o tomar foto de la receta para respaldo en caso de problemas.
+
+
+¿Todos los usuarios necesitan receta?
+No, no todos los usuarios necesitan receta.
+
+
+¿Todas las recetas deben estar asociadas a un usuario?
+No, no todas las recetas deben tener un usuario asociado.
+
+
+¿El sistema da sugerencias sobre medicamentos?
+Sí, da sugerencias y advertencias según condiciones del cliente (ej. problemas cardíacos), aunque no impide la venta.
+
+
+¿Se pueden definir condiciones médicas dinámicas?
+Sí, existe una lista dinámica de condiciones que los administradores pueden modificar y asignar a medicamentos.
+
+
+¿Se pueden asignar condiciones a clientes?
+Sí, se pueden asignar condiciones a clientes habituales para controlar recomendaciones o advertencias.
+
+
+¿Qué estadísticas necesita el administrador?
+Estadísticas de ventas, desempeño de empleados y datos de clientes.
+
+
+¿Quién puede registrar clientes?
+El cajero puede agregar clientes, pero solo el administrador puede eliminarlos.
+
+
+¿Cada rol tiene su propio login?
+Sí, cada rol tiene un login distinto.
+
+
+¿Cómo funciona la entrega a domicilio?
+El local asigna el pedido al repartidor, quien gestiona el pago (POS o efectivo) y confirma la entrega.
+
+
+¿Qué incluye el cierre de caja?
+Incluye métricas de ventas por empleado.
+
+
+¿Cómo se guarda el cierre de caja?
+Se guarda por día en el sistema y se puede generar un PDF.
+
+
+¿El administrador puede ver estadísticas individuales?
+Sí, puede ver estadísticas por empleado y editar clientes.
+
+
+¿Qué tipos de promociones existen?
+Promociones como 1+1, visibles en el catálogo para todos los clientes.
+¿Qué roles existen en el sistema?
+Regencia, Caja, Inventario, Repartidor y Administración.
+
+
+¿Qué hace el rol de Regencia?
+Controla medicamentos regulados y supervisa empleados, pero solo puede ver informes.
+
+
+¿Cómo se organizan los roles por sucursal?
+Cada sucursal tiene 1 caja, 1 inventario y 1 repartidor.
+
+
+¿El administrador puede moverse entre sucursales?
+Sí, puede manejar varias sucursales.
+
+
+¿Regencia puede moverse entre sucursales?
+Sí, también puede moverse entre sucursales.
+
+
+¿Dónde se almacena la información?
+Toda la información está centralizada.
+
+
+¿El cajero puede moverse entre sucursales?
+No, el cajero no se mueve de sucursal.
+
+
+¿El repartidor puede moverse entre sucursales?
+Sí, es rotativo pero tiene prioridad en una sucursal.7
+
+
+¿El repartidor puede entregar a clientes y sucursales?
+Sí, puede hacer entregas a ambos.
+
+
+¿Cómo funciona el pedido?
+El pedido incluye entrega sin costo para el cliente.
+
+
+¿Se registra el traslado entre sucursales?
+Sí, se debe registrar el cambio de sucursal y validar el traslado.
+
+
+
+
+Análisis
+Factibilidad Económica
+Desde el punto de vista económico, el sistema propuesto para la farmacia PHARMEDIC
+implica una inversión considerable, pero justificable. Se requiere la adquisición de hardware
+como lectores de códigos de barras (scanners) para los puntos de venta, así como
+infraestructura para soportar inventarios, ventas y delivery. También se debe considerar el
+desarrollo o implementación de un sistema que permita facturación electrónica en PDF
+conectada con la SAT (FEL), envío de facturas por correo o teléfono, y generación de
+reportes como cierres de caja en PDF.
+Además, la centralización de datos, el manejo de múltiples sucursales (zonas 16, 11 y 2) y
+la asignación automática de repartidores más cercanos implican costos de desarrollo más
+altos. Sin embargo, estos gastos se compensan con beneficios como mejor control de
+inventario (stock mínimo, alertas de vencimiento), optimización de ventas, control de
+proveedores (selección del mejor precio), y métricas de rendimiento tanto de empleados
+como de repartidores.
+El sistema también permite mejorar la atención al cliente y fidelización, lo cual puede
+incrementar ingresos. Por lo tanto, aunque la inversión inicial puede ser alta, el retorno es
+viable a mediano plazo gracias a la automatización y eficiencia operativa.
+Factibilidad Legal
+El sistema cumple con varios aspectos legales importantes. En primer lugar, la integración
+con la facturación electrónica (FEL) y conexión con la SAT garantiza que todas las ventas y
+devoluciones estén correctamente registradas conforme a la normativa fiscal vigente en
+Guatemala.
+También se contempla el manejo de medicamentos controlados, donde es obligatorio
+registrar datos del cliente (nombre, DPI, NIT, etc.) y exigir receta médica. Esto es clave para
+cumplir con regulaciones sanitarias. Además, el sistema permite almacenar evidencia de
+recetas (como fotos), lo cual sirve como respaldo ante auditorías o problemas legales.
+Por otro lado, el manejo de datos personales del cliente (nombre, dirección, teléfono,
+correo) implica la responsabilidad de proteger esta información en la base de datos,
+cumpliendo con principios de privacidad y seguridad.
+Las políticas de devolución y reembolso, incluyendo el límite de 6 meses basado en la fecha
+de caducidad, también ayudan a mantener un control legal adecuado sobre las
+transacciones.
+En general, el sistema es legalmente factible siempre que se implementen correctamente
+los controles de datos, facturación y regulación de medicamentos.
+Factibilidad Operativa
+Operativamente, el sistema se adapta bien al funcionamiento de la farmacia. Permite
+gestionar inventarios en tiempo real, registrar cada producto, controlar fechas de
+vencimiento (alertas de 2 meses), y mantener un stock mínimo para evitar
+desabastecimiento.
+El flujo de trabajo está bien definido: los cajeros pueden registrar clientes, el administrador
+tiene control total (incluyendo bajas y estadísticas), el repartidor gestiona entregas y pagos,
+y el área de regencia supervisa medicamentos controlados sin intervenir en otros roles.
+Además, cada rol tiene su propio login, lo que mejora el control interno.
+El sistema también facilita ventas tanto en tienda como a domicilio, asignando
+automáticamente la sucursal o repartidor más cercano, lo que optimiza tiempos de entrega.
+La integración con proveedores permite elegir mejores ofertas, mejorando la gestión de
+compras.
+La inclusión de métricas (ventas por empleado, rendimiento de repartidores, control de
+proveedores) permite una mejor toma de decisiones. Asimismo, la centralización de
+información asegura consistencia entre sucursales.
+En conclusión, el sistema es operativamente viable y mejora significativamente los procesos
+actuales.
+Factibilidad Técnica
+Desde el punto de vista técnico, el sistema es completamente viable, aunque requiere una
+arquitectura robusta. Se necesita una base de datos centralizada capaz de manejar
+información de clientes, inventarios, ventas, recetas, proveedores y sucursales.
+El sistema debe garantizar alta disponibilidad (que no se caiga), lo cual implica el uso de
+servidores confiables, posiblemente en la nube, con respaldos y mecanismos de
+recuperación. También se requiere integración con sistemas externos como la SAT (FEL)
+para facturación electrónica.
+El uso de lectores de códigos de barras implica compatibilidad con hardware y desarrollo de
+módulos para lectura y actualización automática de inventario. Asimismo, se deben
+implementar funcionalidades como envío de correos electrónicos, generación de PDFs,
+geolocalización básica para asignar repartidores, y control de accesos por roles.
+El manejo de condiciones médicas dinámicas, recetas, y restricciones en la venta de
+medicamentos añade complejidad lógica, pero es totalmente implementable con un buen
+diseño del sistema.
+En general, aunque el sistema tiene varios componentes, todos son técnicamente
+alcanzables con tecnologías actuales, por lo que la factibilidad técnica es alta.
+
+
+________________
+
+
+DERCAS – Sistema de Gestión Farmacéutica
+PHARMEDIC
+Objetivos
+El objetivo del sistema es desarrollar una plataforma web que permita automatizar y mejorar todos los procesos de la farmacia PHARMEDIC, incluyendo inventario, ventas, recetas médicas, delivery y administración. Se busca reducir pérdidas económicas actuales (Q5,000 a Q10,000), optimizar el rendimiento de repartidores, digitalizar procesos que actualmente son manuales y generar métricas que ayuden a la toma de decisiones. Además, el sistema debe garantizar estabilidad, evitando caídas y asegurando un funcionamiento continuo.
+Alcance
+El sistema cubrirá todas las áreas principales de la farmacia, incluyendo ventas en tienda y a domicilio, control de inventario por producto, lote y fecha de vencimiento, gestión de clientes, control de recetas médicas, administración de sucursales (zona 16, zona 11 y zona 2), gestión de proveedores y generación de reportes. También incluirá una aplicación móvil para repartidores conectada al sistema web. No se contempla la contabilidad completa, pero sí la integración con la SAT para facturación electrónica.
+Descripción del Sistema
+El sistema será una plataforma web centralizada con distintos roles como administrador, cajero, inventario, repartidor, regencia y proveedor. Permitirá registrar ventas y actualizar automáticamente el inventario en tiempo real. En medicamentos controlados se requerirá receta médica y datos del cliente. También permitirá ventas a domicilio asignando automáticamente el repartidor más cercano. Se generarán facturas en PDF y se enviarán al cliente. Además, se podrán gestionar promociones, recomendaciones de medicamentos y condiciones médicas asociadas a clientes.
+Parámetros
+El sistema manejará parámetros como stock mínimo de medicamentos, alertas de vencimiento con dos meses de anticipación, límite de devolución de productos de hasta seis meses, horarios de atención de 8:00 AM a 6:00 PM, métodos de pago (efectivo, tarjeta y transferencia), y asignación automática de sucursal y repartidor. Estos parámetros permitirán configurar el comportamiento del sistema según las necesidades de la farmacia.
+Validaciones
+El sistema validará que los medicamentos controlados solo se vendan con receta médica válida, que exista stock disponible antes de realizar una venta y que los datos del cliente estén completos cuando sea necesario. También validará los permisos según el rol del usuario, el cumplimiento de reglas de facturación con la SAT y la correcta asignación de productos según fechas de vencimiento. Además, limitará la venta de medicamentos dependiendo de su tipo.
+
+
+Tratamiento de Errores
+En caso de errores, el sistema manejará situaciones como pérdida de conexión a internet mediante reintentos o almacenamiento temporal de datos. Si falla la facturación electrónica, la información se guardará y se enviará posteriormente. También bloqueará operaciones si faltan datos o no hay inventario disponible. Se generarán registros de errores (logs) y se realizarán respaldos automáticos para evitar pérdida de información.
+Frecuencia de Procesos
+El sistema actualizará el inventario en tiempo real con cada venta o ingreso de producto. Generará reportes de forma diaria y mensual, ejecutará alertas de vencimiento diariamente, realizará copias de seguridad cada día y permitirá el cierre de caja por turno. Estas frecuencias aseguran que la información esté siempre actualizada.
+Tiempo Estimado de Procesos
+Se espera que el sistema tenga un rendimiento rápido, permitiendo registrar ventas en menos de cinco segundos, generar facturas en menos de diez segundos, consultar inventario de forma inmediata y asignar repartidores en menos de tres segundos. Esto garantizará una operación eficiente en la farmacia.
+Requerimientos de Prueba
+El sistema deberá ser probado mediante pruebas de carga para múltiples usuarios, pruebas de inventario en tiempo real, pruebas de facturación electrónica con la SAT, pruebas de control de recetas médicas, pruebas de seguridad por roles y pruebas de la aplicación móvil para repartidores. También se realizarán pruebas de recuperación ante fallos.
+Requerimientos de Implementación
+Para implementar el sistema será necesario adquirir computadoras, lectores de códigos de barras y dispositivos móviles para repartidores. También se deberá configurar la red, capacitar al personal, implementar la base de datos centralizada y realizar la integración con la SAT. Se recomienda utilizar servidores en la nube para garantizar disponibilidad.
+Requisitos del Sistema
+El sistema requerirá hardware como computadoras, scanners de código de barras y celulares para repartidores. A nivel de software, será un sistema web con una base de datos centralizada y una aplicación móvil. También necesitará conexión a internet estable para funcionar correctamente en todas las sucursales.
+Comentarios Generales
+El sistema debe ser altamente disponible, es decir, no debe fallar ni caerse. Debe ser fácil de usar para todo el personal, incluyendo aquellos con poca experiencia tecnológica. Además, debe ser escalable para futuras sucursales y su uso será obligatorio para todos los empleados. El mantenimiento será realizado por un equipo técnico externo.
+Responsables
+Los responsables del sistema estarán divididos por roles: el administrador tendrá control total, los cajeros se encargarán de ventas y registro de clientes, el área de inventario gestionará los productos, los repartidores realizarán entregas, la regencia supervisará medicamentos controlados y los proveedores gestionarán sus productos. El soporte técnico será externo.
+Factibilidad Económica
+El proyecto es económicamente viable con un presupuesto estimado entre Q50,000 y Q75,000. Se espera reducir pérdidas actuales de hasta Q10,000 mediante la automatización de procesos, mejorar el control de inventario y optimizar el rendimiento de repartidores. Además, el sistema permitirá generar mayor rentabilidad mediante métricas administrativas y mejor control financiero.
+Factibilidad Legal
+El sistema cumple con normativas del Ministerio de Salud, incluyendo regulaciones sobre medicamentos controlados y el uso obligatorio de recetas médicas. También cumple con la facturación electrónica (FEL) de la SAT. Se almacenarán registros digitales de recetas y ventas, y se generarán reportes mensuales obligatorios. Esto asegura el cumplimiento legal y evita sanciones.
+Factibilidad Operativa
+El sistema es operativamente viable ya que mejora procesos actuales como el control de inventario y recetas. Aunque parte del personal no está capacitado, se contempla capacitación. El uso del sistema será obligatorio y permitirá mejorar la eficiencia del trabajo en todas las áreas, incluyendo ventas, inventario y delivery.
+Factibilidad Técnica
+El sistema es técnicamente viable, aunque requiere inversión en hardware ya que actualmente no se cuenta con equipo. Se cuenta con conexión a internet y se utilizará una arquitectura web con base de datos centralizada. Se integrará con la SAT, se implementará geolocalización para repartidores y se desarrollará una app móvil, lo cual es completamente posible con tecnologías actuales.
+Beneficios del Sistema
+El sistema generará beneficios tangibles como reducción de pérdidas, control de inventario en tiempo real, automatización de ventas y mejor control de proveedores. También generará beneficios intangibles como modernización del negocio, mejor toma de decisiones, mayor control administrativo y mejora en la imagen empresarial.
+Conclusión General
+El análisis demuestra que el sistema para la farmacia PHARMEDIC es completamente viable desde el punto de vista económico, legal, operativo y técnico. Su implementación permitirá optimizar procesos, reducir pérdidas, mejorar el control administrativo y modernizar la farmacia, generando beneficios significativos a corto y mediano plazo.
+
+
+
+
+
+
+
+
+DERCAS 1 – Gestión de Inventario - COCA
+DERCAS 2 – Sistema de Ventas y Facturación Electrónica - JOSE
+DERCAS 3 – Control de Medicamentos y Recetas Médicas - SANTI
+DERCAS 4 – Sistema de Delivery y Aplicación Móvil - DIEGO
+DERCAS 5 – Administración y Reportes Gerenciales - TACUA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+PHARMEDIC - Sistema de Gestión Farmacéutica
+
+
+Número de Requerimiento 1 - Gestión de Inventarios
+
+
+   1. Objetivos
+El objetivo del sistema es desarrollar un módulo de gestión de inventario que permita automatizar el control de productos dentro de la organización, asegurando el registro, actualización y monitoreo en tiempo real del stock disponible.
+
+
+Este sistema está dirigido a personal administrativo, encargados de inventario y usuarios operativos, permitiendo mejorar la precisión de los datos, reducir pérdidas y optimizar la toma de decisiones mediante reportes y métricas.
+
+
+   2. Alcance
+El sistema cubrirá todas las operaciones relacionadas con el inventario, incluyendo registro de productos, control de entradas y salidas, manejo de stock mínimo, control de fechas de vencimiento y generación de reportes.
+Los usuarios que interactúan con el sistema serán:
+   * Administrador (control total)
+   * Encargado de inventario
+   * Cajeros (consulta y actualización por ventas)
+El sistema estará basado en una arquitectura web con base de datos centralizada, permitiendo acceso en tiempo real y control desde múltiples puntos.
+
+
+   3. Descripción Detallada
+El sistema cubrirá todas las operaciones relacionadas con el inventario, incluyendo registro de productos, control de entradas y salidas, manejo de stock mínimo, control de fechas de vencimiento y generación de reportes.
+Los usuarios que interactúan con el sistema serán:
+   * Administrador (control total)
+   * Encargado de inventario
+   * Cajeros (consulta y actualización por ventas)
+El sistema estará basado en una arquitectura web con base de datos centralizada, permitiendo acceso en tiempo real y control desde múltiples puntos.
+
+
+   4. Parámetros
+El sistema manejará los siguientes parámetros configurables:
+   * Stock mínimo por producto
+   * Alertas de vencimiento (por ejemplo, 2 meses antes)
+   * Tipos de productos
+   * Métodos de registro (manual o por código de barras)
+   * Horarios de operación del sistema
+Estos parámetros permitirán adaptar el sistema a las necesidades específicas del negocio.
+
+
+
+
+
+
+
+
+   5. Validaciones
+El sistema incluirá validaciones como:
+   * No permitir salida de productos sin stock disponible
+   * Verificar datos obligatorios al registrar productos
+   * Validar fechas de vencimiento correctas
+   * Controlar permisos según el rol del usuario
+   * Evitar duplicidad de productos
+
+
+   6. Tratamiento de errores
+El sistema gestionará errores mediante:
+   * Registro de bitácoras (logs)
+   * Validación de datos antes de guardar información
+   * Manejo de fallos de conexión mediante almacenamiento temporal
+   * Notificaciones al usuario en caso de errores
+Además, se implementarán respaldos automáticos para evitar pérdida de información.
+
+
+   7. Frecuencia
+El sistema operará con las siguientes frecuencias:
+   * Actualización de inventario: en tiempo real
+   * Alertas de vencimiento: diarias
+   * Reportes: diarios y mensuales
+   * Copias de seguridad: diarias
+
+
+   8. Tiempo estimado de proceso
+   * Registro de productos: menos de 5 segundos
+   * Consulta de inventario: inmediata
+   * Actualización de stock: en tiempo real
+   * Generación de reportes: menos de 10 segundos
+Esto representa una mejora significativa frente a procesos manuales
+
+
+   9. Requerimiento de prueba
+Para validar el sistema se realizarán:
+   * Pruebas de carga con múltiples usuarios
+   * Pruebas de actualización en tiempo real
+   * Pruebas de validación de stock
+   * Pruebas de alertas de vencimiento
+   * Pruebas de seguridad por roles
+   * Pruebas de recuperación ante fallos
+
+
+   10. Requerimiento de implementación 
+Para la implementación será necesario:
+   * Computadoras para el personal
+   * Lectores de código de barras
+   * Configuración de red
+   * Base de datos centralizada
+   * Capacitación del personal
+Se recomienda el uso de servidores en la nube para garantizar disponibilidad.
+   11. Requerimientos del sistema
+Hardware:
+   * Computadoras con capacidad básica-media
+   * Lectores de código de barras
+   * Servidor o servicio en la nube
+Software:
+   * Aplicación web
+   * Base de datos centralizada
+   * Navegador actualizado
+Red:
+   * Conexión a internet estable
+
+
+   12. Comentarios Generales
+El sistema debe ser altamente disponible, fácil de usar y escalable. Su uso será obligatorio para el personal encargado del inventario.
+
+
+Debe permitir futuras ampliaciones y garantizar la integridad de la información.
+
+
+   13. Responsables
+   * Funcional: Área de Inventario
+   * Administrativo: Administración General
+   * Sistemas: Equipo de Desarrollo / Soporte Técnico
+
+
+   14. Historia de versiones
+
+
+Versión 
+	Fecha
+	Autor
+	Descripción
+	1.0
+	2026
+	Equipo de desarrollo
+	Creación del documento de requerimientos 
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Diagrama de Flujo - Gestión de Inventarios  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+El flujo de traslado entre sucursales no aparece en ningún nivel.el bodeguero puede mover stock de una sucursal a otra con registro y confirmación. Eso debería ser un subproceso dentro de 2.0 o un proceso 2.5 separado. En nivel 2 falta mencionar el reporte específico mensual para la SAT, que es un requerimiento legal, no sólo administrativo. La vista del bodeguero tampoco aparece en el DFD. Eso es una salida de datos específica que podría ir como un flujo de 4.0 hacia el usuario de tipo bodeguero.
+ADEMAS LA DOCUMENTACION DE ENTIDADES EXTERNAS ESTA MUY CORTA, COPIA LA DE JOSE COMO REFERENCIA
+
+
+
+
+
+
+
+
+   1. Documentación de Entidades Externas
+   1. Proveedores
+Empresas o distribuidores que suministran medicamentos y productos  farmaceúticos.
+   1. Entradas al sistema:
+   1. Productos
+   2. Facturas de compra
+   3. Órdenes de compra
+   2. Salidas del sistema:
+   1. Solicitudes de compra
+   3. Frecuencia
+Periódica o bajo de compra
+   4. Importancia
+Garantiza el abastecimiento del inventario
+   2. Usuarios
+Personal de farmacia (cajeros, administrativos, encargados de inventarios).
+   5. Entradas al sistema: 
+   1. Consultas
+   2. Solicitudes de reportes
+   6. Salidas del sistema:
+   1. Reportes de inventario
+   2. Alertas y notificaciones
+   7. Importancia 
+Son quienes operan y toman decisiones basadas en el sistema
+   2. Documentación de Flujos de Datos
+
+
+Flujo de Datos 
+	Origen 
+	Destino 
+	Descripción
+	Datos de productos / órdenes de compra
+	Proveedores
+	Gestión de inventario
+	Información de productos adquiridos
+	Registro de inventarios
+	Gestión de inventario
+	Base de datos
+	Almacenamiento de productos
+	Datos almacenados / consultas
+	Base de datos 
+	Sistema
+	Información recuperada
+	Inventario actualizado
+	Gestión de entradas
+	Gestión de salidas
+	Refleja stock disponible
+	Movimientos de salida
+	Gestión de salidas 
+	Control de inventario
+	Registra ventas o salidas
+	Datos procesados
+	Control de inventario
+	Reportes
+	Información lista para análisis 
+	Resultados / análisis
+	Reportes
+	Alertas
+	Base para generar alertas
+	Alertas y notificaciones
+	Sistema
+	Usuarios
+	Avisos de stock o vencimientos
+	
+
+   3. Documentación de Procesos
+   1. 1.0 Gestión de entradas
+                Administra el ingreso de productos al inventario
+   8. Subprocesos
+   1. Crear orden de compra
+   2. Recepción de productos 
+   3. Validación
+   4. Actualización del inventario
+   9. Entradas
+Productos y facturas
+   10. Salidas
+Inventario actualizado
+   2. 2.0 Gestión de salidas 
+Controla la salida de productos (ventas o ajustes).
+   11. Subprocesos
+   1. Registrar venta
+   2. Validar stock
+   3. Descontar inventario
+   4. Registrar devoluciones
+   12. Entradas
+Solicitudes de salida
+   13. Salidas
+Inventario actualizado
+   3. 3.0 Control de Inventario
+Supervisa el estado del inventario
+   14. Subprocesos
+   1. Control de stock mínimo
+   2. Control de lotes
+   3. Control de vencimientos
+   4. Recalcular existencias
+   15. Salidas
+Estado de inventario
+   4. 4.0 Consultas y Reportes
+Genera información para análisis
+   16. Subprocesos
+   1. Consultar inventario
+   2. Reporte de movimientos
+   3. Reporte de vencimientos 
+   4. Exportación de reportes
+   17. Salidas
+Reportes
+   5. 5.0 Alertas y Notificaciones
+Detecta condiciones críticas 
+   18. Subprocesos
+   1. Verificar stock mínimo
+   2. Verificar vencimientos
+   3. Generar alertas
+   4. Enviar notificaciones
+   19. Salidas
+Alertas 
+
+
+
+
+
+
+
+
+
+
+   4. Documentación de Almacenes de Datos
+   1. Base de datos de PHARMEDIC
+Repositorio central del sistema
+   2. Contenido
+   1. Productos
+   2. Inventario
+   3. Movimientos
+   4. Lotes
+   5. Fechas de vencimiento
+   6. Alertas generadas
+   3. Entradas
+   1. Registros de productos
+   2. Actualizaciones de inventario
+   3. Movimientos 
+   4. Salidas
+   1. Información para consultas
+   2. Datos para reportes
+   5. Importancia
+   1. Núcleo del sistema, garantiza integridad de la información
+   5. Documentación del DFD 
+   1. Nivel 0 - Contexto
+   1. Representa el sistema como un solo proceso (Gestión de Inventarios)
+   2. Interactúa con
+   1. Proveedores 
+   2. Usuarios
+   3. Flujo principal
+   1. Entrada: productos
+   2. Salida: reportes y alertas
+   2. Nivel 1 - Procesos Principales 
+   1. Se descomponen en 
+   1. Gestión de entradas
+   2. Gestión de salidas
+   3. Control de inventario
+   4. Consultas y reportes
+   5. Alertas y notificaciones 
+   3.  Nivel 2 - Desglose de procesos
+   1. Se detallan los subprocesos internos de cada módulo 
+   2. Se identifican:
+   1. Validaciones
+   2. Actualizaciones
+   3. Cálculos
+   4. Generación de reportes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Numero de requerimiento: 2 - Sistema de ventas y facturación electrónica
+
+
+   1. Objetivos
+El objetivo de este requerimiento es implementar un sistema de ventas y facturación electrónica que permita registrar de manera eficiente todas las transacciones realizadas en 
+
+
+la farmacia PHARMEDIC, tanto en punto de venta como a domicilio. Este módulo busca automatizar el proceso de facturación, reducir errores humanos y garantizar el cumplimiento de las normativas fiscales mediante la integración con la SAT (FEL).
+Este sistema será utilizado principalmente por cajeros, administradores y repartidores, quienes podrán registrar ventas, generar facturas electrónicas en formato PDF y enviarlas al cliente. Además, permitirá mantener un control ordenado de las ventas realizadas y facilitar la generación de reportes financieros.
+   2. Alcance
+Este módulo cubrirá el proceso completo de ventas, desde el registro de productos hasta la generación de facturas electrónicas y su envío al cliente. Permitirá realizar ventas en tienda física y ventas a domicilio, integrándose con el sistema de inventario para actualizar automáticamente el stock.
+• Usuarios que interactúan:
+   * Cajeros (registro de ventas y facturación)
+   * Administradores (supervisión y reportes)
+   * Repartidores (confirmación de pagos en entregas)
+• Arquitectura del sistema:
+   * Sistema web centralizado
+   * Base de datos central
+   * Integración con la SAT (FEL)
+   * Generación de facturas en PDF
+   * Módulo de envío de facturas (correo o teléfono)
+
+
+
+
+   3. Descripción detallada
+El sistema permitirá registrar ventas seleccionando productos mediante código de barras o búsqueda manual. Al confirmar la venta, el sistema calculará automáticamente subtotal, impuestos y total, generando una factura electrónica que será enviada al cliente.
+Para medicamentos controlados, el sistema solicitará la validación de receta médica y el ingreso de datos del cliente. Además, permitirá manejar distintos métodos de pago como efectivo, tarjeta o transferencia. En el caso de ventas a domicilio, el repartidor confirmará el pago al momento de la entrega.
+El sistema también permitirá realizar devoluciones y reembolsos, los cuales estarán conectados directamente con la facturación electrónica (FEL). Asimismo, se registrarán todas las transacciones para generar reportes y métricas de ventas.
+
+
+   4. Parámetros
+Métodos de pago: efectivo, tarjeta, transferencia
+Generación automática de factura electrónica
+Envío de factura por correo o teléfono
+Límite de devolución: 6 meses
+Cálculo automático de subtotal y total
+Integración con SAT (FEL)
+Registro opcional de datos del cliente en ventas normales
+Registro obligatorio en medicamentos controlados
+
+
+   5. Validaciones
+No se puede completar una venta sin seleccionar productos
+No se puede vender si no hay stock disponible
+Medicamentos controlados requieren receta médica
+Validación de datos del cliente cuando aplique
+Validación de conexión con SAT para facturación
+Confirmación de pago en ventas a domicilio
+Restricción de devolución fuera del plazo establecido
+
+
+6. Tratamiento de Errores
+El sistema contará con un registro de errores (bitácora) para identificar fallos durante el proceso de ventas o facturación. En caso de fallos de conexi||ón con la SAT, la factura se almacenará temporalmente y se reenviará automáticamente cuando la conexión se restablezca.
+Si ocurre un error en el registro de venta, el sistema evitará completar la transacción hasta corregir los datos. También se manejarán errores de conexión a internet mediante reintentos automáticos o almacenamiento local tempora
+7. Frecuencia
+A pedido
+ Diario
+ Semanal
+ Quincenal
+ Mensual
+ Bimestral
+Trimestral
+Semestral
+Anual
+Otros
+8. Tiempo Estimado de Proceso
+Actualmente, el proceso de ventas manual puede tardar varios minutos y generar errores. Con el sistema propuesto, el registro de ventas se realizará en un tiempo estimado de 3 a 5 segundos, mientras que la generación de la factura electrónica tomará menos de 10 segundos.
+Esto representa una mejora significativa en eficiencia, reduciendo tiempos de atención y minimizando errores humanos en el proceso.
+9. Requerimientos de Prueba
+Pruebas de registro de ventas
+Pruebas de cálculo de totales
+Pruebas de generación de facturas electrónicas
+Pruebas de integración con la SAT (FEL)
+Pruebas de devoluciones y reembolsos
+Pruebas con múltiples usuarios simultáneos
+Pruebas de envío de facturas
+
+
+10. Requerimiento de Implementación
+Computadoras en puntos de venta
+Lectores de código de barras
+Conexión a internet estable
+Servidor de producción (preferible en la nube)
+Integración con la SAT (FEL)
+Configuración de correos electrónicos para envío de facturas
+Capacitación al personal
+
+
+11. Requisitos del Sistema
+El sistema requerirá computadoras con acceso a internet y navegadores actualizados. Se necesitarán lectores de código de barras para facilitar el registro de productos. Además, será necesario contar con un servidor con alta disponibilidad para garantizar el funcionamiento continuo del sistema.
+El software deberá permitir integración con la SAT para facturación electrónica, generación de documentos PDF y almacenamiento de datos en una base de datos centralizada.
+12. Comentarios Generales
+El sistema debe ser rápido, confiable y fácil de usar para los cajeros. Debe garantizar que las ventas se registren correctamente y que las facturas se generen sin errores. Además, debe funcionar de manera continua sin interrupciones, ya que es un módulo crítico para la operación de la farmacia.
+13. Responsables
+Funcional……………: Encargado de Ventas
+Administrativo……: Gerencia General
+Sistemas………………: Equipo técnico externo
+
+
+
+
+
+
+
+
+
+
+Dercas 2 - Sistema de Ventas y Facturación electrónica
+
+
+Versión
+	Fecha
+	Autor
+	Descripción
+	1.0
+	18/02/2026
+	PiruloDev
+	Creación del requerimiento
+	2.0
+	26/04/26
+	Jose
+	 Creación del requerimiento
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+El flujo "Confirmación venta" que en el Nivel 0 va del sistema al Cajero aparece en el Nivel 1 saliendo de 3.0 hacia el Cajero, lo cual está bien, pero en el diagrama se ve que también hay "Datos venta" entrando a 3.0 desde el Cajero directamente — eso no cuadra del todo. El cajero interactúa con 1.0, no con 3.0. Ese flujo debería llegar a 3.0 como consecuencia del pedido validado, no directo desde el cajero.
+El almacén D2 Pedidos recibe el registro del pedido desde 1.0, pero en el diagrama no se ve que 2.0 lo consulte explícitamente — solo recibe "pedido validado" como flujo directo de proceso a proceso. Según la documentación, 2.0 sí consulta D2, y esa flecha debería aparecer.
+El flujo de devoluciones no aparece en ningún nivel. Es uno de los requerimientos más importantes del DERCAS 2 — devoluciones conectadas directamente con FEL — y no tiene representación en el DFD. Debería ser al menos un subproceso dentro de 3.0 o un proceso 4.0 separado con su propio flujo hacia SAT.
+Las promociones (1+1) tampoco aparecen. Según los requerimientos generales de PHARMEDIC, el sistema de ventas debe manejarlas. No es obligatorio en este DFD pero sería bueno mencionarlo.
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+Entidades externas
+Cliente: persona que realiza la compra en tienda física o solicita entrega a domicilio. Proporciona sus datos personales y del pedido y recibe como salida la factura electrónica en PDF. En el caso de tener algún medicamento controlado, su registro en la base de datos es obligatorio.
+
+
+Cajero: empleado de la farmacia encargado de operar el punto de venta. Ingresa los productos mediante código de barras o búsqueda manual, gestiona el método de pago y genera la factura. Es el usuario principal que usará el sistema.
+
+
+Repartidor: empleado que ejecuta las entregas a domicilio, su función dentro del sistema es confirmar que el pago fue recibido al momento de la entrega, lo cual ocasiona la finalización del proceso de facturación.
+ 
+SAT / FEL: el sistema envía los datos de cada factura para su validación y certificación electrónica. Devuelve la confirmación o rechazo de la factura. Es una entidad externa crítica y obligatoria.
+
+
+Banco: entidad financiera que procesa los pagos realizados por tarjeta o transferencia y confirma el sistema si la transacción fue aprobada o rechazada antes de completar la venta.
+
+
+Flujos de Datos
+Datos pedido
+Origen: Cliente - Proceso 1.0 Gestionar Pedido. Contiene información sobre los productos que el cliente desea adquirir, ya sea en tienda o mediante pedido a domicilio.
+
+
+Datos venta
+Origen: Cajero - Proceso 1.0 Gestionar Pedido. Incluye los productos seleccionados, cantidad y método de pago elegido por el cajero durante el registro de la transacción.
+
+
+Confirmación venta
+Origen: Proceso 1.0 Gestionar Pedido - Cajero. Respuesta del sistema indicando que la venta fue registrada correctamente.
+
+
+Consulta cliente
+Origen: Proceso 1.0 Gestionar Pedido - D1 Clientes. Solicitud de verificación o registro de los datos del cliente vinculado a la venta.
+
+
+Datos cliente
+Origen: D1 Clientes - Proceso 1.0 Gestionar Pedido. Información del cliente recuperada del almacén para completar el registro de la venta.
+
+
+Consulta stock
+Origen: Proceso 1.0 Gestionar Pedido - D3 Inventario. Solicitud de verificación de unidades disponibles del producto seleccionado.
+
+
+Stock disponible
+Origen: D3 Inventario - Proceso 1.0 Gestionar Pedido. Respuesta con la cantidad existente del producto. Si es cero, la venta no puede completarse.
+Registro pedido
+Origen: Proceso 1.0 Gestionar Pedido - D2 Pedidos. Almacenamiento del detalle del pedido registrado en la base de datos.
+
+
+Pedido validado
+Origen: Proceso 1.0 Gestionar Pedido - Proceso 2.0 Asignar Entrega. Señal de que el pedido fue verificado correctamente y puede proceder a ser asignado a un repartidor.
+
+
+Asignación
+Origen: Proceso 2.0 Asignar Entrega - Repartidor. Notificación al repartidor con los datos del 
+pedido que debe entregar.
+
+
+Confirmación entrega
+Origen: Repartidor - Proceso 2.0 Asignar Entrega. Confirmación que el repartidor registra en el sistema al momento de completar la entrega y recibir el pago.
+
+
+Consulta repartidor
+Origen: Proceso 2.0 Asignar Entrega - D4 Repartidores. Solicitud de información sobre los repartidores disponibles para asignar el pedido.
+
+
+Datos repartidor
+Origen: D4 Repartidores - Proceso 2.0 Asignar Entrega. Información del repartidor disponible recuperada del almacén para realizar la asignación.
+
+
+Pedido en proceso
+Origen: Proceso 2.0 Asignar Entrega - Proceso 3.0 Procesar Pago y Facturación. Indica que el pedido fue asignado y está en camino, habilitando el proceso de cobro y facturación.
+
+
+Datos pago
+Origen: Proceso 3.0 Procesar Pago y Facturación - Banco. Información de la transacción enviada al banco para procesar el cobro con tarjeta o transferencia.
+
+
+Confirmación pago
+Origen: Banco - Proceso 3.0 Procesar Pago y Facturación. Respuesta del banco indicando si la transacción fue aprobada o rechazada.
+
+
+Datos FEL
+Origen: Proceso 3.0 Procesar Pago y Facturación - SAT (FEL). Transmisión de los datos de la factura a la Superintendencia de Administración Tributaria para su certificación electrónica.
+
+
+Cert. Factura
+Origen: SAT (FEL) - Proceso 3.0 Procesar Pago y Facturación. Respuesta de la SAT confirmando la factura electrónica certificada bajo normativa FEL.
+
+
+Registro pago
+Origen: Proceso 3.0 Procesar Pago y Facturación - D5 Pagos y Facturación. Almacenamiento del registro del pago procesado y la factura generada.
+
+
+Registro venta
+Origen: Proceso 3.0 Procesar Pago y Facturación - D6 Ventas. Almacenamiento del detalle completo de la venta finalizada para historial y reportes.
+
+
+Factura PDF
+Origen: Proceso 3.0 Procesar Pago y Facturación - Cliente. Documento de factura electrónica certificada que se envía al cliente por correo electrónico o mensaje de texto.
+
+
+Procesos
+
+
+1.0 Gestionar Pedido
+Proceso principal de entrada del sistema. Recibe los datos del cajero y del cliente, verifica la existencia del cliente en D1, consulta el stock disponible en D3 Inventario y registra el pedido en D2 Pedidos. Una vez validada toda la información, genera un pedido validado que avanza al siguiente proceso. Es el punto de partida de toda transacción en el sistema.
+
+
+2.0 Asignar Entrega
+Gestiona la asignación del pedido a un repartidor disponible. Consulta D4 Repartidores para identificar quién puede realizar la entrega y le envía la asignación. Recibe la confirmación de entrega del repartidor y pasa el pedido en proceso hacia la facturación. Este proceso aplica principalmente para ventas a domicilio.
+
+
+3.0 Procesar Pago y Facturación
+Gestiona el cobro de la venta y la generación de la factura electrónica. Interactúa con el Banco para confirmar pagos con tarjeta o transferencia. Una vez confirmado el pago, envía los datos a la SAT para certificar la factura bajo normativa FEL. Al recibir la certificación genera el PDF y lo envía al cliente. Registra el pago en D5 y la venta en D6. Si hay fallo de conexión con la SAT, la factura se almacena temporalmente y se reenvía cuando se restablezca la conexión.
+
+
+Almacenes de Datos
+
+
+D1 Clientes
+Almacena la información de los clientes registrados en el sistema. Incluye nombre, documento de identificación, correo electrónico y teléfono. El registro es obligatorio para medicamentos controlados y opcional para ventas normales. Es consultado y actualizado por el proceso 1.0 Gestionar Pedido.
+
+
+D2 Pedidos
+Registra cada pedido generado en el sistema con su detalle completo: fecha, productos, cantidades, cliente asociado y estado del pedido. Es escrito por el proceso 1.0 y consultado por el proceso 2.0 para realizar la asignación de entrega.
+
+
+D3 Inventario
+Contiene el catálogo de productos disponibles en la farmacia, incluyendo código, nombre, precio, categoría, indicación de si requiere receta y cantidad en stock. Es consultado por el proceso 1.0 para validar disponibilidad y se actualiza automáticamente al confirmar cada venta.
+
+
+D4 Repartidores
+Almacena la información del personal de reparto disponible, incluyendo nombre, estado de disponibilidad y pedidos asignados. Es consultado por el proceso 2.0 Asignar Entrega para determinar qué repartidor puede atender el pedido.
+
+
+D5 Pagos y Facturación
+Almacena el detalle de cada pago procesado y su factura electrónica correspondiente. Incluye número de factura FEL, estado de certificación ante la SAT, método de pago, monto y referencia de transacción bancaria cuando aplica. También registra las facturas en estado pendiente cuando hay fallas de conexión con la SAT. Es escrito por el proceso 3.0.
+
+
+D6 Ventas
+Registra el historial completo de todas las ventas finalizadas. Cada registro incluye fecha, cajero, productos vendidos, cantidades, totales, método de pago y estado final de la venta. Es la fuente principal para la generación de reportes financieros y métricas de gestión. Es escrito por el proceso 3.0 Procesar Pago y Facturación.
+________________
+
+
+
+
+Número de Requerimiento: 3
+ 
+Control de Medicamentos y Recetas Médicas 
+ 
+1. Objetivos 
+El presente documento tiene como objetivo definir los requisitos funcionales y no funcionales del sistema web para el control de medicamentos, recetas médicas, inventario, ventas y gestión de delivery de la farmacia PHARMEDIC.
+El documento está dirigido al equipo de desarrollo, administración de la farmacia y responsables del proyecto, y describe los requerimientos técnicos, operativos, legales y de validación necesarios para garantizar el correcto funcionamiento del sistema.
+
+
+2. Alcance 
+El sistema será una plataforma web centralizada con una aplicación móvil para repartidores, destinada a la gestión integral de:
+
+
+   * Inventario de medicamentos 
+   * Control de recetas médicas 
+   * Ventas en tienda y a domicilio 
+   * Facturación electrónica (FEL – SAT) 
+   * Gestión de sucursales 
+   * Control de proveedores 
+   * Métricas administrativas 
+
+
+Tipos de Usuarios
+   * Administrador 
+   * Acceso total al sistema. 
+   * Gestión de sucursales, empleados y estadísticas. 
+   * Alta y baja de clientes. 
+   * Configuración de condiciones médicas dinámicas. 
+
+
+Regencia 
+   * Control exclusivo de medicamentos regulados. 
+   * Supervisión de cumplimiento normativo. 
+   * Visualización de reportes (sin modificar otros roles). 
+
+
+Caja 
+   * Registro de ventas. 
+   * Registro de clientes. 
+   * Facturación. 
+   * Corte de caja. 
+
+
+Inventario (Bodega) 
+   * Registro de ingreso de productos. 
+   * Control de fechas de vencimiento. 
+   * Control de stock mínimo. 
+   * Traslado entre sucursales. 
+
+
+Repartidor 
+   * Recepción de pedidos. 
+   * Confirmación de pago. 
+   * Confirmación de entrega. 
+   * Entregas a clientes y sucursales. 
+
+
+Arquitectura General
+   * Sistema web centralizado en servidor (preferiblemente en la nube). 
+   * Base de datos centralizada. 
+   * Integración con: 
+   * SAT (FEL) 
+   * Correo electrónico 
+   * Generación de PDF 
+   * Lectores de código de barras. 
+   * Aplicación móvil para repartidores.
+
+
+3. Descripción detallada 
+El sistema permitirá:
+
+
+Inventario
+   * Registro de productos por: 
+   * Pastilla 
+   * Blister 
+   * Caja completa 
+   * Control por lote y fecha de vencimiento. 
+   * Venta automática priorizando el producto más próximo a vencer. 
+   * Alertas de vencimiento con 2 meses de anticipación. 
+   * Control de stock mínimo. 
+   * Registro de traslados entre sucursales. 
+
+
+Ventas
+   * Venta en tienda y a domicilio. 
+   * Actualización automática de inventario. 
+   * Métodos de pago: 
+   * Efectivo 
+   * Tarjeta 
+   * Transferencia BAC 
+   * Generación de factura electrónica FEL. 
+   * Envío de factura por correo. 
+   * Implementación de reembolsos y devoluciones conectadas a FEL. 
+   * Promociones tipo 1+1 visibles en catálogo. 
+
+
+
+
+Recetas Médicas
+   * Registro obligatorio de datos del cliente para medicamentos controlados. 
+   * Registro de DPI como factor clave. 
+   * Almacenamiento digital de receta (fotografía). 
+   * Notificación a clientes según seguimiento de receta. 
+   * Control de cantidades según tipo de medicamento. 
+   * Condiciones médicas dinámicas asignables a medicamentos y clientes. 
+   * Advertencias de posibles riesgos (sin impedir venta). 
+
+
+Delivery
+   * Asignación automática del repartidor más cercano. 
+   * Entrega sin costo para el cliente. 
+   * Confirmación obligatoria de pago antes de finalizar la entrega. 
+   * Métricas de rendimiento por repartidor. 
+
+
+Administración
+   * Estadísticas: 
+   * Ventas por empleado. 
+   * Rendimiento por sucursal. 
+   * Control de proveedores. 
+   * Selección de proveedor con mejor oferta. 
+   * Cierre de caja diario. 
+   * Generación de PDF de cierre de caja.
+
+
+
+
+4. Parámetros 
+
+
+El sistema interactúa con:
+   * SAT (FEL) para facturación electrónica. 
+   * Base de datos centralizada. 
+   * Sistema de correos electrónicos. 
+   * Lectores de códigos de barras. 
+   * Aplicación móvil de repartidores. 
+
+
+Parámetros clave:
+   * DPI del cliente. 
+   * Lote del medicamento. 
+   * Fecha de vencimiento. 
+   * Sucursal asignada. 
+   * Rol del usuario.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5. Validaciones 
+   * No permitir venta de medicamento controlado sin receta. 
+   * No permitir finalizar entrega sin confirmar pago. 
+   * No permitir facturación si faltan datos obligatorios. 
+   * Alertar cuando el stock esté bajo el mínimo. 
+   * Priorizar venta de medicamentos con vencimiento más próximo. 
+   * Validar permisos según rol. 
+   * Registrar traslado entre sucursales con confirmación. 
+
+
+7. Tratamiento de Errores 
+   * Registro de bitácora de errores del sistema. 
+   * Registro de errores de facturación FEL. 
+   * Registro de errores de inventario. 
+   * Notificación al administrador ante fallos críticos. 
+   * Respaldo automático de base de datos.
+
+
+8. Frecuencia 
+   * Ventas: Diario 
+   * Cierre de caja: Diario 
+   * Reportes administrativos: Mensual 
+   * Reportes regulatorios: Mensual 
+   * Control de inventario: Diario 
+   * Evaluación de proveedores: Mensual
+
+
+8.4. Tiempo Estimado de Proceso 
+Actualmente:
+   * Control manual e inventario desactualizado. 
+   * Pérdidas estimadas: Q5,000 – Q10,000 mensuales. 
+   * Con el sistema:
+   * Reducción significativa de errores. 
+   * Automatización inmediata del inventario. 
+   * Reducción de tiempo en cierre de caja. 
+   * Mejora en control de medicamentos regulados.
+ 
+9. Requerimientos de Prueba 
+ 
+Datos simulados de: 
+   * Ventas 
+   * Inventario 
+   * Recetas 
+
+
+Pruebas:
+   * Pruebas de integración con SAT (modo testing). 
+   * Pruebas de carga simultánea por sucursal. 
+   * Pruebas de lectura de código de barras.
+   * Ambiente de pruebas
+
+
+
+
+10. Requerimiento de Implementación 
+   * Servidor en la nube. 
+   * Base de datos centralizada. 
+   * Certificado SSL. 
+   * Equipos: 
+   * Computadoras por sucursal. 
+   * Lectores de código de barras. 
+   * Impresoras. 
+   * POS para pagos con tarjeta. 
+   * Capacitación básica al personal.
+
+
+
+
+11. Requisitos del Sistema   
+Hardware mínimo por sucursal:
+   * 1 computadora para caja. 
+   * 1 computadora para inventario. 
+   * 1 dispositivo móvil para repartidor. 
+   * Lector de código de barras. 
+   * Impresora. 
+   * Conexión estable a internet. 
+
+
+Software:
+   * Navegador actualizado. 
+   * Sistema compatible con FEL. 
+   * Base de datos segura. 
+   * Sistema con alta disponibilidad (uptime alto).
+
+
+ 
+11. Comentarios Generales 
+ 
+El sistema debe garantizar estabilidad y disponibilidad constante, ya que uno de los principales requerimientos del cliente es que “no se caiga nunca”.
+Debe ser escalable para futuras sucursales y permitir el crecimiento del negocio.
+
+
+
+
+12. Responsables 
+Funcional: Administración PHARMEDIC
+Administrativo: Gerencia General
+Sistemas: Equipo de Desarrollo 
+
+
+Diagrama de flujo
+
+
+Nivel 0:
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+13. Historia de Versiones
+
+
+Versión
+	Fecha
+	Autor
+	Descripción
+	1.0
+	2026
+	Equipo DERCAS
+	Documento inicial de requisitos
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
+
+Mover Inventario y Regencia del Nivel 0 de entidades externas a actores de rol. Agregar SAT/FEL y Banco como entidades externas en Nivel 1. Conectar el subproceso de traslado al flujo principal en el Nivel 2 de inventario. Agregar devoluciones en Nivel 2 de ventas. Y conectar la validación médica de Regencia al subproceso correcto en el Nivel 2 de recetas.
+
+
+Documentación Entidades Externas
+
+
+Cliente:
+Persona que realiza compras en la farmacia o solicita pedidos a domicilio. Proporciona datos de compra, receta médica si aplica, y recibe como salida la factura y confirmación del pedido.
+
+
+Cajero:
+Empleado encargado de registrar ventas, gestionar pagos y emitir facturas dentro del sistema.
+
+
+Proveedor:
+Entidad encargada de suministrar medicamentos. Proporciona información de productos y abastecimiento.
+
+
+Regencia:
+Encargada de validar medicamentos controlados y verificar cumplimiento de normativas médicas.
+
+
+Inventario:
+Área encargada del control de medicamentos, incluyendo ingreso, stock y vencimiento de productos.
+
+
+Repartidor:
+Empleado encargado de realizar entregas a domicilio y confirmar la recepción del pedido.
+
+
+
+
+
+
+
+
+
+
+
+
+Documentación Flujos de Datos
+
+
+Datos de compra
+Origen: Cliente → Proceso 2.0 Ventas y Facturación
+Información de los productos que el cliente desea adquirir.
+
+
+Registro de venta
+Origen: Cajero → Proceso 2.0 Ventas y Facturación
+Datos ingresados por el cajero para completar la transacción.
+
+
+Factura
+Origen: Proceso 2.0 Ventas y Facturación → Cliente
+Documento generado como comprobante de la compra.
+
+
+Stock actualizado
+Origen: Proceso 2.0 Ventas y Facturación → Proceso 1.0 Gestión de Inventario
+Indica la reducción de productos vendidos.
+
+
+Stock disponible
+Origen: Proceso 1.0 Gestión de Inventario → Proceso 2.0 Ventas y Facturación
+Cantidad de productos disponibles para la venta.
+
+
+Receta médica
+Origen: Cliente → Proceso 3.0 Control de Recetas Médicas
+Documento requerido para medicamentos controlados.
+
+
+Validación médica
+Origen: Regencia → Proceso 3.0 Control de Recetas Médicas
+Criterios médicos para autorizar o rechazar la receta.
+
+
+Autorización de venta
+Origen: Proceso 3.0 Control de Recetas Médicas → Proceso 2.0 Ventas y Facturación
+Permite continuar con la venta del medicamento.
+
+
+Pedido
+Origen: Cliente → Proceso 4.0 Gestión de Delivery
+Solicitud de entrega a domicilio.
+
+
+Pedido asignado
+Origen: Proceso 4.0 Gestión de Delivery → Repartidor
+Notificación de entrega asignada.
+
+
+Confirmación de entrega
+Origen: Repartidor → Proceso 4.0 Gestión de Delivery
+Confirmación de que el pedido fue entregado.
+
+
+Datos de proveedor
+Origen: Proveedor → Proceso 5.0 Administración y Reportes
+Información sobre productos y abastecimiento.
+
+
+Datos de cierre
+Origen: Cajero → Proceso 5.0 Administración y Reportes
+Información para generar reportes financieros.
+
+
+
+
+Documentación Procesos
+1.0 Gestión de Inventario
+
+
+Proceso encargado de administrar el control de medicamentos. Registra productos, controla stock y genera alertas cuando los niveles son bajos o próximos a vencerse. Proporciona información de disponibilidad a ventas.
+
+
+2.0 Ventas y Facturación
+
+
+Proceso principal del sistema. Registra ventas, valida datos del cliente, consulta inventario, genera facturación y actualiza el stock. También interactúa con el módulo de recetas médicas y delivery.
+
+
+3.0 Control de Recetas Médicas
+
+
+Proceso encargado de validar recetas médicas para medicamentos controlados. Verifica datos del cliente, consulta historial y autoriza o rechaza la venta.
+
+
+4.0 Gestión de Delivery
+
+
+Proceso que gestiona pedidos a domicilio. Asigna repartidores, registra el estado del pedido y confirma la entrega.
+
+
+5.0 Administración y Reportes
+
+
+Proceso encargado de generar reportes, gestionar proveedores y analizar información del sistema para la toma de decisiones.
+
+
+
+
+Documentación Almacenes de Datos
+
+
+D1 Clientes
+Almacena información de clientes, incluyendo datos personales y registros necesarios para ventas y recetas médicas.
+
+
+D2 Inventario
+Contiene los productos disponibles, cantidades en stock, precios y control de vencimientos.
+
+
+D3 Recetas
+Almacena las recetas médicas registradas y su estado de validación.
+
+
+D4 Ventas
+Registra todas las transacciones realizadas en el sistema.
+
+
+D5 Pedidos
+Almacena pedidos a domicilio y su estado de entrega.
+
+
+D6 Proveedores
+Contiene información de proveedores y abastecimiento.
+
+
+
+
+
+
+Documentación DFD
+
+
+El Diagrama de Flujo de Datos de nivel 1 representa la estructura general del sistema, mostrando los procesos principales, las entidades externas y los almacenes de datos.
+
+
+El cliente y el cajero interactúan con el proceso de ventas, el cual consulta el inventario para verificar disponibilidad de productos. En caso de medicamentos controlados, el proceso de recetas médicas valida la información antes de autorizar la venta.
+
+
+El sistema también permite gestionar pedidos a domicilio mediante el módulo de delivery, el cual asigna repartidores y confirma la entrega.
+
+
+Finalmente, el módulo de administración recopila información de ventas, proveedores e inventario para generar reportes y facilitar la toma de decisiones.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+________________
+
+
+Número de Requerimiento: 4
+Nombre del Requerimiento: Sistema de Delivery y Aplicación Móvil
+1. Objetivos
+El objetivo de este documento es definir los requisitos del sistema de delivery y la aplicación móvil de PHARMEDIC, permitiendo gestionar pedidos a domicilio, asignación de repartidores y mejorar la experiencia del cliente.
+Este documento servirá como guía para desarrolladores, administradores y stakeholders, asegurando una correcta implementación del sistema de entregas y su integración con el sistema general de la farmacia.
+2. Alcance
+El sistema permitirá a los clientes realizar pedidos desde una aplicación móvil y gestionar su entrega a domicilio de forma eficiente.
+Usuarios del sistema:
+   * Cliente (App móvil)
+   * Repartidor
+   * Administrador
+   * Cajero (gestión de pedidos)
+Arquitectura:
+   * Aplicación móvil para clientes
+   * Sistema centralizado en la nube
+   * Base de datos compartida con inventario y ventas
+   * Módulo de geolocalización para asignación de repartidores
+   * Integración con facturación electrónica (FEL)
+
+
+3. Descripción detallada
+El sistema cubrirá las siguientes necesidades:
+   * Registro e inicio de sesión de clientes desde la app
+   * Visualización de productos disponibles por sucursal
+   * Realización de pedidos a domicilio
+   * Selección automática de la sucursal más cercana
+   * Asignación automática del repartidor más cercano
+   * Seguimiento del pedido (estado: pendiente, en proceso, en camino, entregado)
+   * Registro de dirección y datos del cliente
+   * Envío de factura electrónica en PDF al cliente
+   * Notificaciones al cliente sobre el estado del pedido
+   * Registro de pagos (contra entrega o electrónico)
+   * Panel para repartidores con listado de entregas asignadas
+   * Métricas de rendimiento de repartidores (tiempo de entrega, pedidos completados)
+
+
+4. Parámetros
+El sistema interactuará con:
+   * SAT (FEL) - NIT del cliente, monto, detalle de productos
+   * Base de datos central - clientes, pedidos, inventario
+   * Servicio de geolocalización - ubicación de cliente y repartidor
+   * Sistema de notificaciones - correo electrónico o teléfono
+
+
+5. Validaciones
+   * No se podrá generar pedido si no hay stock disponible
+   * Validar datos obligatorios del cliente (nombre, dirección, teléfono)
+   * Validar medicamentos controlados - requiere receta médica
+   * No asignar repartidor si no está disponible
+   * Validar ubicación antes de confirmar pedido
+   * No permitir cerrar pedido sin método de pago definido
+
+
+6. Tratamiento de Errores
+   * Registro de errores en bitácora del sistema
+   * Manejo de fallos en conexión con SAT (reintentos)
+   * Notificación al usuario en caso de error en pedido
+   * Control de errores en geolocalización
+   * Registro de pedidos fallidos o cancelados
+
+
+7. Frecuencia
+☑ A pedido
+
+
+8.4. Tiempo Estimado de Proceso
+   * Actualmente:
+ Pedidos manuales o por llamada pueden tardar entre 20 a 40 minutos en ser gestionados correctamente.
+   * Con el sistema:
+ Reducción a 5 a 10 minutos por automatización en asignación de sucursal y repartidor.
+
+
+9. Requerimientos de Prueba
+      * Dispositivos móviles (Android/iOS)
+      * Conexión a internet
+      * Pruebas de pedidos reales y simulados
+      * Validación de geolocalización
+      * Pruebas de integración con SAT (FEL)
+      * Pruebas de notificaciones (correo/SMS)
+
+
+10. Requerimiento de Implementación
+      * Servidor en la nube (AWS, Azure o similar)
+      * Base de datos centralizada
+      * API de integración con SAT (FEL)
+      * Servicios de geolocalización (Google Maps o similar)
+      * Plataforma de envío de correos y notificaciones
+      * Publicación de aplicación móvil
+
+
+11. Requisitos del Sistema
+Hardware mínimo:
+      * Smartphones Android/iOS para clientes y repartidores
+      * Servidor con alta disponibilidad
+Software:
+      * Aplicación móvil (Android/iOS)
+      * Backend (API REST)
+      * Base de datos (PostgreSQL, MySQL o similar)
+Requisitos de rendimiento:
+      * Tiempo de respuesta menor a 3 segundos
+      * Disponibilidad 24/7
+      * Soporte para múltiples usuarios simultáneos
+
+
+11. Comentarios Generales
+El sistema de delivery y aplicación móvil permitirá mejorar significativamente la experiencia del cliente, optimizar tiempos de entrega y aumentar las ventas mediante un canal digital eficiente.
+
+
+12. Responsables
+Funcional……………: Analista de Sistemas
+Administrativo: Gerencia PHARMEDIC
+Sistemas………………: Equipo de Desarrollo
+
+
+
+
+Versión
+	Fecha
+	Autor
+	Descripción
+	1.0
+	22/04/2026
+	PiruloDev
+	Sistema de Delivery y Aplicación Móvil
+	
+
+
+
+Diagramas de Flujo
+
+
+  
+
+  
+
+  
+
+agregar Geolocalización y Notificaciones como entidades externas en Nivel 0 y Nivel 1, conectar 2.9 Notificar Cliente al servicio de notificaciones, agregar D6 y D7 al Nivel 1, y considerar una ramificación para medicamentos controlados en el Nivel 2.
+
+
+Entidades Externas
+Cliente: Usuario que utiliza la aplicación móvil para registrarse, iniciar sesión, consultar productos y realizar pedidos a domicilio. Recibe notificaciones del estado del pedido y factura electrónica en PDF.
+Repartidor: Empleado encargado de entregar pedidos a domicilio. Recibe asignaciones desde el sistema, confirma entregas y actualiza estados del pedido.
+Cajero: Empleado que supervisa pedidos generados desde la aplicación, valida pedidos especiales y apoya en coordinación interna con sucursal.
+
+
+Administrador: Usuario encargado de supervisar operaciones del sistema, métricas de entregas, disponibilidad de repartidores y control general.
+Banco: Entidad financiera encargada de procesar pagos electrónicos realizados por tarjeta, transferencia u otros medios digitales.
+SAT/FEL: Entidad encargada de validar y certificar electrónicamente las facturas emitidas por el sistema.
+Servicio de Geolocalización: Sistema externo utilizado para calcular ubicación del cliente, sucursal más cercana y repartidor disponible más cercano.
+Sistema de Notificaciones: Servicio externo encargado del envío de mensajes por correo electrónico, SMS o push notifications.
+Flujos de Datos
+Datos pedido
+      * Origen: Cliente → Proceso 1.0 Gestionar Pedido
+Información del pedido: productos seleccionados, dirección, forma de pago y observaciones.
+Datos cliente
+         * Origen: Cliente → Proceso 1.0 Gestionar Pedido
+Nombre, teléfono, dirección, correo electrónico y ubicación.
+Consulta stock
+            * Origen: Proceso 1.0 Gestionar Pedido → D3 Inventario
+Solicitud de verificación de existencia de productos.
+Stock disponible
+               * Origen: D3 Inventario → Proceso 1.0 Gestionar Pedido
+Respuesta con unidades disponibles.
+Consulta ubicación
+                  * Origen: Proceso 1.0 Gestionar Pedido → Servicio de Geolocalización
+Solicitud de sucursal más cercana según dirección del cliente.
+Sucursal asignada
+                     * Origen: Servicio de Geolocalización → Proceso 1.0 Gestionar Pedido
+Resultado con sucursal óptima para despacho.
+Registro pedido
+                        * Origen: Proceso 1.0 Gestionar Pedido → D2 Pedidos
+Almacenamiento del pedido validado.
+Pedido validado
+                           * Origen: Proceso 1.0 Gestionar Pedido → Proceso 2.0 Asignar Entrega
+Pedido listo para reparto.
+Consulta repartidor
+                              * Origen: Proceso 2.0 Asignar Entrega → D4 Repartidores
+Solicitud de repartidores disponibles.
+Ubicación repartidor
+                                 * Origen: Proceso 2.0 Asignar Entrega → Servicio de Geolocalización
+Consulta del repartidor más cercano.
+Asignación entrega
+                                    * Origen: Proceso 2.0 Asignar Entrega → Repartidor
+Datos del pedido y ruta de entrega.
+Estado entrega
+                                       * Origen: Repartidor → Proceso 2.0 Asignar Entrega
+Confirmación: en camino, entregado o incidencia.
+Pedido en proceso
+                                          * Origen: Proceso 2.0 Asignar Entrega → Proceso 3.0 Procesar Pago y Facturación
+Pedido listo para cobro/facturación.
+Datos pago
+                                             * Origen: Proceso 3.0 Procesar Pago y Facturación → Banco
+Monto y datos de transacción.
+Confirmación pago
+                                                * Origen: Banco → Proceso 3.0 Procesar Pago y Facturación
+Aprobado o rechazado.
+Datos FEL
+                                                   * Origen: Proceso 3.0 Procesar Pago y Facturación → SAT (FEL)
+Datos fiscales de la factura.
+Certificación factura
+                                                      * Origen: SAT (FEL) → Proceso 3.0 Procesar Pago y Facturación
+Factura certificada.
+Registro pago
+                                                         * Origen: Proceso 3.0 Procesar Pago y Facturación → D5 Pagos
+Almacenamiento del pago procesado.
+Factura PDF
+                                                            * Origen: Proceso 3.0 Procesar Pago y Facturación → Cliente
+Documento electrónico enviado al cliente.
+Notificación estado
+                                                               * Origen: Proceso 3.0 Procesar Pago y Facturación → Sistema de Notificaciones
+Mensaje de pedido entregado, pago confirmado o factura emitida.
+Procesos
+1.0 Gestionar Pedido
+Proceso inicial del sistema. Recibe el pedido desde la app móvil, valida datos del cliente, consulta inventario disponible, identifica la sucursal más cercana mediante geolocalización y registra el pedido en el sistema. Cuando todo es correcto, genera un pedido validado para continuar con la entrega.
+2.0 Asignar Entrega
+Recibe el pedido validado, consulta repartidores disponibles y utiliza geolocalización para asignar al repartidor más cercano. Envía los datos del pedido al repartidor y actualiza el estado de entrega conforme avanza el proceso.
+3.0 Procesar Pago y Facturación
+Gestiona el cobro del pedido mediante pago electrónico o contra entrega. Si el pago es digital, consulta al banco. Luego genera la factura electrónica FEL ante SAT, registra el pago y envía la factura al cliente. Finalmente notifica el cierre del pedido.
+Almacenes de Datos
+D1 Clientes: Contiene la información de clientes registrados: nombre, teléfono, dirección, correo, historial de pedidos y ubicaciones guardadas.
+D2 Pedidos: Registra todos los pedidos generados: fecha, productos, cantidades, cliente asociado, sucursal asignada y estado del pedido.
+D3 Inventario: Contiene catálogo de productos disponibles por sucursal: código, nombre, precio, stock, categoría y si requiere receta médica.
+D4 Repartidores: Almacena información del personal de reparto: nombre, disponibilidad, ubicación actual, pedidos asignados y métricas de desempeño.
+D5 Pagos: Guarda el detalle de pagos realizados: monto, método de pago, referencia bancaria, fecha y estado de aprobación.
+D6 Facturación: Registra facturas electrónicas emitidas: número FEL, NIT cliente, monto, estado SAT y PDF generado.
+D7 Bitácora: Almacena errores del sistema, pedidos fallidos, cancelaciones, fallos de geolocalización y reintentos con SAT.
+
+
+
+
+Diagramas UML
+
+
+Casos de Uso:
+  
+
+Clases:
+  
+
+
+
+Seguimiento:
+  
+
+
+
+
+
+
+
+Actividades:
+  
+
+  
+
+Estados:
+  
+
+
+
+Objetos:
+  
+
+
+
+Número de Requerimiento: 5 
+Nombre del Requerimiento: Administración y Reportes Gerenciales
+
+
+                                                                  1. Objetivos
+El presente documento define los requisitos de software para el modulo de administración y reportes gerenciales del sistema Pharmedic. Su propósito es establecer las funcionalidades necesarias para que los usuarios administrativos puedan gestionar usuarios, roles, sucursales y generar reportes consolidados de venta, inventario, repartidores y métricas de rendimiento para la toma de decisiones gerenciales.
+Este documento está dirigido al equipo de desarrollo, administración de Pharmedic y responsables del proyecto. Los tipos de requisitos abordados incluyen funcionalidades de interfaz, de validación y de reportes.
+
+
+                                                                  2. Alcance
+El módulo abarca la gestión integral de usuarios y roles del sistema, la configuración de parámetros operativos de la farmacia y la generación de reportes ejecutivos y operativos para control administrativo.
+Usuarios del sistema: Administrador, Regencia.
+Arquitectura: Módulo web integrado al sistema principal Pharmedic, con base de datos centralizada, capa de servicios REST y frontend responsive. Toda la información está centralizada y accesible desde múltiples sucursales.
+
+
+                                                                  3. Descripción detallada
+El modulo debe cumplic con las siguientes necesidades:
+
+
+3.1. Administración de usuarios y roles: Crear, editar y desactivar usuarios del sistema. El cajero puede registrar clientes pero solo el administrador puede darlos de baja. Cada rol tiene login distinto. El administrador puede moverse entre sucursales; el cajero no.
+
+
+3.2. Gestión de sucursales: El administrador puede manejar y consultar información de las tres sucursales. Se registran traslados de productos entre sucursales con validación y constancia del cambio.
+
+
+ 3.3. Control de proveedores: Gestión de proveedores con pagina libre para que cada uno ingrese sus productos. El administrador puede comparar precios y elegir la menor oferta. Se generan métricas de rendimiento por proveedor.
+
+
+3.4. Reportes gerenciales: Generación de reportes consolidados de ventas, inventario, repartidores y sucursales. Reportes mensuales obligatorios para control interno. Cierre de caja diario por turno con opción de exportar en PDF. Métricas de ventas individuales por empleado visibles solo para el administrador.
+
+
+3.5. Bitácora de auditoría: Registro de todas las acciones realizadas por los usuarios en el sistema.
+
+
+3.6. Exportación de datos: Generación de reportes y cierres de caja en formato PDF. Exportación de datos en Excel para uso administrativo.
+
+
+
+
+                                                                  4. Parámetros
+                                                                  * idUsuario (INTEGER, obligatorio): Identificador del usuario.
+                                                                  * idRol (INTEGER, obligatorio): Administrador | Regencia | Caja | Inventario | Repartidor.
+                                                                  * idSucursal (INTEGER, obligatorio): Zona 16 | Zona 11 | Zona 2.
+                                                                  * fechaInicio (DATE, obligatorio): Formato DD/MM/YYYY.
+                                                                  * fechaFin (DATE, obligatorio): Formato DD/MM/YYYY.
+                                                                  * tipoReporte (VARCHAR(50), obligatorio): VENTAS | INVENTARIO | REPARTIDORES | SUCURSAL | AUDITORIA.
+                                                                  * formatoExportacion (VARCHAR(10), obligatorio): PDF | XLSX.
+                                                                  * estadoRegistro (CHAR(1), obligatorio): A = Activo, I = Inactivo.
+                                                                  * turno (VARCHAR(20), obligatorio): 8AM–6PM.
+
+
+                                                                  5. Validaciones
+                                                                  * No se puede crear un usuario sin asignarle al menos un rol.
+                                                                  * La fecha fin del reporte no puede ser menor a la fecha inicio.
+                                                                  * No se permite eliminar usuarios con transacciones registradas; solo desactivarlos. Solo el administrador puede dar de baja a usuarios y clientes.
+                                                                  * Solo el administrador puede modificar parámetros del sistema y configurar condiciones médicas dinámicas.
+                                                                  * Las contraseñas deben tener mínimo 8 caracteres, al menos una mayúscula y un número.
+                                                                  * El cajero no puede moverse de sucursal; su acceso queda restringido a la sucursal asignada.
+                                                                  * La Regencia solo puede visualizar informes; no puede modificar ningún otro rol ni dato.
+                                                                  * El traslado entre sucursales debe registrarse y confirmarse antes de ejecutarse.
+
+
+                                                                  6. Tratamiento de errores
+Se llevará una bitácora de errores y eventos del sistema. La tabla LOG_SISTEMA registrará por cada evento:
+                                                                  * Fecha y hora del evento.
+                                                                  * Usuario que ejecutó la acción.
+                                                                  * Acción realizada: INSERT, UPDATE, DELETE, LOGIN, LOGOUT.
+                                                                  * Módulo y sucursal afectados.
+                                                                  * Descripción del error, si aplica.
+                                                                  * Dirección IP del equipo de origen.
+Los errores de validación se mostrarán al usuario con mensajes descriptivos. Los errores críticos se registrarán adicionalmente en el log del servidor de aplicaciones. Se realizarán respaldos automáticos diarios.
+                                                                  7. Tiempo estimado de Proceso
+Actualmente los cierres de caja y reportes se realizan de forma manual, lo que puede tomar entre 30 y 60 minutos con riesgo de errores. Con el sistema se estima que el cierre de caja tome menos de 2 minutos y la generación de cualquier reporte gerencial menos de 10 segundos.
+
+
+                                                                  8. Requerimientos de Prueba
+                                                                  * Ambiente QA con base de datos espejo de las tres sucursales.
+                                                                  * Usuarios de prueba configurados con cada uno de los cinco roles.
+                                                                  * Datos de prueba de ventas, cierres de caja y traslados entre sucursales.
+                                                                  * Acceso al módulo desde Chrome y Firefox.
+                                                                  * Hoja de casos de prueba aprobada por administración de PHARMEDIC.
+
+
+                                                                  9. Requerimientos de Implementación
+                                                                  * Servidor en la nube con alta disponibilidad (requisito crítico: que no se caiga).
+                                                                  * Base de datos centralizada accesible desde las tres sucursales.
+                                                                  * Scripts de migración revisados y aprobados.
+                                                                  * Plan de rollback documentado.
+                                                                  * Capacitación básica al personal, especialmente al que no tiene experiencia tecnológica.
+                                                                  * Soporte técnico externo a cargo del equipo de desarrollo.
+
+
+                                                                  10. Requisitos del sistema
+Servidor:
+                                                                  * Sistema Operativo: Windows Server 2016+ / Linux CentOS 7+.
+                                                                  * Runtime: Node.js 16+ o JDK 11+.
+                                                                  * Base de datos centralizada (PostgreSQL, MySQL o similar).
+                                                                  * Mínimo 8 GB RAM; 50 GB de almacenamiento para logs y exportaciones.
+                                                                  * Certificado SSL.
+Cliente (navegador):
+                                                                  * Chrome 90+ / Firefox 88+ / Edge 90+.
+                                                                  * Conexión a internet estable en cada sucursal.
+Diagrama de flujo
+________________
+
+
+Nivel 0:
+
+
+  
+
+
+
+
+
+
+
+
+
+Nivel 1: 
+  
+
+
+
+
+
+
+
+Entidades Externas
+Administrador Descripción: Actor externo con acceso al sistema de administración y reportes. Gestiona los usuarios del sistema y recibe los reportes generados. Flujos de entrada (recibe del sistema): Reportes generados por el sistema. Flujos de salida (envía al sistema): Usuarios para registro y gestión en el sistema.
+Regencia Descripción: Actor externo que interactúa con el sistema para obtener información médica. Solicita informes al sistema y los recibe como respuesta. Flujos de entrada (recibe del sistema): Informe médico generado por el sistema. Flujos de salida (envía al sistema): Solicitud de informe al sistema.
+Sucursales Descripción: Actor externo que representa los puntos de venta o unidades operativas. Reporta datos de ventas al sistema y recibe información de inventario y traslados. Flujos de entrada (recibe del sistema): Stock traslados con información actualizada de inventario. Flujos de salida (envía al sistema): Datos ventas registrados en las sucursales.
+
+
+Proveedores Descripción: Actor externo que suministra productos al sistema. Recibe órdenes de compra y envía su oferta de productos disponibles. Flujos de entrada (recibe del sistema): Orden de compra emitida por el sistema. Flujos de salida (envía al sistema): Oferta de productos con catálogo y disponibilidad.
+
+
+Flujos de Datos
+                                                                  * Usuarios Origen: Administrador. Destino: Adm. y Reportes. Datos de usuarios enviados por el administrador para su gestión dentro del sistema.
+                                                                  * Reportes Origen: Adm. y Reportes. Destino: Administrador. Reportes generados por el sistema y entregados al administrador.
+                                                                  * Solicitud informe Origen: Regencia. Destino: Adm. y Reportes. Solicitud enviada por la regencia requiriendo un informe médico específico.
+                                                                  * Informe médico Origen: Adm. y Reportes. Destino: Regencia. Informe médico generado por el sistema en respuesta a la solicitud de la regencia.
+                                                                  * Datos ventas Origen: Sucursales. Destino: Adm. y Reportes. Información de las ventas realizadas en las sucursales enviada al sistema central.
+                                                                  * Stock traslados Origen: Adm. y Reportes. Destino: Sucursales. Información actualizada de inventario y traslados de stock enviada a las sucursales.
+                                                                  * Oferta productos Origen: Proveedores. Destino: Adm. y Reportes. Catálogo y disponibilidad de productos enviado por los proveedores al sistema.
+                                                                  * Orden compra Origen: Adm. y Reportes. Destino: Proveedores. Orden de compra emitida por el sistema hacia los proveedores.
+                                                                  * Usuarios (flujo interno) Origen: P1 Gestión Usuarios. Destino: P3 Control inventario. Datos de usuarios activos trasladados internamente hacia el proceso de control de inventario.
+                                                                  * Ventas (flujo interno) Origen: P2 Cierre caja. Destino: Generación Reportes. Datos consolidados de ventas enviados al proceso de generación de reportes.
+                                                                  * Stock (flujo interno) Origen: P3 Control inventario. Destino: Generación Reportes. Información de stock enviada al proceso de generación de reportes.
+                                                                  * Proveedores (flujo interno) Origen: P4 Gestión proveedores. Destino: Generación Reportes. Datos de proveedores enviados al proceso de generación de reportes.
+
+
+
+
+
+
+
+
+Procesos
+P1 Gestión Usuarios Descripción: Administra el ciclo de vida de los usuarios del sistema. Lee y escribe en el almacén D1 Usuarios para registrar, modificar o consultar información de usuarios. Envía datos de usuarios activos hacia el proceso P3 Control inventario. Entradas: Datos de usuarios del Administrador, consulta desde D1 Usuarios. Salidas: Escritura en D1 Usuarios, flujo de usuarios hacia P3 Control inventario. Almacenes que utiliza: D1 Usuarios (lectura y escritura).
+P2 Cierre caja Descripción: Gestiona el cierre de las transacciones de venta. Lee y escribe en el almacén D2 Ventas para registrar las ventas procesadas. Envía los datos de ventas consolidados hacia el proceso de Generación de Reportes. Entradas: Datos de ventas de sucursales, consulta desde D2 Ventas. Salidas: Escritura en D2 Ventas, flujo de ventas hacia Generación Reportes. Almacenes que utiliza: D2 Ventas (lectura y escritura).
+P3 Control inventario Descripción: Gestiona el inventario de productos. Recibe datos de usuarios desde P1, registra movimientos de stock en D3 Inventario y genera logs de auditoría en D5 Logs. Envía datos de stock hacia el proceso de Generación de Reportes. Entradas: Flujo de usuarios desde P1 Gestión Usuarios, consulta desde D3 Inventario. Salidas: Escritura en D3 Inventario, escritura en D5 Logs, flujo de stock hacia Generación Reportes. Almacenes que utiliza: D3 Inventario (lectura y escritura), D5 Logs (escritura).
+P4 Gestión proveedores Descripción: Administra la información de los proveedores del sistema. Lee y escribe en D4 Proveedor para mantener actualizado el registro de proveedores. Envía datos de proveedores hacia el proceso de Generación de Reportes. Entradas: Oferta de productos desde Proveedores, consulta desde D4 Proveedor. Salidas: Escritura en D4 Proveedor, flujo de proveedores hacia Generación Reportes. Almacenes que utiliza: D4 Proveedor (lectura y escritura).
+Generación Reportes Descripción: Proceso central que consolida la información proveniente de todos los demás procesos. Recibe datos de ventas, stock y proveedores para generar los reportes e informes requeridos por el Administrador y la Regencia. Almacena los reportes generados en D6 Reportes. Entradas: Ventas desde P2, stock desde P3, proveedores desde P4. Salidas: Escritura en D6 Reportes, reportes hacia Administrador, informe médico hacia Regencia. Almacenes que utiliza: D6 Reportes (escritura).
+Almacenes de Datos
+D1 Usuarios Descripción: Almacena la información de todos los usuarios que tienen acceso al sistema. Procesos que lo usan: P1 Gestión Usuarios (lectura y escritura). Datos principales: identificador de usuario, nombre, rol, credenciales de acceso, estado activo o inactivo.
+D2 Ventas Descripción: Registra todas las transacciones de venta procesadas en el sistema. Procesos que lo usan: P2 Cierre caja (lectura y escritura). Datos principales: fecha de venta, productos vendidos, cantidades, montos y estado del cierre.
+D3 Inventario Descripción: Contiene el catálogo de productos disponibles y sus niveles de stock actuales. Procesos que lo usan: P3 Control inventario (lectura y escritura). Datos principales: código de producto, nombre, categoría, precio, cantidad en stock.
+D4 Proveedor Descripción: Almacena la información de los proveedores registrados en el sistema. Procesos que lo usan: P4 Gestión proveedores (lectura y escritura). Datos principales: nombre del proveedor, contacto, productos que ofrece, condiciones comerciales.
+D5 Logs Descripción: Almacén de auditoría que registra todas las operaciones realizadas en el sistema para trazabilidad y seguridad. Procesos que lo usan: P3 Control inventario (escritura). Datos principales: fecha y hora, usuario que realizó la acción, tipo de operación, entidad afectada.
+D6 Reportes Descripción: Almacena los reportes generados por el sistema para consulta posterior y comparación entre períodos. Procesos que lo usan: Generación Reportes (escritura), consultado por Administrador y Regencia. Datos principales: tipo de reporte, fecha de generación, parámetros utilizados, contenido del reporte.

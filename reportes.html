@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Reportes</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item active"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Todas las sucursales</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left"><span class="page-title">Reportes Gerenciales</span></div>
+      <div class="topbar-right">
+        <!-- Date range -->
+        <div class="sucursal-select" style="gap:6px;">
+          <i class="fas fa-calendar" style="color:var(--primary);font-size:12px;"></i>
+          <select>
+            <option>Mayo 2026</option>
+            <option>Abril 2026</option>
+            <option>Marzo 2026</option>
+            <option>Últimos 7 días</option>
+            <option>Rango personalizado</option>
+          </select>
+        </div>
+        <div class="sucursal-select">
+          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
+          <select><option>Todas las sucursales</option><option>Zona 16</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+        <button class="btn btn-primary btn-sm"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
+        <div class="topbar-avatar">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Administración y Reportes — DERCAS 5</h1>
+          <p>Mayo 2026 · Todas las sucursales · Generado 24 may 2026, 14:32</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-file-excel"></i> Excel</button>
+          <button class="btn btn-secondary"><i class="fas fa-print"></i> Imprimir</button>
+          <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> Reporte PDF</button>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="stats-grid mb-24">
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-coins"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">Q 182,450</div>
+            <div class="stat-label">Ventas totales del mes</div>
+            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 18.4% vs abril</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon primary"><i class="fas fa-receipt"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">Q 342</div>
+            <div class="stat-label">Ticket promedio</div>
+            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 7.2% vs abril</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-pills"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">4,830</div>
+            <div class="stat-label">Unidades vendidas</div>
+            <div class="stat-change neutral"><i class="fas fa-minus"></i> Sin variación</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-triangle-exclamation"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">Q 3,200</div>
+            <div class="stat-label">Pérdidas por vencimiento</div>
+            <div class="stat-change down"><i class="fas fa-arrow-down"></i> 38% vs abril</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts row 1 -->
+      <div class="grid-2 mb-20">
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Ventas diarias — Mayo 2026</div><div class="card-subtitle">Ingresos totales por día (todas las sucursales)</div></div>
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-expand"></i></button>
+          </div>
+          <div class="chart-container" style="height:230px;">
+            <canvas id="chartVentasDiarias"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Ventas por sucursal</div><div class="card-subtitle">Comparativa mensual</div></div>
+          </div>
+          <div class="chart-container" style="height:230px;">
+            <canvas id="chartSucursales"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts row 2 -->
+      <div class="grid-2 mb-20">
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Rendimiento por empleado</div><div class="card-subtitle">Top 6 cajeros — ventas del mes</div></div>
+          </div>
+          <div class="chart-container" style="height:230px;">
+            <canvas id="chartEmpleados"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Rendimiento repartidores</div><div class="card-subtitle">Entregas completadas — Mayo 2026</div></div>
+          </div>
+          <div class="chart-container" style="height:230px;">
+            <canvas id="chartRepartidores"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee table -->
+      <div class="card mb-20">
+        <div class="card-header">
+          <div><div class="card-title">Estadísticas por empleado</div><div class="card-subtitle">Mayo 2026 · Todas las sucursales</div></div>
+          <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i> Exportar</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Empleado</th>
+                <th>Rol</th>
+                <th>Sucursal</th>
+                <th>Ventas realizadas</th>
+                <th>Monto total</th>
+                <th>Ticket prom.</th>
+                <th>Devoluciones</th>
+                <th>Rendimiento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;">KR</div>
+                    <div><div class="fw-600">Karen Rodríguez</div><div class="text-xs text-muted">cajero01</div></div>
+                  </div>
+                </td>
+                <td><span class="tag">Cajero</span></td>
+                <td>Zona 16</td>
+                <td class="fw-600">312</td>
+                <td class="fw-600">Q 64,800</td>
+                <td>Q 207</td>
+                <td><span class="badge badge-success">2</span></td>
+                <td>
+                  <div class="progress-bar-wrap" style="min-width:80px;"><div class="progress-bar" style="width:92%"></div></div>
+                  <div class="text-xs text-muted mt-8">92%</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;background:#2563EB;">MC</div>
+                    <div><div class="fw-600">Mario Chávez</div><div class="text-xs text-muted">cajero02</div></div>
+                  </div>
+                </td>
+                <td><span class="tag">Cajero</span></td>
+                <td>Zona 11</td>
+                <td class="fw-600">284</td>
+                <td class="fw-600">Q 58,200</td>
+                <td>Q 205</td>
+                <td><span class="badge badge-warning">5</span></td>
+                <td>
+                  <div class="progress-bar-wrap" style="min-width:80px;"><div class="progress-bar" style="width:84%"></div></div>
+                  <div class="text-xs text-muted mt-8">84%</div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:30px;height:30px;font-size:11px;flex-shrink:0;background:#D97706;">LH</div>
+                    <div><div class="fw-600">Laura Hernández</div><div class="text-xs text-muted">cajero03</div></div>
+                  </div>
+                </td>
+                <td><span class="tag">Cajero</span></td>
+                <td>Zona 2</td>
+                <td class="fw-600">196</td>
+                <td class="fw-600">Q 39,450</td>
+                <td>Q 201</td>
+                <td><span class="badge badge-success">1</span></td>
+                <td>
+                  <div class="progress-bar-wrap" style="min-width:80px;"><div class="progress-bar warning" style="width:71%"></div></div>
+                  <div class="text-xs text-muted mt-8">71%</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Reportes gubernamentales -->
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Reportes obligatorios</div><div class="card-subtitle">Informes mensuales para entidades reguladoras</div></div>
+        </div>
+        <div class="card-body">
+          <div class="grid-2">
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg);border-radius:var(--radius-sm);border:1.5px solid var(--border);">
+                <div class="flex gap-10" style="align-items:center;">
+                  <div class="pill-icon-sm" style="background:var(--success-bg);color:var(--success);"><i class="fas fa-file-lines"></i></div>
+                  <div>
+                    <div class="fw-600 text-sm">Reporte de inventario</div>
+                    <div class="text-xs text-muted">Mayo 2026 · Ministerio de Salud</div>
+                  </div>
+                </div>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Generado</span>
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i></button>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg);border-radius:var(--radius-sm);border:1.5px solid var(--border);">
+                <div class="flex gap-10" style="align-items:center;">
+                  <div class="pill-icon-sm" style="background:var(--success-bg);color:var(--success);"><i class="fas fa-file-lines"></i></div>
+                  <div>
+                    <div class="fw-600 text-sm">Reporte de ventas</div>
+                    <div class="text-xs text-muted">Mayo 2026 · SAT / FEL</div>
+                  </div>
+                </div>
+                <div class="flex gap-8">
+                  <span class="badge badge-success">Generado</span>
+                  <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i></button>
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg);border-radius:var(--radius-sm);border:1.5px solid var(--border);">
+                <div class="flex gap-10" style="align-items:center;">
+                  <div class="pill-icon-sm" style="background:var(--warning-bg);color:var(--warning);"><i class="fas fa-file-lines"></i></div>
+                  <div>
+                    <div class="fw-600 text-sm">Reporte de repartidores</div>
+                    <div class="text-xs text-muted">Mayo 2026 · Administración</div>
+                  </div>
+                </div>
+                <div class="flex gap-8">
+                  <span class="badge badge-warning">Pendiente</span>
+                  <button class="btn btn-primary btn-sm"><i class="fas fa-play"></i> Generar</button>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:var(--bg);border-radius:var(--radius-sm);border:1.5px solid var(--border);">
+                <div class="flex gap-10" style="align-items:center;">
+                  <div class="pill-icon-sm" style="background:var(--warning-bg);color:var(--warning);"><i class="fas fa-file-lines"></i></div>
+                  <div>
+                    <div class="fw-600 text-sm">Reporte de sucursales</div>
+                    <div class="text-xs text-muted">Mayo 2026 · Administración</div>
+                  </div>
+                </div>
+                <div class="flex gap-8">
+                  <span class="badge badge-warning">Pendiente</span>
+                  <button class="btn btn-primary btn-sm"><i class="fas fa-play"></i> Generar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/main.js"></script>
+<script>
+const green = '#0D7A57', greenL = 'rgba(13,122,87,0.12)';
+
+// Ventas diarias
+new Chart(document.getElementById('chartVentasDiarias'), {
+  type: 'line',
+  data: {
+    labels: ['1','3','5','7','9','11','13','15','17','19','21','23','24'],
+    datasets: [{
+      label: 'Ventas (Q)',
+      data: [5200,6800,5400,7800,8100,6600,9200,8800,7400,10200,9600,11000,8430],
+      borderColor: green, backgroundColor: greenL,
+      fill: true, tension: 0.4, pointBackgroundColor: green, pointRadius: 3,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+      y: { grid: { color: '#F0F4F2' }, ticks: { font: { size: 10 }, callback: v => 'Q'+v.toLocaleString() } }
+    }
+  }
+});
+
+// Sucursales
+new Chart(document.getElementById('chartSucursales'), {
+  type: 'bar',
+  data: {
+    labels: ['Ene','Feb','Mar','Abr','May'],
+    datasets: [
+      { label: 'Zona 16', data: [72000,68000,81000,75000,88000], backgroundColor: '#0D7A57', borderRadius: 4 },
+      { label: 'Zona 11', data: [55000,51000,62000,58000,65000], backgroundColor: '#17A374', borderRadius: 4 },
+      { label: 'Zona 2',  data: [38000,35000,41000,40000,42000], backgroundColor: '#8DDEC2', borderRadius: 4 },
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 10 } } },
+    scales: {
+      x: { grid: { display: false }, stacked: false },
+      y: { grid: { color: '#F0F4F2' }, ticks: { callback: v => 'Q'+v.toLocaleString(), font: { size: 10 } } }
+    }
+  }
+});
+
+// Empleados
+new Chart(document.getElementById('chartEmpleados'), {
+  type: 'bar',
+  indexAxis: 'y',
+  data: {
+    labels: ['Karen R.','Mario Ch.','Laura H.','Sofía M.','Pedro C.','Ana L.'],
+    datasets: [{ label: 'Ventas (Q)', data: [64800,58200,39450,32100,28800,21000],
+      backgroundColor: ['#0D7A57','#17A374','#4FC89B','#8DDEC2','#B5EDD8','#D4F5EB'],
+      borderRadius: 4 }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: '#F0F4F2' }, ticks: { callback: v => 'Q'+v.toLocaleString(), font: { size: 10 } } },
+      y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+    }
+  }
+});
+
+// Repartidores
+new Chart(document.getElementById('chartRepartidores'), {
+  type: 'bar',
+  data: {
+    labels: ['Diego M.','Carlos R.','Pedro V.'],
+    datasets: [{
+      label: 'Entregas',
+      data: [142, 128, 98],
+      backgroundColor: ['#0D7A57','#17A374','#8DDEC2'],
+      borderRadius: 6,
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: '#F0F4F2' }, ticks: { font: { size: 11 } } }
+    }
+  }
+});
+</script>
+</body>
+</html>
