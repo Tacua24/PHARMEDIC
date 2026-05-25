@@ -31,6 +31,7 @@
     <div class="sidebar-section">
       <div class="sidebar-section-label">Administración</div>
       <a href="reportes.html" class="nav-item active"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="ofertas.html" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
       <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
       <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
     </div>
@@ -62,7 +63,6 @@
           <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
           <select><option>Todas las sucursales</option><option>Zona 16</option><option>Zona 11</option><option>Zona 2</option></select>
         </div>
-        <button class="btn btn-primary btn-sm"><i class="fas fa-file-pdf"></i> Exportar PDF</button>
         <div class="topbar-avatar">AD</div>
       </div>
     </header>
@@ -71,7 +71,7 @@
 
       <div class="page-header">
         <div class="page-header-left">
-          <h1>Administración y Reportes — DERCAS 5</h1>
+          <h1>Administración y Reportes</h1>
           <p>Mayo 2026 · Todas las sucursales · Generado 24 may 2026, 14:32</p>
         </div>
         <div class="page-actions">
@@ -304,6 +304,172 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Informe de medicamentos controlados -->
+      <div class="card mb-20" style="margin-top:20px;">
+        <div class="card-header">
+          <div><div class="card-title">Informe de medicamentos controlados</div><div class="card-subtitle">Dispensaciones del mes — Regencia · Mayo 2026</div></div>
+          <div class="flex gap-8">
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-file-excel"></i> Excel</button>
+            <button class="btn btn-primary btn-sm"><i class="fas fa-file-pdf"></i> PDF</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Medicamento</th>
+                <th>Categoría</th>
+                <th>Stock actual</th>
+                <th>Stock mínimo</th>
+                <th>Dispensaciones</th>
+                <th>Última dispensación</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div class="fw-600">Tramadol 50mg</div><div class="text-xs text-muted">Reg. MSPAS-0421</div></td>
+                <td><span class="tag">Opioide</span></td>
+                <td class="fw-600">48</td>
+                <td>20</td>
+                <td class="fw-600">112</td>
+                <td class="text-sm">24 may 2026</td>
+                <td><span class="badge badge-success">Normal</span></td>
+              </tr>
+              <tr>
+                <td><div class="fw-600">Clonazepam 2mg</div><div class="text-xs text-muted">Reg. MSPAS-0388</div></td>
+                <td><span class="tag">Benzodiacepina</span></td>
+                <td class="fw-600">22</td>
+                <td>20</td>
+                <td class="fw-600">89</td>
+                <td class="text-sm">23 may 2026</td>
+                <td><span class="badge badge-warning">Stock bajo</span></td>
+              </tr>
+              <tr>
+                <td><div class="fw-600">Morfina 10mg</div><div class="text-xs text-muted">Reg. MSPAS-0305</div></td>
+                <td><span class="tag">Opioide</span></td>
+                <td class="fw-600">15</td>
+                <td>10</td>
+                <td class="fw-600">34</td>
+                <td class="text-sm">22 may 2026</td>
+                <td><span class="badge badge-success">Normal</span></td>
+              </tr>
+              <tr>
+                <td><div class="fw-600">Alprazolam 0.5mg</div><div class="text-xs text-muted">Reg. MSPAS-0412</div></td>
+                <td><span class="tag">Benzodiacepina</span></td>
+                <td class="fw-600">8</td>
+                <td>15</td>
+                <td class="fw-600">67</td>
+                <td class="text-sm">24 may 2026</td>
+                <td><span class="badge badge-danger">Crítico</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Bitácora de auditoría -->
+      <div class="card" style="margin-top:20px;">
+        <div class="card-header">
+          <div><div class="card-title">Bitácora de auditoría</div><div class="card-subtitle">Registro de acciones del sistema — Logs</div></div>
+          <div class="flex gap-8">
+            <div class="sucursal-select" style="gap:6px;">
+              <i class="fas fa-filter" style="color:var(--primary);font-size:12px;"></i>
+              <select>
+                <option>Todos los módulos</option>
+                <option>Reportes</option>
+                <option>Ventas</option>
+                <option>Inventario</option>
+                <option>Usuarios</option>
+                <option>CierreCaja</option>
+              </select>
+            </div>
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i> Exportar</button>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha / Hora</th>
+                <th>Usuario</th>
+                <th>Acción</th>
+                <th>Módulo</th>
+                <th>IP Origen</th>
+                <th>Descripción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-sm text-muted">2026-05-24 18:01</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:26px;height:26px;font-size:10px;flex-shrink:0;">CM</div>
+                    <span class="text-sm">cmendoza</span>
+                  </div>
+                </td>
+                <td><span class="badge badge-success">INSERT</span></td>
+                <td><span class="tag">CierreCaja</span></td>
+                <td class="text-xs text-muted">192.168.1.10</td>
+                <td class="text-sm">Cierre de turno AM generado correctamente</td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">2026-05-24 17:45</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:26px;height:26px;font-size:10px;flex-shrink:0;">CM</div>
+                    <span class="text-sm">cmendoza</span>
+                  </div>
+                </td>
+                <td><span class="badge badge-success">INSERT</span></td>
+                <td><span class="tag">Reportes</span></td>
+                <td class="text-xs text-muted">192.168.1.10</td>
+                <td class="text-sm">Reporte de ventas Mayo 2026 exportado en PDF</td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">2026-05-24 14:32</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:26px;height:26px;font-size:10px;flex-shrink:0;background:#2563EB;">KR</div>
+                    <span class="text-sm">cajero01</span>
+                  </div>
+                </td>
+                <td><span class="badge badge-success">INSERT</span></td>
+                <td><span class="tag">Ventas</span></td>
+                <td class="text-xs text-muted">192.168.1.14</td>
+                <td class="text-sm">Venta #1002 registrada — Q 120.00</td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">2026-05-24 11:10</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:26px;height:26px;font-size:10px;flex-shrink:0;background:#D97706;">CM</div>
+                    <span class="text-sm">cmendoza</span>
+                  </div>
+                </td>
+                <td><span class="badge badge-warning">UPDATE</span></td>
+                <td><span class="tag">Inventario</span></td>
+                <td class="text-xs text-muted">192.168.1.10</td>
+                <td class="text-sm">Stock de Alprazolam 0.5mg actualizado a 8 unidades</td>
+              </tr>
+              <tr>
+                <td class="text-sm text-muted">2026-05-23 09:05</td>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="user-avatar" style="width:26px;height:26px;font-size:10px;flex-shrink:0;background:#DC2626;">CM</div>
+                    <span class="text-sm">cmendoza</span>
+                  </div>
+                </td>
+                <td><span class="badge badge-danger">DELETE</span></td>
+                <td><span class="tag">Usuarios</span></td>
+                <td class="text-xs text-muted">192.168.1.10</td>
+                <td class="text-sm">Usuario cajero04 desactivado del sistema</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

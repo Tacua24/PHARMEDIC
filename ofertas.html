@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHARMEDIC — Ofertas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-cross">+</div>
+      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Principal</div>
+      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
+      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Operaciones</div>
+      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
+      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Administración</div>
+      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+      <a href="ofertas.html" class="nav-item active"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
+      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="user-avatar">AD</div>
+        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Todas las sucursales</div></div>
+      </div>
+      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+    </div>
+  </aside>
+
+  <div class="main-area">
+    <header class="topbar">
+      <div class="topbar-left"><span class="page-title">Ofertas de Proveedores</span></div>
+      <div class="topbar-right">
+        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+        <div class="topbar-avatar">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1>Gestión de Ofertas</h1>
+          <p>Compara y acepta ofertas de proveedores · Mayo 2026</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-secondary"><i class="fas fa-filter"></i> Filtrar</button>
+          <button class="btn btn-primary"><i class="fas fa-plus"></i> Solicitar oferta</button>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="stats-grid mb-24">
+        <div class="stat-card">
+          <div class="stat-icon primary"><i class="fas fa-tags"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">12</div>
+            <div class="stat-label">Ofertas activas</div>
+            <div class="stat-change up"><i class="fas fa-arrow-up"></i> 3 nuevas esta semana</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-sack-dollar"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">Q 8,400</div>
+            <div class="stat-label">Ahorro potencial</div>
+            <div class="stat-change up"><i class="fas fa-arrow-up"></i> vs precios regulares</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon amber"><i class="fas fa-clock"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">4</div>
+            <div class="stat-label">Vencen esta semana</div>
+            <div class="stat-change down"><i class="fas fa-arrow-down"></i> Requieren decisión</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-building"></i></div>
+          <div class="stat-info">
+            <div class="stat-value">3</div>
+            <div class="stat-label">Proveedores con oferta</div>
+            <div class="stat-change neutral"><i class="fas fa-minus"></i> Sin cambio</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs mb-20">
+        <div class="tab active">Ofertas vigentes <span class="tab-count">12</span></div>
+        <div class="tab">Por vencer <span class="tab-count">4</span></div>
+        <div class="tab">Aceptadas</div>
+        <div class="tab">Historial</div>
+      </div>
+
+      <!-- Offer cards -->
+      <div class="grid-2 mb-20">
+
+        <!-- Oferta 1 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="flex gap-10" style="align-items:center;">
+              <div class="provider-initials" style="width:38px;height:38px;font-size:13px;flex-shrink:0;">DM</div>
+              <div>
+                <div class="card-title">DISTRIBUIDORA MEDIC S.A.</div>
+                <div class="card-subtitle">Oferta por volumen · Antibióticos</div>
+              </div>
+            </div>
+            <span class="badge badge-success">Activa</span>
+          </div>
+          <div class="card-body" style="padding:0 16px 16px;">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio regular</th>
+                    <th>Precio oferta</th>
+                    <th>Descuento</th>
+                    <th>Mín. unidades</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-600">Amoxicilina 500mg</td>
+                    <td class="text-muted">Q 2.65</td>
+                    <td class="fw-600 text-primary">Q 2.12</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>200 und.</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-600">Azitromicina 500mg</td>
+                    <td class="text-muted">Q 4.80</td>
+                    <td class="fw-600 text-primary">Q 3.84</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>100 und.</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-600">Ciprofloxacino 500mg</td>
+                    <td class="text-muted">Q 3.20</td>
+                    <td class="fw-600 text-primary">Q 2.72</td>
+                    <td><span class="badge badge-success">-15%</span></td>
+                    <td>150 und.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex-between mt-12" style="padding-top:10px;border-top:1px solid var(--border);">
+              <div class="text-xs text-muted"><i class="fas fa-calendar" style="margin-right:4px;"></i> Vence: 31 may 2026</div>
+              <div class="flex gap-8">
+                <button class="btn btn-secondary btn-sm">Ver detalle</button>
+                <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Aceptar oferta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oferta 2 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="flex gap-10" style="align-items:center;">
+              <div class="provider-initials" style="width:38px;height:38px;font-size:13px;flex-shrink:0;background:#EFF6FF;color:#1E40AF;">FX</div>
+              <div>
+                <div class="card-title">FARMEX Guatemala</div>
+                <div class="card-subtitle">Oferta por temporada · Antidiabéticos</div>
+              </div>
+            </div>
+            <span class="badge badge-success">Activa</span>
+          </div>
+          <div class="card-body" style="padding:0 16px 16px;">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio regular</th>
+                    <th>Precio oferta</th>
+                    <th>Descuento</th>
+                    <th>Mín. unidades</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-600">Metformina 850mg</td>
+                    <td class="text-muted">Q 1.40</td>
+                    <td class="fw-600 text-primary">Q 1.05</td>
+                    <td><span class="badge badge-success">-25%</span></td>
+                    <td>300 und.</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-600">Glibenclamida 5mg</td>
+                    <td class="text-muted">Q 0.90</td>
+                    <td class="fw-600 text-primary">Q 0.72</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>200 und.</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-600">Insulina NPH 100UI</td>
+                    <td class="text-muted">Q 48.00</td>
+                    <td class="fw-600 text-primary">Q 38.40</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>50 und.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex-between mt-12" style="padding-top:10px;border-top:1px solid var(--border);">
+              <div class="text-xs text-muted"><i class="fas fa-calendar" style="margin-right:4px;"></i> Vence: 28 may 2026</div>
+              <div class="flex gap-8">
+                <button class="btn btn-secondary btn-sm">Ver detalle</button>
+                <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Aceptar oferta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oferta 3 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="flex gap-10" style="align-items:center;">
+              <div class="provider-initials" style="width:38px;height:38px;font-size:13px;flex-shrink:0;background:#FFF7ED;color:#9A3412;">NG</div>
+              <div>
+                <div class="card-title">NOVAGEN S.A.</div>
+                <div class="card-subtitle">Liquidación de stock · Controlados</div>
+              </div>
+            </div>
+            <span class="badge badge-warning">Vence pronto</span>
+          </div>
+          <div class="card-body" style="padding:0 16px 16px;">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio regular</th>
+                    <th>Precio oferta</th>
+                    <th>Descuento</th>
+                    <th>Mín. unidades</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-600">Tramadol 50mg</td>
+                    <td class="text-muted">Q 3.60</td>
+                    <td class="fw-600 text-primary">Q 2.52</td>
+                    <td><span class="badge badge-success">-30%</span></td>
+                    <td>100 und.</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-600">Clonazepam 2mg</td>
+                    <td class="text-muted">Q 2.10</td>
+                    <td class="fw-600 text-primary">Q 1.68</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>80 und.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex-between mt-12" style="padding-top:10px;border-top:1px solid var(--border);">
+              <div class="text-xs" style="color:var(--warning);font-weight:600;"><i class="fas fa-triangle-exclamation" style="margin-right:4px;"></i> Vence: 27 may 2026 — 2 días restantes</div>
+              <div class="flex gap-8">
+                <button class="btn btn-secondary btn-sm">Ver detalle</button>
+                <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Aceptar oferta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Oferta 4 -->
+        <div class="card">
+          <div class="card-header">
+            <div class="flex gap-10" style="align-items:center;">
+              <div class="provider-initials" style="width:38px;height:38px;font-size:13px;flex-shrink:0;background:#EFF6FF;color:#1E40AF;">FX</div>
+              <div>
+                <div class="card-title">FARMEX Guatemala</div>
+                <div class="card-subtitle">Oferta especial · Antihipertensivos</div>
+              </div>
+            </div>
+            <span class="badge badge-success">Activa</span>
+          </div>
+          <div class="card-body" style="padding:0 16px 16px;">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Precio regular</th>
+                    <th>Precio oferta</th>
+                    <th>Descuento</th>
+                    <th>Mín. unidades</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fw-600">Losartán 50mg</td>
+                    <td class="text-muted">Q 2.20</td>
+                    <td class="fw-600 text-primary">Q 1.76</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>200 und.</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-600">Enalapril 10mg</td>
+                    <td class="text-muted">Q 1.80</td>
+                    <td class="fw-600 text-primary">Q 1.44</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>150 und.</td>
+                  </tr>
+                  <tr>
+                    <td class="fw-600">Amlodipino 5mg</td>
+                    <td class="text-muted">Q 1.50</td>
+                    <td class="fw-600 text-primary">Q 1.20</td>
+                    <td><span class="badge badge-success">-20%</span></td>
+                    <td>100 und.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="flex-between mt-12" style="padding-top:10px;border-top:1px solid var(--border);">
+              <div class="text-xs text-muted"><i class="fas fa-calendar" style="margin-right:4px;"></i> Vence: 15 jun 2026</div>
+              <div class="flex gap-8">
+                <button class="btn btn-secondary btn-sm">Ver detalle</button>
+                <button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Aceptar oferta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Comparativa de ofertas por producto -->
+      <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Comparar oferta por producto</div><div class="card-subtitle">Selecciona un producto para ver todas las ofertas disponibles</div></div>
+          <div class="flex gap-8">
+            <div class="sucursal-select" style="gap:6px;">
+              <i class="fas fa-search" style="color:var(--primary);font-size:12px;"></i>
+              <select>
+                <option>Amoxicilina 500mg</option>
+                <option>Metformina 850mg</option>
+                <option>Tramadol 50mg</option>
+                <option>Losartán 50mg</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Proveedor</th>
+                <th>Precio regular</th>
+                <th>Precio oferta</th>
+                <th>Descuento</th>
+                <th>Mín. unidades</th>
+                <th>Stock disponible</th>
+                <th>Entrega estimada</th>
+                <th>Vence</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:var(--primary-light);">
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="provider-initials" style="width:28px;height:28px;font-size:10px;flex-shrink:0;">DM</div>
+                    <div>
+                      <div class="fw-600 text-primary">DISTRIBUIDORA MEDIC</div>
+                      <span class="badge badge-success" style="font-size:9px;">Mejor precio</span>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-muted">Q 2.65</td>
+                <td class="fw-600 text-primary">Q 2.12</td>
+                <td><span class="badge badge-success">-20%</span></td>
+                <td>200 und.</td>
+                <td class="fw-600">500 und.</td>
+                <td>2 días</td>
+                <td class="text-sm">31 may 2026</td>
+                <td><button class="btn btn-primary btn-sm"><i class="fas fa-check"></i> Seleccionar</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="provider-initials" style="width:28px;height:28px;font-size:10px;flex-shrink:0;background:#EFF6FF;color:#1E40AF;">FX</div>
+                    <div class="fw-600">FARMEX Guatemala</div>
+                  </div>
+                </td>
+                <td class="text-muted">Q 2.90</td>
+                <td class="fw-600">Q 2.47</td>
+                <td><span class="badge badge-warning">-15%</span></td>
+                <td>100 und.</td>
+                <td class="fw-600">300 und.</td>
+                <td>3 días</td>
+                <td class="text-sm">28 may 2026</td>
+                <td><button class="btn btn-secondary btn-sm">Seleccionar</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex gap-8" style="align-items:center;">
+                    <div class="provider-initials" style="width:28px;height:28px;font-size:10px;flex-shrink:0;background:#ECFDF5;color:#065F46;">LU</div>
+                    <div class="fw-600">LABORATORIOS UNITED</div>
+                  </div>
+                </td>
+                <td class="text-muted">Q 3.20</td>
+                <td class="fw-600">Q 2.88</td>
+                <td><span class="badge badge-warning">-10%</span></td>
+                <td>50 und.</td>
+                <td class="fw-600">120 und.</td>
+                <td>5 días</td>
+                <td class="text-sm">15 jun 2026</td>
+                <td><button class="btn btn-secondary btn-sm">Seleccionar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="js/main.js"></script>
+</body>
+</html>
