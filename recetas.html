@@ -10,54 +10,39 @@
 <body>
 <div class="app-layout">
 
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-cross">+</div>
-      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-mark">+</div>
+      <span class="brand-title">PHARMEDIC</span>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Principal</div>
-      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
-      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
-      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
-      <a href="recetas.html" class="nav-item active"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Operaciones</div>
-      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
-      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
-      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Administración</div>
-      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
-      <a href="ofertas.html" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
-      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
-      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
-    </div>
-    <div class="sidebar-footer">
-      <div class="sidebar-user">
-        <div class="user-avatar">RG</div>
-        <div class="user-info-sidebar"><div class="name">Regencia</div><div class="role">Zona 16 — Central</div></div>
+    <div class="topbar-right">
+      <div class="sucursal-pill">
+        <i class="fas fa-store"></i>
+        <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
       </div>
-      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+      <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+      <div class="topbar-avatar">RG</div>
+      <a href="index.html" class="topbar-logout" title="Cerrar sesión"><i class="fas fa-right-from-bracket"></i></a>
     </div>
-  </aside>
+  </header>
 
-  <div class="main-area">
-    <header class="topbar">
-      <div class="topbar-left"><span class="page-title">Recetas Médicas</span></div>
-      <div class="topbar-right">
-        <div class="sucursal-select">
-          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
-          <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
-        </div>
-        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
-        <div class="topbar-avatar">RG</div>
-      </div>
-    </header>
+  <!-- TAB NAV -->
+  <nav class="tabnav">
+    <a href="dashboard.html" class="tabnav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+    <a href="inventario.html" class="tabnav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="tn-badge warning">8</span></a>
+    <a href="ventas.html" class="tabnav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+    <a href="recetas.html" class="tabnav-item active"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="tn-badge">12</span></a>
+    <a href="clientes.html" class="tabnav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+    <a href="delivery.html" class="tabnav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="tn-badge">5</span></a>
+    <a href="proveedores.html" class="tabnav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    <a href="reportes.html" class="tabnav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+    <a href="ofertas.html" class="tabnav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="tn-badge">4</span></a>
+    <a href="cierre-caja.html" class="tabnav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+    <a href="sucursales.html" class="tabnav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+  </nav>
 
-    <div class="content">
+  <div class="content">
 
       <div class="page-header">
         <div class="page-header-left">
@@ -275,9 +260,170 @@
         </div>
       </div>
 
-    </div>
   </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+  const RECETAS = [
+    { id:'RX-2026-0441', paciente:'María López',   dpi:'2845-63921-0101', medico:'Dr. Carlos Mejía',     especialidad:'Cardiología',       fecha:'24 may 2026', medicamentos:['Enalapril 10mg','Aspirina 100mg','Metformina 850mg'], tipo:'Regular',    estado:'Pendiente',  controlado:false },
+    { id:'RX-2026-0440', paciente:'Roberto Soto',  dpi:'1923-45812-0801', medico:'Dra. Ana Velásquez',   especialidad:'Psiquiatría',        fecha:'24 may 2026', medicamentos:['Clonazepam 2mg'],                                   tipo:'Controlado', estado:'Prioridad',  controlado:true  },
+    { id:'RX-2026-0439', paciente:'Ana García',    dpi:'3012-78234-0302', medico:'Dr. Luis Herrera',     especialidad:'Medicina General',   fecha:'23 may 2026', medicamentos:['Amoxicilina 500mg','Metformina 850mg','Omeprazol'], tipo:'Regular',    estado:'Pendiente',  controlado:false },
+    { id:'RX-2026-0438', paciente:'Juan Pérez',    dpi:'1654-98210-0506', medico:'Dr. Fernando Ramos',   especialidad:'Endocrinología',     fecha:'22 may 2026', medicamentos:['Atorvastatina 20mg','Metformina 850mg'],            tipo:'Regular',    estado:'En proceso', controlado:false },
+    { id:'RX-2026-0437', paciente:'Carmen Orozco', dpi:'2234-11023-0904', medico:'Dra. Patricia Lima',   especialidad:'Neurología',         fecha:'21 may 2026', medicamentos:['Alprazolam 0.5mg'],                                 tipo:'Controlado', estado:'Prioridad',  controlado:true  },
+  ];
+
+  /* ── Ver detalle de receta ── */
+  function verReceta(idx) {
+    const r = RECETAS[idx];
+    const estColor = { 'Pendiente':'badge-warning','En proceso':'badge-info','Prioridad':'badge-danger','Completada':'badge-success' };
+    showModal('Detalle — ' + r.id, `
+      <div style="display:flex;gap:12px;align-items:flex-start;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);">
+        <div style="flex:1;">
+          <div class="fw-600" style="font-size:15px;">${r.paciente}</div>
+          <div style="color:var(--text-muted);font-size:12px;margin-top:2px;">DPI: ${r.dpi}</div>
+        </div>
+        <span class="badge ${estColor[r.estado]||'badge-neutral'}">${r.estado}</span>
+        ${r.controlado ? '<span class="controlled-tag"><i class="fas fa-lock"></i> Controlado</span>' : ''}
+      </div>
+      <div class="grid-2" style="font-size:13px;gap:10px;">
+        <div><span style="color:var(--text-muted);">Médico</span><div class="fw-600">${r.medico}</div></div>
+        <div><span style="color:var(--text-muted);">Especialidad</span><div class="fw-600">${r.especialidad}</div></div>
+        <div><span style="color:var(--text-muted);">Fecha emisión</span><div class="fw-600">${r.fecha}</div></div>
+        <div><span style="color:var(--text-muted);">Tipo</span><div class="fw-600">${r.tipo}</div></div>
+        <div class="col-span-2">
+          <span style="color:var(--text-muted);">Medicamentos prescritos</span>
+          <div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;">
+            ${r.medicamentos.map(m=>`<span class="tag">${m}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+      ${r.controlado ? `
+      <div style="background:var(--danger-bg);border-radius:var(--radius-sm);padding:10px 14px;margin-top:14px;font-size:12.5px;color:var(--danger-text);">
+        <i class="fas fa-lock"></i> <strong>Medicamento controlado</strong> — Requiere verificación de identidad (DPI) y registro obligatorio del dispensador.
+      </div>` : ''}
+    `, [
+      r.estado !== 'Completada'
+        ? {label:'Atender receta', style:'btn-primary', action:()=>{ closeModal(); setTimeout(()=>atenderReceta(idx),200); }}
+        : {label:'Reimprimir', style:'btn-secondary', action:()=>{ showToast('Reimprimiendo receta...','info'); closeModal(); }},
+      {label:'Cerrar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Atender receta ── */
+  function atenderReceta(idx) {
+    const r = RECETAS[idx];
+    const medOpts = r.medicamentos.map(m =>
+      `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--bg);border-radius:var(--radius-sm);margin-bottom:6px;">
+        <span class="fw-600" style="font-size:13px;">${m}</span>
+        <div class="flex gap-8" style="align-items:center;">
+          <span style="font-size:12px;color:var(--text-muted);">Cant:</span>
+          <input type="number" value="1" min="1" style="width:55px;padding:4px 6px;border:1.5px solid var(--border);border-radius:6px;font-size:13px;text-align:center;"/>
+        </div>
+      </div>`).join('');
+
+    showModal('Atender — ' + r.id, `
+      <div style="background:var(--primary-light);border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:14px;font-size:13px;">
+        <strong>${r.paciente}</strong> · DPI: ${r.dpi} · ${r.medico}
+      </div>
+      <div class="form-group">
+        <label>Medicamentos a dispensar</label>
+        ${medOpts}
+      </div>
+      ${r.controlado ? `
+      <div class="form-group">
+        <label>Número de registro (medicamento controlado)</label>
+        <input class="form-control" placeholder="REG-XXXX-XXXX"/>
+      </div>` : ''}
+      <div class="form-group">
+        <label>Observaciones</label>
+        <textarea class="form-control" rows="2" placeholder="Indicaciones al paciente..."></textarea>
+      </div>
+    `, [
+      {label:'Confirmar dispensación', style:'btn-primary', action:()=>{
+        RECETAS[idx].estado = 'Completada';
+        showToast('Receta ' + r.id + ' dispensada correctamente', 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    /* Nueva receta */
+    document.querySelector('.page-actions .btn-primary')?.addEventListener('click', () => {
+      showModal('Nueva Receta Médica', `
+        <div class="grid-2">
+          <div class="form-group"><label>Paciente (DPI)</label><input class="form-control" placeholder="DPI del paciente"/></div>
+          <div class="form-group"><label>Nombre del paciente</label><input class="form-control" placeholder="Nombre completo"/></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Médico prescriptor</label><input class="form-control" placeholder="Nombre del médico"/></div>
+          <div class="form-group"><label>Especialidad</label><input class="form-control" placeholder="Cardiología, Neurología..."/></div>
+        </div>
+        <div class="form-group"><label>Medicamento</label>
+          <select class="form-control">
+            <option>Amoxicilina 500mg</option><option>Clonazepam 2mg — Controlado</option>
+            <option>Metformina 850mg</option><option>Enalapril 10mg</option><option>Alprazolam 0.5mg — Controlado</option><option>Otro</option>
+          </select>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Cantidad recetada</label><input class="form-control" type="number" value="1"/></div>
+          <div class="form-group"><label>Fecha de emisión</label><input class="form-control" type="date"/></div>
+        </div>
+        <div class="form-group"><label>Indicaciones del médico</label><textarea class="form-control" rows="2" placeholder="Dosis, frecuencia..."></textarea></div>
+        <div class="form-group"><label>Foto de receta (opcional)</label><input class="form-control" type="file" accept="image/*"/></div>
+      `, [
+        {label:'Registrar receta', style:'btn-primary', action:()=>{ showToast('Receta registrada correctamente','success'); closeModal(); }},
+        {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      ]);
+    });
+
+    /* Fotografiar receta */
+    document.querySelector('.page-actions .btn-secondary')?.addEventListener('click', () => {
+      showModal('Fotografiar receta', `
+        <div style="text-align:center;padding:16px 0;">
+          <div style="font-size:52px;margin-bottom:10px;">📷</div>
+          <div style="color:var(--text-muted);font-size:13px;margin-bottom:14px;">Toma una foto de la receta física o súbela desde el dispositivo</div>
+          <label style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--primary);color:#fff;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;font-weight:600;">
+            <i class="fas fa-upload"></i> Seleccionar imagen
+            <input type="file" accept="image/*" style="display:none;" onchange="showToast('Imagen cargada correctamente','success')"/>
+          </label>
+        </div>
+        <div class="form-group"><label>Asociar a receta (opcional)</label>
+          <select class="form-control">
+            <option value="">— Sin asociar —</option>
+            ${RECETAS.map(r=>`<option>${r.id} — ${r.paciente}</option>`).join('')}
+          </select>
+        </div>
+      `, [
+        {label:'Guardar', style:'btn-primary', action:()=>{ showToast('Foto de receta guardada','success'); closeModal(); }},
+        {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      ]);
+    });
+
+    /* Botones de tabla */
+    document.querySelectorAll('tbody tr').forEach((row, idx) => {
+      const btnAtender = row.querySelector('.btn-primary');
+      const btnVer     = row.querySelector('.btn-secondary');
+      const btnVerDet  = row.querySelector('.btn-secondary:first-child');
+      const btnCamera  = row.querySelectorAll('.btn-secondary')[1];
+
+      if (btnAtender) btnAtender.onclick = () => atenderReceta(idx);
+      if (btnVer)     btnVer.onclick     = () => verReceta(idx);
+      if (btnCamera)  btnCamera.onclick  = () => {
+        showModal('Adjuntar foto — ' + (RECETAS[idx]?.id || ''), `
+          <div style="text-align:center;padding:12px 0;">
+            <div style="font-size:44px;margin-bottom:8px;">📎</div>
+            <label style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--primary);color:#fff;border-radius:var(--radius-sm);cursor:pointer;font-size:13px;font-weight:600;">
+              <i class="fas fa-camera"></i> Tomar foto
+              <input type="file" accept="image/*" style="display:none;" onchange="showToast('Foto adjuntada','success')"/>
+            </label>
+          </div>
+        `, [{label:'Guardar', style:'btn-primary', action:()=>{ showToast('Foto guardada en receta','success'); closeModal(); }},
+            {label:'Cancelar', style:'btn-secondary', action:closeModal}]);
+      };
+    });
+  });
+</script>
 </body>
 </html>

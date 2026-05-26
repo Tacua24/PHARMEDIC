@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css" />
   <style>
-    .content { padding: 16px 24px; height: calc(100vh - 58px); overflow: hidden; }
+    .content { padding: 16px 24px; height: calc(100vh - var(--topbar-h) - var(--tabnav-h)); overflow: hidden; }
     .pos-layout { height: 100%; }
     .pos-left .card { flex-shrink: 0; }
   </style>
@@ -15,323 +15,263 @@
 <body>
 <div class="app-layout">
 
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-cross">+</div>
-      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-mark">+</div>
+      <span class="brand-title">PHARMEDIC</span>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Principal</div>
-      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
-      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
-      <a href="ventas.html" class="nav-item active"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
-      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Operaciones</div>
-      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
-      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
-      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Administración</div>
-      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
-      <a href="ofertas.html" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
-      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
-      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
-    </div>
-    <div class="sidebar-footer">
-      <div class="sidebar-user">
-        <div class="user-avatar">CJ</div>
-        <div class="user-info-sidebar"><div class="name">Cajero — Turno AM</div><div class="role">Zona 16 · 08:00 – 14:00</div></div>
+    <div class="topbar-right">
+      <div class="sucursal-pill">
+        <i class="fas fa-store"></i>
+        <select>
+          <option>Zona 16 — Central</option>
+          <option>Zona 11</option>
+          <option>Zona 2</option>
+        </select>
       </div>
-      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+      <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+      <div class="topbar-avatar">CJ</div>
+      <a href="index.html" class="topbar-logout" title="Cerrar sesión"><i class="fas fa-right-from-bracket"></i></a>
     </div>
-  </aside>
+  </header>
 
-  <div class="main-area">
-    <header class="topbar">
-      <div class="topbar-left">
-        <span class="page-title">Punto de Venta</span>
-        <span class="badge badge-success" style="margin-left:12px;"><i class="fas fa-circle" style="font-size:7px;"></i> Turno activo</span>
-      </div>
-      <div class="topbar-right">
-        <span class="text-sm text-muted">Venta #0892</span>
-        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
-        <div class="topbar-avatar">CJ</div>
-      </div>
-    </header>
+  <!-- TAB NAV -->
+  <nav class="tabnav">
+    <a href="dashboard.html" class="tabnav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+    <a href="inventario.html" class="tabnav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="tn-badge warning">8</span></a>
+    <a href="ventas.html" class="tabnav-item active"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+    <a href="recetas.html" class="tabnav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="tn-badge">12</span></a>
+    <a href="clientes.html" class="tabnav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+    <a href="delivery.html" class="tabnav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="tn-badge">5</span></a>
+    <a href="proveedores.html" class="tabnav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    <a href="reportes.html" class="tabnav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+    <a href="ofertas.html" class="tabnav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="tn-badge">4</span></a>
+    <a href="cierre-caja.html" class="tabnav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+    <a href="sucursales.html" class="tabnav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+  </nav>
 
-    <div class="content">
-      <div class="pos-layout">
+  <div class="content">
+    <div class="pos-layout">
 
-        <!-- LEFT: Products -->
-        <div class="pos-left">
+      <!-- LEFT: Products -->
+      <div class="pos-left">
 
-          <!-- Client & Scanner -->
-          <div class="card" style="padding:14px 16px;">
-            <div class="flex gap-12">
-              <div class="flex-1">
-                <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Cliente (DPI)</div>
-                <div class="search-box" style="max-width:100%;min-width:0;">
-                  <i class="fas fa-id-card"></i>
-                  <input type="text" placeholder="Buscar por DPI..." />
-                </div>
-              </div>
-              <div class="flex-1">
-                <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Escanear / Buscar producto</div>
-                <div class="search-box" style="max-width:100%;min-width:0;">
-                  <i class="fas fa-barcode"></i>
-                  <input type="text" placeholder="Código de barras o nombre..." />
-                </div>
-              </div>
-              <div>
-                <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Tipo de venta</div>
-                <div class="flex gap-8">
-                  <button id="btnLocal" onclick="setModo('local')" class="btn btn-primary btn-sm" style="gap:5px;">
-                    <i class="fas fa-store"></i> En tienda
-                  </button>
-                  <button id="btnDelivery" onclick="setModo('delivery')" class="btn btn-secondary btn-sm" style="gap:5px;">
-                    <i class="fas fa-truck"></i> Delivery
-                  </button>
-                </div>
+        <!-- Client & Scanner -->
+        <div class="card" style="padding:14px 16px;">
+          <div class="flex gap-12">
+            <div class="flex-1">
+              <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Cliente (DPI)</div>
+              <div class="search-box" style="max-width:100%;min-width:0;">
+                <i class="fas fa-id-card"></i>
+                <input type="text" placeholder="Buscar por DPI..." />
               </div>
             </div>
-          </div>
-
-          <!-- Category tabs -->
-          <div class="tabs" style="margin-bottom:12px;">
-            <div class="tab active">Todos</div>
-            <div class="tab">Analgésicos</div>
-            <div class="tab">Antibióticos</div>
-            <div class="tab">Antidiabéticos</div>
-            <div class="tab">Antiácidos</div>
-            <div class="tab">Promociones</div>
-          </div>
-
-          <!-- Product grid -->
-          <div class="product-grid">
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Paracetamol 500mg</div>
-              <div class="prod-present">Pastilla unitaria</div>
-              <div class="prod-price">Q 2.50</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Ibuprofeno 600mg</div>
-              <div class="prod-present">Pastilla unitaria</div>
-              <div class="prod-price">Q 4.00</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Amoxicilina 500mg</div>
-              <div class="prod-present">Blíster x14</div>
-              <div class="prod-price">Q 38.50</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Metformina 850mg</div>
-              <div class="prod-present">Caja x30</div>
-              <div class="prod-price">Q 95.00</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Omeprazol 20mg</div>
-              <div class="prod-present">Caja x14</div>
-              <div class="prod-price">Q 55.00</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Atorvastatina 20mg</div>
-              <div class="prod-present">Caja x28</div>
-              <div class="prod-price">Q 120.00</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">🧴</div>
-              <div class="prod-name">Loratadina 10mg</div>
-              <div class="prod-present">Blíster x10</div>
-              <div class="prod-price">Q 28.00</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Enalapril 10mg</div>
-              <div class="prod-present">Caja x30</div>
-              <div class="prod-price">Q 75.00</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Aspirina 100mg</div>
-              <div class="prod-present">Blíster x10</div>
-              <div class="prod-price">Q 18.00</div>
-            </div>
-            <div class="product-tile" style="position:relative;">
-              <div style="position:absolute;top:8px;right:8px;"><span class="badge badge-warning" style="font-size:9px;">1+1</span></div>
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Furosemida 40mg</div>
-              <div class="prod-present">Pastilla unitaria</div>
-              <div class="prod-price">Q 3.50</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">🧴</div>
-              <div class="prod-name">Vitamina C 1000mg</div>
-              <div class="prod-present">Efervescente x10</div>
-              <div class="prod-price">Q 42.00</div>
-            </div>
-            <div class="product-tile">
-              <div class="pill-icon">💊</div>
-              <div class="prod-name">Diclofenaco 50mg</div>
-              <div class="prod-present">Pastilla unitaria</div>
-              <div class="prod-price">Q 3.00</div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- RIGHT: Cart -->
-        <div class="pos-right">
-          <div class="card" style="height:100%;display:flex;flex-direction:column;padding:0;overflow:hidden;">
-
-            <div class="card-header">
-              <div>
-                <div class="card-title">Ticket #0892</div>
-                <div class="card-subtitle">María López · DPI: 2845-63921-0101</div>
-              </div>
-              <button class="btn btn-ghost btn-sm" style="color:var(--danger);"><i class="fas fa-trash"></i></button>
-            </div>
-
-            <div class="cart-items" style="flex:1;padding:14px 16px;">
-              <div class="cart-item">
-                <div class="cart-item-name">
-                  Paracetamol 500mg
-                  <small>Pastilla unitaria</small>
-                </div>
-                <div class="qty-control">
-                  <button class="qty-btn">−</button>
-                  <span class="qty-val">3</span>
-                  <button class="qty-btn">+</button>
-                </div>
-                <div class="cart-item-price">Q 7.50</div>
-              </div>
-              <div class="cart-item">
-                <div class="cart-item-name">
-                  Amoxicilina 500mg
-                  <small>Blíster x14</small>
-                </div>
-                <div class="qty-control">
-                  <button class="qty-btn">−</button>
-                  <span class="qty-val">2</span>
-                  <button class="qty-btn">+</button>
-                </div>
-                <div class="cart-item-price">Q 77.00</div>
-              </div>
-              <div class="cart-item">
-                <div class="cart-item-name">
-                  Omeprazol 20mg
-                  <small>Caja x14</small>
-                </div>
-                <div class="qty-control">
-                  <button class="qty-btn">−</button>
-                  <span class="qty-val">1</span>
-                  <button class="qty-btn">+</button>
-                </div>
-                <div class="cart-item-price">Q 55.00</div>
-              </div>
-              <div class="cart-item">
-                <div class="cart-item-name">
-                  Atorvastatina 20mg
-                  <small>Caja x28</small>
-                </div>
-                <div class="qty-control">
-                  <button class="qty-btn">−</button>
-                  <span class="qty-val">1</span>
-                  <button class="qty-btn">+</button>
-                </div>
-                <div class="cart-item-price">Q 120.00</div>
+            <div class="flex-1">
+              <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Escanear / Buscar producto</div>
+              <div class="search-box" style="max-width:100%;min-width:0;">
+                <i class="fas fa-barcode"></i>
+                <input type="text" placeholder="Código de barras o nombre..." />
               </div>
             </div>
-
-            <div style="padding:14px 16px;border-top:1px solid var(--border);">
-              <div class="cart-summary">
-                <div class="summary-row"><span>Subtotal</span><span>Q 259.50</span></div>
-                <div class="summary-row"><span>IVA (12%)</span><span>Q 31.14</span></div>
-                <div class="summary-row"><span>Descuento</span><span style="color:var(--success);">− Q 0.00</span></div>
-                <div class="summary-row total"><span>Total</span><span>Q 290.64</span></div>
-              </div>
-
-              <!-- Datos delivery (oculto por defecto) -->
-              <div id="deliveryFields" style="display:none;border-top:1.5px solid var(--border);padding-top:12px;margin-top:8px;">
-                <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">
-                  <i class="fas fa-truck" style="margin-right:4px;color:var(--primary);"></i>Datos del delivery
-                </div>
-                <div style="margin-bottom:8px;">
-                  <div class="text-xs text-muted mb-8">Teléfono del cliente</div>
-                  <div class="search-box" style="max-width:100%;min-width:0;padding:7px 10px;">
-                    <i class="fas fa-phone"></i>
-                    <input type="text" placeholder="Número de teléfono..." style="border:none;outline:none;background:none;font-size:13px;width:100%;color:var(--text);" />
-                  </div>
-                </div>
-                <div style="margin-bottom:8px;">
-                  <div class="text-xs text-muted mb-8">Dirección de entrega</div>
-                  <div class="search-box" style="max-width:100%;min-width:0;padding:7px 10px;">
-                    <i class="fas fa-location-dot"></i>
-                    <input type="text" placeholder="Dirección completa..." style="border:none;outline:none;background:none;font-size:13px;width:100%;color:var(--text);" />
-                  </div>
-                </div>
-                <div style="margin-bottom:10px;">
-                  <div class="text-xs text-muted mb-8">Asignar repartidor</div>
-                  <select class="form-control" style="font-size:13px;">
-                    <option value="">— Seleccionar repartidor —</option>
-                    <option>✅ Diego Monterroso · Zona 16 (Disponible)</option>
-                    <option>✅ Carlos Ramírez · Zona 16 (Disponible)</option>
-                    <option>🟡 Pedro Vásquez · Zona 2 (En ruta)</option>
-                  </select>
-                </div>
-                <div style="background:var(--success-bg);border-radius:6px;padding:8px 10px;font-size:11.5px;color:var(--success-text);">
-                  <i class="fas fa-circle-info"></i> El costo de envío <strong>no se cobra</strong> al cliente.
-                </div>
-              </div>
-
-              <div style="margin-top:14px;">
-                <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Método de pago</div>
-                <div class="payment-methods">
-                  <div class="pay-method selected">
-                    <i class="fas fa-money-bill-wave"></i>
-                    Efectivo
-                  </div>
-                  <div class="pay-method">
-                    <i class="fas fa-credit-card"></i>
-                    Tarjeta
-                  </div>
-                  <div class="pay-method">
-                    <i class="fas fa-building-columns"></i>
-                    BAC
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex gap-8" style="margin-top:8px;">
-                <button class="btn btn-secondary" style="flex:1;justify-content:center;"><i class="fas fa-xmark"></i> Cancelar</button>
-                <button id="btnProcesar" class="btn btn-primary" style="flex:2;justify-content:center;">
-                  <i class="fas fa-check"></i> <span id="btnProcesarLabel">Procesar venta</span>
+            <div>
+              <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Tipo de venta</div>
+              <div class="flex gap-8">
+                <button id="btnLocal" onclick="setModo('local')" class="btn btn-primary btn-sm" style="gap:5px;">
+                  <i class="fas fa-store"></i> En tienda
                 </button>
-              </div>
-
-              <div style="margin-top:10px;text-align:center;">
-                <button class="btn btn-ghost btn-sm" style="font-size:11.5px;color:var(--text-muted);">
-                  <i class="fas fa-file-invoice"></i> Enviar factura por correo
+                <button id="btnDelivery" onclick="setModo('delivery')" class="btn btn-secondary btn-sm" style="gap:5px;">
+                  <i class="fas fa-truck"></i> Delivery
                 </button>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Category tabs -->
+        <div class="tabs" style="margin-bottom:12px;">
+          <div class="tab active">Todos</div>
+          <div class="tab">Analgésicos</div>
+          <div class="tab">Antibióticos</div>
+          <div class="tab">Antidiabéticos</div>
+          <div class="tab">Antiácidos</div>
+          <div class="tab">Promociones</div>
+        </div>
+
+        <!-- Product grid -->
+        <div class="product-grid">
+          <div class="product-tile" onclick="openProductOptions(1)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Paracetamol 500mg</div>
+            <div class="prod-present">desde Q 2.50</div>
+            <div class="prod-price">Q 2.50</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(2)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Ibuprofeno 600mg</div>
+            <div class="prod-present">desde Q 4.00</div>
+            <div class="prod-price">Q 4.00</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(3)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Amoxicilina 500mg</div>
+            <div class="prod-present">desde Q 38.50</div>
+            <div class="prod-price">Q 38.50</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(4)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Metformina 850mg</div>
+            <div class="prod-present">desde Q 95.00</div>
+            <div class="prod-price">Q 95.00</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(5)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Omeprazol 20mg</div>
+            <div class="prod-present">desde Q 55.00</div>
+            <div class="prod-price">Q 55.00</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(6)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Atorvastatina 20mg</div>
+            <div class="prod-present">desde Q 120.00</div>
+            <div class="prod-price">Q 120.00</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(7)">
+            <div class="pill-icon">🧴</div>
+            <div class="prod-name">Loratadina 10mg</div>
+            <div class="prod-present">desde Q 28.00</div>
+            <div class="prod-price">Q 28.00</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(8)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Enalapril 10mg</div>
+            <div class="prod-present">desde Q 75.00</div>
+            <div class="prod-price">Q 75.00</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(9)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Aspirina 100mg</div>
+            <div class="prod-present">desde Q 18.00</div>
+            <div class="prod-price">Q 18.00</div>
+          </div>
+          <div class="product-tile" style="position:relative;" onclick="openProductOptions(10)">
+            <div style="position:absolute;top:8px;right:8px;"><span class="badge badge-warning" style="font-size:9px;">1+1</span></div>
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Furosemida 40mg</div>
+            <div class="prod-present">desde Q 3.50</div>
+            <div class="prod-price">Q 3.50</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(11)">
+            <div class="pill-icon">🧴</div>
+            <div class="prod-name">Vitamina C 1000mg</div>
+            <div class="prod-present">desde Q 42.00</div>
+            <div class="prod-price">Q 42.00</div>
+          </div>
+          <div class="product-tile" onclick="openProductOptions(12)">
+            <div class="pill-icon">💊</div>
+            <div class="prod-name">Diclofenaco 50mg</div>
+            <div class="prod-present">desde Q 3.00</div>
+            <div class="prod-price">Q 3.00</div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- RIGHT: Cart -->
+      <div class="pos-right">
+        <div class="card" style="height:100%;display:flex;flex-direction:column;padding:0;overflow:hidden;">
+
+          <div class="card-header">
+            <div>
+              <div class="card-title">Ticket #0892</div>
+              <div class="card-subtitle">Cliente general</div>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="cart=[];renderCart();" style="color:var(--danger);"><i class="fas fa-trash"></i></button>
+          </div>
+
+          <div id="cartItems" class="cart-items" style="flex:1;padding:14px 16px;"></div>
+
+          <div style="padding:14px 16px;border-top:1px solid var(--border);">
+            <div class="cart-summary">
+              <div class="summary-row"><span>Subtotal</span><span id="subtotal">Q 0.00</span></div>
+              <div class="summary-row"><span>IVA (12%)</span><span id="ivaAmount">Q 0.00</span></div>
+              <div class="summary-row"><span>Descuento</span><span style="color:var(--success);">− Q 0.00</span></div>
+              <div class="summary-row total"><span>Total</span><span id="totalAmount">Q 0.00</span></div>
+            </div>
+
+            <!-- Datos delivery (oculto por defecto) -->
+            <div id="deliveryFields" style="display:none;border-top:1.5px solid var(--border);padding-top:12px;margin-top:8px;">
+              <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">
+                <i class="fas fa-truck" style="margin-right:4px;color:var(--primary);"></i>Datos del delivery
+              </div>
+              <div style="margin-bottom:8px;">
+                <div class="text-xs text-muted mb-8">Teléfono del cliente</div>
+                <div class="search-box" style="max-width:100%;min-width:0;padding:7px 10px;">
+                  <i class="fas fa-phone"></i>
+                  <input type="text" placeholder="Número de teléfono..." style="border:none;outline:none;background:none;font-size:13px;width:100%;color:var(--text);" />
+                </div>
+              </div>
+              <div style="margin-bottom:8px;">
+                <div class="text-xs text-muted mb-8">Dirección de entrega</div>
+                <div class="search-box" style="max-width:100%;min-width:0;padding:7px 10px;">
+                  <i class="fas fa-location-dot"></i>
+                  <input type="text" placeholder="Dirección completa..." style="border:none;outline:none;background:none;font-size:13px;width:100%;color:var(--text);" />
+                </div>
+              </div>
+              <div style="margin-bottom:10px;">
+                <div class="text-xs text-muted mb-8">Asignar repartidor</div>
+                <select class="form-control" style="font-size:13px;">
+                  <option value="">— Seleccionar repartidor —</option>
+                  <option>✅ Diego Monterroso · Zona 16 (Disponible)</option>
+                  <option>✅ Carlos Ramírez · Zona 16 (Disponible)</option>
+                  <option>🟡 Pedro Vásquez · Zona 2 (En ruta)</option>
+                </select>
+              </div>
+              <div style="background:var(--success-bg);border-radius:6px;padding:8px 10px;font-size:11.5px;color:var(--success-text);">
+                <i class="fas fa-circle-info"></i> El costo de envío <strong>no se cobra</strong> al cliente.
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <div class="text-xs text-muted fw-600 mb-8" style="text-transform:uppercase;letter-spacing:.5px;">Método de pago</div>
+              <div class="payment-methods">
+                <div class="pay-method selected" data-method="Efectivo" onclick="selectPayMethod('Efectivo')">
+                  <i class="fas fa-money-bill-wave"></i>
+                  Efectivo
+                </div>
+                <div class="pay-method" data-method="Tarjeta" onclick="selectPayMethod('Tarjeta')">
+                  <i class="fas fa-credit-card"></i>
+                  Tarjeta
+                </div>
+                <div class="pay-method" data-method="BAC" onclick="selectPayMethod('BAC')">
+                  <i class="fas fa-building-columns"></i>
+                  BAC
+                </div>
+              </div>
+            </div>
+
+            <div class="flex gap-8" style="margin-top:8px;">
+              <button class="btn btn-secondary" onclick="cart=[];renderCart();" style="flex:1;justify-content:center;"><i class="fas fa-xmark"></i> Cancelar</button>
+              <button id="btnProcesar" class="btn btn-primary" onclick="procesarVenta()" style="flex:2;justify-content:center;">
+                <i class="fas fa-check"></i> <span id="btnProcesarLabel">Procesar venta</span>
+              </button>
+            </div>
+
+            <div style="margin-top:10px;text-align:center;">
+              <button class="btn btn-ghost btn-sm" style="font-size:11.5px;color:var(--text-muted);">
+                <i class="fas fa-file-invoice"></i> Enviar factura por correo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 <script src="js/main.js"></script>
 <script>
+  /* ── Modo tienda / delivery ── */
   function setModo(modo) {
     const isDelivery = modo === 'delivery';
     document.getElementById('btnLocal').className    = isDelivery ? 'btn btn-secondary btn-sm' : 'btn btn-primary btn-sm';
@@ -339,6 +279,311 @@
     document.getElementById('deliveryFields').style.display = isDelivery ? 'block' : 'none';
     document.getElementById('btnProcesarLabel').textContent = isDelivery ? 'Crear pedido delivery' : 'Procesar venta';
   }
+
+  /* ── Catálogo con presentaciones ── */
+  const PRODUCTS = [
+    { id:1,  name:'Paracetamol 500mg',  emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:2.50}, {label:'Blíster x10', price:22.00}, {label:'Caja x30', price:60.00}]},
+    { id:2,  name:'Ibuprofeno 600mg',   emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:4.00}, {label:'Blíster x10', price:35.00}, {label:'Caja x20', price:65.00}]},
+    { id:3,  name:'Amoxicilina 500mg',  emoji:'💊', controlled:false, presentations:[
+        {label:'Blíster x14', price:38.50}, {label:'Caja x28', price:72.00}, {label:'Caja x56', price:135.00}]},
+    { id:4,  name:'Metformina 850mg',   emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:3.20}, {label:'Blíster x15', price:45.00}, {label:'Caja x30', price:95.00}]},
+    { id:5,  name:'Omeprazol 20mg',     emoji:'💊', controlled:false, presentations:[
+        {label:'Cápsula unitaria', price:4.00}, {label:'Blíster x14', price:55.00}, {label:'Caja x28', price:100.00}]},
+    { id:6,  name:'Atorvastatina 20mg', emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:4.50}, {label:'Blíster x14', price:60.00}, {label:'Caja x28', price:120.00}]},
+    { id:7,  name:'Loratadina 10mg',    emoji:'🧴', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:3.00}, {label:'Blíster x10', price:28.00}, {label:'Caja x30', price:75.00}]},
+    { id:8,  name:'Enalapril 10mg',     emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:2.60}, {label:'Blíster x15', price:37.00}, {label:'Caja x30', price:75.00}]},
+    { id:9,  name:'Aspirina 100mg',     emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:1.90}, {label:'Blíster x10', price:18.00}, {label:'Caja x30', price:50.00}]},
+    { id:10, name:'Furosemida 40mg',    emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:3.50}, {label:'Blíster x10', price:32.00}, {label:'Caja x20', price:60.00}]},
+    { id:11, name:'Vitamina C 1000mg',  emoji:'🧴', controlled:false, presentations:[
+        {label:'Efervescente unitario', price:4.50}, {label:'Tubo x10', price:42.00}, {label:'Caja x20', price:80.00}]},
+    { id:12, name:'Diclofenaco 50mg',   emoji:'💊', controlled:false, presentations:[
+        {label:'Pastilla unitaria', price:3.00}, {label:'Blíster x10', price:27.00}, {label:'Caja x20', price:50.00}]},
+    { id:13, name:'Clonazepam 2mg',     emoji:'💊', controlled:true,  presentations:[
+        {label:'Blíster x10', price:145.00}, {label:'Caja x20', price:285.00}]},
+  ];
+
+  let cart = [];
+  window._payMethod = 'Efectivo';
+
+  /* ── Popup selección de presentación ── */
+  function openProductOptions(productId) {
+    const p = PRODUCTS.find(x => x.id === productId);
+    if (!p) return;
+    window._selProdId  = productId;
+    window._selPresIdx = 0;
+
+    if (p.controlled) {
+      showToast('⚠️ ' + p.name + ' requiere receta médica controlada', 'warning');
+    }
+
+    const getPillsPerUnit = label => {
+      const m = label.match(/x(\d+)/i);
+      return m ? parseInt(m[1]) : 1;
+    };
+    const presHTML = p.presentations.map((pr, i) => {
+      const pills = getPillsPerUnit(pr.label);
+      const unitType = pr.label.toLowerCase().includes('blíster') ? 'blíster' : pr.label.toLowerCase().includes('caja') ? 'caja' : '';
+      const perPill = pills > 1 ? `<div style="font-size:10px;color:var(--text-muted);margin-top:2px;">Q ${(pr.price/pills).toFixed(2)}/pastilla</div>` : '';
+      return `
+      <div class="pres-option" id="pres-${productId}-${i}" onclick="selectPresentation(${productId},${i})">
+        <div class="pres-label">${pr.label}</div>
+        <div class="pres-price">Q ${pr.price.toFixed(2)}</div>
+        ${perPill}
+      </div>`;}).join('');
+
+    const m = document.createElement('div');
+    m.id = 'ph-modal';
+    m.innerHTML = `
+      <div class="modal-backdrop" onclick="closeModal()"></div>
+      <div class="modal-box" style="max-width:400px;">
+        <div class="modal-header">
+          <div class="modal-title">${p.emoji} ${p.name}</div>
+          <button class="modal-close" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label style="font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-muted);">Presentación</label>
+            <div class="pres-grid">${presHTML}</div>
+          </div>
+          <div class="form-group" style="margin-top:16px;">
+            <label id="qtyLabel" style="font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-muted);">Cantidad</label>
+            <div class="flex gap-10" style="align-items:center;margin-top:8px;">
+              <button class="qty-btn" style="width:32px;height:32px;" onclick="var q=document.getElementById('presQty');q.value=Math.max(1,+q.value-1);updateQtyInfo()">−</button>
+              <input id="presQty" type="number" class="form-control" value="1" min="1" style="width:80px;text-align:center;font-weight:700;font-size:16px;" oninput="updateQtyInfo()"/>
+              <button class="qty-btn" style="width:32px;height:32px;" onclick="var q=document.getElementById('presQty');q.value=+q.value+1;updateQtyInfo()">+</button>
+            </div>
+            <div id="qtyInfo" style="font-size:12px;color:var(--text-muted);margin-top:6px;"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+          <button class="btn btn-primary" onclick="confirmAddToCart()"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
+        </div>
+      </div>`;
+    document.body.appendChild(m);
+    setTimeout(() => { m.classList.add('visible'); selectPresentation(productId, 0); }, 10);
+  }
+
+  function selectPresentation(productId, idx) {
+    window._selProdId  = productId;
+    window._selPresIdx = idx;
+    document.querySelectorAll('#ph-modal .pres-option').forEach(el => el.classList.remove('selected'));
+    const el = document.getElementById('pres-' + productId + '-' + idx);
+    if (el) el.classList.add('selected');
+    updateQtyInfo();
+  }
+
+  function updateQtyInfo() {
+    const p = PRODUCTS.find(x => x.id === window._selProdId);
+    if (!p) return;
+    const pres = p.presentations[window._selPresIdx || 0];
+    if (!pres) return;
+    const qty = parseInt(document.getElementById('presQty')?.value || 1);
+    const m = pres.label.match(/x(\d+)/i);
+    const pillsPerUnit = m ? parseInt(m[1]) : 1;
+    const isBlister = pres.label.toLowerCase().includes('blíster');
+    const isCaja    = pres.label.toLowerCase().includes('caja');
+    const infoEl = document.getElementById('qtyInfo');
+    const labelEl = document.getElementById('qtyLabel');
+    if (labelEl) labelEl.textContent = isBlister ? 'Cantidad de blísteres' : isCaja ? 'Cantidad de cajas' : 'Cantidad de unidades';
+    if (infoEl) {
+      if (pillsPerUnit > 1) {
+        const totalPills = qty * pillsPerUnit;
+        const totalCost  = (qty * pres.price).toFixed(2);
+        infoEl.innerHTML = `<i class="fas fa-circle-info" style="margin-right:4px;"></i>${qty} ${isBlister?'blíster(s)':isCaja?'caja(s)':'unidad(es)'} = <strong>${totalPills} pastillas</strong> · Total: <strong>Q ${totalCost}</strong>`;
+      } else {
+        infoEl.innerHTML = `<i class="fas fa-circle-info" style="margin-right:4px;"></i>Total: <strong>Q ${(qty * pres.price).toFixed(2)}</strong>`;
+      }
+    }
+  }
+
+  function confirmAddToCart() {
+    const p      = PRODUCTS.find(x => x.id === window._selProdId);
+    const presIdx = window._selPresIdx;
+    const qty    = Math.max(1, parseInt(document.getElementById('presQty')?.value || '1'));
+    if (!p) return;
+    const pres = p.presentations[presIdx];
+    const cartKey = p.id + '-' + presIdx;
+    const existing = cart.find(x => x.cartKey === cartKey);
+    if (existing) {
+      existing.qty += qty;
+    } else {
+      cart.push({ id: p.id, name: p.name, emoji: p.emoji, present: pres.label, price: pres.price, qty, cartKey });
+    }
+    closeModal();
+    renderCart();
+    showToast(p.name + ' (' + pres.label + ') agregado', 'success');
+  }
+
+  /* ── Carrito ── */
+  function changeQty(cartKey, delta) {
+    const item = cart.find(x => x.cartKey === cartKey);
+    if (!item) return;
+    item.qty += delta;
+    if (item.qty <= 0) cart = cart.filter(x => x.cartKey !== cartKey);
+    renderCart();
+  }
+
+  function renderCart() {
+    const container = document.getElementById('cartItems');
+    if (!container) return;
+    if (cart.length === 0) {
+      container.innerHTML = '<div style="text-align:center;color:var(--text-muted);padding:32px 0;font-size:13px;"><i class="fas fa-cart-shopping" style="font-size:28px;display:block;margin-bottom:8px;opacity:.4;"></i>Carrito vacío<br><span style="font-size:11px;">Haz clic en un producto para agregar</span></div>';
+    } else {
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <div class="cart-item-name">${item.name}<small>${item.present}</small></div>
+          <div class="qty-control">
+            <button class="qty-btn" onclick="changeQty('${item.cartKey}',-1)">−</button>
+            <span class="qty-val">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${item.cartKey}',+1)">+</button>
+          </div>
+          <div class="cart-item-price">Q ${(item.price * item.qty).toFixed(2)}</div>
+        </div>`).join('');
+    }
+    updateTotals();
+  }
+
+  function updateTotals() {
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const iva      = subtotal * 0.12;
+    const total    = subtotal + iva;
+    const el = id => document.getElementById(id);
+    if (el('subtotal'))   el('subtotal').textContent   = 'Q ' + subtotal.toFixed(2);
+    if (el('ivaAmount'))  el('ivaAmount').textContent  = 'Q ' + iva.toFixed(2);
+    if (el('totalAmount')) el('totalAmount').textContent = 'Q ' + total.toFixed(2);
+  }
+
+  function selectPayMethod(method) {
+    document.querySelectorAll('.pay-method').forEach(el => el.classList.remove('selected'));
+    document.querySelector(`.pay-method[data-method="${method}"]`)?.classList.add('selected');
+    window._payMethod = method;
+  }
+
+  /* ── Procesar venta → modal con NIT ── */
+  function procesarVenta() {
+    if (cart.length === 0) { showToast('El carrito está vacío', 'danger'); return; }
+    const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const iva      = subtotal * 0.12;
+    const total    = subtotal + iva;
+    const method   = window._payMethod || 'Efectivo';
+
+    const lines = cart.map(i =>
+      `<tr>
+        <td style="padding:5px 0;">${i.emoji} ${i.name}</td>
+        <td style="color:var(--text-muted);padding:5px 8px;">${i.present}</td>
+        <td style="text-align:center;padding:5px 8px;">×${i.qty}</td>
+        <td style="text-align:right;font-weight:600;padding:5px 0;">Q ${(i.price * i.qty).toFixed(2)}</td>
+      </tr>`).join('');
+
+    const payIcons = { 'Efectivo':'money-bill-wave', 'Tarjeta':'credit-card', 'BAC':'building-columns' };
+
+    const m = document.createElement('div');
+    m.id = 'ph-modal';
+    m.innerHTML = `
+      <div class="modal-backdrop" onclick="closeModal()"></div>
+      <div class="modal-box" style="max-width:500px;">
+        <div class="modal-header">
+          <div class="modal-title"><i class="fas fa-file-invoice" style="margin-right:8px;color:var(--primary);"></i>Datos de facturación</div>
+          <button class="modal-close" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+        </div>
+        <div class="modal-body">
+          <div class="grid-2">
+            <div class="form-group">
+              <label>NIT del cliente</label>
+              <input id="factNit" class="form-control" placeholder="Ej. 12345678-9 o CF" value="CF"/>
+            </div>
+            <div class="form-group">
+              <label>Nombre para factura</label>
+              <input id="factNombre" class="form-control" placeholder="Nombre completo"/>
+            </div>
+          </div>
+          <div style="background:var(--bg);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:12px;">
+            <table style="width:100%;font-size:13px;border-collapse:collapse;">
+              ${lines}
+              <tr style="border-top:1px solid var(--border);">
+                <td colspan="3" style="padding-top:8px;color:var(--text-muted);">Subtotal</td>
+                <td style="text-align:right;padding-top:8px;">Q ${subtotal.toFixed(2)}</td>
+              </tr>
+              <tr>
+                <td colspan="3" style="color:var(--text-muted);">IVA (12%)</td>
+                <td style="text-align:right;">Q ${iva.toFixed(2)}</td>
+              </tr>
+              <tr style="font-size:15px;font-weight:700;">
+                <td colspan="3" style="padding-top:6px;">Total</td>
+                <td style="text-align:right;padding-top:6px;color:var(--primary);">Q ${total.toFixed(2)}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="form-group mb-0">
+            <label>Método de pago</label>
+            <div class="payment-methods" style="margin-top:6px;">
+              ${['Efectivo','Tarjeta','BAC'].map(mt =>
+                `<div class="pay-method${mt===method?' selected':''}" onclick="this.parentElement.querySelectorAll('.pay-method').forEach(x=>x.classList.remove('selected'));this.classList.add('selected');window._payMethod='${mt}';" style="cursor:pointer;">
+                  <i class="fas fa-${payIcons[mt]}"></i>${mt}
+                </div>`).join('')}
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeModal()">Cancelar</button>
+          <button class="btn btn-primary" onclick="confirmarVenta()"><i class="fas fa-check"></i> Confirmar y facturar</button>
+        </div>
+      </div>`;
+    document.body.appendChild(m);
+    setTimeout(() => m.classList.add('visible'), 10);
+  }
+
+  function confirmarVenta() {
+    const nit    = document.getElementById('factNit')?.value.trim()    || 'CF';
+    const nombre = document.getElementById('factNombre')?.value.trim() || 'Consumidor Final';
+    const total  = cart.reduce((s, i) => s + i.price * i.qty, 0) * 1.12;
+    const method = window._payMethod || 'Efectivo';
+    const folio  = 'VTA-' + String(Math.floor(Math.random() * 9000) + 1000);
+    closeModal();
+    setTimeout(() => {
+      const m2 = document.createElement('div');
+      m2.id = 'ph-modal';
+      m2.innerHTML = `
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-box" style="max-width:420px;">
+          <div class="modal-header">
+            <div class="modal-title">Venta completada</div>
+            <button class="modal-close" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
+          </div>
+          <div class="modal-body" style="text-align:center;padding:24px 20px;">
+            <div style="font-size:50px;margin-bottom:10px;">🧾</div>
+            <div style="font-size:26px;font-weight:700;color:var(--success);">Q ${total.toFixed(2)}</div>
+            <div style="color:var(--text-muted);margin-top:6px;font-size:13px;">${method} · NIT: <strong>${nit}</strong></div>
+            <div style="color:var(--text-muted);font-size:13px;">${nombre}</div>
+            <div style="background:var(--success-bg);color:var(--success-text);border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;margin-top:16px;">
+              <i class="fas fa-circle-check"></i> Factura <strong>${folio}</strong> generada correctamente
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="showToast('Enviando a impresora...','info');closeModal();cart=[];renderCart();">
+              <i class="fas fa-print"></i> Imprimir
+            </button>
+            <button class="btn btn-primary" onclick="cart=[];renderCart();closeModal();">
+              <i class="fas fa-plus"></i> Nueva venta
+            </button>
+          </div>
+        </div>`;
+      document.body.appendChild(m2);
+      setTimeout(() => m2.classList.add('visible'), 10);
+    }, 220);
+  }
+
+  /* ── Inicio ── */
+  renderCart();
 </script>
 </body>
 </html>

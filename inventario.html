@@ -10,342 +10,822 @@
 <body>
 <div class="app-layout">
 
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-cross">+</div>
-      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-mark">+</div>
+      <span class="brand-title">PHARMEDIC</span>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Principal</div>
-      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
-      <a href="inventario.html" class="nav-item active"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
-      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
-      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    <div class="topbar-right">
+      <div class="sucursal-pill">
+        <i class="fas fa-store"></i>
+        <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+      </div>
+      <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+      <div class="topbar-avatar">AD</div>
+      <a href="index.html" class="topbar-logout" title="Cerrar sesión"><i class="fas fa-right-from-bracket"></i></a>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Operaciones</div>
-      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
-      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
-      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+  </header>
+
+  <!-- TAB NAV -->
+  <nav class="tabnav">
+    <a href="dashboard.html" class="tabnav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+    <a href="inventario.html" class="tabnav-item active"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="tn-badge warning">8</span></a>
+    <a href="ventas.html" class="tabnav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+    <a href="recetas.html" class="tabnav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="tn-badge">12</span></a>
+    <a href="clientes.html" class="tabnav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+    <a href="delivery.html" class="tabnav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="tn-badge">5</span></a>
+    <a href="proveedores.html" class="tabnav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    <a href="reportes.html" class="tabnav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+    <a href="ofertas.html" class="tabnav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="tn-badge">4</span></a>
+    <a href="cierre-caja.html" class="tabnav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+    <a href="sucursales.html" class="tabnav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+  </nav>
+
+  <div class="content">
+
+    <div class="page-header">
+      <div class="page-header-left">
+        <h1>Control de Inventario</h1>
+        <p>143 productos registrados · Actualizado hace 2 minutos</p>
+      </div>
+      <div class="page-actions">
+        <button class="btn btn-secondary"><i class="fas fa-barcode"></i> Escanear</button>
+        <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Exportar</button>
+        <button class="btn btn-primary"><i class="fas fa-plus"></i> Agregar producto</button>
+      </div>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Administración</div>
-      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
-      <a href="ofertas.html" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
-      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
-      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+
+    <!-- Alerts -->
+    <div class="alert alert-warning mb-16">
+      <i class="fas fa-triangle-exclamation"></i>
+      <span><strong>8 productos</strong> con stock por debajo del mínimo · <strong>3 productos</strong> vencen en menos de 30 días</span>
+      <a href="#" class="btn btn-ghost btn-sm" style="margin-left:auto;">Ver alertas</a>
     </div>
-    <div class="sidebar-footer">
-      <div class="sidebar-user">
-        <div class="user-avatar">AD</div>
-        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Zona 16 — Central</div></div>
+
+    <!-- Stats -->
+    <div class="stats-grid mb-24">
+      <div class="stat-card">
+        <div class="stat-icon primary"><i class="fas fa-pills"></i></div>
+        <div class="stat-info"><div class="stat-value">143</div><div class="stat-label">Total productos</div></div>
       </div>
-      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+      <div class="stat-card">
+        <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
+        <div class="stat-info"><div class="stat-value">121</div><div class="stat-label">En stock</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon amber"><i class="fas fa-circle-exclamation"></i></div>
+        <div class="stat-info"><div class="stat-value">8</div><div class="stat-label">Stock bajo</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon red"><i class="fas fa-clock-rotate-left"></i></div>
+        <div class="stat-info"><div class="stat-value">3</div><div class="stat-label">Por vencer</div></div>
+      </div>
     </div>
-  </aside>
 
-  <div class="main-area">
-    <header class="topbar">
-      <div class="topbar-left">
-        <span class="page-title">Inventario</span>
+    <!-- Tabs -->
+    <div class="tabs" id="inv-tabs">
+      <div class="tab active" data-tab="productos">Productos <span class="tab-count">143</span></div>
+      <div class="tab" data-tab="lotes">Lotes <span class="tab-count">87</span></div>
+      <div class="tab" data-tab="alertas">Alertas <span class="tab-count">11</span></div>
+      <div class="tab" data-tab="movimientos">Movimientos</div>
+      <div class="tab" data-tab="transferencias">Transferencias <span class="tab-count">3</span></div>
+      <div class="tab" data-tab="regencia">Regencia <span class="tab-count" style="background:var(--danger);color:#fff;">3</span></div>
+    </div>
+
+    <div id="tc-productos">
+    <!-- Filters -->
+    <div class="filters-bar">
+      <div class="search-box">
+        <i class="fas fa-magnifying-glass"></i>
+        <input type="text" placeholder="Buscar por nombre, código o laboratorio..." />
       </div>
-      <div class="topbar-right">
-        <div class="sucursal-select">
-          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
-          <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
-        </div>
-        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
-        <div class="topbar-avatar">AD</div>
+      <select class="filter-select">
+        <option>Todas las categorías</option>
+        <option>Antibióticos</option>
+        <option>Analgésicos</option>
+        <option>Antidiabéticos</option>
+        <option>Antiácidos</option>
+        <option>Antihipertensivos</option>
+        <option>Psicotrópicos</option>
+        <option>Antihistamínicos</option>
+      </select>
+      <select class="filter-select">
+        <option>Todos los estados</option>
+        <option>En stock</option>
+        <option>Stock bajo</option>
+        <option>Sin stock</option>
+        <option>Por vencer</option>
+      </select>
+      <select class="filter-select">
+        <option>Presentación</option>
+        <option>Pastilla</option>
+        <option>Blíster</option>
+        <option>Caja completa</option>
+        <option>Jarabe</option>
+        <option>Ampolla</option>
+      </select>
+    </div>
+
+    <!-- Table -->
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Código</th>
+              <th>Producto</th>
+              <th>Categoría</th>
+              <th>Presentación</th>
+              <th>Stock actual</th>
+              <th>Stock mín.</th>
+              <th>Precio unit.</th>
+              <th>Vencimiento</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-muted">MED-0012</td>
+              <td>
+                <div class="fw-600">Amoxicilina 500mg</div>
+                <div class="text-xs text-muted">GlaxoSmithKline · Lote LT-2024-21</div>
+              </td>
+              <td><span class="tag">Antibiótico</span></td>
+              <td>Blíster x14</td>
+              <td>
+                <div class="fw-600">42 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar warning" style="width:28%"></div></div>
+              </td>
+              <td class="text-muted">50</td>
+              <td class="fw-600">Q 38.50</td>
+              <td><span class="badge badge-warning">28 jun 2026</span></td>
+              <td><span class="badge badge-warning">Stock bajo</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir a otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td class="td-muted">MED-0034</td>
+              <td>
+                <div class="fw-600">Metformina 850mg</div>
+                <div class="text-xs text-muted">Roche · Lote LT-2024-55</div>
+              </td>
+              <td><span class="tag">Antidiabético</span></td>
+              <td>Caja x30</td>
+              <td>
+                <div class="fw-600">210 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar" style="width:84%"></div></div>
+              </td>
+              <td class="text-muted">30</td>
+              <td class="fw-600">Q 95.00</td>
+              <td><span class="badge badge-neutral">Feb 2027</span></td>
+              <td><span class="badge badge-success">En stock</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir a otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td class="td-muted">MED-0057</td>
+              <td>
+                <div class="fw-600">Clonazepam 2mg</div>
+                <div class="text-xs text-muted">Roche · Lote LT-2024-08 <span class="controlled-tag">Controlado</span></div>
+              </td>
+              <td><span class="tag">Psicotrópico</span></td>
+              <td>Blíster x10</td>
+              <td>
+                <div class="fw-600">8 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar danger" style="width:8%"></div></div>
+              </td>
+              <td class="text-muted">20</td>
+              <td class="fw-600">Q 145.00</td>
+              <td><span class="badge badge-danger">14 jun 2026</span></td>
+              <td><span class="badge badge-danger">Urgente</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir a otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td class="td-muted">MED-0023</td>
+              <td>
+                <div class="fw-600">Atorvastatina 20mg</div>
+                <div class="text-xs text-muted">Pfizer · Lote LT-2024-62</div>
+              </td>
+              <td><span class="tag">Antilipémico</span></td>
+              <td>Caja x28</td>
+              <td>
+                <div class="fw-600">95 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar" style="width:76%"></div></div>
+              </td>
+              <td class="text-muted">20</td>
+              <td class="fw-600">Q 120.00</td>
+              <td><span class="badge badge-neutral">Sep 2027</span></td>
+              <td><span class="badge badge-success">En stock</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir a otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td class="td-muted">MED-0041</td>
+              <td>
+                <div class="fw-600">Omeprazol 20mg</div>
+                <div class="text-xs text-muted">AstraZeneca · Lote LT-2024-15</div>
+              </td>
+              <td><span class="tag">Antiácido</span></td>
+              <td>Caja x14</td>
+              <td>
+                <div class="fw-600">17 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar warning" style="width:22%"></div></div>
+              </td>
+              <td class="text-muted">25</td>
+              <td class="fw-600">Q 55.00</td>
+              <td><span class="badge badge-warning">05 jul 2026</span></td>
+              <td><span class="badge badge-warning">Stock bajo</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir a otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td class="td-muted">MED-0068</td>
+              <td>
+                <div class="fw-600">Paracetamol 500mg</div>
+                <div class="text-xs text-muted">Bayer · Lote LT-2024-77</div>
+              </td>
+              <td><span class="tag">Analgésico</span></td>
+              <td>Pastilla unitaria</td>
+              <td>
+                <div class="fw-600">380 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar" style="width:95%"></div></div>
+              </td>
+              <td class="text-muted">100</td>
+              <td class="fw-600">Q 2.50</td>
+              <td><span class="badge badge-neutral">Mar 2028</span></td>
+              <td><span class="badge badge-success">En stock</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir a otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+              </div></td>
+            </tr>
+            <tr>
+              <td class="td-muted">MED-0079</td>
+              <td>
+                <div class="fw-600">Loratadina 10mg</div>
+                <div class="text-xs text-muted">Schering · Lote LT-2024-81</div>
+              </td>
+              <td><span class="tag">Antihistamínico</span></td>
+              <td>Blíster x10</td>
+              <td>
+                <div class="fw-600">0 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar danger" style="width:0%"></div></div>
+              </td>
+              <td class="text-muted">30</td>
+              <td class="fw-600">Q 28.00</td>
+              <td><span class="badge badge-neutral">Ene 2027</span></td>
+              <td><span class="badge badge-danger">Sin stock</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir desde otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+                <button class="btn btn-primary btn-sm"><i class="fas fa-cart-plus"></i> Pedir</button>
+              </div></td>
+            </tr>
+            <tr>
+              <td class="td-muted">MED-0091</td>
+              <td>
+                <div class="fw-600">Enalapril 10mg</div>
+                <div class="text-xs text-muted">Merck · Lote LT-2024-41</div>
+              </td>
+              <td><span class="tag">Antihipertensivo</span></td>
+              <td>Caja x30</td>
+              <td>
+                <div class="fw-600">63 unidades</div>
+                <div class="progress-bar-wrap"><div class="progress-bar" style="width:63%"></div></div>
+              </td>
+              <td class="text-muted">20</td>
+              <td class="fw-600">Q 75.00</td>
+              <td><span class="badge badge-orange">22 jul 2026</span></td>
+              <td><span class="badge badge-success">En stock</span></td>
+              <td><div class="actions-cell">
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
+                <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                <button class="btn btn-secondary btn-sm" title="Transferir a otra sucursal"><i class="fas fa-arrow-right-arrow-left"></i></button>
+              </div></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </header>
-
-    <div class="content">
-
-      <div class="page-header">
-        <div class="page-header-left">
-          <h1>Control de Inventario</h1>
-          <p>143 productos registrados · Actualizado hace 2 minutos</p>
-        </div>
-        <div class="page-actions">
-          <button class="btn btn-secondary"><i class="fas fa-barcode"></i> Escanear</button>
-          <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Exportar</button>
-          <button class="btn btn-primary"><i class="fas fa-plus"></i> Agregar producto</button>
+      <div class="flex-between" style="padding:14px 20px;border-top:1px solid var(--border);">
+        <span class="text-sm text-muted">Mostrando 8 de 143 productos</span>
+        <div class="flex gap-8">
+          <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-left"></i></button>
+          <button class="btn btn-primary btn-sm">1</button>
+          <button class="btn btn-secondary btn-sm">2</button>
+          <button class="btn btn-secondary btn-sm">3</button>
+          <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
+    </div>
+    </div><!-- /tc-productos -->
 
-      <!-- Alerts -->
-      <div class="alert alert-warning mb-16">
-        <i class="fas fa-triangle-exclamation"></i>
-        <span><strong>8 productos</strong> con stock por debajo del mínimo · <strong>3 productos</strong> vencen en menos de 30 días</span>
-        <a href="#" class="btn btn-ghost btn-sm" style="margin-left:auto;">Ver alertas</a>
+    <!-- ── TRANSFERENCIAS TAB ── -->
+    <div id="tc-transferencias" style="display:none;">
+      <div class="stats-grid mb-20">
+        <div class="stat-card"><div class="stat-icon amber"><i class="fas fa-hourglass-half"></i></div><div class="stat-info"><div class="stat-value">2</div><div class="stat-label">Pendientes aprobación</div></div></div>
+        <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-truck"></i></div><div class="stat-info"><div class="stat-value">1</div><div class="stat-label">En tránsito</div></div></div>
+        <div class="stat-card"><div class="stat-icon green"><i class="fas fa-circle-check"></i></div><div class="stat-info"><div class="stat-value">18</div><div class="stat-label">Completadas este mes</div></div></div>
+        <div class="stat-card"><div class="stat-icon primary"><i class="fas fa-boxes-stacked"></i></div><div class="stat-info"><div class="stat-value">312</div><div class="stat-label">Unidades transferidas</div></div></div>
       </div>
-
-      <!-- Stats -->
-      <div class="stats-grid mb-24">
-        <div class="stat-card">
-          <div class="stat-icon primary"><i class="fas fa-pills"></i></div>
-          <div class="stat-info"><div class="stat-value">143</div><div class="stat-label">Total productos</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
-          <div class="stat-info"><div class="stat-value">121</div><div class="stat-label">En stock</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon amber"><i class="fas fa-circle-exclamation"></i></div>
-          <div class="stat-info"><div class="stat-value">8</div><div class="stat-label">Stock bajo</div></div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon red"><i class="fas fa-clock-rotate-left"></i></div>
-          <div class="stat-info"><div class="stat-value">3</div><div class="stat-label">Por vencer</div></div>
-        </div>
-      </div>
-
-      <!-- Tabs -->
-      <div class="tabs">
-        <div class="tab active">Productos <span class="tab-count">143</span></div>
-        <div class="tab">Lotes <span class="tab-count">87</span></div>
-        <div class="tab">Alertas <span class="tab-count">11</span></div>
-        <div class="tab">Movimientos</div>
-      </div>
-
-      <!-- Filters -->
-      <div class="filters-bar">
-        <div class="search-box">
-          <i class="fas fa-magnifying-glass"></i>
-          <input type="text" placeholder="Buscar por nombre, código o laboratorio..." />
-        </div>
-        <select class="filter-select">
-          <option>Todas las categorías</option>
-          <option>Antibióticos</option>
-          <option>Analgésicos</option>
-          <option>Antidiabéticos</option>
-          <option>Antiácidos</option>
-          <option>Antihipertensivos</option>
-          <option>Psicotrópicos</option>
-          <option>Antihistamínicos</option>
-        </select>
-        <select class="filter-select">
-          <option>Todos los estados</option>
-          <option>En stock</option>
-          <option>Stock bajo</option>
-          <option>Sin stock</option>
-          <option>Por vencer</option>
-        </select>
-        <select class="filter-select">
-          <option>Presentación</option>
-          <option>Pastilla</option>
-          <option>Blíster</option>
-          <option>Caja completa</option>
-          <option>Jarabe</option>
-          <option>Ampolla</option>
-        </select>
-      </div>
-
-      <!-- Table -->
       <div class="card">
+        <div class="card-header">
+          <div><div class="card-title">Transferencias entre sucursales</div><div class="card-subtitle">Movimientos inter-sucursal de inventario</div></div>
+          <button class="btn btn-primary btn-sm" onclick="nuevaTransferencia()"><i class="fas fa-plus"></i> Nueva transferencia</button>
+        </div>
         <div class="table-wrap">
           <table>
-            <thead>
-              <tr>
-                <th>Código</th>
-                <th>Producto</th>
-                <th>Categoría</th>
-                <th>Presentación</th>
-                <th>Stock actual</th>
-                <th>Stock mín.</th>
-                <th>Precio unit.</th>
-                <th>Vencimiento</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
+            <thead><tr><th>ID</th><th>Producto</th><th>Origen</th><th>Destino</th><th>Cantidad</th><th>Solicitante</th><th>Fecha</th><th>Estado</th><th>Acciones</th></tr></thead>
             <tbody>
               <tr>
-                <td class="td-muted">MED-0012</td>
-                <td>
-                  <div class="fw-600">Amoxicilina 500mg</div>
-                  <div class="text-xs text-muted">GlaxoSmithKline · Lote LT-2024-21</div>
-                </td>
-                <td><span class="tag">Antibiótico</span></td>
-                <td>Blíster x14</td>
-                <td>
-                  <div class="fw-600">42 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar warning" style="width:28%"></div></div>
-                </td>
-                <td class="text-muted">50</td>
-                <td class="fw-600">Q 38.50</td>
-                <td><span class="badge badge-warning">28 jun 2026</span></td>
-                <td><span class="badge badge-warning">Stock bajo</span></td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
-                </div></td>
+                <td class="td-muted fw-600">TRF-031</td>
+                <td><div class="fw-600">Amoxicilina 500mg</div><div class="text-xs text-muted">Blíster x14</div></td>
+                <td><i class="fas fa-store" style="color:var(--primary);margin-right:4px;"></i>Zona 11</td>
+                <td><i class="fas fa-store" style="color:var(--success);margin-right:4px;"></i>Zona 16</td>
+                <td class="fw-600">20 unidades</td><td>Mario Chávez</td><td class="td-muted">24 may 2026</td>
+                <td><span class="badge badge-info">En tránsito</span></td>
+                <td><button class="btn btn-ghost btn-sm" onclick="verTransferencia('TRF-031')"><i class="fas fa-eye"></i></button></td>
               </tr>
               <tr>
-                <td class="td-muted">MED-0034</td>
-                <td>
-                  <div class="fw-600">Metformina 850mg</div>
-                  <div class="text-xs text-muted">Roche · Lote LT-2024-55</div>
-                </td>
-                <td><span class="tag">Antidiabético</span></td>
-                <td>Caja x30</td>
-                <td>
-                  <div class="fw-600">210 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar" style="width:84%"></div></div>
-                </td>
-                <td class="text-muted">30</td>
-                <td class="fw-600">Q 95.00</td>
-                <td><span class="badge badge-neutral">Feb 2027</span></td>
-                <td><span class="badge badge-success">En stock</span></td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
-                </div></td>
+                <td class="td-muted fw-600">TRF-030</td>
+                <td><div class="fw-600">Loratadina 10mg</div><div class="text-xs text-muted">Blíster x10</div></td>
+                <td><i class="fas fa-store" style="color:var(--primary);margin-right:4px;"></i>Zona 16</td>
+                <td><i class="fas fa-store" style="color:var(--success);margin-right:4px;"></i>Zona 2</td>
+                <td class="fw-600">30 unidades</td><td>Karen Rodríguez</td><td class="td-muted">24 may 2026</td>
+                <td><span class="badge badge-warning">Pendiente</span></td>
+                <td><div class="actions-cell"><button class="btn btn-primary btn-sm" onclick="aprobarTransferencia('TRF-030')"><i class="fas fa-check"></i> Aprobar</button><button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="showToast('Transferencia TRF-030 rechazada','danger')"><i class="fas fa-xmark"></i></button></div></td>
               </tr>
+              <tr>
+                <td class="td-muted fw-600">TRF-029</td>
+                <td><div class="fw-600">Paracetamol 500mg</div><div class="text-xs text-muted">Pastilla unitaria</div></td>
+                <td><i class="fas fa-store" style="color:var(--primary);margin-right:4px;"></i>Zona 2</td>
+                <td><i class="fas fa-store" style="color:var(--success);margin-right:4px;"></i>Zona 11</td>
+                <td class="fw-600">50 unidades</td><td>Laura Hernández</td><td class="td-muted">23 may 2026</td>
+                <td><span class="badge badge-success">Completado</span></td>
+                <td><button class="btn btn-ghost btn-sm" onclick="verTransferencia('TRF-029')"><i class="fas fa-eye"></i></button></td>
+              </tr>
+              <tr>
+                <td class="td-muted fw-600">TRF-028</td>
+                <td><div class="fw-600">Metformina 850mg</div><div class="text-xs text-muted">Caja x30</div></td>
+                <td><i class="fas fa-store" style="color:var(--primary);margin-right:4px;"></i>Zona 16</td>
+                <td><i class="fas fa-store" style="color:var(--success);margin-right:4px;"></i>Zona 11</td>
+                <td class="fw-600">15 unidades</td><td>Karen Rodríguez</td><td class="td-muted">22 may 2026</td>
+                <td><span class="badge badge-warning">Pendiente</span></td>
+                <td><div class="actions-cell"><button class="btn btn-primary btn-sm" onclick="aprobarTransferencia('TRF-028')"><i class="fas fa-check"></i> Aprobar</button><button class="btn btn-ghost btn-sm" style="color:var(--danger);" onclick="showToast('Transferencia TRF-028 rechazada','danger')"><i class="fas fa-xmark"></i></button></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div><!-- /tc-transferencias -->
+
+    <!-- ── REGENCIA TAB ── -->
+    <div id="tc-regencia" style="display:none;">
+      <div class="alert alert-warning mb-16">
+        <i class="fas fa-shield-halved"></i>
+        <span><strong>Vista de Regencia Farmacéutica</strong> — Control de medicamentos controlados y psicotrópicos según normativa MSPAS. Solo el regente puede autorizar despacho.</span>
+      </div>
+      <div class="stats-grid mb-20">
+        <div class="stat-card"><div class="stat-icon red"><i class="fas fa-lock"></i></div><div class="stat-info"><div class="stat-value">3</div><div class="stat-label">Productos controlados</div></div></div>
+        <div class="stat-card"><div class="stat-icon amber"><i class="fas fa-triangle-exclamation"></i></div><div class="stat-info"><div class="stat-value">1</div><div class="stat-label">Próximo al límite legal</div></div></div>
+        <div class="stat-card"><div class="stat-icon green"><i class="fas fa-file-medical"></i></div><div class="stat-info"><div class="stat-value">8</div><div class="stat-label">Recetas controladas activas</div></div></div>
+        <div class="stat-card"><div class="stat-icon blue"><i class="fas fa-book"></i></div><div class="stat-info"><div class="stat-value">42</div><div class="stat-label">Registros en libro mayo</div></div></div>
+      </div>
+      <div class="card mb-20">
+        <div class="card-header">
+          <div><div class="card-title">Control de Medicamentos Controlados</div><div class="card-subtitle">Límites de dispensación mensual según normativa guatemalteca</div></div>
+          <button class="btn btn-primary btn-sm" onclick="showToast('Abriendo libro de despacho...','info')"><i class="fas fa-book"></i> Libro de despacho</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Código</th><th>Producto</th><th>Categoría</th><th>Stock</th><th>Dispensados/mes</th><th>Límite/mes</th><th>Restante permitido</th><th>Vencimiento</th><th>Estado</th><th>Acciones</th></tr></thead>
+            <tbody>
               <tr>
                 <td class="td-muted">MED-0057</td>
-                <td>
-                  <div class="fw-600">Clonazepam 2mg</div>
-                  <div class="text-xs text-muted">Roche · Lote LT-2024-08 <span class="controlled-tag">Controlado</span></div>
-                </td>
+                <td><div class="fw-600">Clonazepam 2mg</div><div class="text-xs text-muted">Roche · <span class="controlled-tag">Lista II</span></div></td>
                 <td><span class="tag">Psicotrópico</span></td>
-                <td>Blíster x10</td>
-                <td>
-                  <div class="fw-600">8 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar danger" style="width:8%"></div></div>
-                </td>
-                <td class="text-muted">20</td>
-                <td class="fw-600">Q 145.00</td>
+                <td class="fw-600">8 unid.</td>
+                <td><div class="fw-600">42</div><div class="progress-bar-wrap"><div class="progress-bar warning" style="width:84%"></div></div></td>
+                <td class="fw-600">50/mes</td>
+                <td><span class="badge badge-warning">8 restantes</span></td>
                 <td><span class="badge badge-danger">14 jun 2026</span></td>
-                <td><span class="badge badge-danger">Urgente</span></td>
+                <td><span class="badge badge-warning">Próximo al límite</span></td>
                 <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                  <button class="btn btn-primary btn-sm" onclick="registrarDespacho('Clonazepam 2mg')"><i class="fas fa-file-circle-plus"></i> Despachar</button>
+                  <button class="btn btn-ghost btn-sm" onclick="showToast('Historial de Clonazepam 2mg','info')"><i class="fas fa-history"></i></button>
                 </div></td>
               </tr>
               <tr>
-                <td class="td-muted">MED-0023</td>
-                <td>
-                  <div class="fw-600">Atorvastatina 20mg</div>
-                  <div class="text-xs text-muted">Pfizer · Lote LT-2024-62</div>
-                </td>
-                <td><span class="tag">Antilipémico</span></td>
-                <td>Caja x28</td>
-                <td>
-                  <div class="fw-600">95 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar" style="width:76%"></div></div>
-                </td>
-                <td class="text-muted">20</td>
-                <td class="fw-600">Q 120.00</td>
-                <td><span class="badge badge-neutral">Sep 2027</span></td>
-                <td><span class="badge badge-success">En stock</span></td>
+                <td class="td-muted">MED-0102</td>
+                <td><div class="fw-600">Alprazolam 0.5mg</div><div class="text-xs text-muted">Pfizer · <span class="controlled-tag">Lista II</span></div></td>
+                <td><span class="tag">Psicotrópico</span></td>
+                <td class="fw-600">25 unid.</td>
+                <td><div class="fw-600">18</div><div class="progress-bar-wrap"><div class="progress-bar" style="width:36%"></div></div></td>
+                <td class="fw-600">50/mes</td>
+                <td><span class="badge badge-success">32 restantes</span></td>
+                <td><span class="badge badge-neutral">Mar 2027</span></td>
+                <td><span class="badge badge-success">Dentro del límite</span></td>
                 <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                  <button class="btn btn-primary btn-sm" onclick="registrarDespacho('Alprazolam 0.5mg')"><i class="fas fa-file-circle-plus"></i> Despachar</button>
+                  <button class="btn btn-ghost btn-sm" onclick="showToast('Historial de Alprazolam','info')"><i class="fas fa-history"></i></button>
                 </div></td>
               </tr>
               <tr>
-                <td class="td-muted">MED-0041</td>
-                <td>
-                  <div class="fw-600">Omeprazol 20mg</div>
-                  <div class="text-xs text-muted">AstraZeneca · Lote LT-2024-15</div>
-                </td>
-                <td><span class="tag">Antiácido</span></td>
-                <td>Caja x14</td>
-                <td>
-                  <div class="fw-600">17 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar warning" style="width:22%"></div></div>
-                </td>
-                <td class="text-muted">25</td>
-                <td class="fw-600">Q 55.00</td>
-                <td><span class="badge badge-warning">05 jul 2026</span></td>
-                <td><span class="badge badge-warning">Stock bajo</span></td>
+                <td class="td-muted">MED-0118</td>
+                <td><div class="fw-600">Tramadol 50mg</div><div class="text-xs text-muted">Grünenthal · <span class="controlled-tag">Lista III</span></div></td>
+                <td><span class="tag">Analgésico fuerte</span></td>
+                <td class="fw-600">12 unid.</td>
+                <td><div class="fw-600">9</div><div class="progress-bar-wrap"><div class="progress-bar" style="width:18%"></div></div></td>
+                <td class="fw-600">50/mes</td>
+                <td><span class="badge badge-success">41 restantes</span></td>
+                <td><span class="badge badge-neutral">Ago 2027</span></td>
+                <td><span class="badge badge-success">Dentro del límite</span></td>
                 <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
-                </div></td>
-              </tr>
-              <tr>
-                <td class="td-muted">MED-0068</td>
-                <td>
-                  <div class="fw-600">Paracetamol 500mg</div>
-                  <div class="text-xs text-muted">Bayer · Lote LT-2024-77</div>
-                </td>
-                <td><span class="tag">Analgésico</span></td>
-                <td>Pastilla unitaria</td>
-                <td>
-                  <div class="fw-600">380 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar" style="width:95%"></div></div>
-                </td>
-                <td class="text-muted">100</td>
-                <td class="fw-600">Q 2.50</td>
-                <td><span class="badge badge-neutral">Mar 2028</span></td>
-                <td><span class="badge badge-success">En stock</span></td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
-                </div></td>
-              </tr>
-              <tr>
-                <td class="td-muted">MED-0079</td>
-                <td>
-                  <div class="fw-600">Loratadina 10mg</div>
-                  <div class="text-xs text-muted">Schering · Lote LT-2024-81</div>
-                </td>
-                <td><span class="tag">Antihistamínico</span></td>
-                <td>Blíster x10</td>
-                <td>
-                  <div class="fw-600">0 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar danger" style="width:0%"></div></div>
-                </td>
-                <td class="text-muted">30</td>
-                <td class="fw-600">Q 28.00</td>
-                <td><span class="badge badge-neutral">Ene 2027</span></td>
-                <td><span class="badge badge-danger">Sin stock</span></td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-primary btn-sm"><i class="fas fa-cart-plus"></i> Pedir</button>
-                </div></td>
-              </tr>
-              <tr>
-                <td class="td-muted">MED-0091</td>
-                <td>
-                  <div class="fw-600">Enalapril 10mg</div>
-                  <div class="text-xs text-muted">Merck · Lote LT-2024-41</div>
-                </td>
-                <td><span class="tag">Antihipertensivo</span></td>
-                <td>Caja x30</td>
-                <td>
-                  <div class="fw-600">63 unidades</div>
-                  <div class="progress-bar-wrap"><div class="progress-bar" style="width:63%"></div></div>
-                </td>
-                <td class="text-muted">20</td>
-                <td class="fw-600">Q 75.00</td>
-                <td><span class="badge badge-orange">22 jul 2026</span></td>
-                <td><span class="badge badge-success">En stock</span></td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-pen"></i></button>
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-barcode"></i></button>
+                  <button class="btn btn-primary btn-sm" onclick="registrarDespacho('Tramadol 50mg')"><i class="fas fa-file-circle-plus"></i> Despachar</button>
+                  <button class="btn btn-ghost btn-sm" onclick="showToast('Historial de Tramadol','info')"><i class="fas fa-history"></i></button>
                 </div></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="flex-between" style="padding:14px 20px;border-top:1px solid var(--border);">
-          <span class="text-sm text-muted">Mostrando 8 de 143 productos</span>
-          <div class="flex gap-8">
-            <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-left"></i></button>
-            <button class="btn btn-primary btn-sm">1</button>
-            <button class="btn btn-secondary btn-sm">2</button>
-            <button class="btn btn-secondary btn-sm">3</button>
-            <button class="btn btn-secondary btn-sm"><i class="fas fa-chevron-right"></i></button>
-          </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Últimos despachos controlados — Libro oficial</div>
+          <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i> Exportar libro</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Folio</th><th>Fecha</th><th>Producto</th><th>Cantidad</th><th>Paciente</th><th>Médico</th><th>No. Receta</th><th>Regente</th></tr></thead>
+            <tbody>
+              <tr><td class="td-muted">DSP-142</td><td class="td-muted">24 may · 13:45</td><td class="fw-600">Clonazepam 2mg</td><td>1 blíster x10</td><td>Roberto Soto M.</td><td>Dr. García Leiva</td><td><span class="badge badge-neutral">REC-2026-0441</span></td><td>Q.F. Rosa Guillén</td></tr>
+              <tr><td class="td-muted">DSP-141</td><td class="td-muted">24 may · 11:20</td><td class="fw-600">Alprazolam 0.5mg</td><td>1 blíster x10</td><td>Carmen Orozco L.</td><td>Dr. Morales Paz</td><td><span class="badge badge-neutral">REC-2026-0438</span></td><td>Q.F. Rosa Guillén</td></tr>
+              <tr><td class="td-muted">DSP-140</td><td class="td-muted">23 may · 09:30</td><td class="fw-600">Tramadol 50mg</td><td>1 caja x10</td><td>Francisco Lima R.</td><td>Dra. Pérez Castillo</td><td><span class="badge badge-neutral">REC-2026-0429</span></td><td>Q.F. Rosa Guillén</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
+    </div><!-- /tc-regencia -->
 
-    </div>
   </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+  /* ── Cambio de tabs ── */
+  document.querySelectorAll('#inv-tabs .tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('#inv-tabs .tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const name = tab.dataset.tab;
+      ['tc-productos','tc-transferencias','tc-regencia'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      const target = document.getElementById('tc-' + name) || document.getElementById('tc-productos');
+      if (target) target.style.display = '';
+    });
+  });
+
+  /* ── Crear nueva transferencia (desde botón del tab) ── */
+  function nuevaTransferencia() {
+    showModal('Nueva transferencia de stock', `
+      <div class="grid-2">
+        <div class="form-group"><label>Sucursal origen</label>
+          <select class="form-control"><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+        <div class="form-group"><label>Sucursal destino</label>
+          <select class="form-control"><option>Zona 11</option><option>Zona 2</option><option>Zona 16 — Central</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Producto</label>
+        <select class="form-control">
+          <option>Amoxicilina 500mg — Stock: 42 u.</option><option>Metformina 850mg — Stock: 210 u.</option>
+          <option>Atorvastatina 20mg — Stock: 95 u.</option><option>Paracetamol 500mg — Stock: 380 u.</option>
+          <option>Enalapril 10mg — Stock: 63 u.</option>
+        </select>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Cantidad</label><input class="form-control" type="number" id="trfCant" value="10" min="1"/></div>
+        <div class="form-group"><label>Urgencia</label>
+          <select class="form-control"><option>Normal — 24h</option><option>Urgente — 4h</option><option>Inmediata — 1h</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Motivo</label>
+        <select class="form-control"><option>Stock bajo en destino</option><option>Exceso en origen</option><option>Rebalanceo periódico</option><option>Solicitud de regencia</option><option>Emergencia</option></select>
+      </div>
+      <div class="form-group"><label>Notas</label>
+        <textarea class="form-control" rows="2" placeholder="Instrucciones de embalaje, horario..."></textarea>
+      </div>
+    `, [
+      {label:'Solicitar transferencia', style:'btn-primary', action:()=>{
+        const cant = document.getElementById('trfCant')?.value || 10;
+        showToast('Transferencia TRF-032 solicitada — ' + cant + ' unidades · Pendiente de aprobación', 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Crear transferencia desde fila de producto ── */
+  function crearTransferencia(idx) {
+    const p = PRODUCTOS[idx];
+    showModal('Transferir — ' + p.nombre, `
+      <div style="background:var(--primary-light);padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;margin-bottom:14px;">
+        <strong>${p.nombre}</strong> · Stock actual: <strong>${p.stock} unidades</strong> · ${p.present}
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Origen (actual)</label>
+          <select class="form-control"><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+        <div class="form-group"><label>Sucursal destino</label>
+          <select class="form-control"><option>Zona 11</option><option>Zona 2</option><option>Zona 16 — Central</option></select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Cantidad (máx. ${p.stock})</label>
+          <input class="form-control" type="number" id="trfCant2" value="${Math.max(1,Math.floor(p.stock/2))}" min="1" max="${p.stock}"/>
+        </div>
+        <div class="form-group"><label>Urgencia</label>
+          <select class="form-control"><option>Normal — 24h</option><option>Urgente — 4h</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Motivo</label>
+        <select class="form-control"><option>Stock bajo en destino</option><option>Exceso en origen</option><option>Rebalanceo</option></select>
+      </div>
+    `, [
+      {label:'Solicitar transferencia', style:'btn-primary', action:()=>{
+        const cant = document.getElementById('trfCant2')?.value || 1;
+        showToast('Transferencia solicitada — ' + cant + ' uds. de ' + p.nombre + ' · Pendiente aprobación', 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  function verTransferencia(id) {
+    const map = {
+      'TRF-031':{ prod:'Amoxicilina 500mg', orig:'Zona 11', dest:'Zona 16', cant:20, estado:'En tránsito', fecha:'24 may 2026 14:20', aprobado:'Rosa Guillén', motivo:'Stock bajo en Zona 16' },
+      'TRF-029':{ prod:'Paracetamol 500mg', orig:'Zona 2',  dest:'Zona 11', cant:50, estado:'Completado',  fecha:'23 may 2026 10:05', aprobado:'Rosa Guillén', motivo:'Rebalanceo periódico' },
+    };
+    const t = map[id] || {};
+    showModal('Transferencia ' + id, `
+      <div class="grid-2" style="font-size:13px;gap:12px;">
+        <div><span style="color:var(--text-muted)">Producto</span><div class="fw-600">${t.prod||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Estado</span><div class="fw-600">${t.estado||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Origen</span><div class="fw-600">${t.orig||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Destino</span><div class="fw-600">${t.dest||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Cantidad</span><div class="fw-600">${t.cant||'—'} unidades</div></div>
+        <div><span style="color:var(--text-muted)">Fecha</span><div class="fw-600">${t.fecha||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Aprobado por</span><div class="fw-600">${t.aprobado||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Motivo</span><div class="fw-600">${t.motivo||'—'}</div></div>
+      </div>
+    `, [{label:'Cerrar', style:'btn-secondary', action:closeModal}]);
+  }
+
+  function aprobarTransferencia(id) {
+    showToast('Transferencia ' + id + ' aprobada — En camino', 'success');
+  }
+
+  /* ── Registrar despacho de medicamento controlado ── */
+  function registrarDespacho(nombre) {
+    showModal('Registrar despacho controlado — ' + nombre, `
+      <div class="alert alert-warning" style="margin-bottom:14px;">
+        <i class="fas fa-shield-halved"></i>
+        <span>Solo el regente farmacéutico puede autorizar este despacho. Quedará registrado en el libro oficial.</span>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Número de receta</label><input class="form-control" placeholder="REC-2026-XXXX"/></div>
+        <div class="form-group"><label>Médico emisor</label><input class="form-control" placeholder="Dr./Dra. Nombre"/></div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Paciente (DPI)</label><input class="form-control" placeholder="DPI del paciente"/></div>
+        <div class="form-group"><label>Cantidad</label><input class="form-control" type="number" value="1" min="1"/></div>
+      </div>
+      <div class="form-group"><label>Presentación</label>
+        <select class="form-control"><option>Blíster x10</option><option>Caja x20</option></select>
+      </div>
+      <div class="form-group"><label>Regente autorizante</label>
+        <select class="form-control"><option>Q.F. Rosa Guillén — Regente en turno</option></select>
+      </div>
+    `, [
+      {label:'Confirmar despacho', style:'btn-primary', action:()=>{
+        showToast('Despacho registrado en libro oficial · Folio DSP-143', 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Datos quemados ── */
+  const PRODUCTOS = [
+    { cod:'MED-0012', nombre:'Amoxicilina 500mg',    lab:'GlaxoSmithKline', lote:'LT-2024-21', cat:'Antibiótico',      present:'Blíster x14',      stock:42,  min:50,  precio:38.50, vence:'28 jun 2026', estado:'Stock bajo' },
+    { cod:'MED-0034', nombre:'Metformina 850mg',     lab:'Roche',           lote:'LT-2024-55', cat:'Antidiabético',    present:'Caja x30',         stock:210, min:30,  precio:95.00, vence:'Feb 2027',    estado:'En stock'   },
+    { cod:'MED-0057', nombre:'Clonazepam 2mg',       lab:'Roche',           lote:'LT-2024-08', cat:'Psicotrópico',    present:'Blíster x10',      stock:8,   min:20,  precio:145.00,vence:'14 jun 2026', estado:'Urgente'    },
+    { cod:'MED-0023', nombre:'Atorvastatina 20mg',   lab:'Pfizer',          lote:'LT-2024-62', cat:'Antilipémico',    present:'Caja x28',         stock:95,  min:20,  precio:120.00,vence:'Sep 2027',    estado:'En stock'   },
+    { cod:'MED-0041', nombre:'Omeprazol 20mg',       lab:'AstraZeneca',     lote:'LT-2024-15', cat:'Antiácido',       present:'Caja x14',         stock:17,  min:25,  precio:55.00, vence:'05 jul 2026', estado:'Stock bajo' },
+    { cod:'MED-0068', nombre:'Paracetamol 500mg',    lab:'Bayer',           lote:'LT-2024-77', cat:'Analgésico',      present:'Pastilla unitaria', stock:380, min:100, precio:2.50,  vence:'Mar 2028',    estado:'En stock'   },
+    { cod:'MED-0079', nombre:'Loratadina 10mg',      lab:'Schering',        lote:'LT-2024-81', cat:'Antihistamínico', present:'Blíster x10',      stock:0,   min:30,  precio:28.00, vence:'Ene 2027',    estado:'Sin stock'  },
+    { cod:'MED-0091', nombre:'Enalapril 10mg',       lab:'Merck',           lote:'LT-2024-41', cat:'Antihipertensivo',present:'Caja x30',         stock:63,  min:20,  precio:75.00, vence:'22 jul 2026', estado:'En stock'   },
+  ];
+
+  /* ── Ver detalle de producto ── */
+  function verProducto(idx) {
+    const p = PRODUCTOS[idx];
+    const estColor = { 'En stock':'badge-success','Stock bajo':'badge-warning','Urgente':'badge-danger','Sin stock':'badge-danger' };
+    showModal('Detalle — ' + p.nombre, `
+      <div class="grid-2" style="gap:12px;font-size:13px;">
+        <div><span style="color:var(--text-muted);">Código</span><div class="fw-600">${p.cod}</div></div>
+        <div><span style="color:var(--text-muted);">Laboratorio</span><div class="fw-600">${p.lab}</div></div>
+        <div><span style="color:var(--text-muted);">Categoría</span><div class="fw-600">${p.cat}</div></div>
+        <div><span style="color:var(--text-muted);">Presentación</span><div class="fw-600">${p.present}</div></div>
+        <div><span style="color:var(--text-muted);">Lote</span><div class="fw-600">${p.lote}</div></div>
+        <div><span style="color:var(--text-muted);">Precio unitario</span><div class="fw-600">Q ${p.precio.toFixed(2)}</div></div>
+        <div><span style="color:var(--text-muted);">Stock actual</span><div class="fw-600">${p.stock} unidades</div></div>
+        <div><span style="color:var(--text-muted);">Stock mínimo</span><div class="fw-600">${p.min} unidades</div></div>
+        <div><span style="color:var(--text-muted);">Vencimiento</span><div class="fw-600">${p.vence}</div></div>
+        <div><span style="color:var(--text-muted);">Estado</span><div style="margin-top:4px;"><span class="badge ${estColor[p.estado]||'badge-neutral'}">${p.estado}</span></div></div>
+      </div>
+    `, [
+      {label:'Editar', style:'btn-primary', action:()=>{ closeModal(); setTimeout(()=>editarProducto(idx),200); }},
+      {label:'Cerrar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Editar producto ── */
+  function editarProducto(idx) {
+    const p = PRODUCTOS[idx];
+    showModal('Editar — ' + p.nombre, `
+      <div class="grid-2">
+        <div class="form-group"><label>Nombre</label><input id="epNom" class="form-control" value="${p.nombre}"/></div>
+        <div class="form-group"><label>Categoría</label>
+          <select id="epCat" class="form-control">
+            ${['Antibiótico','Analgésico','Antidiabético','Antiácido','Antihipertensivo','Psicotrópico','Antihistamínico','Antilipémico']
+              .map(c=>`<option${c===p.cat?' selected':''}>${c}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Presentación</label><input id="epPres" class="form-control" value="${p.present}"/></div>
+        <div class="form-group"><label>Precio unitario (Q)</label><input id="epPrecio" class="form-control" type="number" step="0.01" value="${p.precio}"/></div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Stock actual</label><input id="epStock" class="form-control" type="number" value="${p.stock}"/></div>
+        <div class="form-group"><label>Stock mínimo</label><input id="epMin" class="form-control" type="number" value="${p.min}"/></div>
+      </div>
+      <div class="form-group"><label>Fecha de vencimiento</label><input id="epVence" class="form-control" type="text" value="${p.vence}"/></div>
+    `, [
+      {label:'Guardar cambios', style:'btn-primary', action:()=>{
+        PRODUCTOS[idx].nombre  = document.getElementById('epNom')?.value    || p.nombre;
+        PRODUCTOS[idx].cat     = document.getElementById('epCat')?.value    || p.cat;
+        PRODUCTOS[idx].present = document.getElementById('epPres')?.value   || p.present;
+        PRODUCTOS[idx].precio  = parseFloat(document.getElementById('epPrecio')?.value) || p.precio;
+        PRODUCTOS[idx].stock   = parseInt(document.getElementById('epStock')?.value)    || p.stock;
+        PRODUCTOS[idx].min     = parseInt(document.getElementById('epMin')?.value)      || p.min;
+        PRODUCTOS[idx].vence   = document.getElementById('epVence')?.value   || p.vence;
+        showToast('Producto actualizado correctamente', 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Pedir producto ── */
+  function pedirProducto(idx) {
+    const p = PRODUCTOS[idx];
+    showModal('Orden de compra — ' + p.nombre, `
+      <div style="background:var(--danger-bg);border-radius:var(--radius-sm);padding:10px 14px;font-size:13px;color:var(--danger-text);margin-bottom:14px;">
+        <i class="fas fa-triangle-exclamation"></i> Stock actual: <strong>${p.stock} unidades</strong> (mínimo: ${p.min})
+      </div>
+      <div class="form-group">
+        <label>Proveedor</label>
+        <select class="form-control" id="pedProv">
+          <option>DISTRIBUIDORA MEDIC S.A. — 2 días</option>
+          <option>FARMEX Guatemala — 3 días</option>
+          <option>NOVAGEN S.A. — 1 día</option>
+        </select>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Cantidad a pedir</label><input id="pedCant" class="form-control" type="number" value="${Math.max(p.min - p.stock + 20, 20)}"/></div>
+        <div class="form-group"><label>Urgencia</label>
+          <select class="form-control"><option>Normal</option><option>Urgente</option><option>Crítico</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Notas</label><textarea class="form-control" rows="2" placeholder="Instrucciones especiales..."></textarea></div>
+    `, [
+      {label:'Crear orden', style:'btn-primary', action:()=>{
+        const cant = document.getElementById('pedCant')?.value || p.min;
+        showToast('Orden de compra creada — ' + cant + ' unidades de ' + p.nombre, 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    /* Agregar producto */
+    document.querySelector('.page-actions .btn-primary')?.addEventListener('click', () => {
+      showModal('Nuevo Producto', `
+        <div class="grid-2">
+          <div class="form-group"><label>Código</label><input class="form-control" placeholder="MED-XXXX"/></div>
+          <div class="form-group"><label>Nombre</label><input class="form-control" placeholder="Nombre del medicamento"/></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Categoría</label>
+            <select class="form-control">
+              <option>Antibiótico</option><option>Analgésico</option><option>Antidiabético</option>
+              <option>Antiácido</option><option>Antihipertensivo</option><option>Psicotrópico</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Presentación</label><input class="form-control" placeholder="Blíster x14, Caja x30..."/></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Stock inicial</label><input class="form-control" type="number" value="0"/></div>
+          <div class="form-group"><label>Stock mínimo</label><input class="form-control" type="number" value="10"/></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Precio unitario (Q)</label><input class="form-control" type="number" step="0.01" value="0.00"/></div>
+          <div class="form-group"><label>Fecha de vencimiento</label><input class="form-control" type="date"/></div>
+        </div>
+        <div class="form-group"><label>Laboratorio</label><input class="form-control" placeholder="Nombre del laboratorio"/></div>
+        <div class="form-group"><label>¿Requiere receta?</label>
+          <select class="form-control"><option>No</option><option>Sí — Regular</option><option>Sí — Controlado</option></select>
+        </div>
+      `, [
+        {label:'Guardar producto', style:'btn-primary', action:()=>{ showToast('Producto agregado al inventario','success'); closeModal(); }},
+        {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      ]);
+    });
+
+    /* Escanear */
+    document.querySelector('.page-actions .btn-secondary:first-child')?.addEventListener('click', () => {
+      showModal('Escanear código de barras', `
+        <div style="text-align:center;padding:20px 0;">
+          <div style="font-size:56px;margin-bottom:12px;">📷</div>
+          <div style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Posiciona el código de barras frente a la cámara</div>
+          <div style="background:var(--bg);border-radius:var(--radius);padding:16px;display:inline-block;font-family:monospace;letter-spacing:4px;font-size:18px;font-weight:700;color:var(--primary);">
+            ||| || | ||| | ||
+          </div>
+        </div>
+        <div class="form-group"><label>O ingresa el código manualmente</label>
+          <input class="form-control" placeholder="Ej. 7501000127515" id="scanCode"/>
+        </div>
+      `, [
+        {label:'Buscar producto', style:'btn-primary', action:()=>{
+          const code = document.getElementById('scanCode')?.value;
+          if (!code) { showToast('Ingresa un código','warning'); return; }
+          showToast('Producto encontrado: Amoxicilina 500mg — MED-0012','success');
+          closeModal();
+        }},
+        {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      ]);
+    });
+
+    /* Exportar */
+    document.querySelectorAll('.page-actions .btn-secondary').forEach(btn => {
+      if (btn.textContent.trim().includes('Exportar')) {
+        btn.addEventListener('click', () => showToast('Exportando inventario a Excel...','info'));
+      }
+    });
+
+    /* Botones por fila */
+    document.querySelectorAll('tbody tr').forEach((row, idx) => {
+      const btnEditar = row.querySelector('.btn-secondary:not(.btn-primary)');
+      const btnBarcode = row.querySelectorAll('.btn-secondary')[1];
+      const btnTransfer = row.querySelectorAll('.btn-secondary')[2];
+      const btnPedir  = row.querySelector('.btn-primary');
+
+      if (btnEditar)   btnEditar.onclick   = () => verProducto(idx);
+      if (btnTransfer) btnTransfer.onclick = () => crearTransferencia(idx);
+      if (btnBarcode) btnBarcode.onclick = () => {
+        showModal('Código de barras — ' + PRODUCTOS[idx]?.nombre, `
+          <div style="text-align:center;padding:16px;">
+            <div style="font-family:monospace;letter-spacing:3px;font-size:24px;font-weight:700;color:var(--text);margin-bottom:8px;">||| || | ||| | || |||</div>
+            <div style="font-size:13px;color:var(--text-muted);">${PRODUCTOS[idx]?.cod} · ${PRODUCTOS[idx]?.lote}</div>
+          </div>
+        `, [{label:'Imprimir etiqueta', style:'btn-primary', action:()=>{ showToast('Enviando etiqueta a impresora...','info'); closeModal(); }},
+            {label:'Cerrar', style:'btn-secondary', action:closeModal}]);
+      };
+      if (btnPedir)   btnPedir.onclick   = () => pedirProducto(idx);
+    });
+  });
+</script>
 </body>
 </html>

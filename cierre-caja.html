@@ -10,60 +10,43 @@
 <body>
 <div class="app-layout">
 
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-cross">+</div>
-      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-mark">+</div>
+      <span class="brand-title">PHARMEDIC</span>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Principal</div>
-      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
-      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
-      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
-      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Operaciones</div>
-      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
-      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
-      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Administración</div>
-      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
-      <a href="ofertas.html" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
-      <a href="cierre-caja.html" class="nav-item active"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
-      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
-    </div>
-    <div class="sidebar-footer">
-      <div class="sidebar-user">
-        <div class="user-avatar">CJ</div>
-        <div class="user-info-sidebar"><div class="name">Karen Rodríguez</div><div class="role">Cajero · Zona 16</div></div>
+    <div class="topbar-right">
+      <div class="sucursal-pill">
+        <i class="fas fa-store"></i>
+        <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
       </div>
-      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+      <div class="sucursal-pill">
+        <i class="fas fa-clock"></i>
+        <select><option>Turno AM · 08:00 – 14:00</option><option>Turno PM · 14:00 – 18:00</option></select>
+      </div>
+      <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+      <div class="topbar-avatar">CJ</div>
+      <a href="index.html" class="topbar-logout" title="Cerrar sesión"><i class="fas fa-right-from-bracket"></i></a>
     </div>
-  </aside>
+  </header>
 
-  <div class="main-area">
-    <header class="topbar">
-      <div class="topbar-left">
-        <span class="page-title">Cierre de Caja</span>
-      </div>
-      <div class="topbar-right">
-        <div class="sucursal-select">
-          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
-          <select><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
-        </div>
-        <div class="sucursal-select">
-          <i class="fas fa-clock" style="color:var(--primary);font-size:12px;"></i>
-          <select><option>Turno AM · 08:00 – 14:00</option><option>Turno PM · 14:00 – 18:00</option></select>
-        </div>
-        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
-        <div class="topbar-avatar">CJ</div>
-      </div>
-    </header>
+  <!-- TAB NAV -->
+  <nav class="tabnav">
+    <a href="dashboard.html" class="tabnav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+    <a href="inventario.html" class="tabnav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="tn-badge warning">8</span></a>
+    <a href="ventas.html" class="tabnav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+    <a href="recetas.html" class="tabnav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="tn-badge">12</span></a>
+    <a href="clientes.html" class="tabnav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+    <a href="delivery.html" class="tabnav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="tn-badge">5</span></a>
+    <a href="proveedores.html" class="tabnav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    <a href="reportes.html" class="tabnav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+    <a href="ofertas.html" class="tabnav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="tn-badge">4</span></a>
+    <a href="cierre-caja.html" class="tabnav-item active"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+    <a href="sucursales.html" class="tabnav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+  </nav>
 
-    <div class="content">
+  <div class="content">
 
       <div class="page-header">
         <div class="page-header-left">
@@ -71,14 +54,47 @@
           <p>Turno AM · 08:00 – 14:00 · Karen Rodríguez · Zona 16</p>
         </div>
         <div class="page-actions">
+          <button class="btn btn-secondary" onclick="abrirCaja()"><i class="fas fa-vault"></i> Apertura de caja</button>
+          <button class="btn btn-secondary" onclick="abrirArqueo()"><i class="fas fa-calculator"></i> Arqueo</button>
           <button class="btn btn-secondary"><i class="fas fa-print"></i> Imprimir</button>
-          <button class="btn btn-primary"><i class="fas fa-file-pdf"></i> Generar PDF</button>
+          <button class="btn btn-primary" onclick="cierreFinal()"><i class="fas fa-lock"></i> Cierre final</button>
         </div>
       </div>
 
-      <div class="alert alert-info mb-20">
+      <div class="alert alert-info mb-16">
         <i class="fas fa-circle-info"></i>
         <span>El turno aún está <strong>en curso</strong>. Este es un pre-cierre. El cierre definitivo se realizará al finalizar el turno.</span>
+      </div>
+
+      <!-- Apertura + Arqueo -->
+      <div class="grid-2 mb-20">
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title"><i class="fas fa-vault" style="color:var(--primary);margin-right:6px;"></i>Apertura de caja</div><div class="card-subtitle">Turno AM · 08:03 AM</div></div>
+            <span class="badge badge-success">Activo</span>
+          </div>
+          <div class="card-body">
+            <div class="branch-stat"><span class="key">Fondo inicial</span><span class="val fw-600 text-primary">Q 500.00</span></div>
+            <div class="branch-stat"><span class="key">Abierta por</span><span class="val fw-600">Karen Rodríguez</span></div>
+            <div class="branch-stat"><span class="key">Denominaciones apertura</span><span class="val text-muted" style="font-size:12px;">5×Q100 · 0×Q50 · 0×Q20 · 0×Q10 · 0×Q5</span></div>
+            <div class="branch-stat"><span class="key">Sucursal</span><span class="val">Zona 16 — Central</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title"><i class="fas fa-calculator" style="color:var(--amber);margin-right:6px;"></i>Estado del arqueo</div><div class="card-subtitle">Último arqueo: no realizado hoy</div></div>
+          </div>
+          <div class="card-body">
+            <div class="branch-stat"><span class="key">Efectivo esperado (sistema)</span><span class="val fw-600">Q 3,980.00</span></div>
+            <div class="branch-stat"><span class="key">Ventas en efectivo</span><span class="val">Q 3,480.00</span></div>
+            <div class="branch-stat"><span class="key">Fondo inicial incluido</span><span class="val">+ Q 500.00</span></div>
+            <div style="margin-top:12px;">
+              <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="abrirArqueo()">
+                <i class="fas fa-calculator"></i> Realizar arqueo de denominaciones
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Caja summary -->
@@ -316,9 +332,157 @@
         </div>
       </div>
 
-    </div>
   </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+  /* ── Arqueo de denominaciones ── */
+  const DENOMS = [
+    {label:'Billetes Q 200', val:200,  cnt:0 },
+    {label:'Billetes Q 100', val:100,  cnt:5 },
+    {label:'Billetes Q 50',  val:50,   cnt:3 },
+    {label:'Billetes Q 20',  val:20,   cnt:8 },
+    {label:'Billetes Q 10',  val:10,   cnt:12},
+    {label:'Billetes Q 5',   val:5,    cnt:20},
+    {label:'Monedas Q 1',    val:1,    cnt:35},
+    {label:'Monedas Q 0.50', val:0.5,  cnt:10},
+    {label:'Monedas Q 0.25', val:0.25, cnt:8 },
+  ];
+  const SISTEMA_ESPERADO = 3980;
+
+  function abrirArqueo() {
+    const rows = DENOMS.map((d,i) => `
+      <tr>
+        <td style="font-size:13px;padding:6px 0;color:var(--text);">${d.label}</td>
+        <td style="padding:4px 8px;"><input type="number" class="form-control" id="dn-${i}" value="${d.cnt}" min="0" style="width:80px;text-align:center;padding:5px;" oninput="calcArqueo()"/></td>
+        <td style="text-align:right;font-size:13px;font-weight:600;padding:6px 0;" id="ds-${i}">Q ${(d.cnt*d.val).toFixed(2)}</td>
+      </tr>`).join('');
+    const totalInicial = DENOMS.reduce((s,d) => s + d.cnt*d.val, 0);
+
+    showModal('Arqueo de caja — Turno AM · 24 mayo 2026', `
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px;">Karen Rodríguez · Zona 16 · Cuente el efectivo físico e ingrese las cantidades por denominación.</div>
+      <table style="width:100%;border-collapse:collapse;">
+        <thead><tr>
+          <th style="text-align:left;font-size:11px;text-transform:uppercase;color:var(--text-muted);padding-bottom:8px;letter-spacing:.5px;">Denominación</th>
+          <th style="text-align:center;font-size:11px;text-transform:uppercase;color:var(--text-muted);padding-bottom:8px;letter-spacing:.5px;">Cantidad</th>
+          <th style="text-align:right;font-size:11px;text-transform:uppercase;color:var(--text-muted);padding-bottom:8px;letter-spacing:.5px;">Subtotal</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div style="border-top:2px solid var(--border);margin-top:14px;padding-top:14px;">
+        <div class="flex-between" style="font-size:15px;font-weight:700;margin-bottom:6px;">
+          <span>Total contado</span>
+          <span id="arq-total" style="color:var(--primary);">Q ${totalInicial.toFixed(2)}</span>
+        </div>
+        <div class="flex-between" style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">
+          <span>Sistema espera (ventas + fondo inicial)</span>
+          <span>Q ${SISTEMA_ESPERADO.toFixed(2)}</span>
+        </div>
+        <div id="arq-diff" style="padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;background:var(--success-bg);color:var(--success-text);">
+          <i class="fas fa-circle-check"></i> Sin diferencia detectada
+        </div>
+      </div>
+      <div class="form-group" style="margin-top:12px;margin-bottom:0;">
+        <label>Observaciones del cajero</label>
+        <textarea class="form-control" rows="2" placeholder="Anotar cualquier irregularidad o comentario..."></textarea>
+      </div>
+    `, [
+      {label:'Confirmar arqueo', style:'btn-primary', action:()=>{ showToast('Arqueo registrado · Q ' + document.getElementById('arq-total')?.textContent, 'success'); closeModal(); }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  function calcArqueo() {
+    let total = 0;
+    DENOMS.forEach((d,i) => {
+      const cnt = parseFloat(document.getElementById('dn-' + i)?.value || 0);
+      const sub = cnt * d.val;
+      total += sub;
+      const el = document.getElementById('ds-' + i);
+      if (el) el.textContent = 'Q ' + sub.toFixed(2);
+    });
+    const totalEl = document.getElementById('arq-total');
+    if (totalEl) totalEl.textContent = 'Q ' + total.toFixed(2);
+    const diff = total - SISTEMA_ESPERADO;
+    const diffEl = document.getElementById('arq-diff');
+    if (!diffEl) return;
+    if (Math.abs(diff) < 0.01) {
+      diffEl.style.cssText = 'padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;background:var(--success-bg);color:var(--success-text);';
+      diffEl.innerHTML = '<i class="fas fa-circle-check"></i> Sin diferencia detectada';
+    } else if (diff > 0) {
+      diffEl.style.cssText = 'padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;background:var(--warning-bg);color:var(--warning-text);';
+      diffEl.innerHTML = '<i class="fas fa-triangle-exclamation"></i> Sobrante: <strong>Q ' + diff.toFixed(2) + '</strong> — Registrar diferencia';
+    } else {
+      diffEl.style.cssText = 'padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;background:var(--danger-bg);color:var(--danger-text);';
+      diffEl.innerHTML = '<i class="fas fa-circle-exclamation"></i> Faltante: <strong>Q ' + Math.abs(diff).toFixed(2) + '</strong> — Requiere justificación';
+    }
+  }
+
+  /* ── Apertura de nueva caja ── */
+  function abrirCaja() {
+    showModal('Apertura de caja — Nuevo turno', `
+      <div class="grid-2">
+        <div class="form-group"><label>Cajero</label>
+          <select class="form-control"><option>Karen Rodríguez</option><option>Mario Chávez</option><option>Laura Hernández</option></select>
+        </div>
+        <div class="form-group"><label>Turno</label>
+          <select class="form-control"><option>AM · 08:00 – 14:00</option><option>PM · 14:00 – 18:00</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Fondo inicial (Q)</label>
+        <input class="form-control" type="number" id="fondoInicial" value="500" min="0" step="50"/>
+      </div>
+      <div style="background:var(--bg);border-radius:var(--radius-sm);padding:12px 14px;margin-top:4px;">
+        <div style="font-size:12px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;">Denominaciones del fondo</div>
+        <div class="grid-2" style="gap:8px;font-size:13px;">
+          <div class="form-group" style="margin-bottom:6px;"><label style="font-size:11px;">Q 100 — cant.</label><input class="form-control" type="number" value="5" min="0" style="padding:5px;"/></div>
+          <div class="form-group" style="margin-bottom:6px;"><label style="font-size:11px;">Q 50 — cant.</label><input class="form-control" type="number" value="0" min="0" style="padding:5px;"/></div>
+          <div class="form-group" style="margin-bottom:6px;"><label style="font-size:11px;">Q 20 — cant.</label><input class="form-control" type="number" value="0" min="0" style="padding:5px;"/></div>
+          <div class="form-group" style="margin-bottom:6px;"><label style="font-size:11px;">Q 10 — cant.</label><input class="form-control" type="number" value="0" min="0" style="padding:5px;"/></div>
+        </div>
+      </div>
+    `, [
+      {label:'Abrir caja', style:'btn-primary', action:()=>{
+        const fondo = document.getElementById('fondoInicial')?.value || 500;
+        showToast('Caja abierta con fondo inicial de Q ' + fondo, 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Cierre final de turno ── */
+  function cierreFinal() {
+    showModal('Cierre definitivo de turno', `
+      <div style="text-align:center;padding:8px 0 16px;">
+        <div style="font-size:40px;margin-bottom:8px;">🔒</div>
+        <div style="font-size:15px;font-weight:700;">Cierre Turno AM · 24 mayo 2026</div>
+        <div style="color:var(--text-muted);font-size:13px;margin-top:4px;">Karen Rodríguez · Zona 16</div>
+      </div>
+      <div style="background:var(--bg);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:14px;font-size:13px;">
+        <div class="flex-between mb-8"><span class="text-muted">Ventas efectivo</span><span class="fw-600">Q 3,480.00</span></div>
+        <div class="flex-between mb-8"><span class="text-muted">Ventas tarjeta</span><span class="fw-600">Q 2,815.00</span></div>
+        <div class="flex-between mb-8"><span class="text-muted">Ventas BAC</span><span class="fw-600">Q 1,580.00</span></div>
+        <div class="flex-between mb-8"><span class="text-muted">Devoluciones</span><span class="fw-600 text-danger">− Q 125.00</span></div>
+        <div class="flex-between" style="border-top:1px solid var(--border);padding-top:8px;font-size:15px;font-weight:700;"><span>Total</span><span style="color:var(--primary);">Q 7,750.00</span></div>
+      </div>
+      <div class="form-group"><label>Observaciones del cierre</label>
+        <textarea class="form-control" rows="2" placeholder="Incidentes, faltantes, sobrantes..."></textarea>
+      </div>
+      <div class="alert alert-warning" style="margin-top:8px;margin-bottom:0;">
+        <i class="fas fa-triangle-exclamation"></i>
+        <span>Esta acción es irreversible. El gerente deberá validar el cierre.</span>
+      </div>
+    `, [
+      {label:'Confirmar cierre', style:'btn-primary', action:()=>{ showToast('Cierre de turno registrado — Folio CC-2026-0492','success'); closeModal(); }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Descargar PDF anterior ── */
+  document.querySelectorAll('tbody .btn-ghost').forEach(btn => {
+    btn.addEventListener('click', () => showToast('Descargando PDF de cierre...', 'info'));
+  });
+</script>
 </body>
 </html>

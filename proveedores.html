@@ -10,50 +10,35 @@
 <body>
 <div class="app-layout">
 
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-cross">+</div>
-      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-mark">+</div>
+      <span class="brand-title">PHARMEDIC</span>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Principal</div>
-      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
-      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
-      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
-      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
+    <div class="topbar-right">
+      <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+      <div class="topbar-avatar">AD</div>
+      <a href="index.html" class="topbar-logout" title="Cerrar sesión"><i class="fas fa-right-from-bracket"></i></a>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Operaciones</div>
-      <a href="clientes.html" class="nav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
-      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
-      <a href="proveedores.html" class="nav-item active"><i class="fas fa-building"></i><span>Proveedores</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Administración</div>
-      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
-      <a href="ofertas.html" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
-      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
-      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
-    </div>
-    <div class="sidebar-footer">
-      <div class="sidebar-user">
-        <div class="user-avatar">AD</div>
-        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Zona 16 — Central</div></div>
-      </div>
-      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
-    </div>
-  </aside>
+  </header>
 
-  <div class="main-area">
-    <header class="topbar">
-      <div class="topbar-left"><span class="page-title">Proveedores</span></div>
-      <div class="topbar-right">
-        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
-        <div class="topbar-avatar">AD</div>
-      </div>
-    </header>
+  <!-- TAB NAV -->
+  <nav class="tabnav">
+    <a href="dashboard.html" class="tabnav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+    <a href="inventario.html" class="tabnav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="tn-badge warning">8</span></a>
+    <a href="ventas.html" class="tabnav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+    <a href="recetas.html" class="tabnav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="tn-badge">12</span></a>
+    <a href="clientes.html" class="tabnav-item"><i class="fas fa-users"></i><span>Clientes</span></a>
+    <a href="delivery.html" class="tabnav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="tn-badge">5</span></a>
+    <a href="proveedores.html" class="tabnav-item active"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    <a href="reportes.html" class="tabnav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+    <a href="ofertas.html" class="tabnav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="tn-badge">4</span></a>
+    <a href="cierre-caja.html" class="tabnav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+    <a href="sucursales.html" class="tabnav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+  </nav>
 
-    <div class="content">
+  <div class="content">
 
       <div class="page-header">
         <div class="page-header-left">
@@ -85,13 +70,14 @@
         </div>
       </div>
 
-      <div class="tabs mb-20">
-        <div class="tab active">Proveedores</div>
-        <div class="tab">Comparativa de precios</div>
-        <div class="tab">Órdenes de compra <span class="tab-count">3</span></div>
-        <div class="tab">Historial</div>
+      <div class="tabs mb-20" id="prov-tabs">
+        <div class="tab active" data-tab="proveedores">Proveedores</div>
+        <div class="tab" data-tab="comparativa">Comparativa de precios</div>
+        <div class="tab" data-tab="ordenes">Órdenes de compra <span class="tab-count">3</span></div>
+        <div class="tab" data-tab="historial">Historial de compras</div>
       </div>
 
+      <div id="tp-proveedores">
       <!-- Provider cards -->
       <div class="provider-grid mb-24">
 
@@ -218,7 +204,7 @@
       </div>
 
       <!-- Price comparison -->
-      <div class="card">
+      <div class="card" id="price-compare-card">
         <div class="card-header">
           <div><div class="card-title">Comparativa de precios — Amoxicilina 500mg</div><div class="card-subtitle">Selecciona el proveedor con mejor oferta</div></div>
           <button class="btn btn-secondary btn-sm"><i class="fas fa-search"></i> Buscar producto</button>
@@ -273,9 +259,445 @@
         </div>
       </div>
 
-    </div>
+      </div><!-- /tp-proveedores -->
+
+      <!-- ── ÓRDENES DE COMPRA TAB ── -->
+      <div id="tp-ordenes" style="display:none;">
+        <div class="stats-grid mb-20">
+          <div class="stat-card">
+            <div class="stat-icon amber"><i class="fas fa-hourglass-half"></i></div>
+            <div class="stat-info"><div class="stat-value">2</div><div class="stat-label">Órdenes pendientes</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue"><i class="fas fa-truck-fast"></i></div>
+            <div class="stat-info"><div class="stat-value">1</div><div class="stat-label">En tránsito</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
+            <div class="stat-info"><div class="stat-value">14</div><div class="stat-label">Completadas este mes</div></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon red"><i class="fas fa-file-invoice-dollar"></i></div>
+            <div class="stat-info"><div class="stat-value">Q 12,400</div><div class="stat-label">Cuentas por pagar</div></div>
+          </div>
+        </div>
+
+        <div class="card mb-20">
+          <div class="card-header">
+            <div><div class="card-title">Órdenes de compra activas</div><div class="card-subtitle">Gestión y seguimiento de pedidos a proveedores</div></div>
+            <button class="btn btn-primary btn-sm" onclick="nuevaOrdenRapida()"><i class="fas fa-plus"></i> Nueva orden</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>No. Orden</th>
+                  <th>Proveedor</th>
+                  <th>Producto(s)</th>
+                  <th>Monto total</th>
+                  <th>Fecha pedido</th>
+                  <th>Entrega estimada</th>
+                  <th>Condición pago</th>
+                  <th>Estado pago</th>
+                  <th>Estado envío</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="td-muted fw-600">OC-2026-041</td>
+                  <td><div class="fw-600">DISTRIBUIDORA MEDIC</div><div class="text-xs text-muted">Lic. Jorge Méndez</div></td>
+                  <td><div class="fw-600">Amoxicilina 500mg</div><div class="text-xs text-muted">100 blísteres x14</div></td>
+                  <td class="fw-600">Q 3,850.00</td>
+                  <td class="td-muted">22 may 2026</td>
+                  <td><span class="badge badge-info">24 may 2026</span></td>
+                  <td><span class="tag">30 días</span></td>
+                  <td><span class="badge badge-warning">Pendiente</span></td>
+                  <td><span class="badge badge-info">En tránsito</span></td>
+                  <td><div class="actions-cell">
+                    <button class="btn btn-secondary btn-sm" onclick="verOrden('OC-2026-041')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-primary btn-sm" onclick="recibirOrden('OC-2026-041')"><i class="fas fa-box-open"></i> Recibir</button>
+                  </div></td>
+                </tr>
+                <tr>
+                  <td class="td-muted fw-600">OC-2026-040</td>
+                  <td><div class="fw-600">NOVAGEN S.A.</div><div class="text-xs text-muted">Dr. Mario Rivas</div></td>
+                  <td><div class="fw-600">Clonazepam 2mg</div><div class="text-xs text-muted">20 blísteres x10 <span class="controlled-tag">Controlado</span></div></td>
+                  <td class="fw-600">Q 2,900.00</td>
+                  <td class="td-muted">23 may 2026</td>
+                  <td><span class="badge badge-success">24 may 2026</span></td>
+                  <td><span class="tag">Contado</span></td>
+                  <td><span class="badge badge-success">Pagado</span></td>
+                  <td><span class="badge badge-warning">Pendiente recepción</span></td>
+                  <td><div class="actions-cell">
+                    <button class="btn btn-secondary btn-sm" onclick="verOrden('OC-2026-040')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-primary btn-sm" onclick="recibirOrden('OC-2026-040')"><i class="fas fa-box-open"></i> Recibir</button>
+                  </div></td>
+                </tr>
+                <tr>
+                  <td class="td-muted fw-600">OC-2026-039</td>
+                  <td><div class="fw-600">FARMEX Guatemala</div><div class="text-xs text-muted">Ing. Rosa Fuentes</div></td>
+                  <td><div class="fw-600">Metformina 850mg, Enalapril 10mg</div><div class="text-xs text-muted">50 cajas c/u</div></td>
+                  <td class="fw-600">Q 8,500.00</td>
+                  <td class="td-muted">20 may 2026</td>
+                  <td><span class="badge badge-success">23 may 2026</span></td>
+                  <td><span class="tag">15 días</span></td>
+                  <td><span class="badge badge-danger">Vence 4 jun</span></td>
+                  <td><span class="badge badge-success">Recibida</span></td>
+                  <td><div class="actions-cell">
+                    <button class="btn btn-secondary btn-sm" onclick="verOrden('OC-2026-039')"><i class="fas fa-eye"></i></button>
+                    <button class="btn btn-primary btn-sm" onclick="pagarOrden('OC-2026-039', 'Q 8,500.00', 'FARMEX Guatemala')"><i class="fas fa-money-bill"></i> Pagar</button>
+                  </div></td>
+                </tr>
+                <tr>
+                  <td class="td-muted fw-600">OC-2026-035</td>
+                  <td><div class="fw-600">DISTRIBUIDORA MEDIC</div><div class="text-xs text-muted">Lic. Jorge Méndez</div></td>
+                  <td><div class="fw-600">Paracetamol 500mg, Ibuprofeno 600mg</div><div class="text-xs text-muted">500 und. c/u</div></td>
+                  <td class="fw-600">Q 1,750.00</td>
+                  <td class="td-muted">15 may 2026</td>
+                  <td><span class="badge badge-neutral">17 may 2026</span></td>
+                  <td><span class="tag">30 días</span></td>
+                  <td><span class="badge badge-success">Pagado</span></td>
+                  <td><span class="badge badge-success">Recibida</span></td>
+                  <td><button class="btn btn-secondary btn-sm" onclick="verOrden('OC-2026-035')"><i class="fas fa-eye"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Cuentas por pagar -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Cuentas por pagar a proveedores</div>
+            <span class="text-xs text-muted">Mes de mayo 2026</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Proveedor</th><th>Saldo pendiente</th><th>Facturas pendientes</th><th>Vencimiento más próximo</th><th>Condición</th><th>Acción</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><div class="fw-600">DISTRIBUIDORA MEDIC S.A.</div></td>
+                  <td class="fw-600 text-danger">Q 3,850.00</td>
+                  <td><span class="badge badge-warning">1 factura</span></td>
+                  <td><span class="badge badge-warning">21 jun 2026</span></td>
+                  <td><span class="tag">30 días</span></td>
+                  <td><button class="btn btn-primary btn-sm" onclick="pagarOrden('OC-2026-041', 'Q 3,850.00', 'DISTRIBUIDORA MEDIC')"><i class="fas fa-money-bill"></i> Pagar</button></td>
+                </tr>
+                <tr>
+                  <td><div class="fw-600">FARMEX Guatemala</div></td>
+                  <td class="fw-600 text-danger">Q 8,500.00</td>
+                  <td><span class="badge badge-danger">1 factura urgente</span></td>
+                  <td><span class="badge badge-danger">4 jun 2026</span></td>
+                  <td><span class="tag">15 días</span></td>
+                  <td><button class="btn btn-primary btn-sm" onclick="pagarOrden('OC-2026-039', 'Q 8,500.00', 'FARMEX')"><i class="fas fa-money-bill"></i> Pagar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div><!-- /tp-ordenes -->
+
+      <!-- ── HISTORIAL TAB ── -->
+      <div id="tp-historial" style="display:none;">
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Historial de compras a proveedores</div><div class="card-subtitle">Últimas 30 órdenes completadas</div></div>
+            <button class="btn btn-secondary btn-sm"><i class="fas fa-download"></i> Exportar</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Orden</th><th>Proveedor</th><th>Productos</th><th>Monto</th><th>Fecha recepción</th><th>Pagado</th><th>Calificación entrega</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="td-muted">OC-2026-038</td><td>DISTRIBUIDORA MEDIC</td><td>Loratadina 10mg × 100 blísteres</td><td class="fw-600">Q 2,800.00</td><td>19 may 2026</td><td><span class="badge badge-success">Sí</span></td><td><span class="stars">★★★★★</span></td></tr>
+                <tr><td class="td-muted">OC-2026-037</td><td>FARMEX Guatemala</td><td>Atorvastatina 20mg × 80 cajas</td><td class="fw-600">Q 9,600.00</td><td>17 may 2026</td><td><span class="badge badge-success">Sí</span></td><td><span class="stars">★★★★☆</span></td></tr>
+                <tr><td class="td-muted">OC-2026-036</td><td>NOVAGEN S.A.</td><td>Alprazolam 0.5mg × 30 blísteres</td><td class="fw-600">Q 3,600.00</td><td>16 may 2026</td><td><span class="badge badge-success">Sí</span></td><td><span class="stars">★★★★★</span></td></tr>
+                <tr><td class="td-muted">OC-2026-034</td><td>LABORATORIOS UNITED</td><td>Vitamina C, Omega 3, Zinc</td><td class="fw-600">Q 1,200.00</td><td>12 may 2026</td><td><span class="badge badge-success">Sí</span></td><td><span class="stars">★★★☆☆</span></td></tr>
+                <tr><td class="td-muted">OC-2026-033</td><td>DISTRIBUIDORA MEDIC</td><td>Amoxicilina × 200, Omeprazol × 100</td><td class="fw-600">Q 13,200.00</td><td>10 may 2026</td><td><span class="badge badge-success">Sí</span></td><td><span class="stars">★★★★★</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div><!-- /tp-historial -->
+
   </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+  /* ── Cambio de tabs de proveedores ── */
+  document.querySelectorAll('#prov-tabs .tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('#prov-tabs .tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const name = tab.dataset.tab;
+      ['tp-proveedores','tp-ordenes','tp-historial'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+      if (name === 'proveedores' || name === 'comparativa') {
+        const el = document.getElementById('tp-proveedores');
+        if (el) el.style.display = '';
+        const pc = document.getElementById('price-compare-card');
+        if (pc) pc.style.display = (name === 'comparativa') ? '' : '';
+      } else {
+        const el = document.getElementById('tp-' + name);
+        if (el) el.style.display = '';
+      }
+    });
+  });
+
+  function verOrden(id) {
+    const ordenes = {
+      'OC-2026-041': { prov:'DISTRIBUIDORA MEDIC S.A.', prod:'Amoxicilina 500mg — 100 blísteres x14', monto:'Q 3,850.00', fecha:'22 may 2026', entrega:'24 may 2026', pago:'30 días', estado:'En tránsito', pagado:'Pendiente' },
+      'OC-2026-040': { prov:'NOVAGEN S.A.', prod:'Clonazepam 2mg — 20 blísteres x10', monto:'Q 2,900.00', fecha:'23 may 2026', entrega:'24 may 2026', pago:'Contado', estado:'Pendiente recepción', pagado:'Pagado' },
+      'OC-2026-039': { prov:'FARMEX Guatemala', prod:'Metformina 850mg × 50 cajas, Enalapril 10mg × 50 cajas', monto:'Q 8,500.00', fecha:'20 may 2026', entrega:'23 may 2026', pago:'15 días', estado:'Recibida', pagado:'Vence 4 jun' },
+      'OC-2026-035': { prov:'DISTRIBUIDORA MEDIC S.A.', prod:'Paracetamol 500mg × 500, Ibuprofeno 600mg × 500', monto:'Q 1,750.00', fecha:'15 may 2026', entrega:'17 may 2026', pago:'30 días', estado:'Recibida', pagado:'Pagado' },
+    };
+    const o = ordenes[id] || {};
+    showModal('Orden ' + id, `
+      <div class="grid-2" style="font-size:13px;gap:12px;">
+        <div><span style="color:var(--text-muted)">Proveedor</span><div class="fw-600">${o.prov||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Monto total</span><div class="fw-600 text-primary">${o.monto||'—'}</div></div>
+        <div style="grid-column:span 2;"><span style="color:var(--text-muted)">Producto(s)</span><div class="fw-600">${o.prod||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Fecha pedido</span><div class="fw-600">${o.fecha||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Entrega estimada</span><div class="fw-600">${o.entrega||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Condición de pago</span><div class="fw-600">${o.pago||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Estado de pago</span><div class="fw-600">${o.pagado||'—'}</div></div>
+        <div><span style="color:var(--text-muted)">Estado de envío</span><div class="fw-600">${o.estado||'—'}</div></div>
+      </div>
+    `, [{label:'Cerrar', style:'btn-secondary', action:closeModal}]);
+  }
+
+  function recibirOrden(id) {
+    showModal('Recibir orden ' + id, `
+      <div style="background:var(--primary-light);padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;margin-bottom:14px;">
+        <i class="fas fa-box-open" style="color:var(--primary);margin-right:6px;"></i>
+        Confirma la recepción física de los productos para actualizar el inventario automáticamente.
+      </div>
+      <div class="form-group"><label>Estado del producto recibido</label>
+        <select class="form-control"><option>Completo y en buen estado</option><option>Incompleto (especificar abajo)</option><option>Dañado (especificar abajo)</option></select>
+      </div>
+      <div class="form-group"><label>Número de factura del proveedor</label>
+        <input class="form-control" placeholder="Ej. FAC-2026-00892"/></div>
+      <div class="form-group"><label>Notas de recepción</label>
+        <textarea class="form-control" rows="2" placeholder="Condición del lote, temperatura de llegada, observaciones..."></textarea>
+      </div>
+      <div class="form-group"><label>Recibido por</label>
+        <select class="form-control"><option>Q.F. Rosa Guillén (Regente)</option><option>Karen Rodríguez (Cajero)</option></select>
+      </div>
+    `, [
+      {label:'Confirmar recepción', style:'btn-primary', action:()=>{ showToast('Orden ' + id + ' recibida — Inventario actualizado','success'); closeModal(); }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  function pagarOrden(id, monto, prov) {
+    showModal('Registrar pago — ' + id, `
+      <div style="background:var(--primary-light);padding:12px 14px;border-radius:var(--radius-sm);font-size:13px;margin-bottom:14px;">
+        <div class="fw-600">${prov}</div>
+        <div style="color:var(--text-muted);margin-top:4px;">Monto a pagar: <span style="font-size:15px;font-weight:700;color:var(--primary);">${monto}</span></div>
+      </div>
+      <div class="form-group"><label>Método de pago</label>
+        <select class="form-control"><option>Transferencia bancaria</option><option>Cheque</option><option>Efectivo</option></select>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>No. de referencia / cheque</label>
+          <input class="form-control" placeholder="Referencia bancaria"/></div>
+        <div class="form-group"><label>Fecha de pago</label>
+          <input class="form-control" type="date" value="2026-05-25"/></div>
+      </div>
+      <div class="form-group"><label>Banco emisor</label>
+        <select class="form-control"><option>BAC Credomatic</option><option>Banrural</option><option>G&T Continental</option><option>Industrial</option></select>
+      </div>
+      <div class="form-group"><label>Observaciones</label>
+        <textarea class="form-control" rows="2" placeholder="Notas del pago..."></textarea>
+      </div>
+    `, [
+      {label:'Registrar pago', style:'btn-primary', action:()=>{ showToast('Pago de ' + monto + ' registrado para ' + prov,'success'); closeModal(); }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  function nuevaOrdenRapida() {
+    showModal('Nueva orden de compra', `
+      <div class="form-group"><label>Proveedor</label>
+        <select class="form-control" id="noProv">
+          <option>DISTRIBUIDORA MEDIC S.A. — Entrega: 2 días</option>
+          <option>FARMEX Guatemala — Entrega: 3 días</option>
+          <option>NOVAGEN S.A. — Entrega: 1 día</option>
+          <option>LABORATORIOS UNITED — Entrega: 5 días</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Producto</label>
+        <select class="form-control">
+          <option>Amoxicilina 500mg</option><option>Metformina 850mg</option><option>Clonazepam 2mg</option>
+          <option>Atorvastatina 20mg</option><option>Omeprazol 20mg</option><option>Loratadina 10mg</option>
+        </select>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Cantidad</label><input class="form-control" type="number" value="50" min="1"/></div>
+        <div class="form-group"><label>Condición de pago</label>
+          <select class="form-control"><option>Contado</option><option>15 días</option><option>30 días</option><option>60 días</option></select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Urgencia</label>
+          <select class="form-control"><option>Normal</option><option>Urgente</option><option>Crítico</option></select>
+        </div>
+        <div class="form-group"><label>Sucursal destino</label>
+          <select class="form-control"><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Notas</label>
+        <textarea class="form-control" rows="2" placeholder="Instrucciones especiales, temperatura de almacenamiento..."></textarea>
+      </div>
+    `, [
+      {label:'Crear orden', style:'btn-primary', action:()=>{ showToast('Orden OC-2026-042 creada y enviada al proveedor','success'); closeModal(); }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  const PROVEEDORES = [
+    { init:'DM', nombre:'DISTRIBUIDORA MEDIC S.A.',  tel:'2330-4410', contacto:'Lic. Jorge Méndez', email:'jmendez@distmedic.com',  cats:'Antibióticos · Analgésicos · Antiácidos',        prods:48, compras:'Q 18,400', puntual:'98%', entrega:'2 días', estrellas:'★★★★★' },
+    { init:'FX', nombre:'FARMEX Guatemala',           tel:'2445-8820', contacto:'Ing. Rosa Fuentes', email:'rfuentes@farmex.gt',      cats:'Antidiabéticos · Antilipémicos · Antihipert.',   prods:32, compras:'Q 14,200', puntual:'91%', entrega:'3 días', estrellas:'★★★★☆' },
+    { init:'NG', nombre:'NOVAGEN S.A.',               tel:'2278-6600', contacto:'Dr. Mario Rivas',   email:'mrivas@novagen.com.gt',   cats:'Psicotrópicos · Controlados',                    prods:15, compras:'Q 8,800',  puntual:'100%',entrega:'1 día',  estrellas:'★★★★★' },
+    { init:'LU', nombre:'LABORATORIOS UNITED',        tel:'2391-0022', contacto:'Lic. Ana Gómez',    email:'agomez@labunited.com',    cats:'Vitaminas · Suplementos · OTC',                  prods:28, compras:'Q 4,600',  puntual:'76%', entrega:'5 días', estrellas:'★★★☆☆' },
+  ];
+
+  const CATALOGO = {
+    0: ['Amoxicilina 500mg — Q 2.65/u', 'Ciprofloxacino 500mg — Q 3.10/u', 'Paracetamol 500mg — Q 0.90/u', 'Ibuprofeno 600mg — Q 1.20/u', 'Omeprazol 20mg — Q 1.80/u'],
+    1: ['Metformina 850mg — Q 3.20/u', 'Atorvastatina 20mg — Q 4.50/u', 'Enalapril 10mg — Q 2.60/u', 'Losartán 50mg — Q 3.80/u'],
+    2: ['Clonazepam 2mg — Q 14.50/u', 'Alprazolam 0.5mg — Q 12.00/u', 'Tramadol 50mg — Q 8.00/u'],
+    3: ['Vitamina C 1000mg — Q 4.20/u', 'Complejo B — Q 3.50/u', 'Omega 3 — Q 6.00/u', 'Zinc 50mg — Q 2.80/u'],
+  };
+
+  function verCatalogo(idx) {
+    const p = PROVEEDORES[idx];
+    const items = (CATALOGO[idx] || []).map(i =>
+      `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 10px;background:var(--bg);border-radius:var(--radius-sm);font-size:13px;">
+        <span>${i.split(' — ')[0]}</span><span class="fw-600 text-primary">${i.split(' — ')[1]}</span>
+      </div>`).join('');
+    showModal('Catálogo — ' + p.nombre, `
+      <div style="color:var(--text-muted);font-size:12px;margin-bottom:12px;">${p.cats}</div>
+      <div style="display:flex;flex-direction:column;gap:6px;">${items}</div>
+    `, [
+      {label:'Crear orden de compra', style:'btn-primary', action:()=>{ closeModal(); setTimeout(()=>crearOrden(idx),200); }},
+      {label:'Cerrar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  function crearOrden(idx) {
+    const p = PROVEEDORES[idx];
+    const opts = (CATALOGO[idx]||[]).map(i=>`<option>${i.split(' — ')[0]}</option>`).join('');
+    showModal('Orden de compra — ' + p.nombre, `
+      <div style="background:var(--primary-light);padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;margin-bottom:14px;">
+        <strong>${p.nombre}</strong> · Entrega: ${p.entrega} · ${p.estrellas}
+      </div>
+      <div class="form-group"><label>Producto</label><select class="form-control">${opts}</select></div>
+      <div class="grid-2">
+        <div class="form-group"><label>Cantidad</label><input class="form-control" type="number" value="50" min="1" id="orCant"/></div>
+        <div class="form-group"><label>Urgencia</label>
+          <select class="form-control"><option>Normal</option><option>Urgente</option><option>Crítico</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label>Sucursal destino</label>
+        <select class="form-control"><option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option></select>
+      </div>
+      <div class="form-group"><label>Notas</label><textarea class="form-control" rows="2" placeholder="Instrucciones especiales..."></textarea></div>
+    `, [
+      {label:'Confirmar orden', style:'btn-primary', action:()=>{
+        showToast('Orden enviada a ' + p.nombre + ' exitosamente','success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    /* Agregar proveedor */
+    document.querySelector('.page-actions .btn-primary')?.addEventListener('click', () => {
+      showModal('Nuevo Proveedor', `
+        <div class="grid-2">
+          <div class="form-group"><label>Razón social</label><input class="form-control" placeholder="Nombre de la empresa"/></div>
+          <div class="form-group"><label>NIT / RTU</label><input class="form-control" placeholder="NIT del proveedor"/></div>
+        </div>
+        <div class="grid-2">
+          <div class="form-group"><label>Teléfono</label><input class="form-control" placeholder="2XXX-XXXX"/></div>
+          <div class="form-group"><label>Correo</label><input class="form-control" type="email" placeholder="contacto@empresa.com"/></div>
+        </div>
+        <div class="form-group"><label>Contacto principal</label><input class="form-control" placeholder="Nombre del representante"/></div>
+        <div class="form-group"><label>Categorías que provee</label><input class="form-control" placeholder="Antibióticos, Analgésicos..."/></div>
+        <div class="grid-2">
+          <div class="form-group"><label>Tiempo de entrega</label><input class="form-control" placeholder="Ej. 2 días"/></div>
+          <div class="form-group"><label>Condiciones de pago</label>
+            <select class="form-control"><option>Contado</option><option>15 días</option><option>30 días</option><option>60 días</option></select>
+          </div>
+        </div>
+      `, [
+        {label:'Registrar proveedor', style:'btn-primary', action:()=>{ showToast('Proveedor registrado exitosamente','success'); closeModal(); }},
+        {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      ]);
+    });
+
+    /* Ordenar por precio */
+    document.querySelector('.page-actions .btn-secondary')?.addEventListener('click', () => {
+      showToast('Proveedores ordenados por precio (menor a mayor)','info');
+    });
+
+    /* Botones de tarjetas de proveedor */
+    document.querySelectorAll('.provider-card').forEach((card, idx) => {
+      const btnCatalogo = card.querySelector('.btn-ghost');
+      const btnPedir    = card.querySelector('.btn-primary');
+      const btnSusp     = card.querySelector('.btn-secondary:last-child');
+      if (btnCatalogo) btnCatalogo.onclick = () => verCatalogo(idx);
+      if (btnPedir)    btnPedir.onclick    = () => crearOrden(idx);
+      if (btnSusp && btnSusp.textContent.trim() === 'Suspendido') {
+        btnSusp.onclick = () => showToast('Proveedor suspendido — contacte a administración','warning');
+      }
+    });
+
+    /* Botones de tabla comparativa */
+    document.querySelectorAll('tbody .btn-primary, tbody .btn-secondary').forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        const provNombres = ['DISTRIBUIDORA MEDIC S.A.','FARMEX Guatemala','LABORATORIOS UNITED'];
+        if (btn.classList.contains('btn-primary')) {
+          showModal('Confirmar selección', `
+            <div style="text-align:center;padding:12px 0;">
+              <div style="font-size:36px;margin-bottom:10px;">🛒</div>
+              <div style="font-size:15px;font-weight:700;">Amoxicilina 500mg</div>
+              <div style="color:var(--text-muted);font-size:13px;margin-top:4px;">Proveedor: <strong>${provNombres[idx]||'Seleccionado'}</strong></div>
+            </div>
+          `, [
+            {label:'Crear orden de compra', style:'btn-primary', action:()=>{ showToast('Orden creada con DISTRIBUIDORA MEDIC S.A.','success'); closeModal(); }},
+            {label:'Cancelar', style:'btn-secondary', action:closeModal}
+          ]);
+        } else {
+          crearOrden(idx);
+        }
+      });
+    });
+
+    /* Buscar producto en comparativa */
+    document.querySelector('.card-header .btn-secondary')?.addEventListener('click', () => {
+      showModal('Buscar producto para comparar', `
+        <div class="form-group">
+          <label>Nombre o código del medicamento</label>
+          <div class="search-box" style="max-width:100%;border-radius:var(--radius-sm);">
+            <i class="fas fa-magnifying-glass"></i>
+            <input type="text" placeholder="Ej. Amoxicilina, MED-0012..." id="busqProd"/>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:6px;">Resultados recientes: Amoxicilina 500mg · Metformina 850mg · Paracetamol 500mg</div>
+      `, [
+        {label:'Comparar precios', style:'btn-primary', action:()=>{ showToast('Cargando comparativa de precios...','info'); closeModal(); }},
+        {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      ]);
+    });
+  });
+</script>
 </body>
 </html>

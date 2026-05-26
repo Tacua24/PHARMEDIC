@@ -10,54 +10,39 @@
 <body>
 <div class="app-layout">
 
-  <aside class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-cross">+</div>
-      <div><div class="brand-name">PHARMEDIC</div><div class="brand-tagline">Gestión Farmacéutica</div></div>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="brand-mark">+</div>
+      <span class="brand-title">PHARMEDIC</span>
     </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Principal</div>
-      <a href="dashboard.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
-      <a href="inventario.html" class="nav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="nav-badge warning">8</span></a>
-      <a href="ventas.html" class="nav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
-      <a href="recetas.html" class="nav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="nav-badge">12</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Operaciones</div>
-      <a href="clientes.html" class="nav-item active"><i class="fas fa-users"></i><span>Clientes</span></a>
-      <a href="delivery.html" class="nav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="nav-badge">5</span></a>
-      <a href="proveedores.html" class="nav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
-    </div>
-    <div class="sidebar-section">
-      <div class="sidebar-section-label">Administración</div>
-      <a href="reportes.html" class="nav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
-      <a href="ofertas.html" class="nav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="nav-badge">4</span></a>
-      <a href="cierre-caja.html" class="nav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
-      <a href="sucursales.html" class="nav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
-    </div>
-    <div class="sidebar-footer">
-      <div class="sidebar-user">
-        <div class="user-avatar">AD</div>
-        <div class="user-info-sidebar"><div class="name">Administrador</div><div class="role">Zona 16 — Central</div></div>
+    <div class="topbar-right">
+      <div class="sucursal-pill">
+        <i class="fas fa-store"></i>
+        <select><option>Todas las sucursales</option><option>Zona 16</option><option>Zona 11</option><option>Zona 2</option></select>
       </div>
-      <a href="index.html" class="sidebar-logout"><i class="fas fa-right-from-bracket"></i><span>Cerrar sesión</span></a>
+      <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
+      <div class="topbar-avatar">AD</div>
+      <a href="index.html" class="topbar-logout" title="Cerrar sesión"><i class="fas fa-right-from-bracket"></i></a>
     </div>
-  </aside>
+  </header>
 
-  <div class="main-area">
-    <header class="topbar">
-      <div class="topbar-left"><span class="page-title">Clientes</span></div>
-      <div class="topbar-right">
-        <div class="sucursal-select">
-          <i class="fas fa-store" style="color:var(--primary);font-size:12px;"></i>
-          <select><option>Todas las sucursales</option><option>Zona 16</option><option>Zona 11</option><option>Zona 2</option></select>
-        </div>
-        <button class="icon-btn"><i class="fas fa-bell"></i><span class="notif-badge"></span></button>
-        <div class="topbar-avatar">AD</div>
-      </div>
-    </header>
+  <!-- TAB NAV -->
+  <nav class="tabnav">
+    <a href="dashboard.html" class="tabnav-item"><i class="fas fa-chart-pie"></i><span>Dashboard</span></a>
+    <a href="inventario.html" class="tabnav-item"><i class="fas fa-boxes-stacked"></i><span>Inventario</span><span class="tn-badge warning">8</span></a>
+    <a href="ventas.html" class="tabnav-item"><i class="fas fa-cash-register"></i><span>Ventas</span></a>
+    <a href="recetas.html" class="tabnav-item"><i class="fas fa-file-medical"></i><span>Recetas</span><span class="tn-badge">12</span></a>
+    <a href="clientes.html" class="tabnav-item active"><i class="fas fa-users"></i><span>Clientes</span></a>
+    <a href="delivery.html" class="tabnav-item"><i class="fas fa-truck"></i><span>Delivery</span><span class="tn-badge">5</span></a>
+    <a href="proveedores.html" class="tabnav-item"><i class="fas fa-building"></i><span>Proveedores</span></a>
+    <a href="reportes.html" class="tabnav-item"><i class="fas fa-chart-bar"></i><span>Reportes</span></a>
+    <a href="ofertas.html" class="tabnav-item"><i class="fas fa-tags"></i><span>Ofertas</span><span class="tn-badge">4</span></a>
+    <a href="cierre-caja.html" class="tabnav-item"><i class="fas fa-wallet"></i><span>Cierre de Caja</span></a>
+    <a href="sucursales.html" class="tabnav-item"><i class="fas fa-store"></i><span>Sucursales</span></a>
+  </nav>
 
-    <div class="content">
+  <div class="content">
 
       <div class="page-header">
         <div class="page-header-left">
@@ -262,9 +247,203 @@
         </div>
       </div>
 
-    </div>
   </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+  /* ── Historial de compras por cliente ── */
+  const HISTORIAL = {
+    0: [
+      { fecha:'24 may 2026', ticket:'#0892', productos:'Metformina 850mg × 1 caja, Enalapril 10mg × 1 blíster', total:'Q 170.00', metodo:'Efectivo' },
+      { fecha:'10 may 2026', ticket:'#0814', productos:'Metformina 850mg × 2 cajas, Atorvastatina 20mg × 1 blíster', total:'Q 250.00', metodo:'Tarjeta' },
+      { fecha:'25 abr 2026', ticket:'#0751', productos:'Enalapril 10mg × 2 blísteres, Metformina 850mg × 1 caja', total:'Q 169.00', metodo:'Efectivo' },
+    ],
+    1: [
+      { fecha:'24 may 2026', ticket:'#0890', productos:'Clonazepam 2mg × 1 blíster', total:'Q 145.00', metodo:'BAC' },
+      { fecha:'12 may 2026', ticket:'#0822', productos:'Clonazepam 2mg × 1 blíster', total:'Q 145.00', metodo:'Efectivo' },
+    ],
+    2: [
+      { fecha:'23 may 2026', ticket:'#0881', productos:'Paracetamol 500mg × 1 caja, Vitamina C × 1 tubo', total:'Q 102.00', metodo:'Tarjeta' },
+      { fecha:'15 may 2026', ticket:'#0843', productos:'Ibuprofeno 600mg × 1 blíster', total:'Q 35.00', metodo:'Efectivo' },
+    ],
+    3: [
+      { fecha:'22 may 2026', ticket:'#0872', productos:'Metformina 850mg × 1 caja', total:'Q 95.00', metodo:'Efectivo' },
+      { fecha:'08 may 2026', ticket:'#0801', productos:'Metformina 850mg × 1 caja, Aspirin 100mg × 1 blíster', total:'Q 113.00', metodo:'Efectivo' },
+    ],
+    4: [
+      { fecha:'21 may 2026', ticket:'#0865', productos:'Alprazolam 0.5mg × 1 blíster', total:'Q 120.00', metodo:'Efectivo' },
+    ],
+  };
+
+  /* ── Sugerencias por condición médica ── */
+  const SUGERENCIAS = {
+    'Hipertensión, Diabética': [
+      { nombre:'Metformina 850mg', motivo:'Tratamiento habitual para diabetes — próxima dosis en ~25 días', urgencia:'warning' },
+      { nombre:'Enalapril 10mg',   motivo:'Antihipertensivo de mantenimiento — historial de compra mensual', urgencia:'warning' },
+      { nombre:'Aspirina 100mg',   motivo:'Recomendada por cardiólogos para pacientes hipertensas/diabéticas', urgencia:'info' },
+    ],
+    'Tratamiento psiquiátrico': [
+      { nombre:'Clonazepam 2mg',   motivo:'Medicamento de tratamiento activo — renovación mensual', urgencia:'danger' },
+      { nombre:'Vitamina D 1000UI',motivo:'Suplementación frecuente en pacientes con tratamiento psicotrópico', urgencia:'info' },
+    ],
+    'Sin condiciones': [
+      { nombre:'Vitamina C 1000mg',motivo:'Compra recurrente cada 2 meses según historial', urgencia:'info' },
+      { nombre:'Ibuprofeno 600mg', motivo:'Compra frecuente — ofrecer presentación económica en caja', urgencia:'info' },
+    ],
+    'Diabético': [
+      { nombre:'Metformina 850mg', motivo:'Tratamiento activo para diabetes — renovación mensual', urgencia:'warning' },
+      { nombre:'Glucómetro tiras', motivo:'Insumo de control — compra habitual del paciente', urgencia:'info' },
+    ],
+    'Ansiedad': [
+      { nombre:'Alprazolam 0.5mg', motivo:'Medicamento de tratamiento controlado — renovación mensual', urgencia:'danger' },
+      { nombre:'Melatonina 5mg',   motivo:'Complemento frecuente para pacientes con ansiedad', urgencia:'info' },
+    ],
+  };
+
+  /* ── Datos quemados ── */
+  const CLIENTES = [
+    { dpi:'2845-63921-0101', nombre:'María López de Soto',   telefono:'4412-8830', correo:'maria.lopez@gmail.com',  nit:'1234567-8', direccion:'12 Av. 10-45, Zona 16', condicion:'Hipertensión, Diabética', recetas:'2 activas', ultima:'24 may 2026' },
+    { dpi:'1923-45812-0801', nombre:'Roberto Soto Morales',  telefono:'5523-9901', correo:'rsoto@outlook.com',      nit:'9876543-2', direccion:'5a Calle 8-20, Zona 1',  condicion:'Tratamiento psiquiátrico', recetas:'1 controlada', ultima:'24 may 2026' },
+    { dpi:'3012-78234-0302', nombre:'Ana García Pérez',      telefono:'3368-5521', correo:'ana.garcia@yahoo.com',   nit:'CF',        direccion:'Res. Miraflores 2-15, Zona 11', condicion:'Sin condiciones', recetas:'Ninguna', ultima:'23 may 2026' },
+    { dpi:'1654-98210-0506', nombre:'Juan Pérez Martínez',   telefono:'4490-1122', correo:'jperez@gmail.com',       nit:'5544332-1', direccion:'Col. Roosevelt 4-80, Zona 11', condicion:'Diabético', recetas:'1 activa', ultima:'22 may 2026' },
+    { dpi:'2234-11023-0904', nombre:'Carmen Orozco Leiva',   telefono:'5881-3340', correo:'corozco@hotmail.com',    nit:'CF',        direccion:'Av. Reforma 8-60, Zona 10', condicion:'Ansiedad', recetas:'1 controlada', ultima:'21 may 2026' },
+  ];
+
+  /* ── Botón "Agregar cliente" ── */
+  document.querySelector('.page-actions .btn-primary')?.addEventListener('click', () => {
+    showModal('Nuevo Cliente', `
+      <div class="grid-2">
+        <div class="form-group"><label>Nombre</label><input class="form-control" placeholder="Nombre"/></div>
+        <div class="form-group"><label>Apellido</label><input class="form-control" placeholder="Apellido"/></div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>DPI</label><input class="form-control" placeholder="DPI (16 dígitos)"/></div>
+        <div class="form-group"><label>NIT</label><input class="form-control" placeholder="NIT o CF"/></div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Teléfono</label><input class="form-control" placeholder="XXXX-XXXX"/></div>
+        <div class="form-group"><label>Correo</label><input class="form-control" type="email" placeholder="correo@ejemplo.com"/></div>
+      </div>
+      <div class="form-group"><label>Dirección</label><input class="form-control" placeholder="Dirección completa"/></div>
+      <div class="form-group"><label>Condición médica (opcional)</label><input class="form-control" placeholder="Diabetes, Hipertensión..."/></div>
+    `, [
+      {label:'Guardar cliente', style:'btn-primary', action:()=>{ showToast('Cliente registrado exitosamente','success'); closeModal(); }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  });
+
+  /* ── Botón Exportar ── */
+  document.querySelector('.page-actions .btn-secondary')?.addEventListener('click', () => {
+    showToast('Exportando lista de clientes a Excel...', 'info');
+  });
+
+  /* ── Ver / Editar cliente ── */
+  function verCliente(idx) {
+    const c = CLIENTES[idx];
+    const initials = c.nombre.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    const hist = (HISTORIAL[idx] || []).map(h => `
+      <div style="border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;font-size:12px;">
+        <div class="flex-between" style="margin-bottom:4px;">
+          <span class="fw-600" style="font-size:13px;">${h.fecha}</span>
+          <span class="badge badge-neutral">${h.ticket}</span>
+        </div>
+        <div style="color:var(--text-muted);margin-bottom:4px;">${h.productos}</div>
+        <div class="flex-between">
+          <span style="color:var(--text-muted);">Pago: ${h.metodo}</span>
+          <span class="fw-600 text-primary">${h.total}</span>
+        </div>
+      </div>`).join('') || '<div style="color:var(--text-muted);font-size:13px;text-align:center;padding:12px;">Sin historial registrado</div>';
+
+    const sugs = (SUGERENCIAS[c.condicion] || []).map(s => {
+      const colorMap = { warning:'var(--warning-bg)', danger:'var(--danger-bg)', info:'var(--primary-light)' };
+      const textMap  = { warning:'var(--warning-text)', danger:'var(--danger-text)', info:'var(--primary)' };
+      return `
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:8px;background:${colorMap[s.urgencia]||'var(--bg)'};font-size:12px;">
+          <div>
+            <div class="fw-600" style="font-size:13px;color:${textMap[s.urgencia]||'var(--text)'};">${s.nombre}</div>
+            <div style="color:var(--text-muted);margin-top:3px;">${s.motivo}</div>
+          </div>
+          <button class="btn btn-primary btn-sm" style="flex-shrink:0;margin-left:10px;" onclick="showToast('${s.nombre} agregado a nueva venta','success');">
+            <i class="fas fa-cart-plus"></i>
+          </button>
+        </div>`; }).join('') || '<div style="color:var(--text-muted);font-size:13px;text-align:center;padding:12px;">Sin condiciones registradas</div>';
+
+    showModal('Perfil — ' + c.nombre, `
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:16px;">
+        <div class="user-avatar" style="width:48px;height:48px;font-size:16px;flex-shrink:0;">${initials}</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;">${c.nombre}</div>
+          <div style="color:var(--text-muted);font-size:12px;">${c.dpi}</div>
+        </div>
+      </div>
+      <div class="grid-2" style="font-size:13px;gap:10px;margin-bottom:16px;">
+        <div><span style="color:var(--text-muted);">Teléfono</span><div class="fw-600">${c.telefono}</div></div>
+        <div><span style="color:var(--text-muted);">Correo</span><div class="fw-600">${c.correo}</div></div>
+        <div><span style="color:var(--text-muted);">NIT</span><div class="fw-600">${c.nit}</div></div>
+        <div><span style="color:var(--text-muted);">Última compra</span><div class="fw-600">${c.ultima}</div></div>
+        <div style="grid-column:span 2;"><span style="color:var(--text-muted);">Dirección</span><div class="fw-600">${c.direccion}</div></div>
+        <div style="grid-column:span 2;"><span style="color:var(--text-muted);">Condición médica</span><div class="fw-600">${c.condicion}</div></div>
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:14px;margin-bottom:12px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:10px;">
+          <i class="fas fa-clock-rotate-left" style="margin-right:4px;"></i>Últimas compras
+        </div>
+        ${hist}
+      </div>
+
+      <div style="border-top:1px solid var(--border);padding-top:14px;">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:10px;">
+          <i class="fas fa-lightbulb" style="margin-right:4px;color:var(--warning);"></i>Sugerencias por historial y condición
+        </div>
+        ${sugs}
+      </div>
+    `, [
+      {label:'Editar perfil', style:'btn-primary', action:()=>{ closeModal(); setTimeout(()=>editarCliente(idx),200); }},
+      {label:'Nueva venta', style:'btn-secondary', action:()=>{ closeModal(); window.location.href='ventas.html'; }},
+      {label:'Cerrar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  function editarCliente(idx) {
+    const c = CLIENTES[idx];
+    showModal('Editar Cliente', `
+      <div class="grid-2">
+        <div class="form-group"><label>Nombre completo</label><input class="form-control" value="${c.nombre}" id="editNombre"/></div>
+        <div class="form-group"><label>DPI</label><input class="form-control" value="${c.dpi}" id="editDpi"/></div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>NIT</label><input class="form-control" value="${c.nit}" id="editNit"/></div>
+        <div class="form-group"><label>Teléfono</label><input class="form-control" value="${c.telefono}" id="editTel"/></div>
+      </div>
+      <div class="form-group"><label>Correo</label><input class="form-control" type="email" value="${c.correo}" id="editCorreo"/></div>
+      <div class="form-group"><label>Dirección</label><input class="form-control" value="${c.direccion}" id="editDir"/></div>
+      <div class="form-group"><label>Condición médica</label><input class="form-control" value="${c.condicion === 'Sin condiciones' ? '' : c.condicion}" placeholder="Diabetes, Hipertensión..." id="editCond"/></div>
+    `, [
+      {label:'Guardar cambios', style:'btn-primary', action:()=>{
+        CLIENTES[idx].nombre   = document.getElementById('editNombre')?.value || c.nombre;
+        CLIENTES[idx].nit      = document.getElementById('editNit')?.value    || c.nit;
+        CLIENTES[idx].telefono = document.getElementById('editTel')?.value    || c.telefono;
+        CLIENTES[idx].correo   = document.getElementById('editCorreo')?.value || c.correo;
+        CLIENTES[idx].direccion= document.getElementById('editDir')?.value    || c.direccion;
+        const cond = document.getElementById('editCond')?.value;
+        CLIENTES[idx].condicion = cond || 'Sin condiciones';
+        showToast('Cliente actualizado correctamente', 'success');
+        closeModal();
+      }},
+      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+    ]);
+  }
+
+  /* ── Asignar handlers a botones de tabla ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('tbody tr').forEach((row, idx) => {
+      const btnVer   = row.querySelector('.btn-ghost');
+      const btnEditar = row.querySelector('.btn-secondary');
+      if (btnVer)    btnVer.onclick    = () => verCliente(idx);
+      if (btnEditar) btnEditar.onclick = () => editarCliente(idx);
+    });
+  });
+</script>
 </body>
 </html>
