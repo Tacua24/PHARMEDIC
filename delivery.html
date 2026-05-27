@@ -160,99 +160,75 @@
         </div>
       </div>
 
-      <!-- Pedidos activos -->
-      <div class="tabs">
+      <!-- Tabs -->
+      <div class="tabs mb-20">
         <div class="tab active">Activos <span class="tab-count">5</span></div>
         <div class="tab">Historial de hoy <span class="tab-count">18</span></div>
         <div class="tab">Traslados entre sucursales</div>
       </div>
 
-      <div class="card">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>ID Pedido</th>
-                <th>Cliente</th>
-                <th>Dirección</th>
-                <th>Sucursal</th>
-                <th>Repartidor</th>
-                <th>Pago</th>
-                <th>Estado</th>
-                <th>Hora est.</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="td-muted fw-600">DEL-0124</td>
-                <td><div class="fw-600">María López</div><div class="text-xs text-muted">4412-8830</div></td>
-                <td><div class="text-sm">Col. El Carmen 14-25</div><div class="text-xs text-muted">Zona 11</div></td>
-                <td><span class="badge badge-primary">Z-16</span></td>
-                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:24px;height:24px;font-size:9px;flex-shrink:0;">R1</div>Diego M.</div></td>
-                <td><span class="badge badge-info">POS</span></td>
-                <td><span class="badge badge-info">En camino</span></td>
-                <td class="fw-600">14:35</td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
-                  <button class="btn btn-ghost btn-sm"><i class="fas fa-location-dot"></i></button>
-                </div></td>
-              </tr>
-              <tr>
-                <td class="td-muted fw-600">DEL-0125</td>
-                <td><div class="fw-600">Jorge Castillo</div><div class="text-xs text-muted">3311-7792</div></td>
-                <td><div class="text-sm">Calle Gerona 8-15</div><div class="text-xs text-muted">Zona 2</div></td>
-                <td><span class="badge badge-primary">Z-2</span></td>
-                <td><div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:24px;height:24px;font-size:9px;flex-shrink:0;background:#D97706;">R3</div>Pedro V.</div></td>
-                <td><span class="badge badge-success">Efectivo</span></td>
-                <td><span class="badge badge-warning">En camino</span></td>
-                <td class="fw-600">15:10</td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-secondary btn-sm"><i class="fas fa-eye"></i></button>
-                  <button class="btn btn-ghost btn-sm"><i class="fas fa-location-dot"></i></button>
-                </div></td>
-              </tr>
-              <tr>
-                <td class="td-muted fw-600">DEL-0126</td>
-                <td><div class="fw-600">Ana García</div><div class="text-xs text-muted">3368-5521</div></td>
-                <td><div class="text-sm">Av. Las Américas 12-80</div><div class="text-xs text-muted">Zona 14</div></td>
-                <td><span class="badge badge-primary">Z-16</span></td>
-                <td><span class="text-muted text-xs">Sin asignar</span></td>
-                <td><span class="badge badge-success">Efectivo</span></td>
-                <td><span class="badge badge-neutral">Pendiente</span></td>
-                <td class="text-muted">—</td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Asignar</button>
-                </div></td>
-              </tr>
-              <tr>
-                <td class="td-muted fw-600">DEL-0127</td>
-                <td><div class="fw-600">Luis Fuentes</div><div class="text-xs text-muted">5567-2233</div></td>
-                <td><div class="text-sm">Res. Montserrat 3-45</div><div class="text-xs text-muted">Zona 16</div></td>
-                <td><span class="badge badge-primary">Z-16</span></td>
-                <td><span class="text-muted text-xs">Sin asignar</span></td>
-                <td><span class="badge badge-info">POS</span></td>
-                <td><span class="badge badge-neutral">Pendiente</span></td>
-                <td class="text-muted">—</td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Asignar</button>
-                </div></td>
-              </tr>
-              <tr>
-                <td class="td-muted fw-600">DEL-0128</td>
-                <td><div class="fw-600">Sofía Méndez</div><div class="text-xs text-muted">4482-6610</div></td>
-                <td><div class="text-sm">Col. Mariscal 22-10</div><div class="text-xs text-muted">Zona 11</div></td>
-                <td><span class="badge badge-primary">Z-11</span></td>
-                <td><span class="text-muted text-xs">Sin asignar</span></td>
-                <td><span class="badge badge-warning">BAC</span></td>
-                <td><span class="badge badge-neutral">Pendiente</span></td>
-                <td class="text-muted">—</td>
-                <td><div class="actions-cell">
-                  <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Asignar</button>
-                </div></td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- Panel: Activos -->
+      <div id="panel-activos">
+        <div class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID Pedido</th><th>Cliente</th><th>Dirección</th>
+                  <th>Sucursal</th><th>Repartidor</th><th>Pago</th>
+                  <th>Estado</th><th>Hora est.</th><th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tbodyActivos"><!-- Render dinámico --></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Historial -->
+      <div id="panel-historial" style="display:none;">
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Historial de hoy — 26 mayo 2026</div></div>
+            <span class="badge badge-success">18 entregados</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>ID Pedido</th><th>Cliente</th><th>Dirección</th><th>Repartidor</th><th>Pago</th><th>Hora entrega</th><th>Total</th><th>Estado</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="fw-600 td-muted">DEL-0123</td><td><div class="fw-600">Ana García Pérez</div><div class="text-xs text-muted">3368-5521</div></td><td><div class="text-sm">Col. El Carmen 14-25, Z.11</div></td><td>Diego M.</td><td><span class="badge badge-success">Efectivo</span></td><td class="fw-600">13:22</td><td class="fw-600">Q 49.50</td><td><span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span></td></tr>
+                <tr><td class="fw-600 td-muted">DEL-0122</td><td><div class="fw-600">Roberto Soto</div><div class="text-xs text-muted">5541-2210</div></td><td><div class="text-sm">Res. Vista Hermosa, Z.15</div></td><td>Carlos R.</td><td><span class="badge badge-info">POS</span></td><td class="fw-600">12:45</td><td class="fw-600">Q 185.00</td><td><span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span></td></tr>
+                <tr><td class="fw-600 td-muted">DEL-0121</td><td><div class="fw-600">Carmen Orozco</div><div class="text-xs text-muted">4477-8899</div></td><td><div class="text-sm">Calle Reforma 1-50, Z.10</div></td><td>Diego M.</td><td><span class="badge badge-warning">BAC</span></td><td class="fw-600">11:58</td><td class="fw-600">Q 215.00</td><td><span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span></td></tr>
+                <tr><td class="fw-600 td-muted">DEL-0120</td><td><div class="fw-600">Fernando Juárez</div><div class="text-xs text-muted">3344-6612</div></td><td><div class="text-sm">Av. Las Américas 5-80, Z.14</div></td><td>Pedro V.</td><td><span class="badge badge-success">Efectivo</span></td><td class="fw-600">11:20</td><td class="fw-600">Q 92.00</td><td><span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span></td></tr>
+                <tr><td class="fw-600 td-muted">DEL-0119</td><td><div class="fw-600">Luisa Ramírez</div><div class="text-xs text-muted">5598-3301</div></td><td><div class="text-sm">Blvd. Los Próceres 12-20, Z.11</div></td><td>Carlos R.</td><td><span class="badge badge-info">POS</span></td><td class="fw-600">10:35</td><td class="fw-600">Q 340.00</td><td><span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span></td></tr>
+                <tr><td class="fw-600 td-muted">DEL-0118</td><td><div class="fw-600">Mario Pérez</div><div class="text-xs text-muted">4411-0022</div></td><td><div class="text-sm">Col. Mariscal 8-40, Z.11</div></td><td>Diego M.</td><td><span class="badge badge-success">Efectivo</span></td><td class="fw-600">09:58</td><td class="fw-600">Q 67.50</td><td><span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel: Traslados -->
+      <div id="panel-traslados" style="display:none;">
+        <div class="card">
+          <div class="card-header">
+            <div><div class="card-title">Traslados entre sucursales</div><div class="card-subtitle">Reposición de stock entre sucursales · hoy</div></div>
+            <button class="btn btn-primary btn-sm" onclick="showToast('Módulo de nuevo traslado próximamente', 'info')"><i class="fas fa-plus"></i> Nuevo traslado</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>ID</th><th>Origen</th><th>Destino</th><th>Producto</th><th>Cantidad</th><th>Repartidor</th><th>Estado</th><th>Hora</th></tr>
+              </thead>
+              <tbody>
+                <tr><td class="fw-600 td-muted">TRA-001</td><td><span class="badge badge-primary">Zona 16</span></td><td><span class="badge badge-primary">Zona 2</span></td><td>Metformina 850mg</td><td class="fw-600">50 und.</td><td>Diego M.</td><td><span class="badge badge-success"><i class="fas fa-check"></i> Entregado</span></td><td class="fw-600">11:45</td></tr>
+                <tr><td class="fw-600 td-muted">TRA-002</td><td><span class="badge badge-primary">Zona 16</span></td><td><span class="badge badge-primary">Zona 11</span></td><td>Paracetamol 500mg</td><td class="fw-600">200 und.</td><td>Carlos R.</td><td><span class="badge badge-info">En tránsito</span></td><td class="fw-600">14:10</td></tr>
+                <tr><td class="fw-600 td-muted">TRA-003</td><td><span class="badge badge-primary">Zona 11</span></td><td><span class="badge badge-primary">Zona 2</span></td><td>Losartán 50mg</td><td class="fw-600">30 und.</td><td><span class="text-muted text-xs">Sin asignar</span></td><td><span class="badge badge-neutral">Pendiente</span></td><td class="text-muted">—</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -260,22 +236,75 @@
 </div>
 <script src="js/main.js"></script>
 <script>
-  /* ── Datos quemados ── */
+  /* ── Datos ── */
   const PEDIDOS = [
-    { id:'DEL-0124', cliente:'María López',   tel:'4412-8830', dir:'Col. El Carmen 14-25, Z.11', sucursal:'Z-16', repartidor:'Diego Monterroso', rId:'R1', pago:'POS',      estado:'En camino',  hora:'14:35' },
-    { id:'DEL-0125', cliente:'Jorge Castillo', tel:'3311-7792', dir:'Calle Gerona 8-15, Z.2',     sucursal:'Z-2',  repartidor:'Pedro Vásquez',    rId:'R3', pago:'Efectivo', estado:'En camino',  hora:'15:10' },
-    { id:'DEL-0126', cliente:'Ana García',     tel:'3368-5521', dir:'Av. Las Américas 12-80, Z.14',sucursal:'Z-16', repartidor:null,               rId:null, pago:'Efectivo', estado:'Pendiente',  hora:'—' },
-    { id:'DEL-0127', cliente:'Luis Fuentes',   tel:'5567-2233', dir:'Res. Montserrat 3-45, Z.16', sucursal:'Z-16', repartidor:null,               rId:null, pago:'POS',      estado:'Pendiente',  hora:'—' },
-    { id:'DEL-0128', cliente:'Sofía Méndez',   tel:'4482-6610', dir:'Col. Mariscal 22-10, Z.11',  sucursal:'Z-11', repartidor:null,               rId:null, pago:'BAC',      estado:'Pendiente',  hora:'—' },
+    { id:'DEL-0124', cliente:'María López',    tel:'4412-8830', dir:'Col. El Carmen 14-25, Z.11',   sucursal:'Z-16', repartidor:'Diego Monterroso', rId:'R1', pago:'POS',      estado:'En camino', hora:'14:35' },
+    { id:'DEL-0125', cliente:'Jorge Castillo', tel:'3311-7792', dir:'Calle Gerona 8-15, Z.2',        sucursal:'Z-2',  repartidor:'Pedro Vásquez',    rId:'R3', pago:'Efectivo', estado:'En camino', hora:'15:10' },
+    { id:'DEL-0126', cliente:'Ana García',     tel:'3368-5521', dir:'Av. Las Américas 12-80, Z.14',  sucursal:'Z-16', repartidor:null, rId:null,      pago:'Efectivo', estado:'Pendiente', hora:'—' },
+    { id:'DEL-0127', cliente:'Luis Fuentes',   tel:'5567-2233', dir:'Res. Montserrat 3-45, Z.16',    sucursal:'Z-16', repartidor:null, rId:null,      pago:'POS',      estado:'Pendiente', hora:'—' },
+    { id:'DEL-0128', cliente:'Sofía Méndez',   tel:'4482-6610', dir:'Col. Mariscal 22-10, Z.11',     sucursal:'Z-11', repartidor:null, rId:null,      pago:'BAC',      estado:'Pendiente', hora:'—' },
   ];
 
   const REPARTIDORES = [
-    { id:'R1', nombre:'Diego Monterroso',  zona:'Zona 16', estado:'En camino'  },
-    { id:'R2', nombre:'Carlos Ramírez',    zona:'Zona 16', estado:'Disponible' },
-    { id:'R3', nombre:'Pedro Vásquez',     zona:'Zona 2',  estado:'En camino'  },
+    { id:'R1', nombre:'Diego Monterroso', zona:'Zona 16', estado:'En camino'  },
+    { id:'R2', nombre:'Carlos Ramírez',   zona:'Zona 16', estado:'Disponible' },
+    { id:'R3', nombre:'Pedro Vásquez',    zona:'Zona 2',  estado:'En camino'  },
   ];
 
-  /* ── Ver detalle de pedido ── */
+  /* ── Sync con app del repartidor (localStorage) ── */
+  function aplicarUpdates() {
+    const updates = JSON.parse(localStorage.getItem('ph_delivery_updates') || '{}');
+    Object.entries(updates).forEach(([key, val]) => {
+      if (key.startsWith('_rep_')) {
+        const rep = REPARTIDORES.find(r => r.nombre === key.replace('_rep_', ''));
+        if (rep) rep.estado = val;
+      } else {
+        const pedido = PEDIDOS.find(p => p.id === key);
+        if (pedido) pedido.estado = val;
+      }
+    });
+  }
+
+  /* ── Render tabla activos ── */
+  function renderTablaActivos() {
+    const tbody = document.getElementById('tbodyActivos');
+    if (!tbody) return;
+    const activos = PEDIDOS.filter(p => p.estado !== 'Entregado');
+    tbody.innerHTML = activos.map(p => {
+      const idx = PEDIDOS.indexOf(p);
+      const estadoBadge = p.estado === 'En camino' ? 'badge-info' : 'badge-neutral';
+      const pagoBadge   = p.pago === 'POS' ? 'badge-info' : p.pago === 'BAC' ? 'badge-warning' : 'badge-success';
+      const partes = p.repartidor ? p.repartidor.split(' ') : null;
+      const rCorto = partes ? partes[0] + ' ' + (partes[1]?.[0] || '') + '.' : null;
+      const rCell = p.repartidor
+        ? `<div class="flex gap-8" style="align-items:center;"><div class="user-avatar" style="width:24px;height:24px;font-size:9px;flex-shrink:0;">${p.rId}</div>${rCorto}</div>`
+        : `<span class="text-muted text-xs">Sin asignar</span>`;
+      const dp = p.dir.split(',');
+      const accionesCell = p.repartidor
+        ? `<div class="actions-cell">
+             <button class="btn btn-secondary btn-sm" onclick="verPedido(${idx})"><i class="fas fa-eye"></i></button>
+             <button class="btn btn-ghost btn-sm" onclick="verUbicacion(${idx})"><i class="fas fa-location-dot"></i></button>
+           </div>`
+        : `<div class="actions-cell">
+             <button class="btn btn-primary btn-sm" onclick="asignarRepartidor(${idx})"><i class="fas fa-user-plus"></i> Asignar</button>
+           </div>`;
+      return `<tr>
+        <td class="td-muted fw-600">${p.id}</td>
+        <td><div class="fw-600">${p.cliente}</div><div class="text-xs text-muted">${p.tel}</div></td>
+        <td><div class="text-sm">${dp[0]}</div><div class="text-xs text-muted">${dp.slice(1).join(',').trim()}</div></td>
+        <td><span class="badge badge-primary">${p.sucursal}</span></td>
+        <td>${rCell}</td>
+        <td><span class="badge ${pagoBadge}">${p.pago}</span></td>
+        <td><span class="badge ${estadoBadge}">${p.estado}</span></td>
+        <td class="fw-600">${p.hora}</td>
+        <td>${accionesCell}</td>
+      </tr>`;
+    }).join('');
+    const cntEl = document.querySelector('.tabs .tab .tab-count');
+    if (cntEl) cntEl.textContent = activos.length;
+  }
+
+  /* ── Ver detalle ── */
   function verPedido(idx) {
     const p = PEDIDOS[idx];
     const estadoColor = p.estado === 'En camino' ? 'badge-info' : p.estado === 'Pendiente' ? 'badge-neutral' : 'badge-success';
@@ -283,18 +312,28 @@
       <div class="grid-2" style="font-size:13px;gap:12px;">
         <div><span style="color:var(--text-muted);">Cliente</span><div class="fw-600">${p.cliente}</div></div>
         <div><span style="color:var(--text-muted);">Teléfono</span><div class="fw-600">${p.tel}</div></div>
-        <div class="col-span-2"><span style="color:var(--text-muted);">Dirección</span><div class="fw-600">${p.dir}</div></div>
+        <div style="grid-column:1/-1"><span style="color:var(--text-muted);">Dirección</span><div class="fw-600">${p.dir}</div></div>
         <div><span style="color:var(--text-muted);">Sucursal origen</span><div class="fw-600">${p.sucursal}</div></div>
         <div><span style="color:var(--text-muted);">Método de pago</span><div class="fw-600">${p.pago}</div></div>
         <div><span style="color:var(--text-muted);">Repartidor</span><div class="fw-600">${p.repartidor || 'Sin asignar'}</div></div>
         <div><span style="color:var(--text-muted);">Hora estimada</span><div class="fw-600">${p.hora}</div></div>
-        <div class="col-span-2"><span style="color:var(--text-muted);">Estado</span><div style="margin-top:4px;"><span class="badge ${estadoColor}">${p.estado}</span></div></div>
+        <div style="grid-column:1/-1"><span style="color:var(--text-muted);">Estado</span><div style="margin-top:4px;"><span class="badge ${estadoColor}">${p.estado}</span></div></div>
       </div>
     `, [
       p.estado === 'En camino'
-        ? {label:'Marcar entregado', style:'btn-primary', action:()=>{ PEDIDOS[idx].estado='Entregado'; showToast(p.id + ' marcado como entregado','success'); closeModal(); }}
-        : {label:'Asignar repartidor', style:'btn-primary', action:()=>{ closeModal(); setTimeout(()=>asignarRepartidor(idx),200); }},
-      {label:'Cerrar', style:'btn-secondary', action:closeModal}
+        ? { label:'<i class="fas fa-circle-check"></i> Marcar entregado', style:'btn-primary', action: () => {
+              PEDIDOS[idx].estado = 'Entregado';
+              const rep = REPARTIDORES.find(r => r.id === p.rId);
+              if (rep) rep.estado = 'Disponible';
+              showToast(p.id + ' marcado como entregado', 'success');
+              closeModal();
+              renderTablaActivos();
+            }}
+        : { label:'<i class="fas fa-user-plus"></i> Asignar repartidor', style:'btn-primary', action: () => {
+              closeModal();
+              setTimeout(() => asignarRepartidor(idx), 200);
+            }},
+      { label:'Cerrar', style:'btn-secondary', action: closeModal }
     ]);
   }
 
@@ -318,7 +357,7 @@
           <span style="color:var(--text-muted);">ETA</span><strong>${p.hora}</strong>
         </div>
       </div>
-    `, [{label:'Cerrar', style:'btn-secondary', action:closeModal}]);
+    `, [{ label:'Cerrar', style:'btn-secondary', action: closeModal }]);
   }
 
   /* ── Asignar repartidor ── */
@@ -346,22 +385,23 @@
         <label>Hora estimada de entrega</label>
         <input class="form-control" type="time" id="selHora" value="15:30"/>
       </div>
-      ${disponibles.length === 0 ? '<div class="alert alert-warning"><i class="fas fa-triangle-exclamation"></i><span>No hay repartidores disponibles en este momento.</span></div>' : ''}
+      ${disponibles.length === 0 ? '<div class="alert alert-warning" style="margin-top:8px;"><i class="fas fa-triangle-exclamation"></i><span>No hay repartidores disponibles en este momento.</span></div>' : ''}
     `, [
-      {label:'Confirmar asignación', style:'btn-primary', action:()=>{
-        const rId  = document.getElementById('selRepartidor')?.value;
-        const hora = document.getElementById('selHora')?.value || '—';
-        if (!rId) { showToast('Selecciona un repartidor', 'warning'); return; }
-        const rep = REPARTIDORES.find(r => r.id === rId);
-        PEDIDOS[idx].repartidor = rep.nombre;
-        PEDIDOS[idx].rId        = rId;
-        PEDIDOS[idx].hora       = hora;
-        PEDIDOS[idx].estado     = 'En camino';
-        rep.estado = 'En camino';
-        showToast(p.id + ' asignado a ' + rep.nombre, 'success');
-        closeModal();
-      }},
-      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      { label:'Confirmar asignación', style:'btn-primary', action: () => {
+          const rId  = document.getElementById('selRepartidor')?.value;
+          const hora = document.getElementById('selHora')?.value || '—';
+          if (!rId) { showToast('Selecciona un repartidor', 'warning'); return; }
+          const rep = REPARTIDORES.find(r => r.id === rId);
+          PEDIDOS[idx].repartidor = rep.nombre;
+          PEDIDOS[idx].rId        = rId;
+          PEDIDOS[idx].hora       = hora;
+          PEDIDOS[idx].estado     = 'En camino';
+          rep.estado = 'En camino';
+          showToast(p.id + ' asignado a ' + rep.nombre, 'success');
+          closeModal();
+          renderTablaActivos();
+        }},
+      { label:'Cancelar', style:'btn-secondary', action: closeModal }
     ]);
   }
 
@@ -369,15 +409,30 @@
   function nuevoPedido() {
     showModal('Nuevo Pedido de Delivery', `
       <div class="grid-2">
-        <div class="form-group"><label>Cliente (DPI)</label><input class="form-control" placeholder="DPI del cliente" id="npDpi"/></div>
-        <div class="form-group"><label>Teléfono</label><input class="form-control" placeholder="XXXX-XXXX" id="npTel"/></div>
+        <div class="form-group">
+          <label>DPI del cliente <span style="color:var(--text-muted);font-size:11px;">(13 caracteres)</span></label>
+          <input class="form-control" placeholder="0000-00000-0000" id="npDpi" maxlength="13"/>
+        </div>
+        <div class="form-group">
+          <label>Teléfono <span style="color:var(--text-muted);font-size:11px;">(8 dígitos)</span></label>
+          <input class="form-control" placeholder="XXXX-XXXX" id="npTel" maxlength="9"/>
+        </div>
       </div>
-      <div class="form-group"><label>Dirección de entrega</label><input class="form-control" placeholder="Dirección completa" id="npDir"/></div>
+      <div class="form-group">
+        <label>Nombre del cliente</label>
+        <input class="form-control" placeholder="Nombre completo" id="npNombre"/>
+      </div>
+      <div class="form-group">
+        <label>Dirección de entrega</label>
+        <input class="form-control" placeholder="Dirección completa, Zona X" id="npDir"/>
+      </div>
       <div class="grid-2">
         <div class="form-group">
           <label>Sucursal origen</label>
           <select class="form-control" id="npSuc">
-            <option>Zona 16 — Central</option><option>Zona 11</option><option>Zona 2</option>
+            <option value="Z-16">Zona 16 — Central</option>
+            <option value="Z-11">Zona 11</option>
+            <option value="Z-2">Zona 2</option>
           </select>
         </div>
         <div class="form-group">
@@ -387,47 +442,62 @@
           </select>
         </div>
       </div>
-      <div class="form-group"><label>Notas del pedido</label><textarea class="form-control" rows="2" placeholder="Instrucciones especiales..." id="npNotas"></textarea></div>
+      <div class="form-group">
+        <label>Notas del pedido</label>
+        <textarea class="form-control" rows="2" placeholder="Instrucciones especiales..." id="npNotas"></textarea>
+      </div>
     `, [
-      {label:'Crear pedido', style:'btn-primary', action:()=>{
-        const dir = document.getElementById('npDir')?.value;
-        if (!dir) { showToast('Ingresa la dirección de entrega', 'warning'); return; }
-        const nuevoId = 'DEL-0' + (129 + PEDIDOS.length);
-        PEDIDOS.push({ id:nuevoId, cliente:'Nuevo cliente', tel:document.getElementById('npTel')?.value||'—',
-          dir:dir, sucursal:'Z-16', repartidor:null, rId:null,
-          pago:document.getElementById('npPago')?.value||'Efectivo', estado:'Pendiente', hora:'—' });
-        showToast('Pedido ' + nuevoId + ' creado exitosamente', 'success');
-        closeModal();
-      }},
-      {label:'Cancelar', style:'btn-secondary', action:closeModal}
+      { label:'Crear pedido', style:'btn-primary', action: () => {
+          const nombre = document.getElementById('npNombre')?.value?.trim();
+          const dir    = document.getElementById('npDir')?.value?.trim();
+          const tel    = document.getElementById('npTel')?.value?.trim() || '—';
+          if (!nombre) { showToast('Ingresa el nombre del cliente', 'warning'); return; }
+          if (!dir)    { showToast('Ingresa la dirección de entrega', 'warning'); return; }
+          const lastNum = Math.max(...PEDIDOS.map(p => parseInt(p.id.replace('DEL-0', ''))));
+          const newId   = 'DEL-0' + (lastNum + 1);
+          PEDIDOS.push({
+            id: newId, cliente: nombre, tel: tel, dir: dir,
+            sucursal:   document.getElementById('npSuc')?.value  || 'Z-16',
+            repartidor: null, rId: null,
+            pago:       document.getElementById('npPago')?.value || 'Efectivo',
+            estado: 'Pendiente', hora: '—'
+          });
+          showToast('Pedido ' + newId + ' creado exitosamente', 'success');
+          closeModal();
+          renderTablaActivos();
+        }},
+      { label:'Cancelar', style:'btn-secondary', action: closeModal }
     ]);
   }
 
-  /* ── Asignar handlers al cargar ── */
+  /* ── Init ── */
   document.addEventListener('DOMContentLoaded', () => {
+    aplicarUpdates();
+    renderTablaActivos();
+
+    /* Tab switching */
+    document.querySelector('.tabs')?.addEventListener('tabchange', e => {
+      ['panel-activos', 'panel-historial', 'panel-traslados'].forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = e.detail.index === i ? '' : 'none';
+      });
+    });
+
     /* Nuevo pedido */
     document.querySelector('.page-actions .btn-primary')?.addEventListener('click', nuevoPedido);
 
     /* Actualizar */
     document.querySelector('.page-actions .btn-secondary')?.addEventListener('click', () => {
-      showToast('Panel de delivery actualizado', 'success');
+      aplicarUpdates();
+      renderTablaActivos();
+      showToast('Panel actualizado', 'success');
     });
 
-    /* Asignar pedido — tarjeta repartidor Carlos */
+    /* Asignar desde tarjeta de repartidor disponible */
     document.querySelector('.card-body .btn-primary')?.addEventListener('click', () => {
       const pendiente = PEDIDOS.find(p => p.estado === 'Pendiente');
       if (pendiente) asignarRepartidor(PEDIDOS.indexOf(pendiente));
       else showToast('No hay pedidos pendientes por asignar', 'info');
-    });
-
-    /* Botones de tabla */
-    document.querySelectorAll('tbody tr').forEach((row, idx) => {
-      const btnVer = row.querySelector('.btn-secondary');
-      const btnLoc = row.querySelector('.btn-ghost');
-      const btnAsignar = row.querySelector('.btn-primary');
-      if (btnVer)     btnVer.onclick     = () => verPedido(idx);
-      if (btnLoc)     btnLoc.onclick     = () => verUbicacion(idx);
-      if (btnAsignar) btnAsignar.onclick = () => asignarRepartidor(idx);
     });
   });
 </script>

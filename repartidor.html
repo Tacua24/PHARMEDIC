@@ -782,6 +782,19 @@
     btn.disabled = true;
     btn.style.background = '#059669';
 
+    // Sincronizar con el panel de admin via localStorage
+    const pedidoId = 'DEL-0' + id;
+    const updates = JSON.parse(localStorage.getItem('ph_delivery_updates') || '{}');
+    updates[pedidoId] = 'Entregado';
+    const repName = document.getElementById('repName').textContent;
+    updates['_rep_' + repName] = 'Disponible';
+    localStorage.setItem('ph_delivery_updates', JSON.stringify(updates));
+
+    // Marcar el repartidor como disponible en la app
+    disponible = true;
+    document.getElementById('statusDot').className = 'status-dot';
+    document.getElementById('statusLabel').textContent = 'Disponible';
+
     setTimeout(() => {
       card.style.transition = 'opacity 0.4s, max-height 0.5s';
       card.style.opacity = '0';
@@ -790,9 +803,8 @@
       card.style.marginBottom = '0';
       setTimeout(() => card.remove(), 500);
 
-      // Decrementar contador
       const count = parseInt(document.getElementById('countActivos').textContent) - 1;
-      document.getElementById('countActivos').textContent = count;
+      document.getElementById('countActivos').textContent = Math.max(0, count);
     }, 800);
 
     showToast('Pedido DEL-0' + id + ' marcado como entregado');
