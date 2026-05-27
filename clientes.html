@@ -50,6 +50,7 @@
           <p>Base centralizada de clientes registrados en PHARMEDIC</p>
         </div>
         <div class="page-actions">
+          <button class="btn btn-secondary" onclick="gestionarCondiciones()"><i class="fas fa-tag"></i> Gestionar condiciones</button>
           <button class="btn btn-secondary"><i class="fas fa-file-export"></i> Exportar</button>
           <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Agregar cliente</button>
         </div>
@@ -299,6 +300,67 @@
       { nombre:'Melatonina 5mg',   motivo:'Complemento frecuente para pacientes con ansiedad', urgencia:'info' },
     ],
   };
+
+  /* ── Condiciones médicas (editables por admin) ── */
+  let CONDICIONES_LISTA = ['Diabético','Hipertensión','Cardíaco','Alérgico','Ansiedad','Tratamiento psiquiátrico'];
+
+  function renderCondicionesModal() {
+    const list = document.getElementById('condList');
+    if (!list) return;
+    list.innerHTML = CONDICIONES_LISTA.map((c, i) => `
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;">
+        <span class="tag" style="flex:1;margin:0;font-size:12px;">${c}</span>
+        <button class="btn btn-ghost btn-sm" onclick="editarCondicion(${i})" title="Editar"><i class="fas fa-pen"></i></button>
+        <button class="btn btn-ghost btn-sm" onclick="eliminarCondicion(${i})" title="Eliminar" style="color:var(--danger);"><i class="fas fa-trash"></i></button>
+      </div>`).join('');
+  }
+
+  function gestionarCondiciones() {
+    showModal('Gestionar Condiciones Médicas', `
+      <div style="margin-bottom:14px;font-size:13px;color:var(--text-muted);">
+        <i class="fas fa-circle-info" style="color:var(--primary);margin-right:6px;"></i>
+        Estas condiciones están disponibles al registrar o editar un cliente.
+      </div>
+      <div id="condList"></div>
+      <div style="border-top:1px solid var(--border);padding-top:14px;margin-top:8px;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:8px;">Agregar nueva condición</div>
+        <div class="flex gap-8">
+          <input id="nuevaCond" class="form-control" placeholder="Ej. Insuficiencia renal" style="flex:1;" onkeydown="if(event.key==='Enter')agregarCondicion()"/>
+          <button class="btn btn-primary" onclick="agregarCondicion()"><i class="fas fa-plus"></i> Agregar</button>
+        </div>
+      </div>
+    `, [
+      {label:'Cerrar', style:'btn-secondary', action: closeModal},
+    ], '480px');
+    setTimeout(renderCondicionesModal, 50);
+  }
+
+  function agregarCondicion() {
+    const input = document.getElementById('nuevaCond');
+    const val = (input?.value || '').trim();
+    if (!val) { showToast('Escribe el nombre de la condición', 'danger'); return; }
+    if (CONDICIONES_LISTA.includes(val)) { showToast('Esa condición ya existe', 'warning'); return; }
+    CONDICIONES_LISTA.push(val);
+    if (input) input.value = '';
+    renderCondicionesModal();
+    showToast('Condición "' + val + '" agregada', 'success');
+  }
+
+  function eliminarCondicion(idx) {
+    const nombre = CONDICIONES_LISTA[idx];
+    CONDICIONES_LISTA.splice(idx, 1);
+    renderCondicionesModal();
+    showToast('Condición "' + nombre + '" eliminada', 'info');
+  }
+
+  function editarCondicion(idx) {
+    const actual = CONDICIONES_LISTA[idx];
+    const nuevo  = prompt('Editar condición:', actual);
+    if (!nuevo || nuevo.trim() === actual) return;
+    CONDICIONES_LISTA[idx] = nuevo.trim();
+    renderCondicionesModal();
+    showToast('Condición actualizada', 'success');
+  }
 
   /* ── Datos quemados ── */
   const CLIENTES = [

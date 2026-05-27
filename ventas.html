@@ -186,7 +186,10 @@
               <div class="card-title">Ticket #0892</div>
               <div class="card-subtitle">Cliente general</div>
             </div>
-            <button class="btn btn-ghost btn-sm" onclick="cart=[];renderCart();" style="color:var(--danger);"><i class="fas fa-trash"></i></button>
+            <div class="flex gap-6">
+              <button class="btn btn-ghost btn-sm" onclick="registrarDevolucion()" title="Registrar devolución" style="color:var(--primary);"><i class="fas fa-rotate-left"></i></button>
+              <button class="btn btn-ghost btn-sm" onclick="cart=[];renderCart();" style="color:var(--danger);"><i class="fas fa-trash"></i></button>
+            </div>
           </div>
 
           <div id="cartItems" class="cart-items" style="flex:1;padding:14px 16px;"></div>
@@ -286,17 +289,17 @@
         {label:'Pastilla unitaria', price:2.50}, {label:'Blíster x10', price:22.00}, {label:'Caja x30', price:60.00}]},
     { id:2,  name:'Ibuprofeno 600mg',   emoji:'💊', controlled:false, presentations:[
         {label:'Pastilla unitaria', price:4.00}, {label:'Blíster x10', price:35.00}, {label:'Caja x20', price:65.00}]},
-    { id:3,  name:'Amoxicilina 500mg',  emoji:'💊', controlled:false, presentations:[
+    { id:3,  name:'Amoxicilina 500mg',  emoji:'💊', controlled:false, vence:'2026-06-28', lote:'LT-2024-21', presentations:[
         {label:'Blíster x14', price:38.50}, {label:'Caja x28', price:72.00}, {label:'Caja x56', price:135.00}]},
     { id:4,  name:'Metformina 850mg',   emoji:'💊', controlled:false, presentations:[
         {label:'Pastilla unitaria', price:3.20}, {label:'Blíster x15', price:45.00}, {label:'Caja x30', price:95.00}]},
-    { id:5,  name:'Omeprazol 20mg',     emoji:'💊', controlled:false, presentations:[
+    { id:5,  name:'Omeprazol 20mg',     emoji:'💊', controlled:false, vence:'2026-07-05', lote:'LT-2024-15', presentations:[
         {label:'Cápsula unitaria', price:4.00}, {label:'Blíster x14', price:55.00}, {label:'Caja x28', price:100.00}]},
     { id:6,  name:'Atorvastatina 20mg', emoji:'💊', controlled:false, presentations:[
         {label:'Pastilla unitaria', price:4.50}, {label:'Blíster x14', price:60.00}, {label:'Caja x28', price:120.00}]},
     { id:7,  name:'Loratadina 10mg',    emoji:'🧴', controlled:false, presentations:[
         {label:'Pastilla unitaria', price:3.00}, {label:'Blíster x10', price:28.00}, {label:'Caja x30', price:75.00}]},
-    { id:8,  name:'Enalapril 10mg',     emoji:'💊', controlled:false, presentations:[
+    { id:8,  name:'Enalapril 10mg',     emoji:'💊', controlled:false, vence:'2026-07-22', lote:'LT-2024-41', presentations:[
         {label:'Pastilla unitaria', price:2.60}, {label:'Blíster x15', price:37.00}, {label:'Caja x30', price:75.00}]},
     { id:9,  name:'Aspirina 100mg',     emoji:'💊', controlled:false, presentations:[
         {label:'Pastilla unitaria', price:1.90}, {label:'Blíster x10', price:18.00}, {label:'Caja x30', price:50.00}]},
@@ -313,6 +316,11 @@
   let cart = [];
   window._payMethod = 'Efectivo';
 
+  function diasHastaVencer(fechaStr) {
+    const hoy = new Date(); hoy.setHours(0,0,0,0);
+    return Math.round((new Date(fechaStr + 'T00:00:00') - hoy) / 86400000);
+  }
+
   /* ── Popup selección de presentación ── */
   function openProductOptions(productId) {
     const p = PRODUCTS.find(x => x.id === productId);
@@ -322,6 +330,20 @@
 
     if (p.controlled) {
       showToast('⚠️ ' + p.name + ' requiere receta médica controlada', 'warning');
+    }
+
+    let fefoNotice = '';
+    if (p.vence) {
+      const dias = diasHastaVencer(p.vence);
+      if (dias <= 60) {
+        const isUrgent = dias <= 30;
+        const bg  = isUrgent ? 'var(--danger-bg)'  : 'var(--warning-bg)';
+        const txt = isUrgent ? 'var(--danger-text)' : 'var(--warning-text)';
+        fefoNotice = `<div style="background:${bg};color:${txt};border-radius:var(--radius-sm);padding:10px 12px;margin-bottom:12px;font-size:12.5px;line-height:1.5;">
+          <i class="fas fa-triangle-exclamation" style="margin-right:6px;"></i>
+          <strong>Política FEFO:</strong> Lote <strong>${p.lote}</strong> vence en <strong>${dias} días</strong> (${p.vence}). Se despacha con prioridad.
+        </div>`;
+      }
     }
 
     const getPillsPerUnit = label => {
@@ -349,6 +371,7 @@
           <button class="modal-close" onclick="closeModal()"><i class="fas fa-xmark"></i></button>
         </div>
         <div class="modal-body">
+          ${fefoNotice}
           <div class="form-group">
             <label style="font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-muted);">Presentación</label>
             <div class="pres-grid">${presHTML}</div>
@@ -582,8 +605,109 @@
     }, 220);
   }
 
+  /* ── Devoluciones / Reembolsos ── */
+  const TICKETS_DEMO = {
+    '#0891': [
+      { name:'Paracetamol 500mg', present:'Caja x30',    price:60.00, qty:1 },
+      { name:'Ibuprofeno 600mg',  present:'Blíster x10', price:35.00, qty:2 },
+    ],
+    '#0890': [
+      { name:'Amoxicilina 500mg', present:'Blíster x14', price:38.50, qty:1 },
+    ],
+    '#0892': [
+      { name:'Metformina 850mg',  present:'Caja x30',    price:95.00, qty:1 },
+      { name:'Enalapril 10mg',    present:'Blíster x15', price:37.00, qty:1 },
+    ],
+  };
+
+  function registrarDevolucion() {
+    window._devMetodo = 'Efectivo';
+    window._devTicketItems = null;
+    showModal('Registrar Devolución / Reembolso', `
+      <div class="form-group">
+        <label>Número de ticket</label>
+        <div class="flex gap-8">
+          <input id="devTicket" class="form-control" placeholder="Ej. #0892" style="flex:1;" onkeydown="if(event.key==='Enter')buscarTicketDev()"/>
+          <button class="btn btn-secondary" onclick="buscarTicketDev()"><i class="fas fa-magnifying-glass"></i> Buscar</button>
+        </div>
+      </div>
+      <div id="devProductos" style="display:none;">
+        <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:8px;">Productos del ticket</div>
+        <div id="devProductosList"></div>
+        <div class="form-group" style="margin-top:14px;">
+          <label>Motivo de devolución</label>
+          <select class="form-control" id="devMotivo">
+            <option value="">— Seleccionar motivo —</option>
+            <option>Producto dañado</option>
+            <option>Producto incorrecto</option>
+            <option>Caducidad próxima informada al cliente</option>
+            <option>Error de dispensación</option>
+            <option>Cambio de medicamento por médico</option>
+          </select>
+        </div>
+        <div class="form-group mb-0">
+          <label>Método de reembolso</label>
+          <div id="devPayMethods" class="payment-methods" style="margin-top:6px;">
+            <div class="pay-method selected" onclick="document.querySelectorAll('#devPayMethods .pay-method').forEach(x=>x.classList.remove('selected'));this.classList.add('selected');window._devMetodo='Efectivo';"><i class="fas fa-money-bill-wave"></i>Efectivo</div>
+            <div class="pay-method" onclick="document.querySelectorAll('#devPayMethods .pay-method').forEach(x=>x.classList.remove('selected'));this.classList.add('selected');window._devMetodo='Tarjeta';"><i class="fas fa-credit-card"></i>Tarjeta</div>
+            <div class="pay-method" onclick="document.querySelectorAll('#devPayMethods .pay-method').forEach(x=>x.classList.remove('selected'));this.classList.add('selected');window._devMetodo='Crédito en cuenta';"><i class="fas fa-rotate-left"></i>Crédito</div>
+          </div>
+        </div>
+      </div>
+    `, [
+      {label:'Procesar devolución', style:'btn-primary', action: procesarDevolucion},
+      {label:'Cancelar',           style:'btn-secondary', action: closeModal},
+    ], '500px');
+  }
+
+  function buscarTicketDev() {
+    const num = (document.getElementById('devTicket')?.value || '').trim();
+    const items   = TICKETS_DEMO[num];
+    const section = document.getElementById('devProductos');
+    const list    = document.getElementById('devProductosList');
+    if (!section || !list) return;
+    if (!items) { showToast('Ticket ' + (num || '---') + ' no encontrado', 'danger'); return; }
+    list.innerHTML = items.map((p, i) => `
+      <label style="display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:6px;cursor:pointer;font-size:13px;">
+        <input type="checkbox" id="devItem${i}" checked style="width:16px;height:16px;accent-color:var(--primary);"/>
+        <div style="flex:1;">
+          <div class="fw-600">${p.name}</div>
+          <div class="text-xs text-muted">${p.present} × ${p.qty}</div>
+        </div>
+        <div class="fw-600 text-primary">Q ${(p.price * p.qty).toFixed(2)}</div>
+      </label>`).join('');
+    section.style.display = 'block';
+    window._devTicketItems = items;
+  }
+
+  function procesarDevolucion() {
+    const motivo = document.getElementById('devMotivo')?.value;
+    if (!motivo) { showToast('Selecciona un motivo de devolución', 'danger'); return; }
+    const items = window._devTicketItems || [];
+    const seleccionados = items.filter((_, i) => document.getElementById('devItem' + i)?.checked);
+    if (seleccionados.length === 0) { showToast('Selecciona al menos un producto', 'danger'); return; }
+    const total = seleccionados.reduce((s, p) => s + p.price * p.qty, 0);
+    const folio = 'DEV-' + String(Math.floor(Math.random() * 9000) + 1000);
+    closeModal();
+    setTimeout(() => showToast(`Devolución ${folio} procesada · Q ${total.toFixed(2)} reembolsados en ${window._devMetodo || 'Efectivo'}`, 'success'), 200);
+  }
+
   /* ── Inicio ── */
   renderCart();
+  // FEFO badges en tiles
+  document.querySelectorAll('.product-tile').forEach(tile => {
+    const match = tile.getAttribute('onclick')?.match(/openProductOptions\((\d+)\)/);
+    if (!match) return;
+    const prod = PRODUCTS.find(p => p.id === +match[1]);
+    if (!prod?.vence) return;
+    const dias = diasHastaVencer(prod.vence);
+    if (dias > 60) return;
+    const badge = document.createElement('div');
+    badge.style.cssText = 'position:absolute;top:6px;left:6px;z-index:1;';
+    badge.innerHTML = `<span class="badge badge-${dias <= 30 ? 'danger' : 'warning'}" style="font-size:9.5px;"><i class="fas fa-clock" style="margin-right:3px;"></i>FEFO ${dias}d</span>`;
+    tile.style.position = 'relative';
+    tile.insertBefore(badge, tile.firstChild);
+  });
 </script>
 </body>
 </html>

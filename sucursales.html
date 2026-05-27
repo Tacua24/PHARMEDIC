@@ -208,7 +208,7 @@
       <div class="card">
         <div class="card-header">
           <div class="card-title">Personal por sucursal</div>
-          <button class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Agregar empleado</button>
+          <button class="btn btn-primary btn-sm" id="btn-agregar-empleado"><i class="fas fa-user-plus"></i> Agregar empleado</button>
         </div>
         <div class="table-wrap">
           <table>
@@ -277,5 +277,217 @@
   </div>
 </div>
 <script src="js/main.js"></script>
+<script>
+  const EMPLEADOS = [
+    { id:1, nombre:'Karen Rodríguez',  iniciales:'KR', rol:'Cajero',     sucursal:'Zona 16',        turno:'AM',    estado:'Activo',  color:'#3A4520' },
+    { id:2, nombre:'Mario Chávez',     iniciales:'MC', rol:'Cajero',     sucursal:'Zona 11',        turno:'AM',    estado:'Activo',  color:'#2563EB' },
+    { id:3, nombre:'Laura Hernández',  iniciales:'LH', rol:'Cajero',     sucursal:'Zona 2',         turno:'AM',    estado:'Activo',  color:'#D97706' },
+    { id:4, nombre:'Diego Monterroso', iniciales:'DM', rol:'Repartidor', sucursal:'Zona 16 (pref.)',turno:'AM',    estado:'En ruta', color:'#3A4520' },
+    { id:5, nombre:'Rosa Guillen',     iniciales:'RG', rol:'Regencia',   sucursal:'Zona 16',        turno:'AM/PM', estado:'Activo',  color:'#059669' },
+  ];
+
+  const SUCURSALES_INFO = {
+    'Zona 16': {
+      nombre:'Zona 16 — Sede Central', dir:'7a Av. 14-52, Zona 16, Guatemala',
+      tel:'(502) 2345-6789', regente:'Q.F. Rosa Guillen', horario:'8:00 AM – 8:00 PM',
+      ventas:'Q 4,210', transacciones:142, personal:6, alertas:'5 productos bajo mínimo'
+    },
+    'Zona 11': {
+      nombre:'Zona 11', dir:'Blvd. Los Próceres 24-69, Zona 11',
+      tel:'(502) 2456-7890', regente:'Q.F. Ana López', horario:'8:00 AM – 7:00 PM',
+      ventas:'Q 2,860', transacciones:98, personal:5, alertas:'Sin alertas activas'
+    },
+    'Zona 2': {
+      nombre:'Zona 2', dir:'7a Calle 11-40, Zona 2, Guatemala',
+      tel:'(502) 2567-8901', regente:'Q.F. Jorge Pérez', horario:'8:00 AM – 6:00 PM',
+      ventas:'Q 1,360', transacciones:58, personal:4, alertas:'3 productos sin stock'
+    },
+  };
+
+  /* ── Ver detalle de sucursal ── */
+  function verDetalleSucursal(zona) {
+    const s = SUCURSALES_INFO[zona];
+    showModal('Detalle — ' + s.nombre, `
+      <div class="grid-2" style="gap:12px;font-size:13px;margin-bottom:14px;">
+        <div><span style="color:var(--text-muted);">Dirección</span><div class="fw-600">${s.dir}</div></div>
+        <div><span style="color:var(--text-muted);">Teléfono</span><div class="fw-600">${s.tel}</div></div>
+        <div><span style="color:var(--text-muted);">Regente farmacéutico</span><div class="fw-600">${s.regente}</div></div>
+        <div><span style="color:var(--text-muted);">Horario</span><div class="fw-600">${s.horario}</div></div>
+      </div>
+      <div class="stats-grid" style="grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div class="stat-card" style="padding:12px;">
+          <div class="stat-info"><div class="stat-value" style="font-size:18px;">${s.ventas}</div><div class="stat-label">Ventas hoy</div></div>
+        </div>
+        <div class="stat-card" style="padding:12px;">
+          <div class="stat-info"><div class="stat-value" style="font-size:18px;">${s.transacciones}</div><div class="stat-label">Transacciones</div></div>
+        </div>
+        <div class="stat-card" style="padding:12px;">
+          <div class="stat-info"><div class="stat-value" style="font-size:18px;">${s.personal}</div><div class="stat-label">Personal activo</div></div>
+        </div>
+      </div>
+      <div style="margin-top:12px;background:var(--warning-bg);border-left:3px solid var(--warning);padding:10px 14px;border-radius:var(--radius-sm);font-size:13px;">
+        <i class="fas fa-triangle-exclamation" style="color:var(--warning);margin-right:6px;"></i>${s.alertas}
+      </div>
+    `, [
+      { label:'Ver reportes', style:'btn-secondary', action: () => { closeModal(); setTimeout(() => verReportesSucursal(zona), 200); } },
+      { label:'Cerrar',       style:'btn-ghost',     action: closeModal }
+    ], '560px');
+  }
+
+  /* ── Reportes de sucursal ── */
+  function verReportesSucursal(zona) {
+    const s = SUCURSALES_INFO[zona];
+    showModal('Reportes — ' + s.nombre, `
+      <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Selecciona el tipo de reporte a generar para <strong>${s.nombre}</strong>:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        ${[
+          { icon:'fa-cash-register', label:'Reporte de ventas del mes',       sub:'Mayo 2026 · Ingresos, transacciones y ticket promedio' },
+          { icon:'fa-boxes-stacked', label:'Reporte de inventario',           sub:'Stock actual, mínimos y alertas de vencimiento' },
+          { icon:'fa-truck',         label:'Reporte de repartidores',         sub:'Entregas completadas, tiempos y calificaciones' },
+          { icon:'fa-file-invoice',  label:'Cierre de caja por turno',        sub:'AM / PM — Exportable en PDF' },
+        ].map(r => `
+          <div style="display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;"
+               onclick="showToast('Generando: ${r.label}...','info')">
+            <div style="width:36px;height:36px;border-radius:8px;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <i class="fas ${r.icon}"></i>
+            </div>
+            <div>
+              <div class="fw-600" style="font-size:13px;">${r.label}</div>
+              <div style="font-size:12px;color:var(--text-muted);">${r.sub}</div>
+            </div>
+            <i class="fas fa-chevron-right" style="margin-left:auto;color:var(--text-muted);"></i>
+          </div>`).join('')}
+      </div>
+    `, [{ label:'Cerrar', style:'btn-secondary', action: closeModal }], '560px');
+  }
+
+  /* ── Editar empleado ── */
+  function editarEmpleado(idx) {
+    const e = EMPLEADOS[idx];
+    const estadoBadge = e.estado === 'Activo' ? 'badge-success' : e.estado === 'En ruta' ? 'badge-info' : 'badge-warning';
+    showModal('Editar empleado — ' + e.nombre, `
+      <div class="grid-2">
+        <div class="form-group"><label>Nombre completo</label>
+          <input id="eNom" class="form-control" value="${e.nombre}"/>
+        </div>
+        <div class="form-group"><label>Rol del sistema</label>
+          <select id="eRol" class="form-control">
+            ${['Administrador','Cajero','Bodeguero','Repartidor','Regencia','Proveedor']
+              .map(r => `<option${r === e.rol ? ' selected' : ''}>${r}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Sucursal asignada</label>
+          <select id="eSuc" class="form-control">
+            ${['Zona 16','Zona 11','Zona 2']
+              .map(s => `<option${e.sucursal.startsWith(s) ? ' selected' : ''}>${s}</option>`).join('')}
+          </select>
+        </div>
+        <div class="form-group"><label>Turno</label>
+          <select id="eTurno" class="form-control">
+            ${['AM','PM','AM/PM'].map(t => `<option${t === e.turno ? ' selected' : ''}>${t}</option>`).join('')}
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Estado actual</label>
+        <div style="margin-top:4px;"><span class="badge ${estadoBadge}">${e.estado}</span></div>
+      </div>
+      <div style="background:var(--warning-bg);border-left:3px solid var(--warning);padding:10px 14px;border-radius:var(--radius-sm);font-size:12px;margin-top:4px;">
+        <i class="fas fa-triangle-exclamation" style="color:var(--warning);margin-right:6px;"></i>
+        Para desactivar un usuario con transacciones registradas, usa <strong>"Desactivar"</strong>. No es posible eliminarlo permanentemente.
+      </div>
+    `, [
+      { label:'Guardar cambios', style:'btn-primary', action: () => {
+          EMPLEADOS[idx].nombre   = document.getElementById('eNom')?.value   || e.nombre;
+          EMPLEADOS[idx].rol      = document.getElementById('eRol')?.value   || e.rol;
+          EMPLEADOS[idx].sucursal = document.getElementById('eSuc')?.value   || e.sucursal;
+          EMPLEADOS[idx].turno    = document.getElementById('eTurno')?.value || e.turno;
+          showToast('Datos de ' + EMPLEADOS[idx].nombre + ' actualizados correctamente', 'success');
+          closeModal();
+      }},
+      { label:'Desactivar usuario', style:'btn-danger', action: () => {
+          if (confirm('¿Desactivar a ' + e.nombre + '? No podrá iniciar sesión hasta que sea reactivado.')) {
+            EMPLEADOS[idx].estado = 'Inactivo';
+            showToast(e.nombre + ' ha sido desactivado del sistema', 'warning');
+            closeModal();
+          }
+      }},
+      { label:'Cancelar', style:'btn-secondary', action: closeModal },
+    ]);
+  }
+
+  /* ── Agregar empleado ── */
+  document.getElementById('btn-agregar-empleado').addEventListener('click', () => {
+    showModal('Nuevo usuario del sistema', `
+      <div class="grid-2">
+        <div class="form-group"><label>Nombre completo</label>
+          <input class="form-control" id="nNom" placeholder="Nombre Apellido"/>
+        </div>
+        <div class="form-group"><label>Usuario / Login</label>
+          <input class="form-control" id="nUser" placeholder="ej. k.rodriguez"/>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Rol del sistema</label>
+          <select class="form-control" id="nRol">
+            <option value="">— Seleccionar —</option>
+            <option>Administrador</option><option>Cajero</option><option>Bodeguero</option>
+            <option>Repartidor</option><option>Regencia</option><option>Proveedor</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Sucursal asignada</label>
+          <select class="form-control" id="nSuc">
+            <option value="">— Seleccionar —</option>
+            <option>Zona 16</option><option>Zona 11</option><option>Zona 2</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="form-group"><label>Turno</label>
+          <select class="form-control" id="nTurno">
+            <option>AM</option><option>PM</option><option>AM/PM</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Contraseña temporal</label>
+          <input class="form-control" id="nPass" type="password" placeholder="Mín. 8 chars, 1 mayús., 1 número"/>
+        </div>
+      </div>
+      <div style="background:var(--primary-light);border-left:3px solid var(--primary);padding:10px 14px;border-radius:var(--radius-sm);font-size:12px;margin-top:4px;">
+        <i class="fas fa-circle-info" style="color:var(--primary);margin-right:6px;"></i>
+        El usuario deberá cambiar su contraseña en el primer inicio de sesión.
+      </div>
+    `, [
+      { label:'Crear usuario', style:'btn-primary', action: () => {
+          const nom  = document.getElementById('nNom')?.value;
+          const rol  = document.getElementById('nRol')?.value;
+          const suc  = document.getElementById('nSuc')?.value;
+          const pass = document.getElementById('nPass')?.value || '';
+          if (!nom || !rol || !suc) { showToast('Completa todos los campos obligatorios', 'warning'); return; }
+          if (pass.length < 8 || !/[A-Z]/.test(pass) || !/[0-9]/.test(pass)) {
+            showToast('La contraseña debe tener mín. 8 caracteres, una mayúscula y un número', 'warning'); return;
+          }
+          showToast('Usuario ' + nom + ' creado con rol ' + rol + ' en ' + suc, 'success');
+          closeModal();
+      }},
+      { label:'Cancelar', style:'btn-secondary', action: closeModal },
+    ]);
+  });
+
+  /* ── Conectar botones de las tarjetas de sucursal ── */
+  document.addEventListener('DOMContentLoaded', () => {
+    const zonas = ['Zona 16', 'Zona 11', 'Zona 2'];
+    const btnDetalle   = document.querySelectorAll('.branch-card .btn-ghost');
+    const btnReportes  = document.querySelectorAll('.branch-card .btn-secondary');
+    btnDetalle.forEach((btn, i)  => btn.addEventListener('click', () => verDetalleSucursal(zonas[i])));
+    btnReportes.forEach((btn, i) => btn.addEventListener('click', () => verReportesSucursal(zonas[i])));
+
+    /* Botones de editar empleado */
+    document.querySelectorAll('tbody tr').forEach((row, i) => {
+      const btn = row.querySelector('.btn-secondary');
+      if (btn) btn.addEventListener('click', () => editarEmpleado(i));
+    });
+  });
+</script>
 </body>
 </html>
